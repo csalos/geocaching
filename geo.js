@@ -41,7 +41,7 @@ let arrEvent = [
 
 //------------------------------------------------
 arrMozgo.forEach((element) => addMozgo(element));
-
+<style>#mozgo tr:nth-child(odd), #event tr:nth-child(odd){ background-color: #f8f8cf } </style>
 function addMozgo(arr) { 
     let tr = document.createElement("tr"); 
     tr.style = ""; 
@@ -87,6 +87,12 @@ function addEvent(arr) {
         let tx = document.createTextNode(arr[i]); 
         td.appendChild(tx); 
         tr.appendChild(td); 
-    } 
-    document.getElementById("rowsEvent").after(tr);
+    }
 }
+
+const rows = document.querySelectorAll('#mozgo tr:nth-child(odd), #event tr:nth-child(odd)');
+
+rows.forEach((row, index) => {
+    row.style.backgroundColor = '#f8f8cf'; // Páratlan sorok színe
+});
+document.getElementById("rowsEvent").after(tr);
