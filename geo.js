@@ -88,6 +88,7 @@ function addEvent(arr) {
         td.appendChild(tx); 
         tr.appendChild(td); 
     }
+    document.getElementById("rowsEvent").after(tr);
 }
 
 const rows = document.querySelectorAll('#mozgo tr:nth-child(odd), #event tr:nth-child(odd)');
@@ -95,4 +96,3 @@ const rows = document.querySelectorAll('#mozgo tr:nth-child(odd), #event tr:nth-
 rows.forEach((row, index) => {
     row.style.backgroundColor = '#f8f8cf'; // Páratlan sorok színe
 });
-document.getElementById("rowsEvent").after(tr);
