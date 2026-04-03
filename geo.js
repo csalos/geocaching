@@ -1,5 +1,3 @@
-//github/workflows
-
 let arrMozgo = [ 
     [ 3825,   "FV", "Forrásvadász", "2026.02.24", "Tókaji forrás", "Húsvét forrás"], 
     [ 1960, "KaKu", "Kálváriakutató", "2026.01.27", "Kaposvár", "Maradt"], 
