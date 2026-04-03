@@ -41,7 +41,7 @@ let arrEvent = [
 
 //------------------------------------------------
 arrMozgo.forEach((element) => addMozgo(element));
-<style>#mozgo tr:nth-child(odd), #event tr:nth-child(odd){ background-color: #f8f8cf } </style>
+
 function addMozgo(arr) { 
     let tr = document.createElement("tr"); 
     tr.style = ""; 
