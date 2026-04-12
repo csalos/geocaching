@@ -23,7 +23,7 @@ let arrMozgo = [
 ];
 
 let arrEvent = [ 
-    [ 6755, "GN26", "Geo Nyuszi'26", "2026.04.03", "Kaposvár - Deseda"], 
+    [ 6755, "GN26", "Geo Nyuszi '26", "2026.04.03", "Kaposvár - Deseda"], 
     [ 0, [[6730,"MO02"], [6710,"MO15"], [6733,"MO17"], [6719,"MO01"], [6692,"MO10"], [6746,"MO11"]], "Megyei Óriások", "2026.03.21\n2026.03.21\n2026.04.10\n2026.04.10\n2026.04.10\n2026.04.10","Sasréti ősbükkös\nGyöngyöspusztai védett tölgyfasor\nKasztói őstölgyes\nIzsáki Csodafa\nKiskörei \"300\" éves tölgy\nA Nagykunság legidősebb tölgyfája"], 
     [ 6695, "2025", "Geoszilveszter 2025", "2025.12.31", "Somogyvár"], 
     [ 6694, "XM25", "Geokarácsony 2025", "2025.12.23", "Fonyód"], 
