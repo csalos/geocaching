@@ -1,25 +1,46 @@
 let arrMozgo = [ 
-    [ 3825,   "FV", "Forrásvadász", "2026.02.24", "Tókaji forrás", "Húsvét forrás"], 
-    [ 1960, "KaKu", "Kálváriakutató", "2026.01.27", "Kaposvár", "Maradt"], 
-    [  212, "M001", "mobil_001", "2025.12.23", "Fonyód", "#GeoKari"], 
-    [ 1248, "M002", "Kedvelt helyeink", "2025.12.06\n2026.02.15", "Orfű\nSágvár", "#Walk41\n#Walk43"], 
-    [ 4480, "CRUX", "Crux Viator, Útszéli kereszt",  "2025.10.30\n2025.12.06\n2025.12.31\n2026.02.15", "Kisgyalán\nOrfű\nSomogyvár\nSágvár", "Szenna\n#Walk41\n#GeoSzilveszter\n#Walk43"], 
-    [ 4482,  "KAS", "Kastélykutató", "2024.07.18", "Várda", "Maradt"], 
-    [ 6235, "TJEL", "Turistajelzések", "2024.04.06", "Tókaji parkerdő", "Töröcskei tó"], 
-    [ 5543, "EHAZ", "Erdei házak, kunyhók", "2023.08.12\n2026.02.15", "Várda\nSágvár", "Maradt\n#Walk43"], 
-    [ 5081, "Time", "Napóra", "2023.05.20\n2023.10.29\n2025.12.06", "Kaposvár\nKaposvár\nOrfű", "Hencse\nMaradt\n#Walk41"], 
-    [ 1779,  "AKT", "Árpád-kori templomromok, templomok 4.0", "2021.12.03", "Kaposszentjakab", "Maradt"],  
-    [ 1458,   "PC", "Gécépécé (a HiTech mozgó)", "2019.12.30", "Kaposvár", "Tura"], 
-    [ 1784,   "TO", "Tóbarát", "2019.12.30", "Kaposvár", "Tura"], 
-    [ 4773, "HIRE", "Híres emberek", "2019.08.17", "Kaposvár", "Kaposvár"], 
-    [ 1012, "User", "User Hona", "2014.08.24\n2021.04.27", "Kaposvár\nKaposvár", "Haza\nHetes"], 
-    [ 3959, "FENT", "Fentről a világ (fotózz panorámát)", "2014.07.03\n2026.02.15", "Kaposvár\nSágvár", "Maradt\n#Walk43"], 
-    [ 3889, "MKAT", "Magyarország katonái", "2014.05.27\n2023.08.01", "Kaposvár\nGölle", "Maradt\nMaradt"], 
-    [  968, "Izgi", "Izgimozgi", "2014.04.20\n2025.12.06", "Kaposvár\nOrfű", "Kaposvár\n#Walk41"], 
-    [ 3806,  "KEM", "Kerékpáros mozgó", "2014.04.19", "Kaposvár", "Maradt"], 
-    [ 4856, "DDK2", "Rockenbauer Pál Dél-dunántúli Kéktúra", "2014.04.10", "Szenna", "Szenna tető"], 
-    [ 4456,  "MLM", "A malomnak nincsen köve", "2014.01.02", "Kaposvár", "Maradt"], 
-    [ 1409, "SPIR", "Szellemjáró Geoláda", "2013.08.21\n2026.02.15", "Taszár\nSágvár", "Somogysárd\n#Walk43"] 
+    [ 3825,   "FV", "Forrásvadász", [ ["2026.02.24", "Tókaji forrás", "Húsvét forrás"] ] ], 
+    [ 1960, "KaKu", "Kálváriakutató", [ ["2026.01.27", "Kaposvár", "Maradt"] ] ], 
+    [  212, "M001", "mobil_001", [ ["2025.12.23", "Fonyód", "#GeoKari"] ] ], 
+    [ 1248, "M002", "Kedvelt helyeink", [
+         ["2025.12.06", "Orfű", "#Walk41"],
+         ["2026.02.15", "Ságvár", "#Walk43"] ] ], 
+    [ 4480, "CRUX", "Crux Viator, Útszéli kereszt",  
+         ["2025.10.30", "Kisgyalán", "Szenna"],
+         ["2025.12.06", "Orfű", "#Walk41"], 
+         ["2025.12.31", "Somogyvár", "#GeoSzilveszter"],
+         ["2026.02.15", "Ságvár", "#Walk43"] ] ],
+    [ 4482,  "KAS", "Kastélykutató", [ ["2024.07.18", "Várda", "Maradt"] ] ], 
+    [ 6235, "TJEL", "Turistajelzések", [ ["2024.04.06", "Tókaji parkerdő", "Töröcskei tó"] ] ], 
+    [ 5543, "EHAZ", "Erdei házak, kunyhók", [
+         ["2023.08.12", "Várda", "Maradt"], 
+         ["2026.02.15", "Ságvár", "#Walk43"] ] ], 
+    [ 5081, "Time", "Napóra", [
+         ["2023.05.20", "Kaposvár", "Hencse"], 
+         ["2023.10.29", "Kaposvár"], 
+         ["2025.12.06", "Orfű", "#Walk41"] ] ], 
+    [ 1779,  "AKT", "Árpád-kori templomromok, templomok 4.0", [ ["2021.12.03", "Kaposszentjakab", "Maradt"] ] ],  
+    [ 1458,   "PC", "Gécépécé (a HiTech mozgó)", [ ["2019.12.30", "Kaposvár", "Tura"] ] ], 
+    [ 1784,   "TO", "Tóbarát", [ ["2019.12.30", "Kaposvár", "Tura"] ] ], 
+    [ 4773, "HIRE", "Híres emberek", [ ["2019.08.17", "Kaposvár", "Kaposvár"] ] ], 
+    [ 1012, "User", "User Hona", [
+         ["2014.08.24", "Kaposvár", "Haza"], 
+         ["2021.04.27", "Kaposvár", "Hetes"] ] ], 
+    [ 3959, "FENT", "Fentről a világ (fotózz panorámát)", [
+         ["2014.07.03", "Kaposvár", "Maradt"], 
+         ["2026.02.15", "Ságvár", "#Walk43"] ] ], 
+    [ 3889, "MKAT", "Magyarország katonái", [
+         ["2014.05.27", "Kaposvár", "Maradt"], 
+         ["2023.08.01", "Gölle", "Maradt"] ] ], 
+    [  968, "Izgi", "Izgimozgi", [
+         ["2014.04.20", "Kaposvár", "Kaposvár"], 
+         ["2025.12.06", "Orfű", "#Walk41"] ] ], 
+    [ 3806,  "KEM", "Kerékpáros mozgó", [ ["2014.04.19", "Kaposvár", "Maradt"] ] ], 
+    [ 4856, "DDK2", "Rockenbauer Pál Dél-dunántúli Kéktúra", [ ["2014.04.10", "Szenna", "Szenna tető"] ] ], 
+    [ 4456,  "MLM", "A malomnak nincsen köve", [ [ "2014.01.02", "Kaposvár", "Maradt"] ] ], 
+    [ 1409, "SPIR", "Szellemjáró Geoláda", [
+         ["2013.08.21", "Taszár", "Somogysárd"],
+         ["2026.02.15", "Ságvár", "#Walk43"] ] ] 
 ];
 
 let arrEvent = [ 
@@ -28,7 +49,7 @@ let arrEvent = [
     [ 6695, "2025", "Geoszilveszter 2025", "2025.12.31", "Somogyvár"], 
     [ 6694, "XM25", "Geokarácsony 2025", "2025.12.23", "Fonyód"], 
     [ 6682, "GM25", "Geo Miki '25", "2025.12.06", "Dombóvár"], 
-    [ 4526, "Walk", "Gyalogtúra - 35.túra\nGyalogtúra - 41.túra\nGyalogtúra - 43.túra", "2025.03.02\n2025.12.06\n2026.02.15", "Zselic\nOrfű\nSágvár"], 
+    [ 4526, "Walk", "Gyalogtúra", "2025.03.02\n2025.12.06\n2026.02.15", "35.túra - Zselic\n41.túra - Orfű\n43.túra - Ságvár"], 
     [ 6604, "GN25", "Geo Nyuszi '25", "2025.04.20", "Kaposvár"], 
     [ 6562, "GM24", "Geo Miki '24", "2024.12.07", "Kaposvár"], 
     [ 6141, "KozM", "Közlekedési Múzeum az Északiban", "2024.10.11", "Budapest"],  
@@ -44,16 +65,31 @@ arrMozgo.forEach((element) => addMozgo(element));
 
 function addMozgo(arr) { 
     let tr = document.createElement("tr"); 
-    tr.style = ""; 
-    let td = document.createElement("td"); 
+    tr.style = "";
+    //láda azonosító és link
+    let tdLink = document.createElement("td"); 
     let a = document.createElement('a'); 
     a.href = 'https://geocaching.hu/caches.geo?id='+arr[0]; 
     a.appendChild(document.createTextNode("GC"+arr[1])); 
-    td.appendChild(a); 
-    tr.appendChild(td); 
-    for(let i=2; i<6; i++) { 
+    tdLink.appendChild(a); 
+    tr.appendChild(tdLink);
+
+    //láda neve
+    let tdName = document.createElement("td"); 
+    let txName = document.createTextNode(arr[2]); 
+    tdName.appendChild(txName); 
+    tr.appendChild(tdName);
+
+    let finds = arr[3];
+    let f = [];
+    for(let i=0; i<finds.leght; i++) { 
+        f[0] += finds[i][0] + (finds.leght>1)?"\n":"";
+        f[1] += finds[i][1] + (finds.leght>1)?"\n":"";
+        f[2] += finds[i][2]??"Maradt" + (finds.leght>1)?"\n":"";
+    }
+    for(let j=0; j<3; j++) { 
         let td = document.createElement("td"); 
-        let tx = document.createTextNode(arr[i]); 
+        let tx = document.createTextNode(f[i]); 
         td.appendChild(tx); 
         tr.appendChild(td); 
     } 
