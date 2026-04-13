@@ -5,7 +5,7 @@ let arrMozgo = [
     [ 1248, "M002", "Kedvelt helyeink", [
          ["2025.12.06", "Orfű", "#Walk41"],
          ["2026.02.15", "Ságvár", "#Walk43"] ] ], 
-    [ 4480, "CRUX", "Crux Viator, Útszéli kereszt",  
+    [ 4480, "CRUX", "Crux Viator, Útszéli kereszt", [ 
          ["2025.10.30", "Kisgyalán", "Szenna"],
          ["2025.12.06", "Orfű", "#Walk41"], 
          ["2025.12.31", "Somogyvár", "#GeoSzilveszter"],
@@ -80,6 +80,7 @@ function addMozgo(arr) {
     tdName.appendChild(txName); 
     tr.appendChild(tdName);
 
+    //mikor, honnan, hová
     let finds = arr[3];
     let f = [];
     for(let i=0; i<finds.leght; i++) { 
