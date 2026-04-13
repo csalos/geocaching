@@ -90,7 +90,7 @@ function addMozgo(arr) {
     }
     for(let j=0; j<3; j++) { 
         let td = document.createElement("td"); 
-        let tx = document.createTextNode(f[i]); 
+        let tx = document.createTextNode(f[j]); 
         td.appendChild(tx); 
         tr.appendChild(td); 
     } 
