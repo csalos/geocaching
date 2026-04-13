@@ -82,7 +82,7 @@ function addMozgo(arr) {
 
     //mikor, honnan, hová
     let finds = arr[3];
-    let f = [];
+    let f = ["", "", ""];
     for(let i=0; i<finds.leght; i++) { 
         f[0] += finds[i][0] + (finds.leght>1)?"\n":"";
         f[1] += finds[i][1] + (finds.leght>1)?"\n":"";
