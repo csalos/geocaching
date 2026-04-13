@@ -90,6 +90,7 @@ function addMozgo(arr) {
         console.log("find [" + i + "][0] - " + finds[i][0]);
     }
     console.log("f: " + f);
+    console.log("find: " + finds);
     for(let j=0; j<3; j++) { 
         let td = document.createElement("td"); 
         let tx = document.createTextNode(f[j]); 
