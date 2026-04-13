@@ -87,7 +87,7 @@ function addMozgo(arr) {
         f[0] += finds[i][0] + (finds.length>1)?"\n":"";
         f[1] += finds[i][1] + (finds.length>1)?"\n":"";
         f[2] += finds[i][2]??"Maradt" + (finds.length>1)?"\n":"";
-        console.log("find [" + i + "][0] - " + finds[i][0]);
+        console.log("f: " + f);
     }
     console.log("f: " + f);
     for(let j=0; j<3; j++) { 
