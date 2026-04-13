@@ -91,6 +91,8 @@ function addMozgo(arr) {
     }
     console.log("f: " + f);
     console.log("find: " + finds);
+    console.log("find[0]: " + finds[0]);
+    console.log("find[0][0]: " + finds[0][0]);
     for(let j=0; j<3; j++) { 
         let td = document.createElement("td"); 
         let tx = document.createTextNode(f[j]); 
