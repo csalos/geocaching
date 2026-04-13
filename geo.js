@@ -84,15 +84,12 @@ function addMozgo(arr) {
     let finds = arr[3];
     let f = ["", "", ""];
     for(let i=0; i<finds.length; i++) { 
-        f[0] += finds[i][0] + (finds.leght>1)?"\n":"";
-        f[1] += finds[i][1] + (finds.leght>1)?"\n":"";
-        f[2] += finds[i][2]??"Maradt" + (finds.leght>1)?"\n":"";
+        f[0] += finds[i][0] + (finds.length>1)?"\n":"";
+        f[1] += finds[i][1] + (finds.length>1)?"\n":"";
+        f[2] += finds[i][2]??"Maradt" + (finds.length>1)?"\n":"";
         console.log("find [" + i + "][0] - " + finds[i][0]);
     }
     console.log("f: " + f);
-    console.log("find: " + finds);
-    console.log("find[0]: " + finds[0]);
-    console.log("find[0][0]: " + finds[0][0]);
     for(let j=0; j<3; j++) { 
         let td = document.createElement("td"); 
         let tx = document.createTextNode(f[j]); 
