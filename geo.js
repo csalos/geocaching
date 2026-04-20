@@ -2,20 +2,20 @@ let arrMozgo = [
     [ 3825,   "FV", "Forrásvadász", [ ["2026.02.24", "Tókaji forrás", "Húsvét forrás"] ] ], 
     [ 1960, "KaKu", "Kálváriakutató", [ ["2026.01.27", "Kaposvár"] ] ], 
     [  212, "M001", "mobil_001", [
-         ["2025.12.23", "Fonyód", "#GeoKari"] ],
+         ["2025.12.23", "Fonyód", "#GeoKari"],
          ["2026.04.19", "Badacsony", "#Walk44"] ] ], 
     [ 1248, "M002", "Kedvelt helyeink", [
          ["2025.12.06", "Orfű", "#Walk41"],
-         ["2026.02.15", "Ságvár", "#Walk43"] ],
+         ["2026.02.15", "Ságvár", "#Walk43"],
          ["2026.04.19", "Badacsony", "#Walk44"] ] ], 
     [ 4480, "CRUX", "Crux Viator, Útszéli kereszt", [ 
          ["2025.10.30", "Kisgyalán", "Szenna"],
          ["2025.12.06", "Orfű", "#Walk41"], 
          ["2025.12.31", "Somogyvár", "#GeoSzilveszter"],
-         ["2026.02.15", "Ságvár", "#Walk43"] ],
+         ["2026.02.15", "Ságvár", "#Walk43"],
          ["2026.04.19", "Badacsony", "#Walk44"] ] ],
     [ 4482,  "KAS", "Kastélykutató", [
-         ["2024.07.18", "Várda"] ],
+         ["2024.07.18", "Várda"],
          ["2026.04.19", "Badacsony", "#Walk44"] ] ], 
     [ 6235, "TJEL", "Turistajelzések", [ ["2024.04.06", "Tókaji parkerdő", "Töröcskei tó"] ] ], 
     [ 5543, "EHAZ", "Erdei házak, kunyhók", [
@@ -28,24 +28,24 @@ let arrMozgo = [
     [ 1779,  "AKT", "Árpád-kori templomromok, templomok 4.0", [ ["2021.12.03", "Kaposszentjakab"] ] ],  
     [ 1458,   "PC", "Gécépécé (a HiTech mozgó)", [ ["2019.12.30", "Kaposvár", "Tura"] ] ], 
     [ 1784,   "TO", "Tóbarát", [
-         ["2019.12.30", "Kaposvár", "Tura"] ],
+         ["2019.12.30", "Kaposvár", "Tura"],
          ["2026.04.19", "Badacsony", "#Walk44"] ] ], 
     [ 4773, "HIRE", "Híres emberek", [
-         ["2019.08.17", "Kaposvár", "Kaposvár"] ],
+         ["2019.08.17", "Kaposvár", "Kaposvár"],
          ["2026.04.19", "Badacsony", "#Walk44"] ] ], 
     [ 1012, "User", "User Hona", [
          ["2014.08.24", "Kaposvár", "Haza"], 
          ["2021.04.27", "Kaposvár", "Hetes"] ] ], 
     [ 3959, "FENT", "Fentről a világ (fotózz panorámát)", [
          ["2014.07.03", "Kaposvár"], 
-         ["2026.02.15", "Ságvár", "#Walk43"] ],
+         ["2026.02.15", "Ságvár", "#Walk43"],
          ["2026.04.19", "Badacsony", "#Walk44"] ] ], 
     [ 3889, "MKAT", "Magyarország katonái", [
          ["2014.05.27", "Kaposvár"], 
          ["2023.08.01", "Gölle"] ] ], 
     [  968, "Izgi", "Izgimozgi", [
          ["2014.04.20", "Kaposvár", "Kaposvár"], 
-         ["2025.12.06", "Orfű", "#Walk41"] ],
+         ["2025.12.06", "Orfű", "#Walk41"],
          ["2026.04.19", "Badacsony", "#Walk44"] ] ], 
     [ 3806,  "KEM", "Kerékpáros mozgó", [ ["2014.04.19", "Kaposvár"] ] ], 
     [ 4856, "DDK2", "Rockenbauer Pál Dél-dunántúli Kéktúra", [ ["2014.04.10", "Szenna", "Szenna tető"] ] ], 
