@@ -10,13 +10,13 @@ xhrm.onreadystatechange = function() {
 xhrm.send();
 
 //megtalált mozgók listájának átmolyolása
-async function jsonMozgoMolyolo(lada) {
+async function jsonMozgoMolyolo(láda) {
     try {
         //megtalálások lekérése: dátum és bejegyzés
-        const response = await fetch(`https://api.geocaching.hu/logfinder?userid=71532&fields=date%2Cnotes&cacheid=`+lada.id);
+        const response = await fetch(`https://api.geocaching.hu/logfinder?userid=71532&fields=date%2Cnotes&cacheid=`+láda.id);
         const jsn = await response.json();
             
-        console.log(lada.nickname);
+        console.log(láda.nickname);
         jsn.forEach((log) => kiíró(láda.id, láda.nickname, log));
     } catch (hiba) {
         console.error("Hiba a lekérésnél:", hiba);
