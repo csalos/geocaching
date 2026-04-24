@@ -76,13 +76,14 @@ function kiíró(log) {
     matches.forEach(match => {
       const content = match[1];
       const parts = content.split('_');
+	  const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
 
       if (parts.length === 2) {
         console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
-		finds.push( [ log.date, parts[0], parts[1] ] );
+		finds.push( [ dátum, parts[0], parts[1] ] );
       } else {
         console.log("Típus: Helyszín | Hol: "+parts[0]);
-		finds.push( [ log.date, parts[0] ] );
+		finds.push( [ dátum, parts[0] ] );
       }
     });
 }
