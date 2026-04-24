@@ -15,15 +15,47 @@ async function jsonMozgoMolyolo(láda) {
         //megtalálások lekérése: dátum és bejegyzés
         const response = await fetch(`https://api.geocaching.hu/logfinder?userid=71532&fields=date%2Cnotes&cacheid=`+láda.id);
         const jsn = await response.json();
-            
-        console.log(láda.nickname);
-        jsn.forEach((log) => kiíró(láda.id, láda.nickname, log));
+
+		//új sor a táblázatban
+		let tr = document.createElement("tr"); 
+	    tr.style = "";
+	    //láda azonosító és link
+	    let tdLink = document.createElement("td"); 
+	    let a = document.createElement('a'); 
+	    a.href = 'https://geocaching.hu/caches.geo?id='+arr[0]; 
+	    a.appendChild(document.createTextNode("GC"+arr[1])); 
+	    tdLink.appendChild(a); 
+	    tr.appendChild(tdLink);
+	
+	    //láda neve
+	    let tdName = document.createElement("td"); 
+	    let txName = document.createTextNode(arr[2]); 
+	    tdName.appendChild(txName); 
+	    tr.appendChild(tdName);
+
+	    let finds = [];
+	    let f = ["", "", ""];
+        jsn.forEach(kiíró);
+	    
+		//mikor, honnan, hová
+	    for(let i=0; i<finds.length; i++) { 
+	        f[0] = f[0].concat(finds[i][0], (finds.length>1)?"\n":"");
+	        f[1] = f[1].concat(finds[i][1], (finds.length>1)?"\n":"");
+	        f[2] = f[2].concat(finds[i][2]??"Maradt", (finds.length>1)?"\n":"");
+	    }
+	    for(let j=0; j<3; j++) { 
+	        let td = document.createElement("td"); 
+	        let tx = document.createTextNode(f[j]); 
+	        td.appendChild(tx); 
+	        tr.appendChild(td); 
+	    } 
+	    document.getElementById("rowsMozgo").after(tr); 
     } catch (hiba) {
         console.error("Hiba a lekérésnél:", hiba);
 	}
 }
 //bejegyzésből kiszedni honnan/hová ment a láda
-function kiíró(id, nick, log) {
+function kiíró(log) {
 	text = log.notes;	
     // A regex: megkeresi a ___ közötti részeket
     const regex = /___(.*?)___/g;
@@ -37,13 +69,15 @@ function kiíró(id, nick, log) {
 
       if (parts.length === 2) {
         console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
+		f[] = [ log.date, parts[0], parts[1] ];
       } else {
         console.log("Típus: Helyszín | Hol: "+parts[0]);
+		f[] = [ log.date, parts[0] ];
       }
     });
 }
-
-
+//------------------------------------------------
+//------------------------------------------------
 let arrMozgo = [ 
     [ 3825,   "FV", "Forrásvadász", [ ["2026.02.24", "Tókaji forrás", "Húsvét forrás"] ] ], 
     [ 1960, "KaKu", "Kálváriakutató", [ ["2026.01.27", "Kaposvár"] ] ], 
@@ -119,41 +153,6 @@ let arrEvent = [
 ];
 
 //------------------------------------------------
-arrMozgo.forEach((element) => addMozgo(element));
-
-function addMozgo(arr) { 
-    let tr = document.createElement("tr"); 
-    tr.style = "";
-    //láda azonosító és link
-    let tdLink = document.createElement("td"); 
-    let a = document.createElement('a'); 
-    a.href = 'https://geocaching.hu/caches.geo?id='+arr[0]; 
-    a.appendChild(document.createTextNode("GC"+arr[1])); 
-    tdLink.appendChild(a); 
-    tr.appendChild(tdLink);
-
-    //láda neve
-    let tdName = document.createElement("td"); 
-    let txName = document.createTextNode(arr[2]); 
-    tdName.appendChild(txName); 
-    tr.appendChild(tdName);
-
-    //mikor, honnan, hová
-    let finds = arr[3];
-    let f = ["", "", ""];
-    for(let i=0; i<finds.length; i++) { 
-        f[0] = f[0].concat(finds[i][0], (finds.length>1)?"\n":"");
-        f[1] = f[1].concat(finds[i][1], (finds.length>1)?"\n":"");
-        f[2] = f[2].concat(finds[i][2]??"Maradt", (finds.length>1)?"\n":"");
-    }
-    for(let j=0; j<3; j++) { 
-        let td = document.createElement("td"); 
-        let tx = document.createTextNode(f[j]); 
-        td.appendChild(tx); 
-        tr.appendChild(td); 
-    } 
-    document.getElementById("rowsMozgo").after(tr); 
-}
 //------------------------------------------------
 arrEvent.forEach((element) => addEvent(element));
 
