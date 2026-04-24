@@ -19,7 +19,6 @@ async function jsonMozgoMolyolo(láda) {
 
 		//új sor a táblázatban
 		let tr = document.createElement("tr"); 
-	    tr.style = "";
 	    //láda azonosító és link
 	    let tdLink = document.createElement("td"); 
 	    let a = document.createElement('a'); 
