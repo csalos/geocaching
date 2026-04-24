@@ -33,11 +33,11 @@ async function jsonMozgoMolyolo(láda) {
 	    tdName.appendChild(txName); 
 	    tr.appendChild(tdName);
 
-	    let finds = [];
-	    let f = ["", "", ""];
+	    var finds = [];
         jsn.forEach(kiíró);
 	    
 		//mikor, honnan, hová
+	    let f = ["", "", ""];
 	    for(let i=0; i<finds.length; i++) { 
 	        f[0] = f[0].concat(finds[i][0], (finds.length>1)?"\n":"");
 	        f[1] = f[1].concat(finds[i][1], (finds.length>1)?"\n":"");
@@ -69,10 +69,10 @@ function kiíró(log) {
 
       if (parts.length === 2) {
         console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
-		f[] = [ log.date, parts[0], parts[1] ];
+		finds[] = [ log.date, parts[0], parts[1] ];
       } else {
         console.log("Típus: Helyszín | Hol: "+parts[0]);
-		f[] = [ log.date, parts[0] ];
+		finds[] = [ log.date, parts[0] ];
       }
     });
 }
