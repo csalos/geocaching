@@ -22,14 +22,14 @@ async function jsonMozgoMolyolo(láda) {
 	    //láda azonosító és link
 	    let tdLink = document.createElement("td"); 
 	    let a = document.createElement('a'); 
-	    a.href = 'https://geocaching.hu/caches.geo?id='+arr[0]; 
-	    a.appendChild(document.createTextNode("GC"+arr[1])); 
+	    a.href = 'https://geocaching.hu/caches.geo?id='+láda.id; 
+	    a.appendChild(document.createTextNode(láda.waypoint)); 
 	    tdLink.appendChild(a); 
 	    tr.appendChild(tdLink);
 	
 	    //láda neve
 	    let tdName = document.createElement("td"); 
-	    let txName = document.createTextNode(arr[2]); 
+	    let txName = document.createTextNode(láda.nickname); 
 	    tdName.appendChild(txName); 
 	    tr.appendChild(tdName);
 
