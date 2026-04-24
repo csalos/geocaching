@@ -69,10 +69,10 @@ function kiíró(log) {
 
       if (parts.length === 2) {
         console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
-		finds[] = [ log.date, parts[0], parts[1] ];
+		finds.push( [ log.date, parts[0], parts[1] ] );
       } else {
         console.log("Típus: Helyszín | Hol: "+parts[0]);
-		finds[] = [ log.date, parts[0] ];
+		finds.push( [ log.date, parts[0] ] );
       }
     });
 }
