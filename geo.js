@@ -1,3 +1,50 @@
+//megtalált mozgó listájának lekérése
+var xhrm = new XMLHttpRequest();
+xhrm.open("GET", "https://api.geocaching.hu/xstat?userid=71532", true);
+xhrm.onreadystatechange = function() {
+	if(xhrm.readyState === 4 && xhrm.status === 200) {
+    	let jános = JSON.parse(xhrm.responseText);
+        jános.forEach(jsonMozgoMolyolo);
+    }
+}
+xhrm.send();
+
+//megtalált mozgók listájának átmolyolása
+async function jsonMozgoMolyolo(lada) {
+    try {
+        //megtalálások lekérése: dátum és bejegyzés
+        const response = await fetch(`https://api.geocaching.hu/logfinder?userid=71532&fields=date%2Cnotes&cacheid=`+lada.id);
+        const jsn = await response.json();
+            
+        console.log(lada.nickname);
+        jsn.forEach((log) {
+            kiíró(láda.id, láda.nickname, log);
+        });
+    } catch (hiba) {
+        console.error("Hiba a lekérésnél:", hiba);
+}
+//bejegyzésből kiszedni honnan/hová ment a láda
+function kiíró(id, nick, log) {
+	text = log.notes;	
+    // A regex: megkeresi a ___ közötti részeket
+    const regex = /___(.*?)___/g;
+
+    // Az összes találat kinyerése
+    const matches = [...text.matchAll(regex)];
+
+    matches.forEach(match => {
+      const content = match[1];
+      const parts = content.split('_');
+
+      if (parts.length === 2) {
+        console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
+      } else {
+        console.log("Típus: Helyszín | Hol: "+parts[0]);
+      }
+    });
+}
+
+
 let arrMozgo = [ 
     [ 3825,   "FV", "Forrásvadász", [ ["2026.02.24", "Tókaji forrás", "Húsvét forrás"] ] ], 
     [ 1960, "KaKu", "Kálváriakutató", [ ["2026.01.27", "Kaposvár"] ] ], 
