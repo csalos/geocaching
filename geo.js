@@ -20,6 +20,7 @@ async function jsonMozgoMolyolo(lada) {
         jsn.forEach((log) => kiíró(láda.id, láda.nickname, log));
     } catch (hiba) {
         console.error("Hiba a lekérésnél:", hiba);
+	}
 }
 //bejegyzésből kiszedni honnan/hová ment a láda
 function kiíró(id, nick, log) {
