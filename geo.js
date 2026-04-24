@@ -1,3 +1,6 @@
+var table = '<table width="100%" id="event" style="white-space: pre;"><tr><th colspan="4">Esemény ládák</th></tr><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Hol?</th></tr><tr id="rowsEvent"></tr></table>';
+document.write(table);
+
 let arrEvent = [ 
     [ 6755, "GN26", "Geo Nyuszi '26", "2026.04.03", "Kaposvár - Deseda"], 
     [ 0, [[6730,"MO02"], [6710,"MO15"], [6733,"MO17"], [6719,"MO01"], [6692,"MO10"], [6746,"MO11"]], "Megyei Óriások", "2026.03.21\n2026.03.21\n2026.04.10\n2026.04.10\n2026.04.10\n2026.04.10","Sasréti ősbükkös\nGyöngyöspusztai védett tölgyfasor\nKasztói őstölgyes\nIzsáki Csodafa\nKiskörei \"300\" éves tölgy\nA Nagykunság legidősebb tölgyfája"], 
