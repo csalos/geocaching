@@ -1,7 +1,7 @@
 //megtalált mozgó listájának lekérése
 var xhrm = new XMLHttpRequest();
 xhrm.open("GET", "https://api.geocaching.hu/xstat?userid=71532", true);
-xhrm.onreadystatechange = function() {
+xhrm.onreadystatechange = async function() {
 	if(xhrm.readyState === 4 && xhrm.status === 200) {
     	let jános = JSON.parse(xhrm.responseText);
         //jános.forEach(jsonMozgoMolyolo);
