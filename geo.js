@@ -17,9 +17,7 @@ async function jsonMozgoMolyolo(lada) {
         const jsn = await response.json();
             
         console.log(lada.nickname);
-        jsn.forEach((log) {
-            kiíró(láda.id, láda.nickname, log);
-        });
+        jsn.forEach((log) => kiíró(láda.id, láda.nickname, log));
     } catch (hiba) {
         console.error("Hiba a lekérésnél:", hiba);
 }
