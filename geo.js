@@ -9,6 +9,12 @@ xhrm.onreadystatechange = async function() {
 		for(const láda of jános) {
             await jsonMozgoMolyolo(láda);
         }
+		//táblázat kiszínezése
+		const rows = document.querySelectorAll('#mozgo tr:nth-child(odd), #event tr:nth-child(odd)');
+		
+		rows.forEach((row, index) => {
+		    row.style.backgroundColor = '#f8f8cf'; // Páratlan sorok színe
+		});
     }
 }
 xhrm.send();
@@ -188,9 +194,3 @@ function addEvent(arr) {
     }
     document.getElementById("rowsEvent").after(tr);
 }
-
-const rows = document.querySelectorAll('#mozgo tr:nth-child(odd), #event tr:nth-child(odd)');
-
-rows.forEach((row, index) => {
-    row.style.backgroundColor = '#f8f8cf'; // Páratlan sorok színe
-});
