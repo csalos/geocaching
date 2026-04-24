@@ -10,6 +10,7 @@ xhrm.onreadystatechange = function() {
 xhrm.send();
 
 //megtalált mozgók listájának átmolyolása
+var finds = [];
 async function jsonMozgoMolyolo(láda) {
     try {
         //megtalálások lekérése: dátum és bejegyzés
@@ -33,7 +34,7 @@ async function jsonMozgoMolyolo(láda) {
 	    tdName.appendChild(txName); 
 	    tr.appendChild(tdName);
 
-	    var finds = [];
+	    finds = [];
         jsn.forEach(kiíró);
 	    
 		//mikor, honnan, hová
