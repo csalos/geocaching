@@ -50,7 +50,7 @@ async function jsonMozgoMolyolo(láda) {
 	        td.appendChild(tx); 
 	        tr.appendChild(td); 
 	    } 
-	    document.getElementById("rowsMozgo").after(tr); 
+	    document.getElementById("rowsMozgo").before(tr); 
     } catch (hiba) {
         console.error("Hiba a lekérésnél:", hiba);
 	}
