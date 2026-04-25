@@ -84,7 +84,7 @@ function svgManipulator() {
 			let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 			path.id = megye + "_path";
 			path.setAttribute("d", start + ((percent>50)?"1":"0") + ", 0, " + x + " " + y + end);
-			path.setAttribute("fill", "url(#RG"+c+")");
+			path.setAttribute("style", "fill: url(#RG"+c+")");
 			path.setAttribute("stroke", "black");
 			path.setAttribute("strokeWidth", 0);
 			path.setAttribute("transform", "translate(-50 -50)");
