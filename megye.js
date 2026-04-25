@@ -1,5 +1,5 @@
 document.write('<object id="megyeterkep" data="megye.svg" type="image/svg+xml">Sajnos a böngésződ nem támogatja az SVG-t.</object>");
-
+ 
 let zöld = ["Győr-Moson-Sopron", "Fejér", "Heves", "Csongrád-Csanád"];
 let sárga = ["Veszprém", "Baranya", "Pest", "Békés", "Borsod-Abaúj-Zemplén"];
 let narancs = ["Zala", "Tolna", "Komárom-Esztergom", "", "Jász-Nagykun-Szolnok", "Szabolcs-Szatmár-Bereg"];
