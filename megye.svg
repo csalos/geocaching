@@ -13,7 +13,7 @@
 	<defs id="defs">
 		<style type="text/css" id="style1">
 			<![CDATA[
-			.str  {stroke:#2B2A29;stroke-width:10;stroke-miterlimit:22.9256}
+			.str  {stroke:#2B2A29;stroke-width:10;stroke-miterlimit:22.9256;fill:lavender}
 			.str2, .str3 {stroke:red;stroke-linejoin:round;stroke-miterlimit:3.864}
 			.str2 {stroke-width:20}
 			.str3 {stroke-width:50}
