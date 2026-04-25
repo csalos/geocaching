@@ -58,9 +58,9 @@ function startSVG() {
 	});
 }
 function svgManipulator(svg) {
-	for (const megye of megyeStat) {
-		let megye = megye[0];
-		let percent = parseFloat(megye[1]);
+	for (const régió of megyeStat) {
+		let megye = régió[0];
+		let percent = parseFloat(régió[1]);
 
 		if(percent < 0.1) { continue; } 
 		
