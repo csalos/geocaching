@@ -18,7 +18,7 @@ async function megyeStatLekérése() {
     const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
     const jsn = await response.json();
 
-    jns.forEach((elem) => await jsonMolyolo(elem));
+    jns.forEach((elem) =>  { await jsonMolyolo(elem); });
 
     const svgBelseje = svgObjektum.contentDocument;
 	
