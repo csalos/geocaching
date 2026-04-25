@@ -1,7 +1,7 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
-var table = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></table>'
-document.write(table);
+var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></table>'
+document.write(tableMozgo);
 
 //megtalált mozgó listájának lekérése
 var xhrm = new XMLHttpRequest();
@@ -84,10 +84,10 @@ function kiíró(log) {
 	  const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
 
       if (parts.length === 2) {
-        console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
+        //console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
 		finds.push( [ dátum, parts[0], parts[1] ] );
       } else {
-        console.log("Típus: Helyszín | Hol: "+parts[0]);
+        //console.log("Típus: Helyszín | Hol: "+parts[0]);
 		finds.push( [ dátum, parts[0] ] );
       }
     });
