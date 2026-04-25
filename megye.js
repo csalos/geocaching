@@ -34,7 +34,7 @@ async function megyeStatLekérése() {
 	  			rejt(svgBelseje, "úthálózat");
 	  			break;
 		}
-		startSVG();
+		svgManipulator();
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
 	}
@@ -50,14 +50,10 @@ function rejt(svgBelseje, what) {
 	svgBelseje.getElementById(what).style.display = "none";
 }
 
-function startSVG() {
+function svgManipulator() {
 	const svgObjektum = document.getElementById('megyeterkep');
-	svgObjektum.addEventListener('load', function() {
-		const svgBelseje = svgObjektum.contentDocument;
-		svgManipulator(svgBelseje);
-	});
-}
-function svgManipulator(svg) {
+	const svgBelseje = svgObjektum.contentDocument;
+	
 	for (const régió of megyeStat) {
 		let megye = régió[0];
 		let percent = parseFloat(régió[1]);
@@ -121,6 +117,6 @@ function svgManipulator(svg) {
 			pattern.appendChild(circle);
 		}
 		
-		svg.getElementById("defs").appendChild(pattern);
+		svgBelseje.getElementById("defs").appendChild(pattern);
 	}
 }
