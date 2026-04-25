@@ -51,15 +51,13 @@ function rejt(svgBelseje, what) {
 }
 
 function startSVG() {
-
 	const svgObjektum = document.getElementById('megyeterkep');
 	svgObjektum.addEventListener('load', function() {
+		const svgBelseje = svgObjektum.contentDocument;
 		svgManipulator(svgBelseje);
 	});
 }
 function svgManipulator(svg) {
-    const svgBelseje = svgObjektum.contentDocument;
-
 	for (const megye of megyeStat) {
 		let megye = megye[0];
 		let percent = parseFloat(megye[1]);
