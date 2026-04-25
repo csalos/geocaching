@@ -23,17 +23,6 @@ async function megyeStatLekérése() {
 		for (const elem of jsn) {
 			await jsonMolyolo(elem);
 	  	}
-		
-		switch(getParam) {
-	  		case "noWtr": 
-	  			rejt(svgBelseje, "folyók");
-	  			break;
-	  		case "none": 
-	  			rejt(svgBelseje, "folyók");
-	  		case "noRd": 
-	  			rejt(svgBelseje, "úthálózat");
-	  			break;
-		}
 		svgManipulator();
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
@@ -53,6 +42,17 @@ function rejt(svgBelseje, what) {
 function svgManipulator() {
 	const svgObjektum = document.getElementById('megyeterkep');
 	const svgBelseje = svgObjektum.contentDocument;
+
+	switch(getParam) {
+	  	case "noWtr": 
+	  		rejt(svgBelseje, "folyók");
+	  		break;
+	  	case "none": 
+	  		rejt(svgBelseje, "folyók");
+	  	case "noRd": 
+	  		rejt(svgBelseje, "úthálózat");
+	  		break;
+	}
 	
 	for (const régió of megyeStat) {
 		let megye = régió[0];
