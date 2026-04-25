@@ -9,6 +9,7 @@
 	</style>
 </head>
 <body>
+	<script>var myUserId = 71532;</script>
 	<h1>Hello World!  :-)</h1>
 
 	<p>
@@ -19,8 +20,28 @@
 		&lt;script&gt;var myUserId = xxyyzz;&lt;/script&gt;
 	</code>
 
-	<script>var myUserId = 71532;</script><br />
-	<script language="javascript" type="text/javascript" src="megye.js"></script>
+	<table>
+		<tr>
+			<tb>csak a megye határok látszanak</tb>
+			<tb>látszanak a folyók és a tavak is</tb>
+			<tb>látszanak a fontosabb utak is</tb>
+			<tb>minden látszik (folyók, utak)</tb>
+		</tr>
+		<tr>
+			<tb><code>var getParam = "none";</code></tb>
+			<tb><code>var getParam = "noRd";</code></tb>
+			<tb><code>var getParam = "noWtr";</code></tb>
+			<tb>---</tb>
+		</tr>
+		<tr>
+			<tb><script>var getParam = "none";</script><script language="javascript" type="text/javascript" src="megye.js"></script></tb>
+			<tb><script>getParam = "noRd";</script><script language="javascript" type="text/javascript" src="megye.js"></script></tb>
+			<tb><script>getParam = "noWtr";</script><script language="javascript" type="text/javascript" src="megye.js"></script></tb>
+			<tb><script>getParam = "";</script><script language="javascript" type="text/javascript" src="megye.js"></script></tb>
+		</tr>
+	</table>
+
+	
 	
 </body>
 </html>
