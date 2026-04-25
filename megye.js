@@ -59,11 +59,10 @@ function startSVG() {
 }
 function svgManipulator(svg) {
     const svgBelseje = svgObjektum.contentDocument;
-	
-	for(let r=2; r < megyeStat.length-1; r++) {
-		//tableRows[r].childNodes[6].style.backgroundColor = "yellow";
-		let megye = megyeStat[r][0];
-		let percent = parseFloat(megyeStat[r][1]);
+
+	for (const megye of megyeStat) {
+		let megye = megye[0];
+		let percent = parseFloat(megye[1]);
 
 		if(percent < 0.1) { continue; } 
 		
