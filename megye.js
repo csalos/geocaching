@@ -24,8 +24,6 @@ async function megyeStatLekérése() {
 			await jsonMolyolo(elem);
 	  	}
 		
-	  	let getParam = "";
-		
 		switch(getParam) {
 	  		case "noWtr": 
 	  			rejt(svgBelseje, "folyók");
