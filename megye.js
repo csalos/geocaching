@@ -5,7 +5,6 @@ let sárga = ["Veszprém", "Baranya", "Pest", "Békés", "Borsod-Abaúj-Zemplén
 let narancs = ["Zala", "Tolna", "Komárom-Esztergom", "", "Jász-Nagykun-Szolnok", "Szabolcs-Szatmár-Bereg"];
 let kék = ["Vas", "Somogy", "Budapest", "Nógrád", "Hajdú-Bihar"];
 
-const svgObjektum = document.getElementById('megyeterkep');
 var megyeStat = [];
 
 let pacman = true;
@@ -22,8 +21,6 @@ async function megyeStatLekérése() {
 	for (const elem of jns) {
 		await jsonMolyolo(elem);
   	}
-
-    const svgBelseje = svgObjektum.contentDocument;
 	
   	let getParam = "";
 	
@@ -37,7 +34,7 @@ async function megyeStatLekérése() {
   			rejt(svgBelseje, "úthálózat");
   			break;
 	  }
-	  svgManipulator(svgBelseje);
+	  svgManipulator();
   } catch (hiba) {
     console.error("Hiba a lekérésnél:", hiba);
   }
@@ -53,7 +50,11 @@ function rejt(svgBelseje, what) {
 	svgBelseje.getElementById(what).style.display = "none";
 }
 
-function svgManipulator(svg) {
+function svgManipulator() {
+
+	const svgObjektum = document.getElementById('megyeterkep');
+    const svgBelseje = svgObjektum.contentDocument;
+	
 	for(let r=2; r < megyeStat.length-1; r++) {
 		//tableRows[r].childNodes[6].style.backgroundColor = "yellow";
 		let megye = megyeStat[r][0];
@@ -118,6 +119,6 @@ function svgManipulator(svg) {
 			pattern.appendChild(circle);
 		}
 		
-		svg.getElementById("defs").appendChild(pattern);
+		svgBelseje.getElementById("defs").appendChild(pattern);
 	}
 }
