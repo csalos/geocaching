@@ -5,6 +5,7 @@ let sárga = ["Veszprém", "Baranya", "Pest", "Békés", "Borsod-Abaúj-Zemplén
 let narancs = ["Zala", "Tolna", "Komárom-Esztergom", "", "Jász-Nagykun-Szolnok", "Szabolcs-Szatmár-Bereg"];
 let kék = ["Vas", "Somogy", "Budapest", "Nógrád", "Hajdú-Bihar"];
 
+const svgObjektum = document.getElementById('megyeterkep');
 var megyeStat = [];
 
 let pacman = true;
@@ -16,9 +17,11 @@ async function megyeStatLekérése() {
   try {
     //megyei statisztika lekérése
     const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
-    const jsn = await response.json();
+    const jns = await response.json();
 
-    jns.forEach((elem) =>  { await jsonMolyolo(elem); });
+	for (const elem of jns) {
+		await jsonMolyolo(elem);
+  	}
 
     const svgBelseje = svgObjektum.contentDocument;
 	
