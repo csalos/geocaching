@@ -13,31 +13,31 @@ let color = false;
 megyeStatLekérése();
 
 async function megyeStatLekérése() {
-  try {
-    //megyei statisztika lekérése
-    const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
-    const jns = await response.json();
-
-	for (const elem of jns) {
-		await jsonMolyolo(elem);
-  	}
+	try {
+		//megyei statisztika lekérése
+    	const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
+	    const jsn = await response.json();
 	
-  	let getParam = "";
-	
-	  switch(getParam) {
-  		case "noWtr": 
-  			rejt(svgBelseje, "folyók");
-  			break;
-  		case "none": 
-  			rejt(svgBelseje, "folyók");
-  		case "noRd": 
-  			rejt(svgBelseje, "úthálózat");
-  			break;
-	  }
-	  svgManipulator();
-  } catch (hiba) {
-    console.error("Hiba a lekérésnél:", hiba);
-  }
+		for (const elem of jsn) {
+			await jsonMolyolo(elem);
+	  	}
+		
+	  	let getParam = "";
+		
+		switch(getParam) {
+	  		case "noWtr": 
+	  			rejt(svgBelseje, "folyók");
+	  			break;
+	  		case "none": 
+	  			rejt(svgBelseje, "folyók");
+	  		case "noRd": 
+	  			rejt(svgBelseje, "úthálózat");
+	  			break;
+		}
+		startSVG();
+	} catch (hiba) {
+		console.error("Hiba a lekérésnél:", hiba);
+	}
 }
 
 function jsonMolyolo(elem) {
@@ -50,9 +50,14 @@ function rejt(svgBelseje, what) {
 	svgBelseje.getElementById(what).style.display = "none";
 }
 
-function svgManipulator() {
+function startSVG() {
 
 	const svgObjektum = document.getElementById('megyeterkep');
+	svgObjektum.addEventListener('load', function() {
+		svgManipulator(svgBelseje);
+	});
+}
+function svgManipulator(svg) {
     const svgBelseje = svgObjektum.contentDocument;
 	
 	for(let r=2; r < megyeStat.length-1; r++) {
@@ -119,6 +124,6 @@ function svgManipulator() {
 			pattern.appendChild(circle);
 		}
 		
-		svgBelseje.getElementById("defs").appendChild(pattern);
+		svg.getElementById("defs").appendChild(pattern);
 	}
 }
