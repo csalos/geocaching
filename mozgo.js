@@ -1,20 +1,20 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
-var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><td colspan="5"><button style="height: 100%; width: 100%" onclick="HideOrDisplay(this)">Kinyit</button></td></tr><tbody id="tb" style="display: none"><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></tbody></table>'
+var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><td colspan="5"><button style="height: 100%; width: 100%" onclick="HoDMozgo(this)">Kinyit</button></td></tr><tbody id="tb" style="display: none"><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></tbody></table>'
 document.write(tableMozgo);
 
-var tbody = document.getElementById("tb");
+var tbMozgo = document.getElementById("tb");
 
-var sh = false;
-function HideOrDisplay(btn) {
-	if(sh) {
-		tbody.style.display = "none";
+var shM = false;
+function HoDMozgo(btn) {
+	if(shM) {
+		tbMozgo.style.display = "none";
 		btn.innerHTML = "Kinyit";
-		sh = false;
+		shM = false;
     } else {
-		tbody.style.display = "";
+		tbMozgo.style.display = "";
 		btn.innerHTML = "Összecsuk";
-		sh = true;
+		shM = true;
     }
 }
 
