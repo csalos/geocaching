@@ -5,7 +5,7 @@ var tbEvent = document.getElementById("tbEvent");
 
 var shE = false;
 function HoDEvent(btn) {
-	if(shM) {
+	if(shE) {
 		tbEvent.style.display = "none";
 		btn.innerHTML = "Kinyit";
 		shE = false;
