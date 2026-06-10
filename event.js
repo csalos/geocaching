@@ -1,5 +1,20 @@
-var table = '<table width="100%" id="event" style="white-space: pre;"><tr><th colspan="4">Esemény ládák</th></tr><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Hol?</th></tr><tr id="rowsEvent"></tr></table>';
-document.write(table);
+var tableEvent = '<table width="100%" id="event" style="white-space: pre;"><tr><th colspan="4">Esemény ládák</th></tr><tr><td colspan="4"><button style="height: 100%; width: 100%" onclick="HoDEvent(this)">Kinyit</button></td></tr><tbody id="tbEvent" style="display: none"><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Hol?</th></tr><tr id="rowsEvent"></tr></tbody></table>';
+document.write(tableEvent);
+
+var tbEvent = document.getElementById("tbEvent");
+
+var shE = false;
+function HoDEvent(btn) {
+	if(shM) {
+		tbEvent.style.display = "none";
+		btn.innerHTML = "Kinyit";
+		shE = false;
+    } else {
+		tbEvent.style.display = "";
+		btn.innerHTML = "Összecsuk";
+		shE = true;
+    }
+}
 
 let arrEvent = [ 
     [ 6767, "50FV", "L. Geocaching Fesztivál és Verseny", "2026.05.16", "Sasrét"], 
