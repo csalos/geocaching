@@ -1,7 +1,22 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
-var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></table>'
+var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><td colspan="5"><button style="height: 100%; width: 100%" onclick="HideOrDisplay(this)">Összecsuk</button></td></tr><tbody id="tb"><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></tbody></table>'
 document.write(tableMozgo);
+
+var tbody = document.getElementById("tb");
+
+var sh = true;
+function HideOrDisplay(btn) {
+	if(sh) {
+		tbody.style.display = "none";
+		btn.innerHTML = "Kinyit";
+		sh = false;
+    } else {
+		tbody.style.display = "";
+		btn.innerHTML = "Összecsuk";
+		sh = true;
+    }
+}
 
 //megtalált mozgó listájának lekérése
 var xhrm = new XMLHttpRequest();
