@@ -18,7 +18,7 @@ function HoDEvent(btn) {
 
 let arrEvent = [ 
     [ 6767, "50FV", "L. Geocaching Fesztivál és Verseny", "2026.05.16", "Sasrét"], 
-    [ 0, [[6709, "25ZS"], [6712, "25TL"], [6722, "25UV"]], "Jubileumi körtúra", "2026.05.01\n2026.06.13\n2026.06.13", "Zselic + Kapos völgye\nSzekszárdi dobmság\nÜvegesek útja - Mecsek"],
+    [ 0, [[6709, "25ZS"], [6712, "25TL"], [6722, "25UV"]], "Jubileumi körtúra", "2026.05.01\n2026.06.13\n2026.06.13", "Zselic + Kapos völgye\nSzekszárdi dombság\nÜvegesek útja - Mecsek"],
     [ 6755, "GN26", "Geo Nyuszi '26", "2026.04.03", "Kaposvár - Deseda"], 
     [ 0, [[6730,"MO02"], [6710,"MO15"], [6733,"MO17"], [6719,"MO01"], [6692,"MO10"], [6746,"MO11"], [6689,"MO23"]], "Megyei Óriások", "2026.03.21\n2026.03.21\n2026.04.10\n2026.04.10\n2026.04.10\n2026.04.10\n2026.06.13","Sasréti ősbükkös\nGyöngyöspusztai védett tölgyfasor\nKasztói őstölgyes\nIzsáki Csodafa\nKiskörei \"300\" éves tölgy\nA Nagykunság legidősebb tölgyfája\nHorvátország egyetlene"], 
     [ 6695, "2025", "Geoszilveszter 2025", "2025.12.31", "Somogyvár"], 
