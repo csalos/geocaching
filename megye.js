@@ -59,7 +59,7 @@ function svgManipulator() {
 	}
 	switch(getStyle) {
 		case "color":
-	  		rejt(svgBelseje, "szazalek");
+	  		mutat(svgBelseje, "százalék");
 	  		break;
 	}
 	
