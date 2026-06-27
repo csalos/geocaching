@@ -39,6 +39,9 @@ async function megyeStatLekérése() {
 function rejt(svgBelseje, what) {
 	svgBelseje.getElementById(what).style.display = "none";
 }
+function mutat(svgBelseje, what) {
+	svgBelseje.getElementById(what).style.display = "";
+}
 
 function svgManipulator() {
 	const svgObjektum = document.getElementById("megyeterkep");
@@ -52,6 +55,11 @@ function svgManipulator() {
 	  		rejt(svgBelseje, "folyók");
 	  	case "Wtr": 
 	  		rejt(svgBelseje, "úthálózat");
+	  		break;
+	}
+	switch(getStyle) {
+		case "color":
+	  		rejt(svgBelseje, "szazalek");
 	  		break;
 	}
 	
@@ -102,10 +110,6 @@ function svgManipulator() {
 			red = 15 - Math.ceil(cr[c] * percent / 100);
 			grn = 15 - Math.ceil(cg[c] * percent / 100);
 			blu = 15 - Math.ceil(cb[c] * percent / 100);
-			
-			svgBelseje.getElementById("szazalek").style.display = "";
-			
-			console.log(percent + "..." +red + "#" + red.toString(16) +""+ grn.toString(16) +""+ blu.toString(16));
 		
 			let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 			circle.id = megye + "_circle";
