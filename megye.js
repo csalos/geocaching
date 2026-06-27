@@ -12,7 +12,7 @@ var megyeStat = [];
 let pacman = true;
 let color = false;
 
-if (typeof getParam !== 'undefined') {
+if (typeof getParam == 'undefined') {
     let getParam = "";
 }
                
