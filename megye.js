@@ -2,18 +2,19 @@
 
 document.write('<object id="megyeterkep" data="megye.svg" type="image/svg+xml">Sajnos a böngésződ nem támogatja az SVG-t.</object>');
  
-let zöld = ["Győr-Moson-Sopron", "Fejér", "Heves", "Csongrád-Csanád"];
-let sárga = ["Veszprém", "Baranya", "Pest", "Békés", "Borsod-Abaúj-Zemplén"];
-let narancs = ["Zala", "Tolna", "Komárom-Esztergom", "", "Jász-Nagykun-Szolnok", "Szabolcs-Szatmár-Bereg"];
-let kék = ["Vas", "Somogy", "Budapest", "Nógrád", "Hajdú-Bihar"];
+
+let zöld = ["Zala", "Fejér", "Csongrád-Csanád", "Borsod-Abaúj-Zemplén"];
+let sárga = ["Vas", "Somogy", "Komárom-Esztergom", "Budapest", "Bács-Kiskun", "Heves", "Hajdú-Bihar"];
+let narancs = ["Győr-Moson-Sopron", "Baranya", "Nógrád", "Jász-Nagykun-Szolnok", "Szabolcs-Szatmár-Bereg"];
+let kék = ["Veszprém", "Tolna", "Pest", "Békés"];
 
 var megyeStat = [];
 
-let pacman = false;
-let color = true;
-
-if (typeof getParam == 'undefined') {
-    var getParam = "";
+if (typeof getPart == "undefined") {
+    var getPart = "";
+}
+if (typeof getStyle == "undefined") {
+    var getStyle = "pacman";
 }
                
 megyeStatLekérése();
@@ -25,7 +26,9 @@ async function megyeStatLekérése() {
 	    const jsn = await response.json();
 	
 		for (const elem of jsn) {
-			await jsonMolyolo(elem);
+			console.log(elem.terulet +": "+ elem.F);
+			// megtalált/összes*100%
+			megyeStat.push([elem.terulet, elem.F/elem.S*100]);
 	  	}
 		svgManipulator();
 	} catch (hiba) {
@@ -33,21 +36,15 @@ async function megyeStatLekérése() {
 	}
 }
 
-function jsonMolyolo(elem) {
-	console.log(elem.terulet +": "+ elem.F);
-  // megtalált/összes*100%
-  megyeStat.push([elem.terulet, elem.F/elem.S*100]);
-}
-
 function rejt(svgBelseje, what) {
 	svgBelseje.getElementById(what).style.display = "none";
 }
 
 function svgManipulator() {
-	const svgObjektum = document.getElementById('megyeterkep');
+	const svgObjektum = document.getElementById("megyeterkep");
 	const svgBelseje = svgObjektum.contentDocument;
 
-	switch(getParam) {
+	switch(getPart) {
 	  	case "Rd": 
 	  		rejt(svgBelseje, "folyók");
 	  		break;
@@ -64,7 +61,7 @@ function svgManipulator() {
 
 		if(percent < 0.1) { continue; } 
 		
-		let pattern = document.createElementNS('http://www.w3.org/2000/svg', 'pattern');
+		let pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 		pattern.id= megye + "_pattern";
 		pattern.setAttribute("viewBox", "0,0,200,200");
 		pattern.setAttribute("width", "200%");
@@ -78,14 +75,14 @@ function svgManipulator() {
 			case sárga.includes(megye): break;
 		}
 		
-		if(pacman) {
+		if(getStyle = "pacman") {
 			let start = "M 100 100 L 100 200 A 100 100, 0, ";
 			let end = " Z";
 			let rad = percent * 3.6 * (Math.PI / 180);
 			let x = Math.sin(rad)*100 + 100;
 			let y = Math.cos(rad)*100 + 100;
 
-			let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+			let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 			path.id = megye + "_path";
 			path.setAttribute("d", start + ((percent>50)?"1":"0") + ", 0, " + x + " " + y + end);
 			path.setAttribute("style", "fill: url(#RG"+c+")");
@@ -97,22 +94,24 @@ function svgManipulator() {
 				path.setAttribute("d", "M 100 200 A 100 100, 0, 0, 0, 100 0 A 100 100, 0, 0, 0, 100 200 Z");
 			}
 			pattern.appendChild(path);
-		} else if(color) {
-			cr = [15,  0,  0, 15];
-			cg = [15, 15,  0,  8];
-			cb = [ 0,  0, 15,  0];
+		} else if(getStyle = "color") {
+			cr = [ 0, 15, 15,  0];
+			cg = [ 0,  0, 15,  8];
+			cb = [15, 15,  0, 15];
 			
-			red = Math.ceil(cr[c] * (100 - percent) / 100);
-			grn = Math.ceil(cg[c] * (100 - percent) / 100);
-			blu = Math.ceil(cb[c] * (100 - percent) / 100);
+			red = 15 - Math.ceil(cr[c] * percent / 100);
+			grn = 15 - Math.ceil(cg[c] * percent / 100);
+			blu = 15 - Math.ceil(cb[c] * percent / 100);
 			
-			console.log("#" + red.toString(16) +""+ grn.toString(16) +""+ blu.toString(16));
+			svgBelseje.getElementById("szazalek").style.display = "";
+			
+			console.log(percent + "..." +red + "#" + red.toString(16) +""+ grn.toString(16) +""+ blu.toString(16));
 		
-			let circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+			let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
 			circle.id = megye + "_circle";
 			circle.setAttribute("cx", 100);
 			circle.setAttribute("cy", 100);
-			circle.setAttribute("r", 100);
+			circle.setAttribute("r", 110);
 			circle.setAttribute("fill", "#" + red.toString(16) +""+ grn.toString(16) +""+ blu.toString(16));
 			circle.setAttribute("stroke", "black");
 			circle.setAttribute("strokeWidth", 0);
