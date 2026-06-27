@@ -9,8 +9,8 @@ let kék = ["Vas", "Somogy", "Budapest", "Nógrád", "Hajdú-Bihar"];
 
 var megyeStat = [];
 
-let pacman = true;
-let color = false;
+let pacman = false;
+let color = true;
 
 if (typeof getParam == 'undefined') {
     var getParam = "";
