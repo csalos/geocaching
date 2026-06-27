@@ -16,8 +16,10 @@ if (typeof getPart == "undefined") {
 if (typeof getStyle == "undefined") {
     var getStyle = "pacman";
 }
-               
-megyeStatLekérése();
+
+window.addEventListener('load', function() {
+	megyeStatLekérése();
+});
 
 async function megyeStatLekérése() {
 	try {
