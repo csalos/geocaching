@@ -11,6 +11,10 @@ var megyeStat = [];
 
 let pacman = true;
 let color = false;
+
+if (typeof variable !== 'undefined') {
+    let getParam = "";
+}
                
 megyeStatLekérése();
 
