@@ -44,12 +44,12 @@ function svgManipulator() {
 	const svgBelseje = svgObjektum.contentDocument;
 
 	switch(getParam) {
-	  	case "noWtr": 
+	  	case "Rd": 
 	  		rejt(svgBelseje, "folyók");
 	  		break;
 	  	case "none": 
 	  		rejt(svgBelseje, "folyók");
-	  	case "noRd": 
+	  	case "Wtr": 
 	  		rejt(svgBelseje, "úthálózat");
 	  		break;
 	}
