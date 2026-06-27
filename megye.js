@@ -13,7 +13,7 @@ let pacman = true;
 let color = false;
 
 if (typeof getParam == 'undefined') {
-    let getParam = "";
+    var getParam = "";
 }
                
 megyeStatLekérése();
