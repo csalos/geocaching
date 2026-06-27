@@ -75,7 +75,7 @@ function svgManipulator() {
 			case sárga.includes(megye): break;
 		}
 		
-		if(getStyle = "pacman") {
+		if(getStyle == "pacman") {
 			let start = "M 100 100 L 100 200 A 100 100, 0, ";
 			let end = " Z";
 			let rad = percent * 3.6 * (Math.PI / 180);
@@ -94,7 +94,7 @@ function svgManipulator() {
 				path.setAttribute("d", "M 100 200 A 100 100, 0, 0, 0, 100 0 A 100 100, 0, 0, 0, 100 200 Z");
 			}
 			pattern.appendChild(path);
-		} else if(getStyle = "color") {
+		} else if(getStyle == "color") {
 			cr = [ 0, 15, 15,  0];
 			cg = [ 0,  0, 15,  8];
 			cb = [15, 15,  0, 15];
