@@ -23,6 +23,7 @@ window.addEventListener('load', function() {
 
 async function megyeStatLekérése() {
 	try {
+		await delay(5000);
 		//megyei statisztika lekérése
     	const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
 	    const jsn = await response.json();
