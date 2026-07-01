@@ -31,7 +31,10 @@ async function megyeStatLekérése() {
     	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg");
 		
 		const svgBelseje = svgObjektum.contentDocument;
-		document.getElementById("megyeterkep").innerhtml = svgBelseje;
+		document.getElementById("megyeterkep").innerhtml = svgObjektum;
+
+		console.log(svgObjektum);
+		console.log(svgBelseje);
 		
 	    const jsn = await response.json();
 	
