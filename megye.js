@@ -34,8 +34,7 @@ async function megyeStatLekérése() {
 		
 		        // Már elérhető az SVG
 		        const svgBelseje = document.querySelector("#megyeterkep svg");
-		
-		        console.log(svgObjektum);
+				
 				console.log(svgBelseje);
 		    });
 		
