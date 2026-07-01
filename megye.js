@@ -25,6 +25,15 @@ async function megyeStatLekérése() {
 	try {
 		//megyei statisztika lekérése
     	const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
+		
+	    const jsn = await response.json();
+	
+		for (const elem of jsn) {
+			console.log(elem.terulet +": "+ elem.F);
+			// megtalált/összes*100%
+			megyeStat.push([elem.terulet, elem.F/elem.S*100]);
+	  	}
+		
     	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg")
     		.then(response => response.text())
     		.then(svgText => {
@@ -36,16 +45,8 @@ async function megyeStatLekérése() {
 		        const svgBelseje = document.querySelector("#megyeterkep svg");
 				
 				console.log(svgBelseje);
+				svgManipulator(svgBelseje);
 		    });
-		
-	    const jsn = await response.json();
-	
-		for (const elem of jsn) {
-			console.log(elem.terulet +": "+ elem.F);
-			// megtalált/összes*100%
-			megyeStat.push([elem.terulet, elem.F/elem.S*100]);
-	  	}
-		svgManipulator(svgBelseje);
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
 	}
