@@ -45,7 +45,7 @@ async function megyeStatLekérése() {
 			// megtalált/összes*100%
 			megyeStat.push([elem.terulet, elem.F/elem.S*100]);
 	  	}
-		svgManipulator(svgObjektum);
+		svgManipulator(svgBelseje);
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
 	}
