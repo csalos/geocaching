@@ -1,6 +1,6 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
-document.write('<object id="megyeterkep" data="https://csalos.github.io/geocaching/megye.svg" type="image/svg+xml" width="100%" height="474px">Sajnos a böngésződ nem támogatja az SVG-t.</object>');
+document.write('<object id="megyeterkep" type="image/svg+xml" width="100%" height="474px">Sajnos a böngésződ nem támogatja az SVG-t.</object>');
  
 
 let zöld = ["Zala", "Fejér", "Csongrád-Csanád", "Borsod-Abaúj-Zemplén"];
@@ -28,6 +28,9 @@ async function megyeStatLekérése() {
 		await delay(5000);
 		//megyei statisztika lekérése
     	const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
+    	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg");
+		
+		const svgBelseje = svgObjektum.contentDocument;
 	    const jsn = await response.json();
 	
 		for (const elem of jsn) {
@@ -35,7 +38,7 @@ async function megyeStatLekérése() {
 			// megtalált/összes*100%
 			megyeStat.push([elem.terulet, elem.F/elem.S*100]);
 	  	}
-		svgManipulator();
+		svgManipulator(svgObjektum);
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
 	}
@@ -48,12 +51,7 @@ function mutat(svgBelseje, what) {
 	svgBelseje.getElementById(what).style.display = "";
 }
 
-function svgManipulator() {
-	const svgObjektum = document.getElementById("megyeterkep");
-	const svgBelseje = svgObjektum.contentDocument;
-
-	console.log(svgObjektum);
-	console.log(svgBelseje);
+function svgManipulator(svgBelseje) {
 
 	switch(getPart) {
 	  	case "Rd": 
@@ -133,5 +131,6 @@ function svgManipulator() {
 		}
 		
 		svgBelseje.getElementById("defs").appendChild(pattern);
+		document.getElementById("megyeterkep").innerhtml = svgBelseje;
 	}
 }
