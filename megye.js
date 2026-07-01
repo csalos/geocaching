@@ -10,8 +10,6 @@ let kék = ["Veszprém", "Tolna", "Pest", "Békés"];
 
 var megyeStat = [];
 
-const delay = ms => new Promise(res => setTimeout(res, ms));
-
 if (typeof getPart == "undefined") {
     var getPart = "";
 }
@@ -25,7 +23,6 @@ window.addEventListener('load', function() {
 
 async function megyeStatLekérése() {
 	try {
-		await delay(5000);
 		//megyei statisztika lekérése
     	const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
     	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg")
