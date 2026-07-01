@@ -52,6 +52,9 @@ function svgManipulator() {
 	const svgObjektum = document.getElementById("megyeterkep");
 	const svgBelseje = svgObjektum.contentDocument;
 
+	console.log(svgObjektum);
+	console.log(svgBelseje);
+
 	switch(getPart) {
 	  	case "Rd": 
 	  		rejt(svgBelseje, "folyók");
