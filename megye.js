@@ -31,6 +31,8 @@ async function megyeStatLekérése() {
     	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg");
 		
 		const svgBelseje = svgObjektum.contentDocument;
+		document.getElementById("megyeterkep").innerhtml = svgBelseje;
+		
 	    const jsn = await response.json();
 	
 		for (const elem of jsn) {
@@ -131,6 +133,5 @@ function svgManipulator(svgBelseje) {
 		}
 		
 		svgBelseje.getElementById("defs").appendChild(pattern);
-		document.getElementById("megyeterkep").innerhtml = svgBelseje;
 	}
 }
