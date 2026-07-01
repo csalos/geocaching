@@ -28,13 +28,19 @@ async function megyeStatLekérése() {
 		await delay(5000);
 		//megyei statisztika lekérése
     	const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
-    	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg");
+    	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg")
+    		.then(response => response.text())
+    		.then(svgText => {
 		
-		const svgBelseje = svgObjektum.contentDocument;
-		document.getElementById("megyeterkep").innerhtml = svgObjektum;
-
-		console.log(svgObjektum);
-		console.log(svgBelseje);
+		        // Beillesztés egy konténerbe
+		        document.getElementById("megyeterkep").innerHTML = svgText;
+		
+		        // Már elérhető az SVG
+		        const svgBelseje = document.querySelector("#megyeterkep svg");
+		
+		        console.log(svgObjektum);
+				console.log(svgBelseje);
+		    });
 		
 	    const jsn = await response.json();
 	
