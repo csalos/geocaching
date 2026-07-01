@@ -10,6 +10,8 @@ let kék = ["Veszprém", "Tolna", "Pest", "Békés"];
 
 var megyeStat = [];
 
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 if (typeof getPart == "undefined") {
     var getPart = "";
 }
