@@ -1,6 +1,6 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
-document.write('<object id="megyeterkep" type="image/svg+xml" width="100%" height="474px">Sajnos a böngésződ nem támogatja az SVG-t.</object>');
+document.write('<div id="megyeterkep" width="100%" height="474px">Sajnos a böngésződ nem támogatja az SVG-t.</div>');
  
 
 let zöld = ["Zala", "Fejér", "Csongrád-Csanád", "Borsod-Abaúj-Zemplén"];
