@@ -10,7 +10,8 @@ let kék = ["Veszprém", "Tolna", "Pest", "Békés"];
 
 var megyeStat = [];
 
-const urlGet = new URLSearchParams(window.location.search);
+const script = document.currentScript;
+const urlGet = new URL(script.src).searchParams;
 
 const myUserId = urlGet.get("myUserId") || "0";
 const getPart = urlGet.get("getPart") || "";
