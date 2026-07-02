@@ -10,12 +10,11 @@ let kék = ["Veszprém", "Tolna", "Pest", "Békés"];
 
 var megyeStat = [];
 
-if (typeof getPart == "undefined") {
-    var getPart = "";
-}
-if (typeof getStyle == "undefined") {
-    var getStyle = "pacman";
-}
+const urLGet = new URLSearchParams(window.location.search);
+
+const myUserId = urlGet.get("myUserId") || "0";
+const getPart = urlGet.get("getPart") || "";
+const getStyle = urlGet.get("getStyle") || "pacman";
 
 window.addEventListener('load', function() {
 	megyeStatLekérése();
