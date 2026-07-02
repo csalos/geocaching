@@ -13,6 +13,8 @@ var megyeStat = [];
 const script = document.currentScript;
 const urlGet = new URL(script.src).searchParams;
 
+console.log(urlGet.get("myUserId"));
+
 const myUserId = urlGet.get("myUserId") || "0";
 const getPart = urlGet.get("getPart") || "";
 const getStyle = urlGet.get("getStyle") || "pacman";
