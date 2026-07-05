@@ -50,7 +50,7 @@ let arrEvent = [
 		 [6035,"XX05"],
 		 [5239,"20ZS"],
 		 [6045,"XX15"]], "20 éves a geocaching.hu",
-	 	"2021.07.23\n2021.08.16\n2021.10.09\n2025.09.30\n2025.10.23\2026.07.05",
+	 	"2021.07.23\n2021.08.16\n2021.10.09\n2025.09.30\n2025.10.23\n2026.07.05",
 	 	"Gunarasi parkerdő\nÉrsekcsanád\nÉrd - Papi földek\nSashalmi-erdő\nZselic\nSzent Vendel kilátó"], 
     [ 5775, 2019, "Geoszilveszter 2019", "2019.12.30", "Kaposvár"]
 ];
