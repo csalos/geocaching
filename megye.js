@@ -24,6 +24,7 @@ async function megyeStatLekérése() {
 	try {
 		//megyei statisztika lekérése
     	const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
+		if (!response.ok) throw new Error("API hívás sikertelen");
 		
 	    const jsn = await response.json();
 
