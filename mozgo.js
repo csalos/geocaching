@@ -19,8 +19,8 @@ function HoDMozgo(btn) {
 }
 
 //megtalált mozgó listájának lekérése
-var xhrm = new XMLHttpRequest();
-xhrm.open("GET", "https://api.geocaching.hu/xstat?userid="+myUserId, true);
+/*var xhrm = new XMLHttpRequest();
+xhrm.open("GET", ", true);
 xhrm.onreadystatechange = async function() {
 	if(xhrm.readyState === 4 && xhrm.status === 200) {
     	let jános = JSON.parse(xhrm.responseText);
@@ -37,7 +37,30 @@ xhrm.onreadystatechange = async function() {
 		});
     }
 }
-xhrm.send();
+xhrm.send();*/
+
+getMozgoList();
+
+async function getMozgoList() {
+    try {
+        //megtalált mozgók listájának lekérése
+        const response = await fetch("https://api.geocaching.hu/xstat?userid="+myUserId);
+		if (!response.ok) throw new Error("API 1.hívás sikertelen");
+        const jsn = await response.json();
+
+		for(const láda of jános) {
+            await jsonMozgoMolyolo(láda);
+        }
+		//táblázat kiszínezése
+		const rows = document.querySelectorAll('#mozgo tr:nth-child(odd), #event tr:nth-child(odd)');
+		
+		rows.forEach((row, index) => {
+		    row.style.backgroundColor = '#f8f8cf'; // Páratlan sorok színe
+		});
+	} catch (hiba) {
+        console.error("Hiba a lekérésnél:", hiba);
+	}
+}
 
 //megtalált mozgók listájának átmolyolása
 var finds = [];
@@ -45,7 +68,7 @@ async function jsonMozgoMolyolo(láda) {
     try {
         //megtalálások lekérése: dátum és bejegyzés
         const response = await fetch("https://api.geocaching.hu/logfinder?userid="+myUserId+"&fields=date%2Cnotes&cacheid="+láda.id);
-		if (!response.ok) throw new Error("API hívás sikertelen");
+		if (!response.ok) throw new Error("API 2.hívás sikertelen");
         const jsn = await response.json();
 
 		//új sor a táblázatban
