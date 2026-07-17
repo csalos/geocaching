@@ -1,7 +1,6 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
 document.write('<div id="megyeterkep" width="100%" height="474px">Sajnos a böngésződ nem támogatja az SVG-t.</div>');
- 
 
 let zöld = ["Zala", "Fejér", "Csongrád-Csanád", "Borsod-Abaúj-Zemplén"];
 let sárga = ["Vas", "Somogy", "Komárom-Esztergom", "Budapest", "Bács-Kiskun", "Heves", "Hajdú-Bihar"];
@@ -12,8 +11,6 @@ var megyeStat = [];
 
 const script = document.currentScript;
 const urlGet = new URL(script.src).searchParams;
-
-console.log(urlGet.get("myUserId"));
 
 const myUserId = urlGet.get("myUserId") || "0";
 const getPart = urlGet.get("getPart") || "";
@@ -29,12 +26,13 @@ async function megyeStatLekérése() {
     	const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
 		
 	    const jsn = await response.json();
+
+		const megyeStat = jsn.map((elem) { [elem.terulet, elem.F/elem.S*100] });
 	
-		for (const elem of jsn) {
-			console.log(elem.terulet +": "+ elem.F);
+		/*for (const elem of jsn) {
 			// megtalált/összes*100%
 			megyeStat.push([elem.terulet, elem.F/elem.S*100]);
-	  	}
+	  	}*/
 		
     	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg")
     		.then(response => response.text())
@@ -42,11 +40,9 @@ async function megyeStatLekérése() {
 		
 		        // Beillesztés egy konténerbe
 		        document.getElementById("megyeterkep").innerHTML = svgText;
-		
+
 		        // Már elérhető az SVG
 		        const svgBelseje = document.querySelector("#megyeterkep svg");
-				
-				console.log(svgBelseje);
 				svgManipulator(svgBelseje);
 		    });
 	} catch (hiba) {
@@ -75,7 +71,7 @@ function svgManipulator(svgBelseje) {
 	}
 	switch(getStyle) {
 		case "color":
-	  		//mutat(svgBelseje, "százalék");
+	  		mutat(svgBelseje, "százalék");
 	  		break;
 	}
 	
