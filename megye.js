@@ -27,7 +27,7 @@ async function megyeStatLekérése() {
 		
 	    const jsn = await response.json();
 
-		const megyeStat = jsn.map((elem) => { [elem.terulet, elem.F/elem.S*100]});
+		const megyeStat = jsn.map(elem => [elem.terulet, elem.F / elem.S * 100]);
 		console.log(megyeStat);
 	
 		/*for (const elem of jsn) {
