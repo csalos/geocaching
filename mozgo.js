@@ -48,7 +48,7 @@ async function getMozgoList() {
 		if (!response.ok) throw new Error("API 1.hívás sikertelen");
         const jsn = await response.json();
 
-		for(const láda of jános) {
+		for(const láda of jsn) {
             await jsonMozgoMolyolo(láda);
         }
 		//táblázat kiszínezése
