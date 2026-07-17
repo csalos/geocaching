@@ -44,7 +44,8 @@ var finds = [];
 async function jsonMozgoMolyolo(láda) {
     try {
         //megtalálások lekérése: dátum és bejegyzés
-        const response = await fetch("https://api.geocaching.hu/logfinder?userid="+myUserId+"&fields=date%2Cnotes&cacheid="+láda.id);
+        const response = await fetch("https://api.geocaching.hu/logfinder?userid="+myUserId+"&fields=date%2Cnotes&cacheid="+láda.id);a
+		if (!response.ok) throw new Error("API hívás sikertelen");
         const jsn = await response.json();
 
 		//új sor a táblázatban
