@@ -18,27 +18,6 @@ function HoDMozgo(btn) {
     }
 }
 
-//megtalált mozgó listájának lekérése
-/*var xhrm = new XMLHttpRequest();
-xhrm.open("GET", ", true);
-xhrm.onreadystatechange = async function() {
-	if(xhrm.readyState === 4 && xhrm.status === 200) {
-    	let jános = JSON.parse(xhrm.responseText);
-        //jános.forEach(jsonMozgoMolyolo);
-		//megvár hogy feldolgozza a találatokat
-		for(const láda of jános) {
-            await jsonMozgoMolyolo(láda);
-        }
-		//táblázat kiszínezése
-		const rows = document.querySelectorAll('#mozgo tr:nth-child(odd), #event tr:nth-child(odd)');
-		
-		rows.forEach((row, index) => {
-		    row.style.backgroundColor = '#f8f8cf'; // Páratlan sorok színe
-		});
-    }
-}
-xhrm.send();*/
-
 getMozgoList();
 
 async function getMozgoList() {
