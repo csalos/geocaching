@@ -27,13 +27,7 @@ async function megyeStatLekérése() {
 		
 	    const jsn = await response.json();
 
-		const megyeStat = jsn.map(elem => [elem.terulet, elem.F / elem.S * 100]);
-		console.log(megyeStat);
-	
-		/*for (const elem of jsn) {
-			// megtalált/összes*100%
-			megyeStat.push([elem.terulet, elem.F/elem.S*100]);
-	  	}*/
+		megyeStat = jsn.map(elem => [elem.terulet, elem.F / elem.S * 100]);
 		
     	const svgObjektum = await fetch("https://csalos.github.io/geocaching/megye.svg")
     		.then(response => response.text())
