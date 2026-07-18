@@ -1,5 +1,5 @@
 
-document.write("<button style='height: 100%; width: 100%' onclick='HoD(this)'>Kinyit</button>");
+document.write("<button style='height: 100%; width: 100%' onclick='HoD(this)'>Statisztika kinyitása</button>");
 
 var sh= false;
 var divStats = document.getElementById("divStats");
