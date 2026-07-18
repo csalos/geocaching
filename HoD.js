@@ -6,11 +6,11 @@ var divStats = document.getElementById("divStats");
 function HoD(btn) {
 	if(sh) {
 		divStats.style.display = "none";
-		btn.innerHTML = "Kinyit";
+		btn.innerHTML = "Statisztika kinyitása";
 		sh = false;
     } else {
 		divStats.style.display = "";
-		btn.innerHTML = "Összecsuk";
+		btn.innerHTML = "Statisztika összecsukása";
 		sh = true;
     }
 }
