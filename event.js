@@ -1,8 +1,6 @@
 var tableEvent = '<table width="100%" id="event" style="white-space: pre;"><tr><th colspan="4">Esemény ládák</th></tr><tbody id="tbEvent" style="display: none"><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Hol?</th></tr><tr id="rowsEvent"></tr></tbody></table>';
 document.write(tableEvent);
 
-var tbEvent = document.getElementById("tbEvent");
-
 let arrEvent = [ 
     [ 6767, "50FV", "L. Geocaching Fesztivál és Verseny", "2026.05.16", "Sasrét"], 
     [ 0, 
