@@ -1,22 +1,9 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
-var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><td colspan="5"><button style="height: 100%; width: 100%" onclick="HoDMozgo(this)">Kinyit</button></td></tr><tbody id="tbMozgo" style="display: none"><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></tbody></table>'
+var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tbody id="tbMozgo" style="display: none"><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></tbody></table>'
 document.write(tableMozgo);
 
 var tbMozgo = document.getElementById("tbMozgo");
-
-var shM = false;
-function HoDMozgo(btn) {
-	if(shM) {
-		tbMozgo.style.display = "none";
-		btn.innerHTML = "Kinyit";
-		shM = false;
-    } else {
-		tbMozgo.style.display = "";
-		btn.innerHTML = "Összecsuk";
-		shM = true;
-    }
-}
 
 getMozgoList();
 
