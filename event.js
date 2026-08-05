@@ -31,7 +31,7 @@ let arrEvent = [
 		 [6702,"MO16"],
 		 [6729,"MO04"],
 		 [6708,"MO13"]], "Megyei Óriások",
-	 	"2026.03.21\n2026.03.21\n2026.04.10\n2026.04.10\n2026.04.10\n2026.04.10\n2026.06.13\n2026.07.29\n2026.07.29\n2026.07.30\n2026.07.30\n2026.07.31\n2026.07.31",
+	 	"2026.03.21\n2026.03.21\n2026.04.10\n2026.04.10\n2026.04.10\n2026.04.10\n2026.06.13\n2026.07.29\n2026.07.29\n2026.07.30\n2026.07.30\n2026.07.31\n2026.07.31\n2026.08.01",
 		"Sasréti ősbükkös\nGyöngyöspusztai védett tölgyfasor\nKasztói őstölgyes\nIzsáki Csodafa\nKiskörei \"300\" éves tölgy\nA Nagykunság legidősebb tölgyfája\nHorvátország egyetlene\nA Körtvélyesi matuzsálem\nViharsarki matuzsálem\nA remetei korelnök\nBagaméri óriások\nBalkányi felhőkarcoló\nMagyarország legmagasabb fája\nA keselyréti 500 éves tölgyfa"], 
     [ 6695, "2025", "Geoszilveszter 2025", "2025.12.31", "Somogyvár"], 
     [ 6694, "XM25", "Geokarácsony 2025", "2025.12.23", "Fonyód"], 
