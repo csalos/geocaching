@@ -71,12 +71,14 @@ function addEvent(arr) {
 	        tr.appendChild(td);
 	    }
     } else {
-        let link = arr[2];
 		let td_id = document.createElement("td");
-		let td = document.createElement("td");
 		let td_dt = document.createElement("td");
 		let td_nm = document.createElement("td");
-        for(let x=0; x<link.length; x++) {
+		
+		let td = document.createElement("td");
+		td.appendChild(document.createTextNode(arr[1]));
+		
+        for(let x=0, link = arr[2]; x<link.length; x++) {
             let b = document.createElement('a');
             b.href = 'https://geocaching.hu/caches.geo?id='+link[x][0];
             b.appendChild(document.createTextNode("GC"+link[x][1]));
@@ -88,7 +90,7 @@ function addEvent(arr) {
             td_nm.appendChild(document.createElement('br'));
         }
 		tr.appendChild(td_id); //id és link
-		tr.appendChild(td.appendChild(document.createTextNode(arr[1]))); //csoport név
+		tr.appendChild(td); //csoport név
 		tr.appendChild(td_dt); //megtalálás napja
 		tr.appendChild(td_nm); //láda neve
     }
