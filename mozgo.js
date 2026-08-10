@@ -60,7 +60,6 @@ function jsonMozgoMolyolo(láda, logs) {
 	//mikor, honnan, hová
 	let f = ["", "", ""];
 	for(let i=0; i<finds.length; i++) {
-		if(finds[i] === null) finds[i] = ["","",""];
 		f[0] = f[0].concat(finds[i][0], (finds.length>1)?"\n":"");
 		f[1] = f[1].concat(finds[i][1], (finds.length>1)?"\n":"");
 		f[2] = f[2].concat(finds[i][2]??"Maradt", (finds.length>1)?"\n":"");
@@ -86,12 +85,12 @@ function kiíró(log) {
     // Az összes találat kinyerése
     const matches = [...text.matchAll(regex)];
 	
+	const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
+	
 	// ha üres lenne a notes
 	// vagy nincs benne a "hely" marker
 	//		-> ékelünk és szakítunk
-	if (matches.length === 0) return null;
-
-	const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
+	if (matches.length === 0) return [dátum, "", ""];
 
 	return matches.map(match => {
 		const content = match[1];
