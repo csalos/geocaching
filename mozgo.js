@@ -59,7 +59,8 @@ function jsonMozgoMolyolo(láda, logs) {
 	    
 	//mikor, honnan, hová
 	let f = ["", "", ""];
-	for(let i=0; i<finds.length; i++) { 
+	for(let i=0; i<finds.length; i++) {
+		if(finds[i] === null) finds[i] = ["","",""];
 		f[0] = f[0].concat(finds[i][0], (finds.length>1)?"\n":"");
 		f[1] = f[1].concat(finds[i][1], (finds.length>1)?"\n":"");
 		f[2] = f[2].concat(finds[i][2]??"Maradt", (finds.length>1)?"\n":"");
