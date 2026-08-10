@@ -80,19 +80,31 @@ function jsonMozgoMolyolo(láda, logs) {
 function kiíró(log) {
 	text = log.notes;	
     // A regex: megkeresi a ___ közötti részeket
-    const regex = /___(.*?)___/g;
+    const regex = /___(.*?)___/;
 
     // Az összes találat kinyerése
-    const matches = [...text.matchAll(regex)];
+    //const matches = [...text.matchAll(regex)];
+    const match = text.matchAll(regex);
 	
 	const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
 	
 	// ha üres lenne a notes
 	// vagy nincs benne a "hely" marker
 	//		-> ékelünk és szakítunk
-	if (matches.length === 0) return [[dátum, "", ""]];
+	if (matches.length === 0) return [dátum, "", ""];
 
-	return matches.map(match => {
+	const content = match[1];
+	const parts = content.split('_');
+
+	if (parts.length === 2) {
+		console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
+		return [dátum, parts[0], parts[1]];
+	} else {
+		console.log("Típus: Helyszín | Hol: "+parts[0]);
+		return [dátum, parts[0]];
+	}
+
+	/*return matches.map(match => {
 		const content = match[1];
 		const parts = content.split('_');
 
@@ -103,5 +115,5 @@ function kiíró(log) {
 			//console.log("Típus: Helyszín | Hol: "+parts[0]);
 			return [dátum, parts[0]];
 		}
-	});
+	});*/
 }
