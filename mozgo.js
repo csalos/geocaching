@@ -8,12 +8,19 @@ getMozgoList();
 async function getMozgoList() {
     try {
         //megtalált mozgók listájának lekérése
-        const response = await fetch("https://api.geocaching.hu/xstat?userid="+myUserId);
-		if (!response.ok) throw new Error("API 1.hívás sikertelen");
-        const jsn = await response.json();
+        const response1 = await fetch("https://api.geocaching.hu/xstat?userid="+myUserId);
+		if (!response1.ok) throw new Error("API 1.hívás sikertelen");
+        const jsn1 = await response1.json();
 
-		for(const láda of jsn) {
-            await jsonMozgoMolyolo(láda);
+		//megtalálások lekérése: dátum és bejegyzés
+        const response2 = await fetch("https://api.geocaching.hu/logsbyuser?fields=cache_id%2Cdate%2Cnotes%2Clogtype&dir=asc&userid="+myUserId);
+		if (!response2.ok) throw new Error("API 2.hívás sikertelen");
+        const jsn2 = await response2.json();
+
+		for(const láda of jsn1) {
+			// Szűrés
+			const talalatok = jsn2.filter(elem => elem.cache_id === láda.id && elem.logtype==="1");
+            await jsonMozgoMolyolo(láda, talalatok);
         }
 		//táblázat kiszínezése
 		const rows = document.querySelectorAll('#mozgo tr:nth-child(odd), #event tr:nth-child(odd)');
@@ -28,13 +35,8 @@ async function getMozgoList() {
 
 //megtalált mozgók listájának átmolyolása
 var finds = [];
-async function jsonMozgoMolyolo(láda) {
+async function jsonMozgoMolyolo(láda, logs) {
     try {
-        //megtalálások lekérése: dátum és bejegyzés
-        const response = await fetch("https://api.geocaching.hu/logfinder?userid="+myUserId+"&fields=date%2Cnotes&cacheid="+láda.id);
-		if (!response.ok) throw new Error("API 2.hívás sikertelen");
-        const jsn = await response.json();
-
 		//új sor a táblázatban
 		let tr = document.createElement("tr"); 
 	    //láda azonosító és link
@@ -52,7 +54,7 @@ async function jsonMozgoMolyolo(láda) {
 	    tr.appendChild(tdName);
 
 	    finds = [];
-        jsn.forEach(kiíró);
+        logs.forEach(kiíró);
 	    
 		//mikor, honnan, hová
 	    let f = ["", "", ""];
