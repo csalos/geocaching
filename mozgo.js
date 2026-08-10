@@ -83,8 +83,7 @@ function kiíró(log) {
     const regex = /___(.*?)___/g;
 
     // Az összes találat kinyerése
-    //const matches = [...text.matchAll(regex)];
-	const match = text.match(regex);
+    const matches = [...text.matchAll(regex)];
 
     /*matches.forEach(match => {
       const content = match[1];
@@ -114,9 +113,9 @@ function kiíró(log) {
 		}
 	});*/
 	// ha üres lenne a notes -> ékelünk és szakítunk
-	if (!match) return null;
+	if (!matches) return null;
 	
-	const content = match[1]; // A zárójelek közötti rész
+	const content = matches[1]; // A zárójelek közötti rész
 	const parts = content.split('_');
 	const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
 
