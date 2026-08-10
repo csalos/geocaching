@@ -56,8 +56,7 @@ function jsonMozgoMolyolo(láda, logs) {
 	tr.appendChild(tdName);
 
 	let finds = logs.map(kiíró);
-	console.log(finds);
-	    
+
 	//mikor, honnan, hová
 	let f = ["", "", ""];
 	for(let i=0; i<finds.length; i++) {
@@ -83,8 +82,9 @@ function kiíró(log) {
     // A regex: megkeresi a ___ közötti részeket
     const regex = /___(.*?)___/;
 
-    // Az összes találat kinyerése
-    //const matches = [...text.matchAll(regex)];
+    // Az első találat kinyerése
+	// ...csak az elsőre vagyunk kíváncsiak
+	// hiába volt vki buzgó-mócsing és írt többet 
     const match = text.match(regex);
 	
 	const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
@@ -98,23 +98,10 @@ function kiíró(log) {
 	const parts = content.split('_');
 
 	if (parts.length === 2) {
-		console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
+		//console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
 		return [dátum, parts[0], parts[1]];
 	} else {
-		console.log("Típus: Helyszín | Hol: "+parts[0]);
+		//console.log("Típus: Helyszín | Hol: "+parts[0]);
 		return [dátum, parts[0]];
 	}
-
-	/*return matches.map(match => {
-		const content = match[1];
-		const parts = content.split('_');
-
-		if (parts.length === 2) {
-			// console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
-			return [dátum, parts[0], parts[1]];
-		} else {
-			//console.log("Típus: Helyszín | Hol: "+parts[0]);
-			return [dátum, parts[0]];
-		}
-	});*/
 }
