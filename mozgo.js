@@ -55,7 +55,7 @@ function jsonMozgoMolyolo(láda, logs) {
 	tdName.appendChild(txName); 
 	tr.appendChild(tdName);
 
-	let finds = logs.Map(kiíró);
+	let finds = logs.map(kiíró);
 	console.log(finds);
 	    
 	//mikor, honnan, hová
