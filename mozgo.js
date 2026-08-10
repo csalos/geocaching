@@ -8,14 +8,14 @@ getMozgoList();
 async function getMozgoList() {
     try {
         //megtalált mozgók listájának lekérése
-        const response = await fetch("https://api.geocaching.hu/xstat?userid="+myUserId);
-		if (!response.ok) throw new Error("API 1.hívás sikertelen");
-        const jsn1 = await response.json();
+        const response1 = await fetch("https://api.geocaching.hu/xstat?userid="+myUserId);
+		if (!response1.ok) throw new Error("API 1.hívás sikertelen");
+        const jsn1 = await response1.json();
 
 		//megtalálások lekérése: dátum és bejegyzés
-        const response = await fetch("https://api.geocaching.hu/logsbyuser?fields=cache_id%2Cdate%2Cnotes%2Clogtype&dir=asc&userid="+myUserId);
-		if (!response.ok) throw new Error("API 2.hívás sikertelen");
-        const jsn2 = await response.json();
+        const response2 = await fetch("https://api.geocaching.hu/logsbyuser?fields=cache_id%2Cdate%2Cnotes%2Clogtype&dir=asc&userid="+myUserId);
+		if (!response2.ok) throw new Error("API 2.hívás sikertelen");
+        const jsn2 = await response2.json();
 
 		for(const láda of jsn1) {
 			// Szűrés
