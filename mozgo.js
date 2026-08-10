@@ -34,12 +34,10 @@ async function getMozgoList() {
         console.error("Hiba a lekérésnél:", hiba);
 	}
 }
-
 /*megtalált mozgók listájának átmolyolása
 * @param láda [object] - adott mozgóhoz tartozó adatok (név, azonosító)
 * @param logs [array of object] - adott ládára leszűrt log bejegyzések
 */
-var finds = [];
 function jsonMozgoMolyolo(láda, logs) {
 	//új sor a táblázatban
 	let tr = document.createElement("tr"); 
@@ -74,8 +72,10 @@ function jsonMozgoMolyolo(láda, logs) {
 	} 
 	document.getElementById("rowsMozgo").before(tr); 
 }
-/*bejegyzésből kiszedni honnan/hová ment a láda
+/*bejegyzésből kiszedi honnan/hová ment a láda
 * @param log [object] - adott ládára leszűrt log bejegyzés
+* ___Honnan_Hova___ (ekkor tovább lett víve)
+* ___Hol___ (ekkor maradt a mozgó a helyén)
 */
 function kiíró(log) {
 	text = log.notes;	
@@ -85,27 +85,16 @@ function kiíró(log) {
     // Az összes találat kinyerése
     const matches = [...text.matchAll(regex)];
 	
-	// ha üres lenne a notes -> ékelünk és szakítunk
-	if (!matches) return null;
+	// ha üres lenne a notes
+	// vagy nincs benne a "hely" marker
+	//		-> ékelünk és szakítunk
+	if (matches.length === 0) return null;
 
-    /*matches.forEach(match => {
-      const content = match[1];
-      const parts = content.split('_');
-	  const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
-
-      if (parts.length === 2) {
-        //console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
-		return [ dátum, parts[0], parts[1] ];
-      } else {
-        //console.log("Típus: Helyszín | Hol: "+parts[0]);
-		finds.push( [ dátum, parts[0] ] );
-      }
-    });*/
+	const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
 
 	return matches.map(match => {
 		const content = match[1];
 		const parts = content.split('_');
-		const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
 
 		if (parts.length === 2) {
 			// console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
