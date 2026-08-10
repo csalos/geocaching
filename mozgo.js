@@ -83,7 +83,8 @@ function kiíró(log) {
     const regex = /___(.*?)___/g;
 
     // Az összes találat kinyerése
-    const matches = [...text.matchAll(regex)];
+    //const matches = [...text.matchAll(regex)];
+	const match = text.match(regex);
 
     /*matches.forEach(match => {
       const content = match[1];
@@ -99,7 +100,7 @@ function kiíró(log) {
       }
     });*/
 
-	return matches.map(match => {
+	/*return matches.map(match => {
 		const content = match[1];
 		const parts = content.split('_');
 		const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
@@ -111,5 +112,19 @@ function kiíró(log) {
 			//console.log("Típus: Helyszín | Hol: "+parts[0]);
 			return [dátum, parts[0]];
 		}
-	});
+	});*/
+	// ha üres lenne a notes -> ékelünk és szakítunk
+	if (!match) return null;
+	
+	const content = match[1]; // A zárójelek közötti rész
+	const parts = content.split('_');
+	const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
+
+	if (parts.length === 2) {
+		// console.log("Típus: Útvonal | Honnan: "+parts[0]+", Hova: "+parts[1]);
+		return [dátum, parts[0], parts[1]];
+	} else {
+		//console.log("Típus: Helyszín | Hol: "+parts[0]);
+		return [dátum, parts[0]];
+	}
 }
