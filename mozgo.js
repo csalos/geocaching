@@ -90,7 +90,7 @@ function kiíró(log) {
 	// ha üres lenne a notes
 	// vagy nincs benne a "hely" marker
 	//		-> ékelünk és szakítunk
-	if (matches.length === 0) return [dátum, "", ""];
+	if (matches.length === 0) return [[dátum, "", ""]];
 
 	return matches.map(match => {
 		const content = match[1];
