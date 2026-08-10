@@ -84,7 +84,7 @@ function kiíró(log) {
 
     // Az összes találat kinyerése
     //const matches = [...text.matchAll(regex)];
-    const match = text.matchAll(regex);
+    const match = text.match(regex);
 	
 	const dátum = log.date.split(' ')[0].replace(/-/g, '.'); // dátum formátum: yyyy.mm.dd
 	
