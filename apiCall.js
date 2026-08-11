@@ -1,5 +1,5 @@
 // megye statisztika lekérése
-export async function xstat(myUserId) {
+export async function mstat(myUserId) {
   const response = await fetch("https://api.geocaching.hu/mstat?userid="+myUserId);
   if (!response.ok) throw new Error("API hívás sikertelen: mStat");
   const json = await response.json();
