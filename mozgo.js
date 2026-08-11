@@ -1,4 +1,5 @@
 //myUserId = geocaching.hu felhasználói azonosító
+import {xstat,  logsbyuser} from 'https://csalos.github.io/geocaching/apiCall.js';
 
 var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></table>'
 document.write(tableMozgo);
@@ -8,15 +9,11 @@ getMozgoList();
 async function getMozgoList() {
     try {
         //megtalált mozgók listájának lekérése
-        const response1 = await fetch("https://api.geocaching.hu/xstat?userid="+myUserId);
-		if (!response1.ok) throw new Error("API 1.hívás sikertelen");
-        const jsn1 = await response1.json();
+        const jsn1 = await xstat(myUserId);
 
 		//megtalálások lekérése: láda azonosító, dátum, bejegyzés és a log típusa
 		//egybe - hogy ne terheljük le a szervert a sok hívással
-        const response2 = await fetch("https://api.geocaching.hu/logsbyuser?fields=cache_id%2Cdate%2Cnotes%2Clogtype&dir=asc&userid="+myUserId);
-		if (!response2.ok) throw new Error("API 2.hívás sikertelen");
-        const jsn2 = await response2.json();
+        const jsn2 = await logsbyuser(myUserId);
 
 		for(const láda of jsn1) {
 			// megtalálásokból leszűrjük az adott mozgóhoz tartozókat, ha a bejegyzés típusa "1" - azaz "megtalált" 
