@@ -6,13 +6,13 @@ getMozgoList();
 
 async function getMozgoList() {
     try {
-		const api = await import('https://csalos.github.io/geocaching/apiCall.js');
+		const {xstat, logsbyuser} = await import('https://csalos.github.io/geocaching/apiCall.js');
         //megtalált mozgók listájának lekérése
-        const jsn1 = await api.xstat(myUserId);
+        const jsn1 = await xstat(myUserId);
 
 		//megtalálások lekérése: láda azonosító, dátum, bejegyzés és a log típusa
 		//egybe - hogy ne terheljük le a szervert a sok hívással
-        const jsn2 = await api.logsbyuser(myUserId);
+        const jsn2 = await logsbyuser(myUserId);
 
 		for(const láda of jsn1) {
 			// megtalálásokból leszűrjük az adott mozgóhoz tartozókat, ha a bejegyzés típusa "1" - azaz "megtalált" 
