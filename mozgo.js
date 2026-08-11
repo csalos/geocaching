@@ -9,11 +9,11 @@ getMozgoList();
 function getMozgoList() {
     try {
         //megtalált mozgók listájának lekérése
-        const jsn1 = await xstat(myUserId);
+        const jsn1 = xstat(myUserId);
 
 		//megtalálások lekérése: láda azonosító, dátum, bejegyzés és a log típusa
 		//egybe - hogy ne terheljük le a szervert a sok hívással
-        const jsn2 = await logsbyuser(myUserId);
+        const jsn2 = logsbyuser(myUserId);
 
 		for(const láda of jsn1) {
 			// megtalálásokból leszűrjük az adott mozgóhoz tartozókat, ha a bejegyzés típusa "1" - azaz "megtalált" 
