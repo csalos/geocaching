@@ -76,7 +76,7 @@ function jsonMozgoMolyolo(láda, logs) {
 * ___Hol___ (ekkor maradt a mozgó a helyén)
 */
 function kiíró(log) {
-	text = log.notes;	
+	let text = log.notes;	
     // A regex: megkeresi a ___ közötti részeket
     const regex = /___(.*?)___/;
 
