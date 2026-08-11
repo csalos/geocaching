@@ -1,20 +1,18 @@
 //myUserId = geocaching.hu felhasználói azonosító
-import {xstat,  logsbyuser} from 'https://csalos.github.io/geocaching/apiCall.js';
-
-var div = document.getElementById("divM");
 var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></table>'
-div.innerHTML = tableMozgo;
+document.write(tableMozgo);
 
 getMozgoList();
 
 async function getMozgoList() {
     try {
+		const api = await import('https://csalos.github.io/geocaching/apiCall.js');
         //megtalált mozgók listájának lekérése
-        const jsn1 = await xstat(myUserId);
+        const jsn1 = await api.xstat(myUserId);
 
 		//megtalálások lekérése: láda azonosító, dátum, bejegyzés és a log típusa
 		//egybe - hogy ne terheljük le a szervert a sok hívással
-        const jsn2 = await logsbyuser(myUserId);
+        const jsn2 = await api.logsbyuser(myUserId);
 
 		for(const láda of jsn1) {
 			// megtalálásokból leszűrjük az adott mozgóhoz tartozókat, ha a bejegyzés típusa "1" - azaz "megtalált" 
