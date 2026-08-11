@@ -1,8 +1,9 @@
 //myUserId = geocaching.hu felhasználói azonosító
 import {xstat,  logsbyuser} from 'https://csalos.github.io/geocaching/apiCall.js';
 
+var div = document.getElementById("divM");
 var tableMozgo = '<table width="100%" id="mozgo" style="white-space: pre;"><tr><th colspan="5">Mozgó ládák</th></tr><tr><th width="66px">Azonosító</th><th>Név</th><th width="75px">Mikor?</th><th width="100px">Honnan?</th><th width="100px">Hová?</th></tr><tr id="rowsMozgo"></tr></table>'
-document.write(tableMozgo);
+div.innerHTML = tableMozgo;
 
 getMozgoList();
 
