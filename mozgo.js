@@ -6,7 +6,7 @@ document.write(tableMozgo);
 
 getMozgoList();
 
-async function getMozgoList() {
+function getMozgoList() {
     try {
         //megtalált mozgók listájának lekérése
         const jsn1 = await xstat(myUserId);
