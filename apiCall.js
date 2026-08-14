@@ -49,9 +49,9 @@ export async function getRecord(what, myUserId) {
     try {
         let url = "";
         switch(what) {
-            mozgo: url = "https://api.geocaching.hu/xstat?userid="; break;
-            megye: url = "https://api.geocaching.hu/mstat?userid="; break;
-            logok: 
+            "mozgo": url = "https://api.geocaching.hu/xstat?userid="; break;
+            "megye": url = "https://api.geocaching.hu/mstat?userid="; break;
+            "logok": 
             default: url = "https://api.geocaching.hu/logsbyuser?fields=cache_id%2Cdate%2Cnotes%2Clogtype&dir=asc&userid="; break;
         }
         const response = await fetch(url + myUserId);
