@@ -23,11 +23,11 @@ export async function logsbyuser(myUserId) {
 }
 
 // --- KONFIGURÁCIÓ ---
-const STORAGE_KEY = "csalos_api_storage";         // A tároló kulcsa a sessionStorage-ben
-const TIMESTAMP_KEY = "csalos_api_time";     // Az időbélyeg kulcsa
-const EXPIRATION_TIME_MS = 15 * 60 * 1000;         // 15 perc ezredmásodpercben (15 * 60 * 1000)
+const STORAGE_KEY = "csacsi_api_storage";    // A tároló kulcsa a sessionStorage-ben
+const TIMESTAMP_KEY = "csacsi_api_time";    // Az időbélyeg kulcsa
+const EXPIRATION_TIME_MS = 15 * 60 * 1000;  // 15 perc ezredmásodpercben (15 * 60 * 1000)
 
-async function getRecords(what) {
+export async function getRecord(what, myUserId) {
     const now = Date.now();
     
     // 1. Adatok és időbélyeg lekérése a tárolóból
@@ -39,7 +39,7 @@ async function getRecords(what) {
         const age = now - parseInt(cachedTimestamp, 10);
         
         if (age < EXPIRATION_TIME_MS) {
-            console.log("--> Adatok a gyorsítótárból (sessionStorage) betöltve.");
+            console.log("--> Adatok a gyorsítótárból betöltve.");
             return JSON.parse(cachedData);
         }
     }
@@ -49,10 +49,13 @@ async function getRecords(what) {
     try {
         let url = "";
         switch(what) {
-            mozgo: url = "https://api.geocaching.hu/xstat?userid="+myUserId; break;
-            megye: url = "https://api.geocaching.hu/mstat?userid="+myUserId"
+            mozgo: url = "https://api.geocaching.hu/xstat?userid="; break;
+            megye: url = "https://api.geocaching.hu/mstat?userid="; break;
+            logok: 
+            default: url = "https://api.geocaching.hu/logsbyuser?fields=cache_id%2Cdate%2Cnotes%2Clogtype&dir=asc&userid="; break;
         }
-
+        const response = await fetch(url + myUserId);
+        if (!response.ok) throw new Error("API hívás sikertelen: " + what);
         const freshData = await response.json();
 
         // 4. Mentési kísérlet a sessionStorage-be
