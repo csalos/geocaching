@@ -6,7 +6,7 @@ getMozgoList();
 
 async function getMozgoList() {
     try {
-		const {xstat, logsbyuser} = await import('https://csalos.github.io/geocaching/apiCall.js');
+		const {xstat, getRecord} = await import('https://csalos.github.io/geocaching/apiCall.js');
         //megtalált mozgók listájának lekérése
         const jsn1 = await xstat(myUserId);
 
