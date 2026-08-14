@@ -31,8 +31,8 @@ export async function getRecord(what, myUserId) {
     const now = Date.now();
     
     // 1. Adatok és időbélyeg lekérése a tárolóból
-    const cachedData = sessionStorage.getItem(STORAGE_KEY + what);
-    const cachedTimestamp = sessionStorage.getItem(TIMESTAMP_KEY);
+    const cachedData = localStorage.getItem(STORAGE_KEY + what);
+    const cachedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
 
     // 2. Ellenőrzés: Megvan-e az adat, és nem járt-e még le az idő?
     if (cachedData && cachedTimestamp) {
@@ -58,10 +58,10 @@ export async function getRecord(what, myUserId) {
         if (!response.ok) throw new Error("API hívás sikertelen: " + what);
         const freshData = await response.json();
 
-        // 4. Mentési kísérlet a sessionStorage-be
+        // 4. Mentési kísérlet a localStorage-be
         try {
-            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(freshData));
-            sessionStorage.setItem(TIMESTAMP_KEY, now.toString());
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(freshData));
+            localStorage.setItem(TIMESTAMP_KEY, now.toString());
             console.log("--> Új adatok sikeresen elmentve a sessionStorage-be.");
         } catch (storageError) {
             // Ez fut le, ha pl. betelik az 5 MB-os limit (QuotaExceededError)
