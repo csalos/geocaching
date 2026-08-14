@@ -39,7 +39,7 @@ export async function getRecord(what, myUserId) {
 
         // 4. Mentési kísérlet a localStorage-be
         try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(freshData));
+            localStorage.setItem(STORAGE_KEY + what, JSON.stringify(freshData));
             localStorage.setItem(TIMESTAMP_KEY, now.toString());
             console.log("--> Új adatok sikeresen elmentve a sessionStorage-be.");
         } catch (storageError) {
