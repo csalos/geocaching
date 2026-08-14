@@ -13,9 +13,14 @@ export async function getRecord(what, myUserId) {
     const cachedData = localStorage.getItem(STORAGE_KEY + what);
     const cachedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
 
+    console.log(now);
+    console.log(cachedTimestamp)
+
     // 2. Ellenőrzés: Megvan-e az adat, és nem járt-e még le az idő?
     if (cachedData && cachedTimestamp) {
         const age = now - parseInt(cachedTimestamp, 10);
+
+        console.log("age:" + age + " - exp:" + EXPIRATION_TIME_MS);
         
         if (age < EXPIRATION_TIME_MS) {
             console.log("--> Adatok a gyorsítótárból betöltve.");
@@ -41,10 +46,10 @@ export async function getRecord(what, myUserId) {
         try {
             localStorage.setItem(STORAGE_KEY + what, JSON.stringify(freshData));
             localStorage.setItem(TIMESTAMP_KEY, now.toString());
-            console.log("--> Új adatok sikeresen elmentve a sessionStorage-be.");
+            console.log("--> Új adatok sikeresen elmentve a localStorage-be.");
         } catch (storageError) {
             // Ez fut le, ha pl. betelik az 5 MB-os limit (QuotaExceededError)
-            console.warn("!! Nem sikerült menteni a sessionStorage-be (lehet, hogy betelt az 5MB limit):", storageError);
+            console.warn("!! Nem sikerült menteni a localStorage-be (lehet, hogy betelt az 5MB limit):", storageError);
         }
 
         return freshData;
