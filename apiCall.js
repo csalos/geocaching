@@ -7,20 +7,16 @@ const EXPIRATION_TIME_MS = 15 * 60 * 1000;  // 15 perc ezredmásodpercben (15 * 
 // mozgó statisztika lekérése
 // összes log lekérése
 export async function getRecord(what, myUserId) {
+    console.log("--> Adatok bekérése: " + what);
     const now = Date.now();
     
     // 1. Adatok és időbélyeg lekérése a tárolóból
     const cachedData = localStorage.getItem(STORAGE_KEY + what);
     const cachedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
 
-    console.log(now);
-    console.log(cachedTimestamp)
-
     // 2. Ellenőrzés: Megvan-e az adat, és nem járt-e még le az idő?
     if (cachedData && cachedTimestamp) {
         const age = now - parseInt(cachedTimestamp, 10);
-
-        console.log("age:" + age + " - exp:" + EXPIRATION_TIME_MS);
         
         if (age < EXPIRATION_TIME_MS) {
             console.log("--> Adatok a gyorsítótárból betöltve.");
