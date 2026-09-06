@@ -1,0 +1,283 @@
+{
+	"lists": ["BBxx", "BKZA", "CAVE", "Eez", "H1HX", "kisv", "REPZ", "SFZA", "SZIL", "Aszu", "BFX", "MFX", "MTB6", "PVX", "Sch", "TIRZ"],
+	"BBxx": {
+		"name": "Barlangolások a Bükkben",
+		"size": [6 , 4],
+		"items": [
+			{ "name": "letr", "id": 288 },
+			{ "name": "UDVA", "id": 410 },
+			{ "name": "Zsen", "id": 629 },
+			{ "name": "koly", "id": 683 },
+			{ "name": "DLY" , "id": 3798 },
+			{ "name": "NOBA", "id": 4502 },
+			{ "name": "SEBA", "id": 4893 },
+			{ "name": "BALG", "id": 4894 },
+			{ "name": "MEEE", "id": 4903 },
+			{ "name": "tavm", "id": 5381 },
+			{ "name": "Suba", "id": 5590 },
+			{ "name": "BB01", "id": 5792 },
+			{ "name": "BB02", "id": 5794 },
+			{ "name": "BB03", "id": 5796 },
+			{ "name": "BB04", "id": 5797 },
+			{ "name": "BB05", "id": 5800 },
+			{ "name": "BB06", "id": 5801 },
+			{ "name": "BB07", "id": 5806 },
+			{ "name": "BB08", "id": 5807 },
+			{ "name": "BB09", "id": 5808 },
+			{ "name": "BB10", "id": 5809 },
+			{ "name": "BB11", "id": 5811 },
+			{ "name": "BBxx", "id": 5799, "span": 2 }
+		]
+	}, "BKZA": {
+		"name": "Bükki források",
+		"size": [6 , 2],
+		"items": [
+			{ "name": "bk01", "id": 5014 },
+			{ "name": "bk02", "id": 5016 },
+			{ "name": "bk03", "id": 5018 },
+			{ "name": "bk04", "id": 5020 },
+			{ "name": "bk05", "id": 5022 },
+			{ "name": "bk06", "id": 5023 },
+			{ "name": "bk07", "id": 5025 },
+			{ "name": "bk08", "id": 5032 },
+			{ "name": "bk09", "id": 5035 },
+			{ "name": "bk10", "id": 5036 },
+			{ "name": "BKZA", "id": 5073, "span": 2 }
+		]
+	}, "CAVE": {
+		"name": "Bakonyi Barlangolások",
+		"size": [6 , 4],
+		"items": [
+			{ "name": "ODVA", "id": 98 },
+			{ "name": "KoOr", "id": 100 },
+			{ "name": "Lika", "id": 1247 },
+			{ "name": "666" , "id": 1290 },
+			{ "name": "CSNG", "id": 1531 },
+			{ "name": "HBPL", "id": 1644 },
+			{ "name": "TUZ" , "id": 1833 },
+			{ "name": "SKO" , "id": 1943 },
+			{ "name": "BB"  , "id": 2442 },
+			{ "name": "POK" , "id": 2632 },
+			{ "name": "BUJO", "id": 2914 },
+			{ "name": "KLIK", "id": 2915 },
+			{ "name": "HLK" , "id": 3213 },
+			{ "name": "BOBA", "id": 3487 },
+			{ "name": "PORG", "id": 3480 },
+			{ "name": "PKL" , "id": 3653 },
+			{ "name": "KOPC", "id": 5065 },
+			{ "name": "AREG", "id": 5140 },
+			{ "name": "ELVB", "id": 5419 },
+			{ "name": "VKBG", "id": 5953 },
+			{ "name": "TLIK", "id": 5954 },
+			{ "name": "OKVB", "id": 5963 },
+			{ "name": "CAVE", "id": 5959, "span": 2 }
+		]
+	}, "Eez": {
+		"name": "Erdészek emlékére záróláda",
+		"size": [6 , 4],
+		"items": [
+			{ "name": "ASOT", "id": 154 },
+			{ "name": "3hat", "id": 369 },
+			{ "name": "KAPU", "id": 895 },
+			{ "name": "tszk", "id": 1229 },
+			{ "name": "TPt" , "id": 1525 },
+			{ "name": "DeNa", "id": 1712 },
+			{ "name": "PERU", "id": 1830 },
+			{ "name": "VTYN", "id": 1961 },
+			{ "name": "GATO", "id": 2431 },
+			{ "name": "CSAC", "id": 2706 },
+			{ "name": "FARE", "id": 2919 },
+			{ "name": "TF"  , "id": 2979 },
+			{ "name": "MEER", "id": 3557 },
+			{ "name": "VTYM", "id": 3645 },
+			{ "name": "Erem", "id": 4227 },
+			{ "name": "PV02", "id": 4831 },
+			{ "name": "MT01", "id": 4926 },
+			{ "name": "AFF1", "id": 5058 },
+			{ "name": "MHa" , "id": 5224 },
+			{ "name": "Ee1" , "id": 5379 },
+			{ "name": "Ee2" , "id": 5464 },
+			{ "name": "Ee3" , "id": 5639 },
+			{ "name": "Eez" , "id": 5640, "span": 2 }
+		]
+	}, "H1HX": {
+		"name": "Börzsöny rejtett bércei",
+		"size": [5 , 1],
+		"items": [
+			{ "name": "H1H1", "id": 6331 },
+			{ "name": "H1H2", "id": 6466 },
+			{ "name": "H1H3", "id": 6554 },
+			{ "name": "H1H4", "id": 6332 },
+			{ "name": "H1Hx", "id": 6563 }
+		]
+	}, "kisv": {
+		"name": "Magyarországi kisvasutak",
+		"size": [7 , 4],
+		"items": [
+			{ "name": "KoKa", "id": 59 },
+			{ "name": "sosz", "id": 84 },
+			{ "name": "KVNB", "id": 221 },
+			{ "name": "Szvo", "id": 433 },
+			{ "name": "GEME", "id": 529 },
+			{ "name": "Cenk", "id": 579 },
+			{ "name": "ando", "id": 675 },
+			{ "name": "zs1" , "id": 777 },
+			{ "name": "NABO", "id": 850 },
+			{ "name": "sihu", "id": 864 },
+			{ "name": "KAPU", "id": 895 },
+			{ "name": "ZSUV", "id": 935 },
+			{ "name": "PKVU", "id": 956 },
+			{ "name": "FAEV", "id": 986 },
+			{ "name": "KEEM", "id": 1023 },
+			{ "name": "CSMD", "id": 1024 },
+			{ "name": "KiEV", "id": 1061 },
+			{ "name": "TiKe", "id": 1068 },
+			{ "name": "MEV" , "id": 1070 },
+			{ "name": "NYKV", "id": 1071 },
+			{ "name": "KeKi", "id": 1073 },
+			{ "name": "Szkt", "id": 3252 },
+			{ "name": "HHTK", "id": 4281 },
+			{ "name": "BTFM", "id": 4827 },
+			{ "name": "VVKV", "id": 5642 },
+			{ "name": "kisv", "id": 951, "span": 3 }
+		]
+	}, "REPZ": {
+		"name": "Repülős emlékhelyek",
+		"size": [6 , 2],
+		"items": [
+			{ "name": "AUG" , "id": 1970 },
+			{ "name": "Li2" , "id": 2631 },
+			{ "name": "LMko", "id": 2744 },
+			{ "name": "HRBH", "id": 4784 },
+			{ "name": "JU86", "id": 4842 },
+			{ "name": "REP1", "id": 5871 },
+			{ "name": "REP2", "id": 5865 },
+			{ "name": "REP3", "id": 5867 },
+			{ "name": "REP4", "id": 5872 },
+			{ "name": "REP5", "id": 5874 },
+			{ "name": "REPZ", "id": 5880, "span": 2 }
+		]
+	}, "SFZA": {
+		"name": "Cserhát forrásai",
+		"size": [6 , 2],
+		"items": [
+			{ "name": "SF01", "id": 5429 },
+			{ "name": "SF02", "id": 5471 },
+			{ "name": "SF03", "id": 5473 },
+			{ "name": "SF04", "id": 5484 },
+			{ "name": "SF05", "id": 5485 },
+			{ "name": "SF06", "id": 5499 },
+			{ "name": "SF07", "id": 3150 },
+			{ "name": "SF08", "id": 3224 },
+			{ "name": "SF09", "id": 5544 },
+			{ "name": "SF10", "id": 5437 },
+			{ "name": "SFZA", "id": 5573, "span": 2 }
+		]
+	}, "SZIL": {
+		"name": "Szilas-patak",
+		"size": [4 , 2],
+		"items": [
+			{ "name": "CSIP", "id": 1038 },
+			{ "name": "Napl", "id": 246  },
+			{ "name": "Szp" , "id": 1059 },
+			{ "name": "NEVE", "id": 5779 },
+			{ "name": "KPUT", "id": 5333 },
+			{ "name": "LIMA", "id": 5770 },
+			{ "name": "SPUJ", "id": 5812 },
+			{ "name": "SZIL", "id": 6102 }
+		]
+	}, "Aszu": {
+		"name": "Tokaji aszúeszencia",
+		"size": [5 , 2],
+		"items": [
+			{ "name": "BoKe", "id": 1233 },
+			{ "name": "MaSa", "id": 1237 },
+			{ "name": "TaSz", "id": 1238 },
+			{ "name": "HePi", "id": 1244 },
+			{ "name": "ToFu", "id": 1245 },
+			{ "name": "AbHa", "id": 1252 },
+			{ "name": "ErMa", "id": 1254 },
+			{ "name": "ErFo", "id": 1320 },
+			{ "name": "GoHo", "id": 1321 },
+			{ "name": "Aszu", "id": 1322 }
+		]
+	}, "BFX": {
+		"name": "Börzsönyi források",
+		"size": [6 , 2],
+		"items": [
+			{ "name": "BF01", "id": 3602 },
+			{ "name": "BF02", "id": 2318 },
+			{ "name": "BF03", "id": 2270 },
+			{ "name": "BF04", "id": 3808 },
+			{ "name": "BF05", "id": 2118 },
+			{ "name": "BF06", "id": 4071 },
+			{ "name": "BF07", "id": 3226 },
+			{ "name": "BF08", "id": 2348 },
+			{ "name": "BF09", "id": 2766 },
+			{ "name": "BF10", "id": 2789 },
+			{ "name": "BFX",  "id": 2021, "span": 2 }
+		]
+	}, "MFX": {
+		"name": "Mátrai források",
+		"size": [6 , 2],
+		"items": [
+			{ "name": "MF01", "id": 4661 },
+			{ "name": "MF02", "id": 4315 },
+			{ "name": "MF03", "id": 4664 },
+			{ "name": "MF04", "id": 4678 },
+			{ "name": "MF05", "id": 4681 },
+			{ "name": "MF06", "id": 4683 },
+			{ "name": "MF07", "id": 4690 },
+			{ "name": "MF08", "id": 4698 },
+			{ "name": "MF09", "id": 4708 },
+			{ "name": "MF10", "id": 4710 },
+			{ "name": "MFX",  "id": 4719, "span": 2 }
+		]
+	}, "MTB6": {
+		"name": "Láncszaggató",
+		"size": [6 , 1],
+		"items": [
+			{ "name": "MTB1", "id": 3632 },
+			{ "name": "MTB2", "id": 3652 },
+			{ "name": "MTB3", "id": 3679 },
+			{ "name": "MTB4", "id": 3683 },
+			{ "name": "MTB5", "id": 3875 },
+			{ "name": "MTB6", "id": 4051 }
+		]
+	}, "PVX": {
+		"name": "Pilis, Visegrádi-hg. források",
+		"size": [6 , 2],
+		"items": [
+			{ "name": "PV01", "id": 4833 },
+			{ "name": "PV02", "id": 4831 },
+			{ "name": "PV03", "id": 4839 },
+			{ "name": "PV04", "id": 4843 },
+			{ "name": "PV05", "id": 4858 },
+			{ "name": "PV06", "id": 4859 },
+			{ "name": "PV07", "id": 4863 },
+			{ "name": "PV08", "id": 4865 },
+			{ "name": "PV09", "id": 4864 },
+			{ "name": "PV10", "id": 4908 },
+			{ "name": "PVX",  "id": 4869, "span": 2 }
+		]
+	}, "Sch": {
+		"name": "Helló szomszéd! padok - határtalanul Európában",
+		"size": [4 , 1],
+		"items": [
+			{ "name": "Sch1", "id": 2935 },
+			{ "name": "Sch2", "id": 2936 },
+			{ "name": "Sch3", "id": 2937 },
+			{ "name": "Sch",  "id": 2938 }
+		]
+	}, "TIRZ": {
+		"name": "Tirpákok az Alföldön",
+		"size": [5 , 1],
+		"items": [
+			{ "name": "TIR1", "id": 5078 },
+			{ "name": "TIR2", "id": 5127 },
+			{ "name": "TIR3", "id": 5145 },
+			{ "name": "TIR4", "id": 5147 },
+			{ "name": "TIRZ", "id": 5146 }
+		]
+	}
+}
