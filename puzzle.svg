@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg" xmlns="http://www.w3.org/2000/svg" width="250px" height="300px">
+	<defs id="defs3">
+		<pattern xlink:href="#pattern9" preserveAspectRatio="xMidYMid" id="pattern17" x="50" y="-25" />
+		<pattern xlink:href="#pattern9" preserveAspectRatio="xMidYMid" id="pattern16" x="0" y="-25" />
+		
+		<pattern id="pattern9" preserveAspectRatio="xMidYMid" patternUnits="userSpaceOnUse" width="90" height="90" patternTransform="translate(-20,-20)">
+			<image width="90" height="90" preserveAspectRatio="none" x="0" y="0" xlink:href="2.1.4.jpg" />
+		</pattern>
+		<filter id="filter17"><feColorMatrix type="saturate" values="0.01"/></filter>
+	</defs>
+	
+	<g id="puzzle"></g>
+</svg>
