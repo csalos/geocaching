@@ -10,12 +10,12 @@ var btn = document.getElementById("HoD_button");
 */
 window.onload = init();
 function init() {
-	btn.innerHTML = "Statisztika "+ (divStats.style.display == "none")?"kinyitása":"összecsukása";
+	btn.innerHTML = "Statisztika "+ ((divStats.style.display == "none")?"kinyitása":"összecsukása");
 }
 /*
 /* Felhasználói oldalon elhelyezett DIV elem elrejtése, vagy megmutatása
 */
 function HoD() {
 	divStats.style.display = (divStats.style.display == "none")?"":"none";
-	btn.innerHTML = "Statisztika "+ (divStats.style.display == "none")?"összecsukása":"kinyitása";
+	btn.innerHTML = "Statisztika "+ ((divStats.style.display == "none")?"összecsukása":"kinyitása");
 }
