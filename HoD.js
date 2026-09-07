@@ -4,7 +4,7 @@
 //
 /////////////////////////////////////////////////////
 
-// Az adott névvel ellátott DIV elemet lehet macerálni
+// Megkeressük a DIV-et
 var divStats = document.getElementById("divStats");
 
 // Gomb létrehozása
@@ -20,9 +20,7 @@ if (document.currentScript) {
     document.currentScript.parentNode.insertBefore(btn, document.currentScript);
 }
 
-/*
-/* Felhasználói oldalon elhelyezett DIV elem elrejtése, vagy megmutatása
-*/
+// Felhasználói oldalon elhelyezett DIV elem elrejtése, vagy megmutatása
 function HoD() {
 	btn.innerHTML = "Statisztika "+ ((divStats.style.display == "none")?"összecsukása":"kinyitása");
 	divStats.style.display = (divStats.style.display == "none")?"":"none";
