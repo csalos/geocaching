@@ -1,17 +1,25 @@
-
-document.write("<button style='height: 100%; width: 100%' onclick='HoD()' id='HoD_button'></button>");
+/////////////////////////////////////////////////////
+//
+//    Felhasználói oldalon szöveg részek elrejtése
+//
+/////////////////////////////////////////////////////
 
 // Az adott névvel ellátott DIV elemet lehet macerálni
 var divStats = document.getElementById("divStats");
-var btn = document.getElementById("HoD_button");
 
-/*
-/* Gomb felirat inicializálása  
-*/
-window.onload = init;
-function init() {
-	btn.innerHTML = "Statisztika "+ ((divStats.style.display == "none")?"kinyitása":"összecsukása");
+// Gomb létrehozása
+var btn = document.createElement("button");
+btn.style.height = "100%";
+btn.style.width = "100%";
+btn.id = "HoD_button";
+btn.onclick = HoD; // Gombnyomásra lefut a HoD függvény
+btn.innerHTML = "Statisztika "+ ((divStats.style.display == "none")?"kinyitása":"összecsukása");
+
+// Beszúrás a script elé
+if (document.currentScript) {
+    document.currentScript.parentNode.insertBefore(btn, document.currentScript);
 }
+
 /*
 /* Felhasználói oldalon elhelyezett DIV elem elrejtése, vagy megmutatása
 */
