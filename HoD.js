@@ -8,7 +8,7 @@ var btn = document.getElementById("HoD_button");
 /*
 /* Gomb felirat inicializálása  
 */
-window.onload = init();
+window.onload = init;
 function init() {
 	btn.innerHTML = "Statisztika "+ ((divStats.style.display == "none")?"kinyitása":"összecsukása");
 }
