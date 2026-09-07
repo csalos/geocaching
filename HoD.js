@@ -16,6 +16,6 @@ function init() {
 /* Felhasználói oldalon elhelyezett DIV elem elrejtése, vagy megmutatása
 */
 function HoD() {
-	divStats.style.display = (divStats.style.display == "none")?"":"none";
 	btn.innerHTML = "Statisztika "+ ((divStats.style.display == "none")?"összecsukása":"kinyitása");
+	divStats.style.display = (divStats.style.display == "none")?"":"none";
 }
