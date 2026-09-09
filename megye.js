@@ -1,6 +1,23 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
-document.write('<div id="megyeterkep" width="100%" height="474px">Sajnos a böngésződ nem támogatja az SVG-t.</div>');
+(function() {
+    // 1. Megkeressük a jelenleg futó script elemet
+    const aktualisScript = document.currentScript;
+
+    // 2. Létrehozzuk az új DIV elemet
+    const ujDiv = document.createElement('div');
+    ujDiv.id = 'megyeterkep';
+    ujDiv.width = '100%';
+    ujDiv.height = '474px';
+    ujDiv.innerHTML = 'Sajnos a böngésződ nem támogatja az SVG-t.';
+
+    // 3. Beszúrjuk a DIV-et a script tag elé
+    if (aktualisScript && aktualisScript.parentNode) {
+        aktualisScript.parentNode.insertBefore(ujDiv, aktualisScript);
+    }
+
+    console.log("Megye script futása megkezdve... - DIV beszúrva!");
+})();
 
 (function() {
 let zöld = ["Zala", "Fejér", "Csongrád-Csanád", "Borsod-Abaúj-Zemplén"];
