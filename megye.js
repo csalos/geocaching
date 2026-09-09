@@ -13,7 +13,9 @@ const script = document.currentScript;
 const urlGet = new URL(script.src).searchParams;
 
 const myUserId = urlGet.get("myUserId") || "0";
-const getPart = urlGet.get("getPart") || "";
+const getWater = urlGet.get("getWater") || "1";
+const getRoad  = urlGet.get("getRoads") || "1";
+const getRail  = urlGet.get("getRails") || "0";
 const getStyle = urlGet.get("getStyle") || "pacman";
 
 window.addEventListener('load', function() {
@@ -55,16 +57,9 @@ function mutat(svgBelseje, what) {
 
 function svgManipulator(svgBelseje) {
 
-	switch(getPart) {
-	  	case "Rd": 
-	  		rejt(svgBelseje, "folyók");
-	  		break;
-	  	case "none": 
-	  		rejt(svgBelseje, "folyók");
-	  	case "Wtr": 
-	  		rejt(svgBelseje, "úthálózat");
-	  		break;
-	}
+	if(!getWater)	rejt(svgBelseje, "folyók");
+	if(!getRoads)	rejt(svgBelseje, "úthálózat");
+	
 	switch(getStyle) {
 		case "color":
 	  		mutat(svgBelseje, "százalék");
