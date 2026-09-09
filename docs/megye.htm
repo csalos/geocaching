@@ -56,10 +56,9 @@
 			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
 			const regiScript = document.getElementById('dinamikus-megye-script');
 			const regiTerkep = document.getElementById('megyeterkep');
-			if (regiScript) {
-			    regiScript.remove();
-			    regiTerkep.remove();
-			}
+			if (regiScript)	regiScript.remove();
+			if (regiTerkep)	regiTerkep.remove();
+			
 			// 2. Új <script> elem létrehozása a memóriában
 		    const ujScript = document.createElement('script');
 		    ujScript.id = 'dinamikus-megye-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
