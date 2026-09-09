@@ -1,25 +1,7 @@
 //myUserId = geocaching.hu felhasználói azonosító
 
 (function() {
-    // 1. Megkeressük a jelenleg futó script elemet
-    const aktualisScript = document.currentScript;
 
-    // 2. Létrehozzuk az új DIV elemet
-    const ujDiv = document.createElement('div');
-    ujDiv.id = 'megyeterkep';
-    ujDiv.width = '100%';
-    ujDiv.height = '474px';
-    ujDiv.innerHTML = 'Sajnos a böngésződ nem támogatja az SVG-t.';
-
-    // 3. Beszúrjuk a DIV-et a script tag elé
-    if (aktualisScript && aktualisScript.parentNode) {
-        aktualisScript.parentNode.insertBefore(ujDiv, aktualisScript);
-    }
-
-    console.log("Megye script futása megkezdve... - DIV beszúrva!");
-})();
-
-(function() {
 let zöld = ["Zala", "Fejér", "Csongrád-Csanád", "Borsod-Abaúj-Zemplén"];
 let sárga = ["Vas", "Somogy", "Komárom-Esztergom", "Budapest", "Bács-Kiskun", "Heves", "Hajdú-Bihar"];
 let narancs = ["Győr-Moson-Sopron", "Baranya", "Nógrád", "Jász-Nagykun-Szolnok", "Szabolcs-Szatmár-Bereg"];
@@ -27,6 +9,7 @@ let kék = ["Veszprém", "Tolna", "Pest", "Békés"];
 
 var megyeStat = [];
 
+// 1. Megkeressük a jelenleg futó script elemet és a paramétereket
 const script = document.currentScript;
 const urlGet = new URL(script.src).searchParams;
 
@@ -36,9 +19,18 @@ const getRoads = urlGet.get("getRoads") || "1";
 const getRails = urlGet.get("getRails") || "0";
 const getStyle = urlGet.get("getStyle") || "pacman";
 
-window.addEventListener('load', function() {
-	megyeStatLekérése();
-});
+// 2. Létrehozzuk az új DIV elemet
+const terkep = document.createElement('div');
+terkep.id = 'megyeterkep';
+terkep.width = '100%';
+terkep.height = '474px';
+terkep.innerHTML = 'Sajnos a böngésződ nem támogatja az SVG-t.';
+
+// 3. Beszúrjuk a DIV-et a script tag elé
+if (script && script.parentNode) {
+    script.parentNode.insertBefore(terkep, script);
+}
+	
 megyeStatLekérése();
 async function megyeStatLekérése() {
 	try {
@@ -54,7 +46,7 @@ async function megyeStatLekérése() {
     		.then(svgText => {
 		
 		        // Beillesztés egy konténerbe
-		        document.getElementById("megyeterkep").innerHTML = svgText;
+		        terkep.innerHTML = svgText;
 
 		        // Már elérhető az SVG
 		        const svgBelseje = document.querySelector("#megyeterkep svg");
