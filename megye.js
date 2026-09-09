@@ -2,6 +2,7 @@
 
 document.write('<div id="megyeterkep" width="100%" height="474px">Sajnos a böngésződ nem támogatja az SVG-t.</div>');
 
+(function() {
 let zöld = ["Zala", "Fejér", "Csongrád-Csanád", "Borsod-Abaúj-Zemplén"];
 let sárga = ["Vas", "Somogy", "Komárom-Esztergom", "Budapest", "Bács-Kiskun", "Heves", "Hajdú-Bihar"];
 let narancs = ["Győr-Moson-Sopron", "Baranya", "Nógrád", "Jász-Nagykun-Szolnok", "Szabolcs-Szatmár-Bereg"];
@@ -130,3 +131,5 @@ function svgManipulator(svgBelseje) {
 		svgBelseje.getElementById("defs").appendChild(pattern);
 	}
 }
+
+})();
