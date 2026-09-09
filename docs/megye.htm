@@ -29,7 +29,7 @@
 				<label for="with3">Vasút vonalak</label><input name="with3" id="with3" type="checkbox" value="4" onclick="myScript">
 			</td>
 		</tr>
-		<tr><td colspan=2><output id="url"></td></tr>
+		<tr><td colspan=2><input id="url" type="text" size="300"></td></tr>
 	</table></form></p>
 	<p>
 		Bármelyik kódot szeretnéd használni, erre mindig szükséged lesz:
@@ -61,7 +61,7 @@
 				w = true;
 				part = "Wtr";
 			}
-			o.textContent = `&lt;script src="https://csalos.github.io/geocaching/megye.js?myUserId=${u}${s?"&getStyle=color":""}${w?("&getPart="+part):""}"&gt;&lt;/script&gt;`;
+			o.value = `&lt;script src="https://csalos.github.io/geocaching/megye.js?myUserId=${u}${s?"&getStyle=color":""}${w?("&getPart="+part):""}"&gt;&lt;/script&gt;`;
 		}
 	</script>
 	<script src="../megye.js?myUserId=71532"></script>
