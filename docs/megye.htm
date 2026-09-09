@@ -15,20 +15,21 @@
 <body>
 	<h1>Megyei statisztika</h1>
 	<p><form><table>
-		<tr><th><label for="user">GeoCaching felhasználói azonosító:</label></th><th><input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" required /></th></tr>
+		<tr><th><label for="user">GeoCaching felhasználói azonosító:</label></th><th><input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" required  oninput="myScript" /></th></tr>
 		<tr>
 			<td>Stílus választás:</td>
 			<td>Megjelenített elemek:</td>
 		</tr><tr>
 			<td>
-				<label for="stil1">pacman style</label><input name="stil" id="stil1" type="radio" value="0"><br />
-				<label for="stil2">Shade style</label><input name="stil" id="stil2" type="radio" value="1">
+				<label for="stil1">Pacman style</label><input name="stil" id="stil1" type="radio" value="0" onclick="myScript" checked="checked"><br />
+				<label for="stil2">Shade style</label><input name="stil" id="stil2" type="radio" value="1" onclick="myScript">
 			</td><td>
-				<label for="with1">folyók és tavak</label><input name="with1" id="with1" type="checkbox" value="1"><br/>
-				<label for="with2">Autópályák</label><input name="with2" id="with2" type="checkbox" value="2"><br/>
-				<label for="with3">Vasút vonalak</label><input name="with3" id="with3" type="checkbox" value="4">
+				<label for="with1">Folyók és tavak</label><input name="with1" id="with1" type="checkbox" value="1" onclick="myScript"><br/>
+				<label for="with2">Autópályák</label><input name="with2" id="with2" type="checkbox" value="2" onclick="myScript"><br/>
+				<label for="with3">Vasút vonalak</label><input name="with3" id="with3" type="checkbox" value="4" onclick="myScript">
 			</td>
 		</tr>
+		<tr><td colspan=2><output id="url"></td></tr>
 	</table></form></p>
 	<p>
 		Bármelyik kódot szeretnéd használni, erre mindig szükséged lesz:
@@ -40,10 +41,30 @@
 	</code><br/></p>
 
 	<script>
-		var myUserId = 71532;
-		var getStyle = "color";
+		function myScript() {
+			const u = document.getElementById("user");
+			const s = document.getElementById("stil2");
+			const w1 = document.getElementById("with1").checked;
+			const w2 = document.getElementById("with2").checked;
+			const w3 = document.getElementById("with3").checked;
+			const o = document.getElementById("url");
+
+			var w = false;
+			var part = "";
+			if(!w1 && !w2) {
+				w = true;
+				part = "none";
+			} else if(!w1 && w2) {
+				w = true;
+				part = "Rd";
+			} else if(w1 && !w2) {
+				w = true;
+				part = "Wtr";
+			}
+			o.value = `&lt;script src="https://csalos.github.io/geocaching/megye.js?myUserId=${u}${s?"&getStyle=color"}${w?("&getPart="+part)}"&gt;&lt;/script&gt;`;
+		}
 	</script>
-	<script src="../megye.js"></script>
+	<script src="../megye.js?myUserId=71532"></script>
 
 	<table>
 		<tr>
