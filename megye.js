@@ -75,8 +75,8 @@ function mutat(svgBelseje, what) {
 
 function svgManipulator(svgBelseje) {
 
-	if(!getWater)	rejt(svgBelseje, "folyók");
-	if(!getRoads)	rejt(svgBelseje, "úthálózat");
+	if(getWater == "0")	rejt(svgBelseje, "folyók");
+	if(getRoads == "0")	rejt(svgBelseje, "úthálózat");
 	
 	switch(getStyle) {
 		case "color":
