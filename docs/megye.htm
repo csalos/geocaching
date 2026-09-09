@@ -14,14 +14,22 @@
 </head>
 <body>
 	<h1>Megyei statisztika</h1>
-	<p><form>
-		<p><label for="user">GeoCaching felhasználói azonosító:</label><inputt name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" required /></p>
-		<p>Stílus választás:<label for="stil1">pacman style</label><input name="stil" id="stil1" type="radio" value="0">   <label for="stil2">Shade style</label><input name="stil" id="stil2" type="radio" value="1"></p>
-		<p>Megjelenített elemek:<br/>
-			<label for="with1">folyók és tavak</label><input name="with1" id="with1" type="checkbox" value="1"><br/>
-			<label for="with2">Autópályák</label><input name="with2" id="with2" type="checkbox" value="2"><br/>
-			<label for="with3">Vasút vonalak</label><input name="with3" id="with3" type="checkbox" value="4"></p>
-	</form></p>
+	<p><form><table>
+		<tr><th><label for="user">GeoCaching felhasználói azonosító:</label></th><th><input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" required /></th></tr>
+		<tr>
+			<td>Stílus választás:</td>
+			<td>Megjelenített elemek:</td>
+		</tr><tr>
+			<td>
+				<label for="stil1">pacman style</label><input name="stil" id="stil1" type="radio" value="0"><br />
+				<label for="stil2">Shade style</label><input name="stil" id="stil2" type="radio" value="1">
+			</td><td>
+				<label for="with1">folyók és tavak</label><input name="with1" id="with1" type="checkbox" value="1"><br/>
+				<label for="with2">Autópályák</label><input name="with2" id="with2" type="checkbox" value="2"><br/>
+				<label for="with3">Vasút vonalak</label><input name="with3" id="with3" type="checkbox" value="4">
+			</td>
+		</tr>
+	</table></form></p>
 	<p>
 		Bármelyik kódot szeretnéd használni, erre mindig szükséged lesz:
 		<br /> xxyyzz helyére írd a saját user azonosítódat!
