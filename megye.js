@@ -14,8 +14,8 @@ const urlGet = new URL(script.src).searchParams;
 
 const myUserId = urlGet.get("myUserId") || "0";
 const getWater = urlGet.get("getWater") || "1";
-const getRoad  = urlGet.get("getRoads") || "1";
-const getRail  = urlGet.get("getRails") || "0";
+const getRoads = urlGet.get("getRoads") || "1";
+const getRails = urlGet.get("getRails") || "0";
 const getStyle = urlGet.get("getStyle") || "pacman";
 
 window.addEventListener('load', function() {
