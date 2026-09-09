@@ -39,7 +39,7 @@ const getStyle = urlGet.get("getStyle") || "pacman";
 window.addEventListener('load', function() {
 	megyeStatLekérése();
 });
-
+megyeStatLekérése();
 async function megyeStatLekérése() {
 	try {
 		//megyei statisztika lekérése
