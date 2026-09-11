@@ -9,7 +9,7 @@ var divStats = document.getElementById("divStats");
 
 // Gomb létrehozása
 var btn = document.createElement("button");
-btn.style.height = "33px";
+btn.style.height = "22px";
 btn.style.width = "100%";
 btn.id = "HoD_button";
 btn.onclick = HoD; // Gombnyomásra lefut a HoD függvény
