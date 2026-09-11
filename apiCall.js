@@ -1,5 +1,5 @@
 // --- KONFIGURÁCIÓ ---
-const STORAGE_KEY = "csacsi_api_storage";    // A tároló kulcsa a sessionStorage-ben
+const STORAGE_KEY = "csacsi_api_storage_";  // A tároló kulcsa a sessionStorage-ben
 const TIMESTAMP_KEY = "csacsi_api_time";    // Az időbélyeg kulcsa
 const EXPIRATION_TIME_MS = 15 * 60 * 1000;  // 15 perc ezredmásodpercben (15 * 60 * 1000)
 
