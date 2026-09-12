@@ -89,7 +89,7 @@ function svgManipulator(svgBelseje) {
 		
 		let pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 		pattern.id= megye + "_pattern";
-		pattern.setAttribute("viewBox", "0,0,200,200");
+		//pattern.setAttribute("viewBox", "0,0,200,200");
 		//pattern.setAttribute("patternUnits","userSpaceOnUse");
 		pattern.setAttribute("width", "200%");
 		pattern.setAttribute("height", "200%");
