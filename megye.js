@@ -116,7 +116,7 @@ function svgManipulator(svgBelseje) {
 			pattIn = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 			pattIn.id= megye + "_pattern_in";
 			pattIn.setAttribute("viewBox", "0,0,200,200");
-			pattIn.setAttribute("patternUnits","userSpaceOnUse");
+			pattIn.setAttribute("patternUnits","objectBoundingBox");
 			pattIn.setAttribute("width", "200");
 			pattIn.setAttribute("height", "200");
 
