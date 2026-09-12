@@ -137,7 +137,7 @@ function svgManipulator(svgBelseje) {
 			blu = 15 - Math.ceil(cb[c] * percent / 100);
 		
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
-			pattern.id = megye + "_circle";
+			pattern.id = megye + "_pattern";
 			pattern.setAttribute("xlink:href", "#RG2");
 			pattern.setAttribute("cx", offsetX);
 			pattern.setAttribute("cy", offsetY);
