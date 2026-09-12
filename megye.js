@@ -105,7 +105,7 @@ function svgManipulator(svgBelseje) {
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 			pattern.id= megye + "_pattern";
 			pattern.setAttribute("xlink:href", "#" + megye + "_pattern_in");
-			pattern.setAttribute("patternTransform","matrix(50,0,0,50," + offsetX * -200 + "," + offsetY * -200 + ")");
+			pattern.setAttribute("patternTransform","matrix(50,0,0,50," + offsetX * -400 + "," + offsetY * -400 + ")");
 			pattern.setAttribute('x', 0);
 			pattern.setAttribute('y', 0);
 			pattern.setAttribute("preserveAspectRatio", "xMidYMid");
