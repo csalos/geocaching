@@ -96,7 +96,11 @@ function svgManipulator(svgBelseje) {
 			case sárga.includes(megye): break;
 		}
 
-		var pattern;
+		let pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
+		oattern.id= megye + "_pattern";
+		pattern.setAttribute("viewBox", "0,0,200,200");
+		pattern.setAttribute("width", "200%");
+		pattern.setAttribute("height", "200%");
 		
 		if(getStyle == "pacman") {
 			let start = "M 100 100 L 100 200 A 100 100, 0, ";
@@ -104,12 +108,6 @@ function svgManipulator(svgBelseje) {
 			let rad = percent * 3.6 * (Math.PI / 180);
 			let x = Math.sin(rad)*100 + 100;
 			let y = Math.cos(rad)*100 + 100;
-
-			pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
-			pattern.id= megye + "_pattern";
-			pattern.setAttribute("viewBox", "0,0,200,200");
-			pattern.setAttribute("width", "200%");
-			pattern.setAttribute("height", "200%");
 
 			let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 			path.id = megye + "_path";
@@ -122,22 +120,26 @@ function svgManipulator(svgBelseje) {
 			if(percent > 99.9) { 
 				path.setAttribute("d", "M 100 200 A 100 100, 0, 0, 0, 100 0 A 100 100, 0, 0, 0, 100 200 Z");
 			}
-			pattern.appendChild(path);
 		} else if(getStyle == "color") {
+			cr = [ 0, 15, 15,  0];
+			cg = [ 0,  0, 15,  8];
+			cb = [15, 15,  0, 15];
+			
+			red = 15 - Math.ceil(cr[c] * percent / 100);
+			grn = 15 - Math.ceil(cg[c] * percent / 100);
+			blu = 15 - Math.ceil(cb[c] * percent / 100);
 		
-			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
-			pattern.id = megye + "_pattern";
-			pattern.setAttribute("xlink:href", "#RG"+c);
-			pattern.setAttribute("opacity", percent / 100);
-			pattern.setAttribute("cx", offsetX);
-			pattern.setAttribute("cy", offsetY);
-			pattern.setAttribute('fx', offsetX);
-			pattern.setAttribute('fy', offsetY);
-			pattern.setAttribute("r", 2000);
-			pattern.setAttribute("gradientTransform", "matrix(1,0,0,1,0,-615.11595)");
-			pattern.setAttribute("gradientUnits", "userSpaceOnUse");
+			let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+			circle.id = megye + "_circle";
+			circle.setAttribute("cx", 100);
+			circle.setAttribute("cy", 100);
+			circle.setAttribute("r", 110);
+			circle.setAttribute("fill", "#" + red.toString(16) +""+ grn.toString(16) +""+ blu.toString(16));
+			circle.setAttribute("stroke", "black");
+			circle.setAttribute("strokeWidth", 0);
+			circle.setAttribute("transform", "translate(-50 -50)");
 		}
-		
+		pattern.appendChild(path);
 		svgBelseje.getElementById("defs").appendChild(pattern);
 	}
 }
