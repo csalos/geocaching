@@ -110,11 +110,11 @@ function svgManipulator(svgBelseje) {
 			pattern.setAttribute("viewBox", "0,0,200,200");
 			pattern.setAttribute("width", "200");
 			pattern.setAttribute("height", "200");
-			pattern.setAttribute("patternTransform", "scale(50)");
-			pattern.setAttribute("patternUnits","objectBoundingBox");
 			pattern.setAttribute('x', 50);
 			pattern.setAttribute('y', 0);
 			pattern.setAttribute("preserveAspectRatio", "xMidYMid");
+			pattern.setAttribute("patternUnits","objectBoundingBox");
+   			pattern.setAttribute("patternTransform", "matrix(0.01,0,0,0.01,10040.925,7989.815)");
 
 			let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 			path.id = megye + "_path";
