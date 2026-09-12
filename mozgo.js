@@ -76,7 +76,8 @@ function jsonMozgoMolyolo(láda, logs) {
 function kiíró(log) {
 	let text = log.notes;	
     // A regex: megkeresi a ___ közötti részeket
-    const regex = /___(.*?)___/;
+	// lehet több _ is
+    const regex = /_{3,}(.*?)_{3,}/;
 
     // Az első találat kinyerése
 	// ...csak az elsőre vagyunk kíváncsiak
