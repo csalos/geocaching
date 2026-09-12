@@ -81,6 +81,8 @@ function svgManipulator(svgBelseje) {
 
 		if(percent < 0.1) { continue; } 
 
+		console.log(régió);
+
 		const megyeBox = svgBelseje.getElementById(megye).getBBox();
 		const offsetX = megyeBox.x - 200 + (megyeBox.width / 2);
 		const offsetY = megyeBox.y - 200 + (megyeBox.height / 2);
