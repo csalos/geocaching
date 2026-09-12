@@ -46,6 +46,9 @@
 			const w3 = document.getElementById("with3").checked;
 			const o = document.getElementById("url");
 
+			// ha NotANumber vagy az üres - nem foglalkozunk vele
+			if(!isNaN(u.value) || u.value < 1) return;
+
 			const url =  `https://csalos.github.io/geocaching/megye.js?myUserId=${u}${(s?"&getStyle=color":"")}${(!w1?"&getWater=0":"")}${(!w2?"&getRoads=0":"")}${(w3?"&getRails=1":"")}`;
 
 			o.value = "<script src='" + url + "'><\/script>"
