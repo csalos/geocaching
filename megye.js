@@ -104,21 +104,17 @@ function svgManipulator(svgBelseje) {
 			let rad = percent * 3.6 * (Math.PI / 180);
 			let x = Math.sin(rad)*100 + 100;
 			let y = Math.cos(rad)*100 + 100;
-
+			
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 			pattern.id= megye + "_pattern";
-			pattern.setAttribute("xlink:href", "#" + megye + "_pattern_in");
+			pattern.setAttribute("viewBox", "0,0,200,200");
+			pattern.setAttribute("width", "200");
+			pattern.setAttribute("height", "200");
 			pattern.setAttribute("patternTransform", "scale(50)");
 			pattern.setAttribute("patternUnits","objectBoundingBox");
 			pattern.setAttribute('x', 50);
 			pattern.setAttribute('y', 0);
 			pattern.setAttribute("preserveAspectRatio", "xMidYMid");
-			
-			pattIn = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
-			pattIn.id= megye + "_pattern_in";
-			pattIn.setAttribute("viewBox", "0,0,200,200");
-			pattIn.setAttribute("width", "200");
-			pattIn.setAttribute("height", "200");
 
 			let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 			path.id = megye + "_path";
@@ -130,8 +126,7 @@ function svgManipulator(svgBelseje) {
 			if(percent > 99.9) { 
 				path.setAttribute("d", "M 100 200 A 100 100, 0, 0, 0, 100 0 A 100 100, 0, 0, 0, 100 200 Z");
 			}
-			pattIn.appendChild(path);
-			svgBelseje.getElementById("defs").appendChild(pattIn);
+			pattern.appendChild(path);
 		} else if(getStyle == "color") {
 		
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
