@@ -6,6 +6,10 @@
 		td {
 			width: 333px;
 		}
+		th {
+			align: left;
+			text-align: left;
+		}
 		code {
         display: block;
         background-color: lightgray;
@@ -18,7 +22,10 @@
 <body>
 	<h1>Megyei statisztika</h1>
 	<p><form><table>
-		<tr><th><label for="user">GeoCaching felhasználói azonosító:</label><input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" required  oninput="myScript()" /></th><th></th></tr>
+		<tr><th colspan=2>
+			<label for="user">GeoCaching felhasználói azonosító:</label>
+			<input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" required  oninput="myScript()" />
+		</th></tr>
 		<tr>
 			<td>Stílus választás:</td>
 			<td>Megjelenített elemek:</td>
