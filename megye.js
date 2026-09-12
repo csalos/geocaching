@@ -96,6 +96,8 @@ function svgManipulator(svgBelseje) {
 			case zöld.includes(megye): c++;
 			case sárga.includes(megye): break;
 		}
+
+		var pattern;
 		
 		if(getStyle == "pacman") {
 			let start = "M 100 100 L 100 200 A 100 100, 0, ";
@@ -104,7 +106,7 @@ function svgManipulator(svgBelseje) {
 			let x = Math.sin(rad)*100 + 100;
 			let y = Math.cos(rad)*100 + 100;
 
-			let pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
+			pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 			pattern.id= megye + "_pattern";
 			//pattern.setAttribute("viewBox", "0,0,200,200");
 			pattern.setAttribute("patternUnits","userSpaceOnUse");
@@ -134,7 +136,7 @@ function svgManipulator(svgBelseje) {
 			grn = 15 - Math.ceil(cg[c] * percent / 100);
 			blu = 15 - Math.ceil(cb[c] * percent / 100);
 		
-			let pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
+			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
 			pattern.id = megye + "_circle";
 			pattern.setAttribute("xlink:href", "#RG2");
 			pattern.setAttribute("cx", offsetX);
@@ -161,8 +163,6 @@ function svgManipulator(svgBelseje) {
    gradientTransform="matrix(1,0,0,1.0483257,0,-615.11595)"
    gradientUnits="userSpaceOnUse" />
 		*/
-		
-			pattern.appendChild(circle);
 		}
 		
 		svgBelseje.getElementById("defs").appendChild(pattern);
