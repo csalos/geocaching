@@ -80,12 +80,18 @@ function svgManipulator(svgBelseje) {
 		let percent = parseFloat(régió[1]);
 
 		if(percent < 0.1) { continue; } 
+
+		const megyeBox = svgBelseje.getElementById(megye).getBBox();
+		const offsetX = megyeBox.x - 100 + (megyeBox.width / 2);
+		const offsetY = megyeBox.y - 100 + (megyeBox.height / 2);
 		
 		let pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 		pattern.id= megye + "_pattern";
 		pattern.setAttribute("viewBox", "0,0,200,200");
 		pattern.setAttribute("width", "200%");
 		pattern.setAttribute("height", "200%");
+		pattern.setAttribute('x', offsetX);
+		pattern.setAttribute('y', offsetY);
 		
 		let c = 0;
 		switch (true) {
