@@ -83,6 +83,20 @@ function svgManipulator(svgBelseje) {
 
 		console.log(régió);
 
+		/*
+		<radialGradient
+   inkscape:collect="always"
+   xlink:href="#RG2"
+   id="radialGradient54"
+   cx="4918.0034"
+   cy="12728.56"
+   fx="4918.0034"
+   fy="12728.56"
+   r="2006.0227"
+   gradientTransform="matrix(1,0,0,1.0483257,0,-615.11595)"
+   gradientUnits="userSpaceOnUse" />
+		*/
+
 		const megyeBox = svgBelseje.getElementById(megye).getBBox();
 		const offsetX = megyeBox.x - 200 + (megyeBox.width / 2);
 		const offsetY = megyeBox.y - 200 + (megyeBox.height / 2);
@@ -95,6 +109,8 @@ function svgManipulator(svgBelseje) {
 		pattern.setAttribute("height", "2000%");
 		pattern.setAttribute('x', offsetX);
 		pattern.setAttribute('y', offsetY);
+
+		console.log(megyeBox);
 		
 		let c = 0;
 		switch (true) {
