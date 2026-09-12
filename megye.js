@@ -141,13 +141,12 @@ function svgManipulator(svgBelseje) {
 			pattern.setAttribute("xlink:href", "#RG2");
 			pattern.setAttribute("cx", offsetX);
 			pattern.setAttribute("cy", offsetY);
-			pattern.setAttribute("r", 2000);
-			pattern.setAttribute("fill", "#" + red.toString(16) +""+ grn.toString(16) +""+ blu.toString(16));
-			pattern.setAttribute("gradientTransform", "matrix(1,0,0,1.0483257,0,-615.11595)");
-			pattern.setAttribute("gradientUnits", "userSpaceOnUse");
-			pattern.setAttribute("transform", "translate(-50 -50)");
 			pattern.setAttribute('fx', offsetX);
 			pattern.setAttribute('fy', offsetY);
+			pattern.setAttribute("r", 2000);
+			//pattern.setAttribute("fill", "#" + red.toString(16) +""+ grn.toString(16) +""+ blu.toString(16));
+			pattern.setAttribute("gradientTransform", "matrix(1,0,0,1.0483257,0,-615.11595)");
+			pattern.setAttribute("gradientUnits", "userSpaceOnUse");
 
 			
 		/*
