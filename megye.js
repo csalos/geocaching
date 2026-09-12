@@ -109,6 +109,7 @@ function svgManipulator(svgBelseje) {
 			pattern.id= megye + "_pattern";
 			pattern.setAttribute("xlink:href", "#" + megye + "_pattern_in");
 			pattern.setAttribute("patternTransform", "scale(50)");
+			pattern.setAttribute("patternUnits","objectBoundingBox");
 			pattern.setAttribute('x', 50);
 			pattern.setAttribute('y', 0);
 			pattern.setAttribute("preserveAspectRatio", "xMidYMid");
@@ -116,7 +117,6 @@ function svgManipulator(svgBelseje) {
 			pattIn = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 			pattIn.id= megye + "_pattern_in";
 			pattIn.setAttribute("viewBox", "0,0,200,200");
-			pattIn.setAttribute("patternUnits","objectBoundingBox");
 			pattIn.setAttribute("width", "200");
 			pattIn.setAttribute("height", "200");
 
