@@ -120,6 +120,7 @@ function svgManipulator(svgBelseje) {
 			if(percent > 99.9) { 
 				path.setAttribute("d", "M 100 200 A 100 100, 0, 0, 0, 100 0 A 100 100, 0, 0, 0, 100 200 Z");
 			}
+			pattern.appendChild(path);
 		} else if(getStyle == "color") {
 			cr = [ 0, 15, 15,  0];
 			cg = [ 0,  0, 15,  8];
@@ -138,8 +139,9 @@ function svgManipulator(svgBelseje) {
 			circle.setAttribute("stroke", "black");
 			circle.setAttribute("strokeWidth", 0);
 			circle.setAttribute("transform", "translate(-50 -50)");
+			
+			pattern.appendChild(circle);
 		}
-		pattern.appendChild(path);
 		svgBelseje.getElementById("defs").appendChild(pattern);
 	}
 }
