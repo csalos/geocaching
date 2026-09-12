@@ -128,17 +128,17 @@ function svgManipulator(svgBelseje) {
 			}
 			pattern.appendChild(path);
 		} else if(getStyle == "color") {
-			cr = [ 0, 15, 15,  0];
+			/*cr = [ 0, 15, 15,  0];
 			cg = [ 0,  0, 15,  8];
 			cb = [15, 15,  0, 15];
 			
 			red = 15 - Math.ceil(cr[c] * percent / 100);
 			grn = 15 - Math.ceil(cg[c] * percent / 100);
-			blu = 15 - Math.ceil(cb[c] * percent / 100);
+			blu = 15 - Math.ceil(cb[c] * percent / 100);*/
 		
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
 			pattern.id = megye + "_pattern";
-			pattern.setAttribute("xlink:href", "#RG2");
+			pattern.setAttribute("xlink:href", "#RG"+c);
 			pattern.setAttribute("cx", offsetX);
 			pattern.setAttribute("cy", offsetY);
 			pattern.setAttribute('fx', offsetX);
