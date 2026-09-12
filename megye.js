@@ -107,7 +107,7 @@ function svgManipulator(svgBelseje) {
 			let end = " Z";
 			let rad = percent * 3.6 * (Math.PI / 180);
 			let x = Math.sin(rad)*100;
-			let y = Math.cos(rad)*1000;
+			let y = Math.cos(rad)*100;
 
 			let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 			path.id = megye + "_path";
