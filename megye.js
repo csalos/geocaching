@@ -104,12 +104,18 @@ function svgManipulator(svgBelseje) {
 
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
 			pattern.id= megye + "_pattern";
-			pattern.setAttribute("viewBox", "0,0,200,200");
-			pattern.setAttribute("patternUnits","userSpaceOnUse");
-			pattern.setAttribute("width", "2000%");
-			pattern.setAttribute("height", "2000%");
-			pattern.setAttribute('x', offsetX);
-			pattern.setAttribute('y', offsetY);
+			pattern.setAttribute("xlink:href", "#" + megye + "_pattern_in");
+			pattern.setAttribute("patternTransform","matrix(50,0,0,50," + offsetX * -200 + "," + offsetY * -200 + ")");
+			pattern.setAttribute('x', 0);
+			pattern.setAttribute('y', 0);
+			pattern.setAttribute("preserveAspectRatio", "xMidYMid");
+			
+			pattIn = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
+			pattIn.id= megye + "_pattern_in";
+			pattIn.setAttribute("viewBox", "0,0,200,200");
+			pattIn.setAttribute("patternUnits","userSpaceOnUse");
+			pattIn.setAttribute("width", "200");
+			pattIn.setAttribute("height", "200");
 
 			let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 			path.id = megye + "_path";
@@ -117,12 +123,12 @@ function svgManipulator(svgBelseje) {
 			path.setAttribute("style", "fill: url(#RG"+c+")");
 			path.setAttribute("stroke", "black");
 			path.setAttribute("strokeWidth", 0);
-			path.setAttribute("transform", "translate(-50 -50)");
 
 			if(percent > 99.9) { 
 				path.setAttribute("d", "M 100 200 A 100 100, 0, 0, 0, 100 0 A 100 100, 0, 0, 0, 100 200 Z");
 			}
-			pattern.appendChild(path);
+			pattIn.appendChild(path);
+			pattern.appendChild(pattIn);
 		} else if(getStyle == "color") {
 		
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
