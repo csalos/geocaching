@@ -128,7 +128,7 @@ function svgManipulator(svgBelseje) {
 				path.setAttribute("d", "M 100 200 A 100 100, 0, 0, 0, 100 0 A 100 100, 0, 0, 0, 100 200 Z");
 			}
 			pattIn.appendChild(path);
-			pattern.appendChild(pattIn);
+			svgBelseje.getElementById("defs").appendChild(pattIn);
 		} else if(getStyle == "color") {
 		
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
