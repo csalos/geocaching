@@ -85,6 +85,7 @@ function svgManipulator(svgBelseje) {
 		const offsetX = megyeBox.x - 200 + (megyeBox.width / 2);
 		const offsetY = megyeBox.y - 200 + (megyeBox.height / 2);
 
+		console.log(megye);
 		console.log(megyeBox);
 		
 		let c = 0;
