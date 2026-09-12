@@ -103,11 +103,11 @@ function svgManipulator(svgBelseje) {
 		}
 		
 		if(getStyle == "pacman") {
-			let start = "M 100 100 L 100 200 A 100 100, 0, ";
+			let start = "M 0 0 L 0 100 A 0 0, 0, ";
 			let end = " Z";
 			let rad = percent * 3.6 * (Math.PI / 180);
-			let x = Math.sin(rad)*100 + 100;
-			let y = Math.cos(rad)*100 + 100;
+			let x = Math.sin(rad)*100;
+			let y = Math.cos(rad)*1000;
 
 			let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
 			path.id = megye + "_path";
