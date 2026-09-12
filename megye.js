@@ -91,8 +91,8 @@ function svgManipulator(svgBelseje) {
 		pattern.id= megye + "_pattern";
 		//pattern.setAttribute("viewBox", "0,0,200,200");
 		pattern.setAttribute("patternUnits","userSpaceOnUse");
-		pattern.setAttribute("width", "200%");
-		pattern.setAttribute("height", "200%");
+		pattern.setAttribute("width", "2000%");
+		pattern.setAttribute("height", "2000%");
 		pattern.setAttribute('x', offsetX);
 		pattern.setAttribute('y', offsetY);
 		
