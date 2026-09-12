@@ -81,13 +81,9 @@ function svgManipulator(svgBelseje) {
 
 		if(percent < 0.1) { continue; } 
 
-		console.log(régió);
-
 		const megyeBox = svgBelseje.getElementById(megye).getBBox();
 		const offsetX = megyeBox.x - 200 + (megyeBox.width / 2);
 		const offsetY = megyeBox.y - 200 + (megyeBox.height / 2);
-
-		console.log(megyeBox);
 		
 		let c = 0;
 		switch (true) {
@@ -128,13 +124,6 @@ function svgManipulator(svgBelseje) {
 			}
 			pattern.appendChild(path);
 		} else if(getStyle == "color") {
-			/*cr = [ 0, 15, 15,  0];
-			cg = [ 0,  0, 15,  8];
-			cb = [15, 15,  0, 15];
-			
-			red = 15 - Math.ceil(cr[c] * percent / 100);
-			grn = 15 - Math.ceil(cg[c] * percent / 100);
-			blu = 15 - Math.ceil(cb[c] * percent / 100);*/
 		
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
 			pattern.id = megye + "_pattern";
@@ -144,24 +133,8 @@ function svgManipulator(svgBelseje) {
 			pattern.setAttribute('fx', offsetX);
 			pattern.setAttribute('fy', offsetY);
 			pattern.setAttribute("r", 2000);
-			//pattern.setAttribute("fill", "#" + red.toString(16) +""+ grn.toString(16) +""+ blu.toString(16));
 			pattern.setAttribute("gradientTransform", "matrix(1,0,0,1.0483257,0,-615.11595)");
 			pattern.setAttribute("gradientUnits", "userSpaceOnUse");
-
-			
-		/*
-		<radialGradient
-   inkscape:collect="always"
-   xlink:href="#RG2"
-   id="radialGradient54"
-   cx="4918.0034"
-   cy="12728.56"
-   fx="4918.0034"
-   fy="12728.56"
-   r="2006.0227"
-   gradientTransform="matrix(1,0,0,1.0483257,0,-615.11595)"
-   gradientUnits="userSpaceOnUse" />
-		*/
 		}
 		
 		svgBelseje.getElementById("defs").appendChild(pattern);
