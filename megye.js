@@ -128,12 +128,13 @@ function svgManipulator(svgBelseje) {
 			pattern = document.createElementNS("http://www.w3.org/2000/svg", "radialGradient");
 			pattern.id = megye + "_pattern";
 			pattern.setAttribute("xlink:href", "#RG"+c);
+			pattern.setAttribute("opacity", percent / 100);
 			pattern.setAttribute("cx", offsetX);
 			pattern.setAttribute("cy", offsetY);
 			pattern.setAttribute('fx', offsetX);
 			pattern.setAttribute('fy', offsetY);
 			pattern.setAttribute("r", 2000);
-			pattern.setAttribute("gradientTransform", "matrix(1,0,0,1.0483257,0,-615.11595)");
+			pattern.setAttribute("gradientTransform", "matrix(1,0,0,1,0,-615.11595)");
 			pattern.setAttribute("gradientUnits", "userSpaceOnUse");
 		}
 		
