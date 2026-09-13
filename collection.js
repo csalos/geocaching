@@ -8,8 +8,8 @@ function getCookie(name) {
 */
 const svgNS = "http://www.w3.org/2000/svg";
 
-const script = document.currentScript;
-const urlGet = new URL(script.src).searchParams;
+const script = import.meta.url;
+const urlGet = new URL(script).searchParams;
 const collection = urlGet.get("collection") || "kisv";
 const puzzleSize = urlGet.get("puzzleSize") || "100";
 
