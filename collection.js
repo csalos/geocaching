@@ -1,22 +1,28 @@
 import listsObject from './list.json' with { type: 'json' };
-
-//document.write('<div id="megyeterkep" width="100%" height="474px">Sajnos a böngésződ nem támogatja az SVG-t.</div>');
-const script = document.currentScript;
-//const urlGet = new URL(script.src).searchParams;
-
-const svgNS = "http://www.w3.org/2000/svg";
-const puzzleSize = 100;
-
+/*
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
+*/
+const svgNS = "http://www.w3.org/2000/svg";
 
-const myUserId = "71532";
-const userId = getCookie("last_user_id");
+const script = document.currentScript;
+const urlGet = new URL(script.src).searchParams;
+const collection = urlGet.get("collection") || "kisv";
+const puzzleSize = urlGet.get("puzzleSize") || "100";
 
-//const getList = urlGet.get("getList") || "";
+// megnézzük kaptunk-e a script végén userid-t
+var myUserId = urlGet.get("myUserId") || "71532";
+// Ha nem kaptunk myUserId-t a script végén, ellenőrizzük az oldalt
+if(myUserId === "71532") {
+	const orig = window.location.origin;
+	const geo = ["http://geocaching.hu", "https://geocaching.hu", "http://www.geocaching.hu", "https://www.geocaching.hu"];
+	if(geo.includes(orig) && window.location.pathname === "/users.geo") { 
+		const urlParameterek = new URLSearchParams(window.location.search);
+		myUserId = urlParameterek.get('id');
+}	}
 
 var getListFound = [];
 
@@ -26,14 +32,11 @@ async function collectionMolyolo() {
 	const listsMap = new Map(Object.entries(listsObject));
 
 	// Keresés és futtatás teszt
-	const searchCode = "kisv";
-	if (listsMap.has(searchCode)) {
-		var prom = listsMap.get(searchCode).items.map(jsonMolyolo);
+	if (listsMap.has(collection)) {
+		var prom = listsMap.get(collection).items.map(jsonMolyolo);
 		getListFound = await Promise.all(prom);
-		loadSVG(listsMap.get(searchCode));
+		loadSVG(listsMap.get(collection));
 	}
-
-	
 }
 async function jsonMolyolo(láda) {
 	try {
@@ -62,7 +65,7 @@ async function loadSVG(list) {
 			.then(svgText => {
 		
 				// Beillesztés egy konténerbe
-				document.getElementById("megyeterkep").innerHTML = svgText;
+				document.getElementById("coll_").innerHTML = svgText;
 
 				// Már elérhető az SVG
 				const svgBelseje = document.querySelector("#megyeterkep svg");
