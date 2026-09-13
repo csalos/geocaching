@@ -27,8 +27,9 @@ puzzleDiv.height = '474px';
 puzzleDiv.innerHTML = 'Sajnos a böngésződ nem támogatja az SVG-t.';
 
 // 3. Beszúrjuk a DIV-et a script tag elé
-if (script && script.parentNode) {
-    script.parentNode.insertBefore(puzzleDiv, script);
+const scriptTag = document.querySelector(`script[src="${script}"]`)
+if (scriptTag && scriptTag.parentNode) {
+    scriptTag.parentNode.insertBefore(puzzleDiv, scriptTag);
 }
 
 var getListFound = [];
