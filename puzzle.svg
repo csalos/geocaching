@@ -5,7 +5,7 @@
 		<pattern xlink:href="#pattern9" preserveAspectRatio="xMidYMid" id="pattern16" x="0" y="-25" />
 		
 		<pattern id="pattern9" preserveAspectRatio="xMidYMid" patternUnits="userSpaceOnUse" width="90" height="90" patternTransform="translate(-20,-20)">
-			<image width="90" height="90" preserveAspectRatio="none" x="0" y="0" xlink:href="https://csalos.github.io/geocaching/a2.1.4.jpg" />
+			<image width="90" height="90" preserveAspectRatio="none" x="0" y="0" xlink:href="https://csalos.github.io/geocaching/2.1.4.jpg" />
 		</pattern>
 		<filter id="filter17"><feColorMatrix type="saturate" values="0.01"/></filter>
 	</defs>
