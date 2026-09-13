@@ -1,11 +1,5 @@
-import listsObject from './list.json' with { type: 'json' };
-/*
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-}
-*/
+import listsObject from 'https://csalos.github.io/geocaching/list.json' with { type: 'json' };
+
 const svgNS = "http://www.w3.org/2000/svg";
 
 const script = import.meta.url;
@@ -23,6 +17,19 @@ if(myUserId === "71532") {
 		const urlParameterek = new URLSearchParams(window.location.search);
 		myUserId = urlParameterek.get('id');
 }	}
+
+
+// Létrehozzunk az új DIV elemet
+const puzzleDiv = document.createElement('div');
+puzzleDiv.id = 'coll_' + collection;
+puzzleDiv.width = '100%';
+puzzleDiv.height = '474px';
+puzzleDiv.innerHTML = 'Sajnos a böngésződ nem támogatja az SVG-t.';
+
+// 3. Beszúrjuk a DIV-et a script tag elé
+if (script && script.parentNode) {
+    script.parentNode.insertBefore(puzzleDiv, script);
+}
 
 var getListFound = [];
 var jsn = [];
@@ -65,10 +72,10 @@ async function loadSVG(list) {
 			.then(svgText => {
 		
 				// Beillesztés egy konténerbe
-				document.getElementById("coll_").innerHTML = svgText;
+				puzzleDiv.innerHTML = svgText;
 
 				// Már elérhető az SVG
-				const svgBelseje = document.querySelector("#megyeterkep svg");
+				const svgBelseje = puzzleDiv.firstElementChild;
 				document.getElementById("svg").setAttribute("width" , x*puzzleSize);
 				document.getElementById("svg").setAttribute("height", y*puzzleSize);
 				document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
