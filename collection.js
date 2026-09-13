@@ -25,42 +25,42 @@ if(myUserId === "71532") {
 }	}
 
 var getListFound = [];
+var jsn = [];
 
 collectionMolyolo();
 async function collectionMolyolo() {
-	// Azonnal átalakítjuk szupergyors Map-pé
-	const listsMap = new Map(Object.entries(listsObject));
-
-	// Keresés és futtatás teszt
-	if (listsMap.has(collection)) {
-		var prom = listsMap.get(collection).items.map(jsonMolyolo);
-		getListFound = await Promise.all(prom);
-		loadSVG(listsMap.get(collection));
-	}
-}
-async function jsonMolyolo(láda) {
 	try {
-		const {getRecord} = await import('https://csalos.github.io/geocaching/apiCall.js');
+		// Azonnal átalakítjuk szupergyors Map-pé
+		const listsMap = new Map(Object.entries(listsObject));
+	
+		// Keresés és futtatás teszt
+		if (listsMap.has(collection)) {
+			const {getRecord} = await import('https://csalos.github.io/geocaching/apiCall.js');
+	
+			//megtalálások lekérése: láda azonosító, dátum, bejegyzés és a log típusa
+			//egybe - hogy ne terheljük le a szervert a sok hívással
+			jsn = await getRecord("logok", myUserId);
 
-		//megtalálások lekérése: láda azonosító, dátum, bejegyzés és a log típusa
-		//egybe - hogy ne terheljük le a szervert a sok hívással
-		const jsn = await getRecord("logok", myUserId);
-		
+			var prom = listsMap.get(collection).items.map(jsonMolyolo);
+			getListFound = await Promise.all(prom);
+	
+			loadSVG(listsMap.get(collection));
+		}
+	} catch (hiba) {
+		console.error("Hiba a lista lekérésénél vagy a geocaching api hívásnál", hiba);
+	}	
+}
+function jsonMolyolo(láda) {
 		// megtalálásokból leszűrjük az adott mozgóhoz tartozókat, ha a bejegyzés típusa "1" - azaz "megtalált" 
 		const talalatok = jsn.filter(elem => elem.cache_id == láda.id && elem.logtype==="1");
-		
 		láda.found = (talalatok.length > 0);
-		
-	} catch (hiba) {
-		console.error("Hiba a lekérésnél:", hiba);
-	}
 }
 
 async function loadSVG(list) {
 	try {
 		const x = list.size[0];
 		const y = list.size[1];
-		const svgObjektum = await fetch("puzzle.svg")
+		const svgObjektum = await fetch("https://csalos.github.io/geocaching/puzzle.svg")
 			.then(response => response.text())
 			.then(svgText => {
 		
