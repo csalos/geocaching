@@ -4,8 +4,8 @@ const svgNS = "http://www.w3.org/2000/svg";
 
 const script = import.meta.url;
 const urlGet = new URL(script).searchParams;
-const collection = urlGet.get("collection") || "kisv";
-const puzzleSize = urlGet.get("puzzleSize") || "100";
+const collection = urlGet.get("name") || "kisv";
+const puzzleSize = urlGet.get("size") || "100";
 
 // megnézzük kaptunk-e a script végén userid-t
 var myUserId = urlGet.get("myUserId") || "71532";
