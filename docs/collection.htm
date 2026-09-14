@@ -65,6 +65,7 @@
 		    const ujScript = document.createElement('script');
 		    ujScript.id = 'dinamikus-collection-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
 		    ujScript.src = url;
+		    ujScript.type = "module";
 		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
 		
 		    // 3. (Opcionális) Megvárhatjuk, amíg a script teljesen lefut
