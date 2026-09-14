@@ -53,7 +53,7 @@
 
 			const url =  `https://csalos.github.io/geocaching/collection.js?myUserId=${u}&name=${c}${(s!==100?"&size="+s:"")}`;
 
-			o.value = "<script src='" + url + "' type="module"><\/script>"
+			o.value = "<script src='" + url + "' type='module'><\/script>"
 
 			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
 			const regiScript = document.getElementById('dinamikus-collection-script');
