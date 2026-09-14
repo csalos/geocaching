@@ -8,7 +8,7 @@ const collection = urlGet.get("name") || "kisv";
 const puzzleSize = urlGet.get("size") || "100";
 
 // megnézzük kaptunk-e a script végén userid-t
-var myUserId = urlGet.get("myUserId") || "71532";
+var myUserId = urlGet.get("user") || "71532";
 // Ha nem kaptunk myUserId-t a script végén, ellenőrizzük az oldalt
 if(myUserId === "71532") {
 	const orig = window.location.origin;
