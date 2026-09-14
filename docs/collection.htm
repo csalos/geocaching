@@ -1,6 +1,86 @@
 <html>
   <body>
-     <script language="javascript" type="module" type="text/javascript" src="https://csalos.github.io/geocaching/collection.js?name=kisv"></script>
+     <script language="javascript" type="module" type="text/javascript" src="=kisv"></script>
   </body>
 </html>
- 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>
+		td {
+			width: 333px;
+		}
+		th {
+			align: left;
+			text-align: left;
+		}
+		code {
+        display: block;
+        background-color: lightgray;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: normal;
+        font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<h1>Megyei statisztika</h1>
+	<p><form><table>
+		<tr><th colspan=2>
+			<label for="user">GeoCaching felhasználói azonosító:</label>
+			<input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" onchange="myScript()" />
+		</th></tr>
+		<tr><td>
+      <label for="coll">Kollekció:</label>
+      <select id="coll" name="coll"></select>
+    </td></tr>
+    <tr><td>
+				<label for="size">Egy puzzle darab mérete:</label><input name="size" id="size" type="number" value="100" onchange="myScript()"><br />
+		</td></tr>
+		<tr><td colspan=2>
+			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a térképet látni szeretnéd.<br /><input id="url" type="text" size="130" />
+		</td></tr>
+	</table></form></p>
+	<p><code>
+		&lt;script src="https://csalos.github.io/geocaching/collection.js?myUserId=xxyyzz&name=kisv"&gt;&lt;/script&gt;
+	</code><br/></p>
+
+	<script>
+		function myScript() {
+			const u = document.getElementById("user").value || "71532";
+			const c = document.getElementById("coll").value || "SZIL";
+			const s = document.getElementById("size").value || 100;
+			const o = document.getElementById("url");
+
+			// ha NotANumber vagy az üres - nem foglalkozunk vele
+			if(!isNaN(u.value) || u.value < 1) return;
+
+			const url =  `https://csalos.github.io/geocaching/collection.js?myUserId=${u}&name=${c}${(s!==100?"size="+s:"")}`;
+
+			o.value = "<script src='" + url + "'><\/script>"
+
+			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
+			const regiScript = document.getElementById('dinamikus-collection-script');
+			const regiTerkep = document.getElementById('megyeterkep');
+			if (regiScript)	regiScript.remove();
+			if (regiTerkep)	regiTerkep.remove();
+			
+			// 2. Új <script> elem létrehozása a memóriában
+		    const ujScript = document.createElement('script');
+		    ujScript.id = 'dinamikus-collection-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
+		    ujScript.src = url;
+		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
+		
+		    // 3. (Opcionális) Megvárhatjuk, amíg a script teljesen lefut
+		    ujScript.onload = function() {
+		        console.log("A collection.js sikeresen lefutott az új adatokkal!");
+		    };
+		
+		    // 4. Beszúrás a HTML dokumentumba (ekkor indul el a letöltés és futás)
+		    document.body.appendChild(ujScript);
+		}
+	</script>
+	
+</body>
+</html> 
