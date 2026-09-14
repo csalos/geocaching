@@ -56,7 +56,7 @@
 			// ha NotANumber vagy az üres - nem foglalkozunk vele
 			if(!isNaN(u.value) || u.value < 1) return;
 
-			const url =  `https://csalos.github.io/geocaching/collection.js?myUserId=${u}&name=${c}${(s!==100?"size="+s:"")}`;
+			const url =  `https://csalos.github.io/geocaching/collection.js?myUserId=${u}&name=${c}${(s!==100?"&size="+s:"")}`;
 
 			o.value = "<script src='" + url + "'><\/script>"
 
