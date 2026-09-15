@@ -1,3 +1,19 @@
+/////////////////////////////////////////////////////
+//
+//    Mozgó ládák részletesebb statisztikája
+//
+//    használatához a logok végére be kell tűzni:
+//    3db alulvonás jel közé írva
+//    hol találtad meg vagy honnan->hová vitted
+//        ha nem akarod, h látható legyen:
+//            <span style="display: none">___ide_írd___</span>
+//        ha nem vitted el - automatikusan beírja, hogy maradt:
+//            ___Hol?___
+//        ha tovább vitted:
+//            ___Honnan?_Hová?___
+//
+/////////////////////////////////////////////////////
+
 //beágyazunk, hogy ne ütközzünk :P
 (function() {
 	// Megkeressük a jelenleg futó script elemet és a paramétereket
