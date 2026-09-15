@@ -1,5 +1,8 @@
 //beágyazunk, hogy ne ütközzünk :P
 (function() {
+	// Megkeressük a jelenleg futó script elemet és a paramétereket
+	const script = document.currentScript;
+	const urlGet = new URL(script.src).searchParams;
 	// megnézzük kaptunk-e a script végén userid-t
 	var myUserId = urlGet.get("myUserId") || "71532";
 	// Ha nem kaptunk myUserId-t a script végén, ellenőrizzük az oldalt
@@ -26,10 +29,9 @@
 	mozgoTable.setAttribute("style", "white-space: pre");
 	mozgoTable.innerHTML = tableInner;
 	
-	// 3. Beszúrjuk a TABLE-et a script tag elé
-	const scriptTag = document.getElementById("mozgo");
-	if (scriptTag && scriptTag.parentNode) {
-	    scriptTag.parentNode.insertBefore(mozgoTable, scriptTag);
+	// Beszúrjuk a TABLE-et a script tag elé
+	if (script && script.parentNode) {
+    	script.parentNode.insertBefore(terkep, script);
 	}
 	
 	getMozgoList();
