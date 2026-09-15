@@ -22,10 +22,10 @@
 <body>
 	<h1>Megyei statisztika</h1>
 	<p><form><table>
-		<tr><th colspan=2>
+		<tr><th>
 			<label for="user">GeoCaching felhasználói azonosító:</label>
-			<input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" required  onchange="myScript()" />
-		</th></tr>
+			<input name="user" id="user" size="6" value="0" type="number" onchange="myScript()" />
+		</th><td>Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor hagyd üresen</td></tr>
 		<tr>
 			<td>Stílus választás:</td>
 			<td>Megjelenített elemek:</td>
@@ -49,17 +49,19 @@
 
 	<script>
 		function myScript() {
-			const u = document.getElementById("user").value;
-			const s = document.getElementById("stil2").checked;
+			const u  = document.getElementById("user").value;
+			const s  = document.getElementById("stil2").checked;
 			const w1 = document.getElementById("with1").checked;
 			const w2 = document.getElementById("with2").checked;
 			const w3 = document.getElementById("with3").checked;
-			const o = document.getElementById("url");
+			const o  = document.getElementById("url");
 
-			// ha NotANumber vagy az üres - nem foglalkozunk vele
-			if(!isNaN(u.value) || u.value < 1) return;
-
-			const url =  `https://csalos.github.io/geocaching/megye.js?myUserId=${u}${(s?"&getStyle=color":"")}${(!w1?"&getWater=0":"")}${(!w2?"&getRoads=0":"")}${(w3?"&getRails=1":"")}`;
+			const url =  "https://csalos.github.io/geocaching/megye.js?";
+			if(u!==0)	url += "myUserId=" + u + "&";
+			if(s)		url += "getStyle=color&";
+			if(!w1)		url += "getWater=0&";
+			if(!w2)		url += "getRoads=0&"
+			if(w3)		url += "getRails=1";
 
 			o.value = "<script src='" + url + "'><\/script>"
 
