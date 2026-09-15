@@ -22,7 +22,7 @@
 						   '<th width="100px">Honnan?</th>' + 
 						   '<th width="100px">Hová?</th>' + 
 					   '</tr><tr id="rowsMozgo"></tr>';
-	const mozgoTable = document.createElement('div');
+	const mozgoTable = document.createElement('table');
 	mozgoTable.id = 'mozgo';
 	mozgoTable.width = '100%';
 	mozgoTable.height = '474px';
