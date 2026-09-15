@@ -57,7 +57,7 @@
 			const o  = document.getElementById("url");
 
 			let url =  "https://csalos.github.io/geocaching/megye.js?";
-			if(u!==0)	url += "myUserId=" + u + "&";
+			if(u!==0 && u!=="0")	url += "myUserId=" + u + "&";
 			if(s)		url += "getStyle=color&";
 			if(!w1)		url += "getWater=0&";
 			if(!w2)		url += "getRoads=0&"
