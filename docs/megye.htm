@@ -57,11 +57,11 @@
 			const o  = document.getElementById("url");
 
 			let url =  "https://csalos.github.io/geocaching/megye.js?";
-			if(u!==0 || u!=="0")	url += "myUserId=" + u + "&";
 			if(s)		url += "getStyle=color&";
 			if(!w1)		url += "getWater=0&";
 			if(!w2)		url += "getRoads=0&"
-			if(w3)		url += "getRails=1";
+			if(w3)		url += "getRails=1&";
+			if(u!==0 || u!=="0")	url += "myUserId=" + u;
 
 			o.value = "<script src='" + url + "'><\/script>"
 
@@ -72,6 +72,7 @@
 			if (regiTerkep)	regiTerkep.remove();
 			
 			// 2. Új <script> elem létrehozása a memóriában
+			if(u==0 || u=="0")	url += "myUserId=" + 71532;
 		    const ujScript = document.createElement('script');
 		    ujScript.id = 'dinamikus-megye-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
 		    ujScript.src = url;
