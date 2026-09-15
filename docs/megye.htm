@@ -24,7 +24,7 @@
 	<p><form><table>
 		<tr><th>
 			<label for="user">GeoCaching felhasználói azonosító:</label>
-			<input name="user" id="user" size="6" value="0" type="number" onchange="myScript()" />
+			<input name="user" id="user" size="6" type="number" onchange="myScript()" />
 		</th><td>Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor hagyd üresen</td></tr>
 		<tr>
 			<td>Stílus választás:</td>
@@ -57,7 +57,7 @@
 			const o  = document.getElementById("url");
 
 			let url =  "https://csalos.github.io/geocaching/megye.js?";
-			if(u!==0 && u!=="0")	url += "myUserId=" + u + "&";
+			if(u!==0 || u!=="0")	url += "myUserId=" + u + "&";
 			if(s)		url += "getStyle=color&";
 			if(!w1)		url += "getWater=0&";
 			if(!w2)		url += "getRoads=0&"
