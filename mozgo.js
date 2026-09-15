@@ -31,7 +31,7 @@
 	
 	// Beszúrjuk a TABLE-et a script tag elé
 	if (script && script.parentNode) {
-    	script.parentNode.insertBefore(terkep, script);
+    	script.parentNode.insertBefore(mozgoTable, script);
 	}
 	
 	getMozgoList();
