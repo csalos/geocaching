@@ -72,10 +72,11 @@
 			if (regiTerkep)	regiTerkep.remove();
 			
 			// 2. Új <script> elem létrehozása a memóriában
-			if(u==0 || u=="0")	url += "myUserId=" + 71532;
+			let url2 = url;
+			if(u==0 || u=="0")	url2 += "myUserId=" + 71532;
 		    const ujScript = document.createElement('script');
 		    ujScript.id = 'dinamikus-megye-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
-		    ujScript.src = url;
+		    ujScript.src = url2;
 		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
 		
 		    // 3. (Opcionális) Megvárhatjuk, amíg a script teljesen lefut
