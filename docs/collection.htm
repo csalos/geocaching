@@ -3,6 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<style>
+		info {
+			display: block;
+			background-color: salmon;
+	        font-family: "IBM Plex Mono", monospace;
+			margit: 5px;
+			padding: 10px;
+		}
 		td {
 			width: 333px;
 		}
@@ -11,27 +18,28 @@
 			text-align: left;
 		}
 		code {
-        display: block;
-        background-color: lightgray;
-        font-family: "IBM Plex Mono", monospace;
-        font-weight: normal;
-        font-style: italic;
+	        display: block;
+	        background-color: lightgray;
+	        font-family: "IBM Plex Mono", monospace;
+	        font-weight: normal;
+	        font-style: italic;
 		}
 	</style>
 </head>
 <body>
 	<h1>Kollekciók</h1>
+	<info>Ez a script még fejlesztés alatt áll!<br /><br />Felhasználhatod, de a működésében még lehetnek változások.</info>
 	<p><form><table>
 		<tr><th colspan=2>
 			<label for="user">GeoCaching felhasználói azonosító:</label>
 			<input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" onchange="myScript()" />
 		</th></tr>
 		<tr><td>
-      <label for="coll">Kollekció:</label>
-      <select id="coll" name="coll"></select>
-    </td></tr>
-    <tr><td>
-				<label for="size">Egy puzzle darab mérete:</label><input name="size" id="size" type="number" value="100" onchange="myScript()"><br />
+			<label for="coll">Kollekció:</label>
+			<select id="coll" name="coll"></select>
+		</td></tr>
+		<tr><td>
+			<label for="size">Egy puzzle darab mérete:</label><input name="size" id="size" type="number" value="100" onchange="myScript()"><br />
 		</td></tr>
 		<tr><td colspan=2>
 			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a kollekciót látni szeretnéd.<br /><input id="url" type="text" size="130" />
@@ -42,6 +50,35 @@
 	</code><br/></p>
 
 	<script>
+		const lists = [
+			["BBxx", "Barlangolások a Bükkben"],
+			["BKZA", "Bükki források"],
+			["CAVE", "Bakonyi Barlangolások"],
+			["Eez", "Erdészek emlékére záróláda"],
+			["H1HX", "Börzsöny rejtett bércei"],
+			["kisv", "Magyarországi kisvasutak"],
+			["REPZ", "Repülős emlékhelyek"],
+			["SFZA", "Cserhát forrásai"],
+			["SZIL", "Szilas-patak"],
+			["Aszu", "Tokaji aszúeszencia"],
+			["BFX", "Börzsönyi források"],
+			["MFX", "Mátrai források"],
+			["MTB6", "Láncszaggató"],
+			["PVX", "Pilis, Visegrádi-hg. források"],
+			["Sch", "Helló szomszéd! padok - határtalanul Európában"],
+			["TIRZ", "Tirpákok az Alföldön"]
+		];
+
+		// választó menű feltöltése
+		lists.foreach(listFE);
+		function listFE(item) {
+			const opt = document.createElement('option');
+				  opt.value = item[0];
+				  opt.textContent = item[1];
+			document.getElementById("coll").appendChild(opt);
+		}
+		
+		myScript();
 		function myScript() {
 			const u = document.getElementById("user").value || "71532";
 			const c = document.getElementById("coll").value || "SZIL";
