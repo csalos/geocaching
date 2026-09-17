@@ -29,7 +29,7 @@
 		</ul></b><hr />
 		<iframe name="frm" id="frm" src="docs/megye.htm"></iframe>
 		<script>
-			// 1. Összekötjük a hash neveket a valódi fájlokkal
+			//  Összekötjük a hash neveket a valódi aloldalakkal
 			const oldalak = {
 			    '#hod':   'docs/HoD.htm',
 			    '#megye': 'docs/megye.htm',
@@ -38,31 +38,20 @@
 			
 			const iframe = document.getElementById('frm');
 			
-			// 2. Ez a függvény frissíti az iframe-et az URL alapján
+			// Frissítjük az iframe-et az URL alapján
 			function subFrame() {
-			    const aktualisHash = window.location.hash; // pl. "#rolunk"
+			    const aktualisHash = window.location.hash;
 			    
 			    // Ha a hash szerepel a listánkban, betöltjük az ahhoz tartozó oldalt
 			    if (oldalak[aktualisHash]) {
 			        iframe.src = oldalak[aktualisHash];
 			    } else {
-			        // Ha nincs hash az URL-ben, akkor a beállított alapértelmezett (főoldal) nyílik meg
-			        iframe.src = oldalak['#fooldal'];
+			        // Ha nincs hash az URL-ben, akkor a alapértelmezett nyílik meg
+			        iframe.src = oldalak['#megye'];
 			    }
 			}
-			
-			// 3. FIGYELŐK (Eseménykezelők)
-			
-			// A: Figyeljük, ha a felhasználó közvetlenül az URL-be írja vagy linkről érkezik
 			window.addEventListener('hashchange', subFrame);
 			window.addEventListener('load', subFrame);
-			
-			// B: Figyeljük, ha a felhasználó a menüből (select) választ (opcionális, de hasznos!)
-			valaszto.addEventListener('change', function() {
-			    // Amikor a menüben kattint, átírjuk az URL-ben a hash-t.
-			    // Ez automatikusan beindítja a 'hashchange' figyelőt, ami frissíti az iframe-et!
-			    window.location.hash = this.value; 
-			});
 		</script>
 	</body>
 </html>
