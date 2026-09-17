@@ -112,7 +112,7 @@
 		    const ujScript = document.createElement('script');
 		    ujScript.id = 'dinamikus-collection-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
 			
-		    ujScript.src = url;
+		    ujScript.src = url + (params.toString() ? "?"+params.toString() : "");
 		    ujScript.type = "module";
 		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
 		
