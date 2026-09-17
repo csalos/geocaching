@@ -99,8 +99,9 @@
 						params.append("name", n);
 			if(s!==100)	params.append("size", s);
 			if(u > 0)	params.append("myUserId", u);
+			const url = "https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "");
 
-			o.value = "<script src='https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "") + "' type='module'><\/script>";
+			o.value = "<script src='" + url + "' type='module'><\/script>";
 
 			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
 			const regiScript = document.getElementById('dinamikus-collection-script');
@@ -112,7 +113,7 @@
 		    const ujScript = document.createElement('script');
 		    ujScript.id = 'dinamikus-collection-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
 			
-		    ujScript.src = url + (params.toString() ? "?"+params.toString() : "");
+		    ujScript.src = url;
 		    ujScript.type = "module";
 		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
 		
