@@ -81,13 +81,13 @@
 		myScript();
 		function myScript() {
 			const u = +document.getElementById("user").value;
-			const cSelect = document.getElementById("optColl");
-			const c = cSelect.options[cSelect.selectedIndex].value || "SZIL";
+			const c = document.getElementById("optColl");
+			const n = c.options[c.selectedIndex].value || "SZIL";
 			const s = document.getElementById("size").value || 100;
 			const o = document.getElementById("url");
 
 			let url =  "https://csalos.github.io/geocaching/collection.js?";
-				url += "name" + c + "&";
+				url += "name=" + n + "&";
 			if(s!==100) 
 				url += "size=" + s + "&";
 			if(!isNaN(u.value) && u.value > 0)	
