@@ -92,15 +92,15 @@
 			const u = +document.getElementById("user").value;
 			const c = document.getElementById("optColl");
 			const n = c.options[c.selectedIndex].value || "SZIL";
-			const s = document.getElementById("size").value || 100;
+			const s = +document.getElementById("size").value || 100;
 			const o = document.getElementById("url");
+			
+			const params = new URLSearchParams();
+						params.append("name", n);
+			if(s!==100)	params.append("size", s);
+			if(u > 0)	params.append("myUserId", u);
 
-			let url =  "https://csalos.github.io/geocaching/collection.js?";
-				        url += "name=" + n + "&";
-			if(s!==100) url += "size=" + s + "&";
-			if(u > 0)   url +="myUserId" + u;
-
-			o.value = "<script src='" + url + "' type='module'><\/script>"
+			o.value = "<script src='https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "") + "' type='module'><\/script>";
 
 			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
 			const regiScript = document.getElementById('dinamikus-collection-script');
