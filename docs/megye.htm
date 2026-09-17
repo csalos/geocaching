@@ -3,6 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<style>
+		table, tr {
+			border-collapse:separate; 
+ 			border-spacing: 5px;
+		}
 		td {
 			width: 333px;
 		}
@@ -27,8 +31,8 @@
 			<input name="user" id="user" size="6" type="number" onchange="myScript()" />
 		</th><td>Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor hagyd üresen</td></tr>
 		<tr>
-			<td>Stílus választás:</td>
-			<td>Megjelenített elemek:</td>
+			<th>Stílus választás:</th>
+			<th>Megjelenített elemek:</th>
 		</tr><tr>
 			<td>
 				<label for="stil1">Pacman style</label><input name="stil" id="stil1" type="radio" value="0" onclick="myScript()" checked="checked"><br />
