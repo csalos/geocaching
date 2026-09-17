@@ -23,15 +23,15 @@
 	</head>
 	<body>
 		<b><ul>
-			<il><a href="#hod'">Elrejtés gomb</a></il> - 
-			<il><a onclick="window.location.hash = 'hod'">Megyei statisztika</a></il> - 
-			<il><a onclick="window.location.hash = 'coll'">Kollekciók</a></il>
+			<il><a href="#hod">Elrejtés gomb</a></il> - 
+			<il><a href="megye">Megyei statisztika</a></il> - 
+			<il><a href="coll">Kollekciók</a></il>
 		</ul></b><hr />
 		<iframe name="frm" id="frm" src="docs/megye.htm"></iframe>
 		<script>
 			// 1. Összekötjük a hash neveket a valódi fájlokkal
 			const oldalak = {
-			    '#hod':   'docs/HoD.ht',
+			    '#hod':   'docs/HoD.htm',
 			    '#megye': 'docs/megye.htm',
 			    '#coll':  'docs/collection.ht'
 			};
