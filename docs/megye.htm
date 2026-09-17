@@ -66,8 +66,9 @@
 			if(!w2)		params.append("getRoads", 0);
 			if(w3)		params.append("getRails", 1);
 			if(u > 0)	params.append("myUserId", u);
+			const url = "https://csalos.github.io/geocaching/megye.js" + (params.toString() ? "?"+params.toString() : "");
 
-			o.value = "<script src='https://csalos.github.io/geocaching/megye.js" + (params.toString() ? "?"+params.toString() : "") + "'><\/script>";
+			o.value = "<script src='" + url + "'><\/script>";
 
 			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
 			const regiScript = document.getElementById('dinamikus-megye-script');
