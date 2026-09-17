@@ -10,6 +10,10 @@
 			margit: 5px;
 			padding: 10px;
 		}
+		table {
+			border-collapse: separate; 
+ 			border-spacing: 0px 10px;
+		}
 		td {
 			width: 333px;
 		}
@@ -24,6 +28,9 @@
 	        font-weight: normal;
 	        font-style: italic;
 		}
+		input[type="number"] {
+			widht: 33px;
+		}
 	</style>
 </head>
 <body>
@@ -34,10 +41,11 @@
 	Egy oldalba -természetesen- több ilyen puzzle is beilleszthető.<br />
 	Ez első sorban a profil oldaladon lehet hasznos, de -elméletileg- bárhol máshol is tudod használni...</p>
 	<p><form><table>
-		<tr><th colspan=2>
-			<label for="user">GeoCaching felhasználói azonosító:</label>
-			<input name="user" id="user" size="10" type="number" onchange="myScript()" />
-		</th></tr>
+		<tr><td colspan="2">
+			<b><label for="user">GeoCaching felhasználói azonosító:</label>   
+			<input name="user" id="user" size="6" type="number" onchange="myScript()" /></b><br />
+			Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor üresen is hagyhatod.
+		</td></tr><tr>
 		<tr><td>
 			<label for="optColl">Kollekció:</label>
 			<select name="optColl" id="optColl" onchange="myScript()"></select>
