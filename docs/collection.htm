@@ -80,17 +80,18 @@
 		
 		myScript();
 		function myScript() {
-			const u = +document.getElementById("user").value || 71532;
+			const u = +document.getElementById("user").value;
 			const cSelect = document.getElementById("optColl");
 			const c = cSelect.options[cSelect.selectedIndex].value || "SZIL";
 			const s = document.getElementById("size").value || 100;
 			const o = document.getElementById("url");
 
-			// ha NotANumber vagy az üres - nem foglalkozunk vele
-			if(!isNaN(u.value) || u.value < 1) return;
-
-			console.log(c);
-			const url =  `https://csalos.github.io/geocaching/collection.js?myUserId=${u}&name=${c}${(s!==100?"&size="+s:"")}`;
+			let url =  "https://csalos.github.io/geocaching/collection.js?";
+				url += "name" + c + "&";
+			if(s!==100) 
+				url += "size=" + s + "&";
+			if(!isNaN(u.value) && u.value > 0)	
+				url +="myUserId" + u;
 
 			o.value = "<script src='" + url + "' type='module'><\/script>"
 
@@ -103,6 +104,8 @@
 			// 2. Új <script> elem létrehozása a memóriában
 		    const ujScript = document.createElement('script');
 		    ujScript.id = 'dinamikus-collection-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
+			
+			if(isNaN(u.value) || u.value < 1) url += "user=71532";
 		    ujScript.src = url;
 		    ujScript.type = "module";
 		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
