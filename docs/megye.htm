@@ -31,7 +31,7 @@
 	<p><form><table>
 		<tr><td colspan="2">
 			<b><label for="user">GeoCaching felhasználói azonosító:</label>   
-			<input name="user" id="user" size="6" type="number" onchange="myScript()" /></b><br />
+			<input name="user" id="user" size="6" min="0" step="1" type="number" onchange="myScript()" /></b><br />
 			Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor üresen is hagyhatod.
 		</td></tr><tr>
 			<td><b>Stílus választás:</b><br />
@@ -53,7 +53,7 @@
 	<script>
 		myScript();
 		function myScript() {
-			const u  = +document.getElementById("user").value || 0;
+			const u  = +document.getElementById("user").value;
 			const s  = document.getElementById("stil2").checked;
 			const w1 = document.getElementById("with1").checked;
 			const w2 = document.getElementById("with2").checked;
@@ -65,7 +65,7 @@
 			if(!w1)		url += "getWater=0&";
 			if(!w2)		url += "getRoads=0&"
 			if(w3)		url += "getRails=1&";
-			if(u!==0)	url += "myUserId=" + u;
+			if(u > 0)	url += "myUserId=" + u;
 
 			o.value = "<script src='" + url + "'><\/script>"
 
@@ -76,11 +76,9 @@
 			if (regiTerkep)	regiTerkep.remove();
 			
 			// 2. Új <script> elem létrehozása a memóriában
-			let url2 = url;
-			if(u == 0)	url2 += "myUserId=" + 71532;
 		    const ujScript = document.createElement('script');
 		    ujScript.id = 'dinamikus-megye-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
-		    ujScript.src = url2;
+		    ujScript.src = url;
 		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
 		
 		    // 3. (Opcionális) Megvárhatjuk, amíg a script teljesen lefut
