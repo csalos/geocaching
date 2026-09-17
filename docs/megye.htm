@@ -26,11 +26,11 @@
 <body>
 	<h1>Megyei statisztika</h1>
 	<p><form><table>
-		<tr><th>
-			<label for="user">GeoCaching felhasználói azonosító:</label>
-			<input name="user" id="user" size="6" type="number" onchange="myScript()" />
-		</th><td>Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor hagyd üresen</td></tr>
-		<tr>
+		<tr><td colspan="2">
+			<b><label for="user">GeoCaching felhasználói azonosító:</label>
+			<input name="user" id="user" size="6" type="number" onchange="myScript()" /></b><br />
+			Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor üresen is hagyhatod.
+		</td></tr><tr>
 			<th>Stílus választás:</th>
 			<th>Megjelenített elemek:</th>
 		</tr><tr>
@@ -42,8 +42,7 @@
 				<label for="with2">Autópályák</label><input name="with2" id="with2" type="checkbox" value="2" onclick="myScript()" checked="checked"><br/>
 				<label for="with3">Vasút vonalak</label><input name="with3" id="with3" type="checkbox" value="4" onclick="myScript()">
 			</td>
-		</tr>
-		<tr><td colspan=2>
+		</tr><tr><td colspan=2>
 			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a térképet látni szeretnéd.<br /><input id="url" type="text" size="130" />
 		</td></tr>
 	</table></form></p>
