@@ -3,9 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<style>
-		table, tr {
-			border-collapse:separate; 
+		tr {
+			border-collapse: separate; 
  			border-spacing: 5px;
+			border: 5px;
 		}
 		td {
 			width: 333px;
@@ -27,7 +28,7 @@
 	<h1>Megyei statisztika</h1>
 	<p><form><table>
 		<tr><td colspan="2">
-			<b><label for="user">GeoCaching felhasználói azonosító:</label>
+			<b><label for="user">GeoCaching felhasználói azonosító:</label>   
 			<input name="user" id="user" size="6" type="number" onchange="myScript()" /></b><br />
 			Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor üresen is hagyhatod.
 		</td></tr><tr>
@@ -35,12 +36,12 @@
 			<th>Megjelenített elemek:</th>
 		</tr><tr>
 			<td>
-				<label for="stil1">Pacman style</label><input name="stil" id="stil1" type="radio" value="0" onclick="myScript()" checked="checked"><br />
-				<label for="stil2">Shade style</label><input name="stil" id="stil2" type="radio" value="1" onclick="myScript()">
+				<input name="stil" id="stil1" type="radio" value="0" onclick="myScript()" checked="checked"><label for="stil1">Pacman style</label><br />
+				<input name="stil" id="stil2" type="radio" value="1" onclick="myScript()"><label for="stil2">Shade style</label>
 			</td><td>
-				<label for="with1">Folyók és tavak</label><input name="with1" id="with1" type="checkbox" value="1" onclick="myScript()" checked="checked"><br/>
-				<label for="with2">Autópályák</label><input name="with2" id="with2" type="checkbox" value="2" onclick="myScript()" checked="checked"><br/>
-				<label for="with3" style="color: gray">Vasút vonalak</label><input name="with3" id="with3" type="checkbox" value="4" onclick="myScript()" disabled>
+				<input name="with1" id="with1" type="checkbox" value="1" onclick="myScript()" checked="checked"><label for="with1">Folyók és tavak</label><br/>
+				<input name="with2" id="with2" type="checkbox" value="2" onclick="myScript()" checked="checked"><label for="with2">Autópályák</label><br/>
+				<input name="with3" id="with3" type="checkbox" value="4" onclick="myScript()" disabled><label for="with3" style="color: gray">Vasút vonalak</label>
 			</td>
 		</tr><tr><td colspan=2>
 			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a térképet látni szeretnéd.<br /><input id="url" type="text" size="130" />
