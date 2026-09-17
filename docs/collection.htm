@@ -32,11 +32,11 @@
 	<p><form><table>
 		<tr><th colspan=2>
 			<label for="user">GeoCaching felhasználói azonosító:</label>
-			<input name="user" id="user" size="10" type="text" inputmode="numeric" pattern="\d*" onchange="myScript()" />
+			<input name="user" id="user" size="10" type="number" onchange="myScript()" />
 		</th></tr>
 		<tr><td>
 			<label for="optColl">Kollekció:</label>
-			<select id="optColl" name="coll"></select>
+			<select name="optColl" id="optColl" ></select>
 		</td></tr>
 		<tr><td>
 			<label for="size">Egy puzzle darab mérete:</label><input name="size" id="size" type="number" value="100" onchange="myScript()"><br />
