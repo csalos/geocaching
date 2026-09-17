@@ -60,14 +60,14 @@
 			const w3 = document.getElementById("with3").checked;
 			const o  = document.getElementById("url");
 
-			let url =  "https://csalos.github.io/geocaching/megye.js?";
-			if(s)		url += "getStyle=color&";
-			if(!w1)		url += "getWater=0&";
-			if(!w2)		url += "getRoads=0&"
-			if(w3)		url += "getRails=1&";
-			if(u > 0)	url += "myUserId=" + u;
+			const params = new URLSearchParams();
+			if(s)		params.append("getStyle", "color");
+			if(!w1)		params.append("getWater", 0);
+			if(!w2)		params.append("getRoads", 0);
+			if(w3)		params.append("getRails", 1);
+			if(u > 0)	params.append("myUserId", u);
 
-			o.value = "<script src='" + url + "'><\/script>"
+			o.value = "<script src='https://csalos.github.io/geocaching/megye.js" + (params.toString() ? "?"+params.toString() : "") + "'><\/script>";
 
 			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
 			const regiScript = document.getElementById('dinamikus-megye-script');
