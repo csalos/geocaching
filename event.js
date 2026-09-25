@@ -34,7 +34,9 @@
 			 [6723,"25BM","2026.07.30","Mályvádi huszonötös"],
 			 [6737,"25HB","2026.07.31","Debrecen - Nagyerdei körtúra"],
 			 [6724,"25BU","2026.07.31","Bükki körtúra"],
-			 [6699,"25MF","2026.08.01","Medves-fennsík"]]
+			 [6699,"25MF","2026.08.01","Medves-fennsík"],
+			 [6720,"25SZ","2026.09.20","Szigetközi"],
+			 [6697,"25PB","2026.09.20","Pilisi biciklizés"]]
 		],
 	    [ 6755, "GN26", "Geo Nyuszi '26", "2026.04.03", "Kaposvár - Deseda"],
 	    [ 0, "Megyei Óriások",
@@ -51,7 +53,14 @@
 			 [6726,"MO09","2026.07.30","Bagaméri óriások"],
 			 [6702,"MO16","2026.07.31","Balkányi \"felhőkarcoló\""],
 			 [6729,"MO04","2026.07.31","Magyarország legmagasabb fája"],
-			 [6708,"MO13","2026.08.01","A keselyréti 500 éves tölgyfa"]]
+			 [6708,"MO13","2026.08.01","A keselyréti 500 éves tölgyfa"],
+			 [6731,"MO20","2026.09.18","Pacsai Öreg Hárs"],
+			 [6715,"MO24","2026.09.18","Muravidék szelíd(gesztenye) óriása"],
+			 [6727,"MO18","2026.09.18","Az öreg tölgy látogatása"],
+			 [6721,"MO25","2026.09.18","Szelídgesztenye-liget - Liebing"],
+			 [6745,"MO08","2026.09.19","Magyarország legöregebbje"],
+			 [6706,"MO05","2026.09.22","Ősplatán a Margitszigeten"],
+			 [6703,"MO07","2026.09.25","Szent Platánok Fejérben"]]
 		],
 	    [ 6695, "2025", "Geoszilveszter 2025", "2025.12.31", "Somogyvár"],
 	    [ 6694, "XM25", "Geokarácsony 2025", "2025.12.23", "Fonyód"],
