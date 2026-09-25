@@ -25,7 +25,7 @@
 	
 	let arrEvent = [ 
 	    [ 6767, "50FV", "L. Geocaching Fesztivál és Verseny", "2026.05.16", "Sasrét"], 
-	    [ 0, "Jubileumi körtúra", 
+	    [ 0, "Jubileumi körtúra 11/16", 
 		 	[[6709,"25ZS","2026.05.01","Zselic + Kapos völgye"],
 			 [6712,"25TL","2026.06.13","Szekszárdi dombság"],
 			 [6722,"25UV","2026.06.13","Üvegesek útja - Mecsek"],
@@ -39,7 +39,7 @@
 			 [6697,"25PB","2026.09.20","Pilisi biciklizés"]]
 		],
 	    [ 6755, "GN26", "Geo Nyuszi '26", "2026.04.03", "Kaposvár - Deseda"],
-	    [ 0, "Megyei Óriások",
+	    [ 0, "Megyei Óriások 21/25",
 			[[6730,"MO02","2026.03.21","Sasréti ősbükkös"],
 			 [6710,"MO15","2026.03.21","Gyöngyöspusztai védett tölgyfasor"],
 			 [6733,"MO17","2026.04.10","Kasztói őstölgyes"],
@@ -70,7 +70,7 @@
 	    [ 6141, "KozM", "Közlekedési Múzeum az Északiban", "2024.10.11", "Budapest"],
 	    [ 6334, "XM22", "Geokarácsony 2022", "2023.01.02", "Kaposvár"],
 	    [ 5998, "MVK1", "Magyar Vöröskereszt - Jean-Henri Dunant szobra", "2021.10.12", "Budapest"],
-	    [ 0, "20 éves a geocaching.hu",
+	    [ 0, "20 éves a geocaching.hu 7/20",
 		 	[[6047,"XX17","2021.07.23","Gunarasi parkerdő"],
 			 [6031,"XX01","2021.08.16","Érsekcsanád"],
 			 [6044,"XX14","2021.10.09","Érd - Papi földek"],
