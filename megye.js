@@ -91,9 +91,6 @@
 			const megyeBox = svgBelseje.getElementById(megye).getBBox();
 			const offsetX = megyeBox.x - 200 + (megyeBox.width / 2);
 			const offsetY = megyeBox.y - 200 + (megyeBox.height / 2);
-	
-			console.log(megye);
-			console.log(megyeBox);
 			
 			let c = 0;
 			switch (true) {
