@@ -7,12 +7,20 @@
 	let kék = ["Veszprém", "Tolna", "Pest", "Békés"];
 	
 	var megyeStat = [];
-	
-	// 1. Megkeressük a jelenleg futó script elemet és a paramétereket
+	// Megkeressük a jelenleg futó script elemet és a paramétereket
 	const script = document.currentScript;
 	const urlGet = new URL(script.src).searchParams;
-	
-	const myUserId = urlGet.get("myUserId") || "0";
+	// megnézzük kaptunk-e a script végén userid-t
+	var myUserId = urlGet.get("myUserId") || "71532";
+	// Ha nem kaptunk myUserId-t a script végén, ellenőrizzük az oldalt
+	if(myUserId === "71532") {
+		const orig = window.location.origin;
+		const geo = ["http://geocaching.hu", "https://geocaching.hu", "http://www.geocaching.hu", "https://www.geocaching.hu"];
+		if(geo.includes(orig) && window.location.pathname === "/users.geo") { 
+			const urlParameterek = new URLSearchParams(window.location.search);
+			myUserId = urlParameterek.get('id');
+	}	}
+	// további paraméterezések:
 	const getWater = urlGet.get("getWater") || "1";
 	const getRoads = urlGet.get("getRoads") || "1";
 	const getRails = urlGet.get("getRails") || "0";
