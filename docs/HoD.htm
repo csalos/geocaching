@@ -1,6 +1,13 @@
 <html>
   <head>
     <style>
+  		info {
+  			display: block;
+  			background-color: gold;
+  	    font-family: "IBM Plex Mono", monospace;
+  			margit: 5px;
+  			padding: 10px;
+  		}
       code, sample {
         display: flex;
         background-color: lightgray;
@@ -15,6 +22,7 @@
   <body>
     <h1>Elrejt / Megmutat</h1>
     <h2>HoD - Hide or Display</h2>
+    <info>Jelen kód - as it is - csak egy gomb beszúrására ad lehetőséget... de ha van rá igény ... megoldható, hogy több gombot is lehessen egy adott oldalba ágyazni.</info>
     <p>Az alábbi kód részletet betűzve az oldalba az kinyitható és összecsukhatóvá válik egy gomb segítségével.<br />
        Ez lehet a profil oldalad, vagy egy láda oldal, vagy -elméletileg- bárhol máshol is tudod használni...<br /></p>
     <p>Először is a DIV html tag-et kell beszúrnod az oldal szövegébe, oda, ahol kezdődik az a rész, amit el szeretnél rejteni.</p>
@@ -24,7 +32,6 @@
       <code>&lt;div id="divStats" style="display: none"&gt;</code></p>
     <p>Ezt szúrd be oda, ahol végződik az a rész, amit el szeretnél rejteni: 
       <code>&lt;/div&gt;&lt;script language="javascript" type="text/javascript" src="https://csalos.github.io/geocaching/HoD.js"&gt;&lt;/script&gt;</code></p>
-    <p>Jelen kód - as it is - csak egy gomb beszúrására ad lehetőséget... de ha van rá igény ... megoldható, hogy több gombot is lehessen egy adott oldalba ágyazni.</p>
     <div id="sample"><div id="divStats" style="display: block"><h2>Példa:</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sem nunc, dapibus at ultrices id, cursus sed sapien. 
         Etiam nec ligula non ex finibus sollicitudin. Nullam a vestibulum tellus. Ut sapien risus, cursus non scelerisque a, viverra et leo. 
