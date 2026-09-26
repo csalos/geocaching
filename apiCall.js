@@ -12,7 +12,7 @@ export async function getRecord(what, myUserId) {
     
     // 1. Adatok és időbélyeg lekérése a tárolóból
     const cachedData = localStorage.getItem(STORAGE_KEY + what);
-    const cachedTimestamp = localStorage.getItem(TIMESTAMP_KEY);
+    const cachedTimestamp = localStorage.getItem(TIMESTAMP_KEY + what);
 
     // 2. Ellenőrzés: Megvan-e az adat, és nem járt-e még le az idő?
     if (cachedData && cachedTimestamp) {
@@ -41,7 +41,7 @@ export async function getRecord(what, myUserId) {
         // 4. Mentési kísérlet a localStorage-be
         try {
             localStorage.setItem(STORAGE_KEY + what, JSON.stringify(freshData));
-            localStorage.setItem(TIMESTAMP_KEY, now.toString());
+            localStorage.setItem(TIMESTAMP_KEY + what, now.toString());
             console.log("--> Új adatok sikeresen elmentve a localStorage-be.");
         } catch (storageError) {
             // Ez fut le, ha pl. betelik az 5 MB-os limit (QuotaExceededError)
@@ -62,16 +62,3 @@ export async function getRecord(what, myUserId) {
         throw fetchError; // Ha nincs régi adat sem, továbbdobjuk a hibát
     }
 }
-
-
-// --- Így tudod meghívni a kódodban ---
-// (Mivel aszinkron, egy async függvényben vagy .then()-el kell használni)
-/*
-getRecords()
-    .then(adatok => {
-        console.log(`Sikeresen betöltve ${adatok.length} rekord.`);
-        // Itt dolgozhatsz tovább az adatokkal...
-    })
-    .catch(hiba => console.error("Végső hiba:", hiba));
-*/
-
