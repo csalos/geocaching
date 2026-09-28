@@ -45,7 +45,10 @@
 		</td></tr><tr>
 		<tr><td>
 			<label for="optColl">Kollekció:</label>
-			<select name="optColl" id="optColl" onchange="myScript()"></select>
+			<select name="sel" id="sel" onchange="myScript()">
+				<optgroup label="Esemény ládák"  name="optEvent" id="optEvent"></optgroup>
+				<optgroup label="Láda sorozatok" name="optGroup" id="optGroup"></optgroup>
+			</select>
 		</td></tr>
 		<tr><td>
 			<label for="size">Egy puzzle darab mérete:</label><input name="size" id="size" size="4" type="number" value="100" onchange="myScript()" style="width: 44px" /><br />
@@ -59,7 +62,16 @@
 	</code><br/></p>
 
 	<script>
-		const lists = [
+		const lista = [ // esemény ládák
+			["MVK", "Magyar vörös kereszt"],
+			["XX",  "20 éves a magyar Geocaching - családi eseményláda"],
+			["20",  "20 éves a magyar Geocaching - túrázós eseményláda"],
+			["RC", "Rotary Club eseményládák"],
+			["MM", "Megyei Magasságok - 20 eseményláda"],
+			["MO", "Megyei Óriások - 25 eseményláda"],
+			["25", "Jubileumi körtúra (~25 km)"]
+		];
+		const listb = [ // sorozatok
 			["BBxx", "Barlangolások a Bükkben"],
 			["BKZA", "Bükki források"],
 			["CAVE", "Bakonyi Barlangolások"],
@@ -79,12 +91,13 @@
 		];
 
 		// választó menű feltöltése
-		lists.forEach(listFE);
-		function listFE(item) {
+		lista.forEach(item -> liszt(item, "optEvent"));
+		listb.forEach(item -> liszt(item, "optGroup"));
+		function liszt(item, opt) {
 			const opt = document.createElement('option');
 				  opt.value = item[0];
 				  opt.textContent = item[1];
-			document.getElementById("optColl").appendChild(opt);
+			document.getElementById(opt).appendChild(opt);
 		}
 		
 		myScript();
