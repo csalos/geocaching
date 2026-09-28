@@ -114,6 +114,7 @@ function svgManipulator(svgBelseje, list) {
 			text.id = "text_" + x;
 			text.setAttribute("x", 25);
 			text.setAttribute("y", 40);
+			text.setAttribute("font-size", "smaller");
 			text.setAttribute("text-anchor", "middle");
 			text.setAttribute("fill", "black");
 			text.setAttribute("stroke", "white");
