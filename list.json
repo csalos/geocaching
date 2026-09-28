@@ -1,5 +1,160 @@
 {
-	"lista": ["BBxx", "BKZA", "CAVE", "Eez", "H1HX", "kisv", "REPZ", "SFZA", "SZIL", "Aszu", "BFX", "MFX", "MTB6", "PVX", "Sch", "TIRZ"],
+	"lista": ["MVK", "XX", "20", "RC", "MM", "MO", "25"],
+	"listb": ["BBxx", "BKZA", "CAVE", "Eez", "H1HX", "kisv", "REPZ", "SFZA", "SZIL", "Aszu", "BFX", "MFX", "MTB6", "PVX", "Sch", "TIRZ"],
+	
+	"MVK": {
+		"name": "Magyar Vöröskereszt",
+		"size": [3 , 1],
+		"items": [
+			{ "name": "MVK1", "id": 5998 },
+			{ "name": "MVK2", "id": 6019 },
+			{ "name": "MVK3", "id": 6020 }
+		]
+	}, "XX": {
+		"name": "20 éves a magyar Geocaching - túrázós eseményláda",
+		"size": [5 , 4],
+		"items": [
+			{ "name": "XX01", "id": 6031 },
+			{ "name": "XX02", "id": 6032 },
+			{ "name": "XX03", "id": 6033 },
+			{ "name": "XX04", "id": 6034 },
+			{ "name": "XX05", "id": 6035 },
+			{ "name": "XX06", "id": 6036 },
+			{ "name": "XX07", "id": 6037 },
+			{ "name": "XX08", "id": 6038 },
+			{ "name": "XX09", "id": 6039 },
+			{ "name": "PALS", "id": 6040 },
+			{ "name": "XX11", "id": 6041 },
+			{ "name": "XX12", "id": 6042 },
+			{ "name": "XX13", "id": 6043 },
+			{ "name": "XX14", "id": 6044 },
+			{ "name": "XX15", "id": 6045 },
+			{ "name": "XX16", "id": 6046 },
+			{ "name": "XX17", "id": 6047 },
+			{ "name": "XX18", "id": 6048 },
+			{ "name": "XX19", "id": 6049 },
+			{ "name": "XX20", "id": 6050 }
+		]
+	}, "20": {
+		"name": "20 éves a magyar Geocaching - túrázós eseményláda",
+		"size": [5 , 4],
+		"items": [
+			{ "name": "20ME", "id": 5903 },
+			{ "name": "20ZS", "id": 5239 },
+			{ "name": "20GH", "id": 6030 },
+			{ "name": "20BO", "id": 6051 },
+			{ "name": "20PV", "id": 6063 },
+			{ "name": "20KM", "id": 6064 },
+			{ "name": "20Bm", "id": 6065 },
+			{ "name": "20MA", "id": 6066 },
+			{ "name": "20ZE", "id": 6067 },
+			{ "name": "20Bk", "id": 6068 },
+			{ "name": "20CS", "id": 6072 },
+			{ "name": "20BY", "id": 6073 },
+			{ "name": "20VR", "id": 6077 },
+			{ "name": "20BF", "id": 6081 },
+			{ "name": "20SD", "id": 6082 },
+			{ "name": "20ZD", "id": 6086 },
+			{ "name": "20SN", "id": 6091 },
+			{ "name": "20BE", "id": 6097 },
+			{ "name": "20SI", "id": 6095 },
+			{ "name": "20GD", "id": 6099 }
+		]
+	}, "RC": {
+		"name": "Rotary Club eseményládák",
+		"size": [4 , 3],
+		"items": [
+			{ "name": "RC01", "id": 6164 },
+			{ "name": "RC02", "id": 6157 },
+			{ "name": "RC03", "id": 6162 },
+			{ "name": "RC04", "id": 6140 },
+			{ "name": "RC05", "id": 6148 },
+			{ "name": "RC06", "id": 6149 },
+			{ "name": "RC07", "id": 6150 },
+			{ "name": "RC08", "id": 6152 },
+			{ "name": "RC09", "id": 6147 },
+			{ "name": "RC10", "id": 6153 },
+			{ "name": "RC11", "id": 6154 },
+			{ "name": "RC12", "id": 6155 }
+		]
+	}, "MM": {
+		"name": "Megyei Magasságok - Csúcsra jártva",
+		"size": [5 , 4],
+		"items": [
+			{ "name": "MM01", "id": 6519 },
+			{ "name": "MM02", "id": 6511 },
+			{ "name": "MM03", "id": 6503 },
+			{ "name": "MM04", "id": 6521 },
+			{ "name": "MM05", "id": 6501 },
+			{ "name": "MM06", "id": 6531 },
+			{ "name": "MM07", "id": 6512 },
+			{ "name": "MM08", "id": 6515 },
+			{ "name": "MM09", "id": 6514 },
+			{ "name": "MM10", "id": 6522 },
+			{ "name": "MM11", "id": 6509 },
+			{ "name": "MM12", "id": 6510 },
+			{ "name": "MM13", "id": 6520 },
+			{ "name": "MM14", "id": 6008 },
+			{ "name": "MM15", "id": 6508 },
+			{ "name": "MM16", "id": 6536 },
+			{ "name": "MM17", "id": 6525 },
+			{ "name": "MM18", "id": 6516 },
+			{ "name": "MM19", "id": 6524 },
+			{ "name": "MM20", "id": 6513 }
+		]
+	}, "MO": {
+		"name": "Megyei Magasságok - Csúcsra jártva",
+		"size": [5 , 4],
+		"items": [
+			{ "name": "MO01", "id": 6719 },
+			{ "name": "MO02", "id": 6730 },
+			{ "name": "MO03", "id": 6711 },
+			{ "name": "MO04", "id": 6729 },
+			{ "name": "MO05", "id": 6706 },
+			{ "name": "MO06", "id": 6698 },
+			{ "name": "MO07", "id": 6703 },
+			{ "name": "MO08", "id": 6745 },
+			{ "name": "MO09", "id": 6726 },
+			{ "name": "MO10", "id": 6692 },
+			{ "name": "MO11", "id": 6746 },
+			{ "name": "MO12", "id": 6734 },
+			{ "name": "MO13", "id": 6708 },
+			{ "name": "MO14", "id": 6704 },
+			{ "name": "MO15", "id": 6710 },
+			{ "name": "MO16", "id": 6702 },
+			{ "name": "MO17", "id": 6733 },
+			{ "name": "MO18", "id": 6727 },
+			{ "name": "MO19", "id": 6700 },
+			{ "name": "MO20", "id": 6731 },
+			{ "name": "MO21", "id": 6691 },
+			{ "name": "MO22", "id": 6707 },
+			{ "name": "MO23", "id": 6689 },
+			{ "name": "MO24", "id": 6715 },
+			{ "name": "MO25", "id": 6721 }
+		]
+	}, "25": {
+		"name": "Jubileumi körtúra (~25 km)",
+		"size": [5 , 4],
+		"items": [
+			{ "name": "25DD", "id": 6688 },
+			{ "name": "25PB", "id": 6697 },
+			{ "name": "25MF", "id": 6699 },
+			{ "name": "25VH", "id": 6701 },
+			{ "name": "25ZS", "id": 6709 },
+			{ "name": "25TL", "id": 6712 },
+			{ "name": "25SZ", "id": 6720 },
+			{ "name": "25UV", "id": 6722 },
+			{ "name": "25BM", "id": 6723 },
+			{ "name": "25BU", "id": 6724 },
+			{ "name": "25SK", "id": 6725 },
+			{ "name": "25HB", "id": 6737 },
+			{ "name": "25KB", "id": 6738 },
+			{ "name": "25BS", "id": 6744 },
+			{ "name": "25VV", "id": 6771 },
+			{ "name": "25BB", "id": 6779 }
+		]
+	},
+	
 	"BBxx": {
 		"name": "Barlangolások a Bükkben",
 		"size": [6 , 4],
