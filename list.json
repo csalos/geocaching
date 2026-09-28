@@ -103,8 +103,8 @@
 			{ "name": "MM20", "id": 6513 }
 		]
 	}, "MO": {
-		"name": "Megyei Magasságok - Csúcsra jártva",
-		"size": [5 , 4],
+		"name": "Megyei Óriások - 25 eseményláda",
+		"size": [5 , 5],
 		"items": [
 			{ "name": "MO01", "id": 6719 },
 			{ "name": "MO02", "id": 6730 },
@@ -134,7 +134,7 @@
 		]
 	}, "25": {
 		"name": "Jubileumi körtúra (~25 km)",
-		"size": [5 , 4],
+		"size": [4 , 4],
 		"items": [
 			{ "name": "25DD", "id": 6688 },
 			{ "name": "25PB", "id": 6697 },
