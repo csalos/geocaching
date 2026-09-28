@@ -64,8 +64,8 @@
 	<script>
 		const lista = [ // esemény ládák
 			["MVK", "Magyar vörös kereszt"],
-			["XX",  "20 éves a magyar Geocaching - családi eseményláda"],
-			["20",  "20 éves a magyar Geocaching - túrázós eseményláda"],
+			["XX", "20 éves a magyar Geocaching - családi eseményláda"],
+			["20", "20 éves a magyar Geocaching - túrázós eseményláda"],
 			["RC", "Rotary Club eseményládák"],
 			["MM", "Megyei Magasságok - 20 eseményláda"],
 			["MO", "Megyei Óriások - 25 eseményláda"],
@@ -93,11 +93,11 @@
 		// választó menű feltöltése
 		lista.forEach(item -> liszt(item, "optEvent"));
 		listb.forEach(item -> liszt(item, "optGroup"));
-		function liszt(item, opt) {
+		function liszt(item, grp) {
 			const opt = document.createElement('option');
 				  opt.value = item[0];
 				  opt.textContent = item[1];
-			document.getElementById(opt).appendChild(opt);
+			document.getElementById(grp).appendChild(opt);
 		}
 		
 		myScript();
