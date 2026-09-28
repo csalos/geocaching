@@ -93,7 +93,7 @@ function svgManipulator(svgBelseje, list) {
 	const py = list.size[1];
 	const sp = list.items.at(-1).span ?? 0;
 	let pieces = genPieces(px, py, sp);
-	for(let x=0; x<(px*py)-sp+1; x++) {
+	for(let x=0; x<(px*py)-sp; x++) {
 		let piece = document.createElementNS(svgNS, "g");
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
 		
