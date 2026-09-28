@@ -1,5 +1,5 @@
 {
-	"lists": ["BBxx", "BKZA", "CAVE", "Eez", "H1HX", "kisv", "REPZ", "SFZA", "SZIL", "Aszu", "BFX", "MFX", "MTB6", "PVX", "Sch", "TIRZ"],
+	"lista": ["BBxx", "BKZA", "CAVE", "Eez", "H1HX", "kisv", "REPZ", "SFZA", "SZIL", "Aszu", "BFX", "MFX", "MTB6", "PVX", "Sch", "TIRZ"],
 	"BBxx": {
 		"name": "Barlangolások a Bükkben",
 		"size": [6 , 4],
