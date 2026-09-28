@@ -117,7 +117,6 @@ function svgManipulator(svgBelseje, list) {
 			text.setAttribute("text-anchor", "middle");
 			text.setAttribute("fill", "black");
 			text.setAttribute("stroke", "white");
-			text.setAttribute("stroke-width", "2px");
 			text.textContent = list.items[x].name.toUpperCase();
 
 		link.appendChild(path);
