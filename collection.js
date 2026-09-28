@@ -82,7 +82,7 @@ async function loadSVG(list) {
 				document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
 				svgManipulator(svgBelseje, list);
-				changeID(svgBelseje);
+				//changeID(svgBelseje);
 			});
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
