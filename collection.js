@@ -82,7 +82,7 @@ async function loadSVG(list) {
 				document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
 				svgManipulator(svgBelseje, list);
-				//changeID(svgBelseje);
+				changeID(svgBelseje);
 			});
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
@@ -96,10 +96,6 @@ function svgManipulator(svgBelseje, list) {
 	for(let x=0; x<(px*py)-sp; x++) {
 		let piece = document.createElementNS(svgNS, "g");
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
-		
-		console.log(list);
-		console.log(list.items[x]);
-		console.log(list.items[x].id);
 			
 		let link = document.createElementNS(svgNS, "a");
 			link.setAttribute("href", "https://geocaching.hu/caches.geo?id="+list.items[x].id);
