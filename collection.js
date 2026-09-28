@@ -81,6 +81,7 @@ async function loadSVG(list) {
 				document.getElementById("svg").setAttribute("height", y*puzzleSize);
 				document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
+				changeID(svgBelseje);
 				svgManipulator(svgBelseje, list);
 			});
 	} catch (hiba) {
@@ -94,7 +95,6 @@ function svgManipulator(svgBelseje, list) {
 	let pieces = genPieces(px, py, sp);
 	for(let x=0; x<(px*py)-sp+1; x++) {
 		let piece = document.createElementNS(svgNS, "g");
-			piece.id = "p_" + x;
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
 			
 		let link = document.createElementNS(svgNS, "a");
@@ -102,7 +102,6 @@ function svgManipulator(svgBelseje, list) {
 			link.setAttribute("target", "_blank");
 
 		let path = document.createElementNS(svgNS, "path");
-			path.id = "path" + x;
 			path.setAttribute("d", pieces[x]);
 		if(list.items[x].found)
 			path.setAttribute("style", "display:inline;fill:url(#pattern16);fill-opacity:1");
@@ -111,7 +110,6 @@ function svgManipulator(svgBelseje, list) {
 			path.setAttribute("stroke", "#f00");
 
 		let text = document.createElementNS(svgNS, "text");
-			text.id = "text_" + x;
 			text.setAttribute("x", 25);
 			text.setAttribute("y", 40);
 			text.setAttribute("font-size", "smaller");
@@ -121,10 +119,10 @@ function svgManipulator(svgBelseje, list) {
 			text.setAttribute("stroke-width", "0.5");
 			text.textContent = list.items[x].name.toUpperCase();
 
-		link.appendChild(path);
-		piece.appendChild(link);
+		piece.appendChild(path);
 		piece.appendChild(text);
-		svgBelseje.getElementById("puzzle").appendChild(piece);
+		link.appendChild(piece);
+		svgBelseje.getElementById("puzzle").appendChild(link);
 	}
 }
 /**
@@ -299,4 +297,23 @@ function reverseRelativePath(pathArray) {
 		}
 	}
 	return reversed;
+}
+
+function changeID(svgBele) {
+
+	// Megkeressük az SVG-n belüli összes ID-val rendelkező elemet (pattern, gradient, stb.)
+	const elementsWithId = svgBele.querySelectorAll("[id]");
+	    
+	elementsWithId.forEach(elem => {
+	    const regiId = elem.id;
+	    const ujId = `${collection}_${regiId}`;
+		
+	    elem.id = ujId;
+	        
+	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel mutattak erre a régi ID-ra
+	    const hivatkozasok = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
+	    hivatkozasok.forEach(hiv => {
+	        hiv.setAttribute("xlink:href", `#${ujId}`);
+	    });
+	});
 }
