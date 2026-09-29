@@ -91,9 +91,9 @@ async function loadSVG(list) {
 function svgManipulator(svgBelseje, list) {
 	const px = list.size[0];
 	const py = list.size[1];
-	const sp = list.items.at(-1).span ?? 0;
+	const sp = list.items.at(-1).span ?? 1;
 	let pieces = genPieces(px, py, sp);
-	for(let x=0; x<(px*py)-sp; x++) {
+	for(let x=0; x<(px*py)-sp+1; x++) {
 		let piece = document.createElementNS(svgNS, "g");
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
 			
