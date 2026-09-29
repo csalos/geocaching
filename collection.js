@@ -106,7 +106,7 @@ function svgManipulator(svgBelseje, list) {
 		if(list.items[x].found) {
 			path.setAttribute("fill", "url(#pattern16)");
 			path.setAttribute("style", "display:inline,fill-opacity:1");
-		else {
+		} else {
 			path.setAttribute("fill", "url(#pattern16)");
 			path.setAttribute("filter", "url(#pattern17)");
 			path.setAttribute("style", "display:inline;fill-opacity:1;opacity:0.75");
