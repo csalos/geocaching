@@ -103,12 +103,11 @@ function svgManipulator(svgBelseje, list) {
 
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("d", pieces[x]);
-		if(list.items[x].found) {
 			path.setAttribute("fill", "url(#pattern16)");
+		if(list.items[x].found) {
 			path.setAttribute("style", "display:inline,fill-opacity:1");
 		} else {
-			path.setAttribute("fill", "url(#pattern16)");
-			path.setAttribute("filter", "url(#pattern17)");
+			path.setAttribute("filter", "url(#filter17)");
 			path.setAttribute("style", "display:inline;fill-opacity:1;opacity:0.75");
 		}
 			path.setAttribute("stroke", "#f00");
