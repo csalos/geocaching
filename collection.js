@@ -103,10 +103,14 @@ function svgManipulator(svgBelseje, list) {
 
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("d", pieces[x]);
-		if(list.items[x].found)
-			path.setAttribute("style", "display:inline;fill:url(#pattern16);fill-opacity:1");
-		else
-			path.setAttribute("style", "display:inline;fill:url(#pattern16);fill-opacity:1;filter:url(#filter17);opacity:0.75");
+		if(list.items[x].found) {
+			path.setAttribute("fill", "url(#pattern16)");
+			path.setAttribute("style", "display:inline,fill-opacity:1");
+		else {
+			path.setAttribute("fill", "url(#pattern16)");
+			path.setAttribute("filter", "url(#pattern17)");
+			path.setAttribute("style", "display:inline;fill-opacity:1;opacity:0.75");
+		}
 			path.setAttribute("stroke", "#f00");
 
 		let text = document.createElementNS(svgNS, "text");
@@ -311,9 +315,16 @@ function changeID(svgBele) {
 	    elem.id = ujId;
 	        
 	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel mutattak erre a régi ID-ra
-	    const hivatkozasok = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
-	    hivatkozasok.forEach(hiv => {
-	        hiv.setAttribute("xlink:href", `#${ujId}`);
+	    const href = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
+	    href.forEach(hiv => {
+	        hiv.setAttribute("xlink:href", `#${ujId}`);const hivatkozasok = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
+	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
+	    fill.forEach(hiv => {
+	        hiv.setAttribute("fill", `url(#${ujId})`);
+	    });
+		const filter = svgBele.querySelectorAll(`[filter="url(#${regiId})"]`);
+	    filter.forEach(hiv => {
+	        hiv.setAttribute("filter", `url(#${ujId})`);
 	    });
 	});
 }
