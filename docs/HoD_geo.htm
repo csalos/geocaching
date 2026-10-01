@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <style>
+  		info {
+  			display: block;
+  			background-color: gold;
+  			font-family: "IBM Plex Mono", monospace;
+  			margit: 5px;
+  			padding: 10px;
+  		}
+      code, sample {
+        display: flex;
+        background-color: lightgray;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: normal;
+        font-style: italic;
+        height: 30px;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Elrejt / Megmutat</h1>
+    <h2>geocaching.hu beépített funkciója</h2>
+    <info>Jelen oldal - as it is - a geocaching.hu beépített szöveg elrejtési funkciójához nyújt segítséget.</info>
+    <p>Az alábbi kód részletet betűzve az oldalba az kinyitható és összecsukhatóvá válik egy gomb segítségével.<br />
+       Ez csak a geocaching.hu oldalakon működik: fórum, profil és láda oldal</p>
+    <p>Először is a DIV html tag-et kell beszúrnod az oldal szövegébe, oda, ahol kezdődik az a rész, amit el szeretnél rejteni.</p>
+
+    <form>
+      <h3>Formázási lehetőségek:</h3>
+      <table>
+        <tr>
+          <td>Típus</td>
+          <td><select id="type">
+            <option value="1">1 - formázott gomb [default]</option>
+            <option value="2">2 - formázott szöveg</option>
+            <option value="3">3 - kép</option>
+          </select></td>
+        </tr><tr>
+          <td>Alap állapot</td>
+          <td><select id="stat">
+            <option value="R">R - elrejve [default]</option>
+            <option value="M">M - mutat</option>
+          </select></td>
+        </tr><tr>
+          <td>Gomb helye: gomb a kinyitás után hol lesz</td>
+          <td><select id="plac">
+            <option value="E">E - elején marad [default]</option>
+            <option value="V">V - végére kerül</option>
+            <option value="M">M - elején és a végén is lesz</option>
+          </select></td>
+        </tr><tr>
+          <td>Szétnyilási idő:</td>
+          <td><input type="number" value="0" step="10" size="6" />[ms]</td>
+        </tr>
+        <tbody id=text><tr>
+          <td>Gomb felirat nyitott állapotban:</td>
+          <td><input type="text" placeholder="Kinyit" /></td>
+        </tr><tr>
+          <td>Gomb felirat zárt állapotban:</td>
+          <td><input type="text" placeholder="Bezár" /></td>
+        </tr><tr>
+          <td>Gomb felirat: háttérszíne:</td>
+          <td><input type="color" value="#D6D6D6" /></td>
+        </tr><tr>
+          <td>Gomb felirat: háttérszíne, ha ráviszed az egeret:</td>
+          <td><input type="color" value="#FBF300" /></td>
+        </tr><tr>
+          <td>Gomb felirat: betü színe:</td>
+          <td><input type="color" value="#000" /></td>
+        </tr><tr>
+          <td>Gomb felirat: betü színe, ha ráviszed az egeret:</td>
+          <td><input type="color" value="#000" /></td>
+        </tr></tbody>
+        <tbody id=image><tr>
+          <td>Kép alaptípusok:</td>
+          <td><select id="plac">
+            <option value="0"><img src="/images/toggles/tgomb_1a.gif"><img src="/images/toggles/tgomb_1b.gif">bézs háttér fekete kiálló gomb</option>
+            <option value="1"><img src="/images/toggles/tgomb_1ha1.gif"><img src="/images/toggles/tgomb_1hb1.gif">bézs háttér piros kiálló gomb</option>
+            <option value="2"><img src="/images/toggles/tgomb_1ha1.gif"><img src="/images/toggles/tgomb_1hb1.gif">kék háttér fekete kiálló gomb</option>
+            <option value="3"><img src="/images/toggles/tgomb_1ha1.gif"><img src="/images/toggles/tgomb_1hb1.gif">kék háttér piros kiálló gomb</option>
+            <option value="4"><img src="/images/toggles/tgomb_1ha1.gif"><img src="/images/toggles/tgomb_1hb1.gif">bézs háttér fekete benyomott gomb</option>
+            <option value="5"><img src="/images/toggles/tgomb_1ha1.gif"><img src="/images/toggles/tgomb_1hb1.gif">bézs háttér piros benyomott gomb</option>
+            <option value="6"><img src="/images/toggles/tgomb_1ha1.gif"><img src="/images/toggles/tgomb_1hb1.gif">kék háttér fekete benyomott gomb</option>
+            <option value="7"><img src="/images/toggles/tgomb_1ha1.gif"><img src="/images/toggles/tgomb_1hb1.gif">kék háttér piros benyomott gomb</option>
+          </select></td>
+        </tr><tr>
+          <td>Kép zárt állapotban:</td>
+          <td><input type="text" placeholder="Kinyit" /></td>
+        </tr><tr>
+          <td>Kép nyitott állapotban:</td>
+          <td><input type="text" placeholder="Bezár" /></td>
+        </tr><tr>
+          <td>Kép zárt állapotban, ha ráviszed az egeret:</td>
+          <td><input type="color" value="#D6D6D6" /></td>
+        </tr><tr>
+          <td>Kép nyitott állapotban, ha ráviszed az egeret:</td>
+          <td><input type="color" value="#FBF300" /></td>
+        </tr><tr>
+          <td>Kép helyetesítő szöveg:</td>
+          <td><input type="text" placeholder="p" /></td>
+        </tr><tr>
+          <td>Egyéb CSS stílus formázások:</td>
+          <td><input type="text" placeholder="" /></td>
+        </tr></tbody>
+      </table>
+    </form>
+    
+    <p>Ezt szúrd be oda, ahol kezdődik az a rész, amit el szeretnél rejteni:
+      <code>&lt;div id="divStats" style="display: none"&gt;</code></p>
+    <p>Ezt szúrd be oda, ahol végződik az a rész, amit el szeretnél rejteni: 
+      <code>&lt;/span&gt;</code></p>
+    <div id="sample"><div id="divStats" style="display: block"><h2>Példa:</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sem nunc, dapibus at ultrices id, cursus sed sapien. 
+        Etiam nec ligula non ex finibus sollicitudin. Nullam a vestibulum tellus. Ut sapien risus, cursus non scelerisque a, viverra et leo. 
+        Etiam pellentesque, lectus eget vestibulum sodales, odio arcu suscipit mauris, et dignissim tortor urna vel nulla. 
+        Maecenas placerat ac lorem et tristique. In at sapien at nulla rhoncus convallis ut et tortor. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+        Aenean cursus vel felis sed congue. Aliquam ullamcorper sed sem at ultrices. Phasellus vitae ante nec leo dapibus efficitur id ut elit. Nunc nec semper augue. 
+        Praesent placerat semper nibh, ac tincidunt libero dapibus non. Ut sagittis magna nec tellus condimentum hendrerit.</p>
+      <p>Praesent iaculis tortor sit amet malesuada venenatis. Proin eleifend tellus vitae est luctus, eu suscipit mi pellentesque. 
+        Quisque tincidunt dui id commodo elementum. In dignissim sem nec arcu venenatis mollis. Sed id ipsum dolor. 
+        Donec varius turpis vestibulum varius viverra. Integer fringilla est sed dictum varius. Nulla ac arcu auctor, vulputate est eget, sodales elit. 
+        Maecenas erat dui, vestibulum non ultrices vel, vulputate eget risus. Aenean eleifend nulla tellus. Pellentesque porttitor purus eu fermentum aliquet.</p>
+      <p>Nullam ut neque tellus. Mauris dictum et magna ac cursus. Aliquam posuere non ex a feugiat. Vestibulum eu faucibus massa. 
+        Morbi in ante nec eros scelerisque euismod. Etiam non ligula sed massa sollicitudin ornare. Nam commodo bibendum scelerisque.
+        Donec mattis, felis vel venenatis dictum, orci dui dictum ipsum, quis tristique urna augue vitae mauris. Quisque non feugiat magna. 
+        In hendrerit lorem nunc, vitae bibendum nisl faucibus non. Nunc aliquet vulputate diam id tincidunt. Maecenas ut nulla vel dui mollis efficitur. </p>
+      <p>Sed at eros sagittis libero sollicitudin consectetur. Proin et velit orci. Proin pulvinar eu diam in vestibulum. 
+        Proin eu tortor sed odio tincidunt pulvinar id a velit. Mauris cursus ante nec felis aliquet, et suscipit ante sagittis. 
+        Fusce sit amet lectus quis erat condimentum cursus. Duis placerat dictum diam, vel feugiat turpis porta at. Nam porta id nulla vel maximus. 
+        Integer urna erat, aliquam eu commodo gravida, tincidunt ac lacus. Morbi non ligula a magna euismod euismod. 
+        Integer facilisis mi eu nunc maximus pharetra eget in odio. In auctor venenatis odio, a tempus nisl ullamcorper ac. 
+        Phasellus blandit ipsum sit amet ligula tristique pretium. Maecenas lectus augue, faucibus a blandit at, gravida id ex.</p>
+    </div><script language="javascript" type="text/javascript" src="https://csalos.github.io/geocaching/HoD.js"></script></div>
+  </body>
+</html>
