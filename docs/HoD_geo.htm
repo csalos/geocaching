@@ -137,7 +137,6 @@
     <script>
       myScript();
   		function myScript() {
-  			const u = +document.getElementById("user").value;
   			const t = document.getElementById("type");
   			const ts = c.options[c.selectedIndex].value || "1";
   			const o = document.getElementById("url");
@@ -154,7 +153,7 @@
           document.getElementById("text").style.display = "none";
           document.getElementById("image").style.display = "image";
           if(v == 8)  im1a = im1b = im2ah = im2bh = true; 
-          else    im1a = im1b = im2ah = im2bh = false; 
+          else        im1a = im1b = im2ah = im2bh = false; 
         }
   			
   			const params = new URLSearchParams();
