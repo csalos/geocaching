@@ -138,8 +138,7 @@
       myScript();
   		function myScript() {
   			const t = document.getElementById("type");
-  			const ts = c.options[c.selectedIndex].value || "1";
-  			const o = document.getElementById("url");
+  			const ts = t.options[t.selectedIndex].value || "1";
             const v = document.querySelector('input[name="gomb"]:checked').value;
 			const im1a = document.getElementById("im1a").style.enable;
 			const im1b = document.getElementById("im1b").style.enable;
