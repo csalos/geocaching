@@ -139,7 +139,7 @@
   		function myScript() {
   			const t = document.getElementById("type");
   			const ts = t.options[t.selectedIndex].value || "1";
-            const v = document.querySelector('input[name="gomb"]:checked').value;
+            const v = document.querySelector("input[name='gomb']:checked");
 			const im1a = document.getElementById("im1a").style.enable;
 			const im1b = document.getElementById("im1b").style.enable;
 			const im2ah = document.getElementById("im2ah").style.enable;
@@ -151,7 +151,7 @@
         } else {
           document.getElementById("text").style.display = "none";
           document.getElementById("image").style.display = "image";
-          if(v == 8)  im1a = im1b = im2ah = im2bh = true; 
+          if(v.value == 8)  im1a = im1b = im2ah = im2bh = true; 
           else        im1a = im1b = im2ah = im2bh = false; 
         }
   			
