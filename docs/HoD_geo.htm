@@ -30,81 +30,83 @@
     <form>
       <h3>Formázási lehetőségek:</h3>
       <table>
-        <tr>
-          <td>Típus</td>
-          <td><select id="type" onchange="myScript()">
-            <option value="1">1 - formázott gomb [default]</option>
-            <option value="2">2 - formázott szöveg</option>
-            <option value="3">3 - kép</option>
-          </select></td>
-        </tr><tr>
-          <td>Alap állapot</td>
-          <td><select id="stat">
-            <option value="R">R - elrejve [default]</option>
-            <option value="M">M - mutat</option>
-          </select></td>
-        </tr><tr>
-          <td>Gomb helye: gomb a kinyitás után hol lesz</td>
-          <td><select id="plac">
-            <option value="E">E - elején marad [default]</option>
-            <option value="V">V - végére kerül</option>
-            <option value="M">M - elején és a végén is lesz</option>
-          </select></td>
-        </tr><tr>
-          <td>Szétnyilási idő:</td>
-          <td><input type="number" value="0" step="10" size="6" />[ms]</td>
-        </tr>
-        <tbody id="text" style="display: block">
-		<tr><th colspan="2">Gomb felirat</th></tr>
-		<tr>
-          <td>Nyitott állapotban:</td>
-          <td><input type="text" placeholder="Kinyit" /></td>
-        </tr><tr>
-          <td>Zárt állapotban:</td>
-          <td><input type="text" placeholder="Bezár" /></td>
-        </tr><tr>
-          <td>Háttérszíne:</td>
-          <td><input type="color" value="#D6D6D6" /></td>
-        </tr><tr>
-          <td>Háttérszíne, ha ráviszed az egeret:</td>
-          <td><input type="color" value="#FBF300" /></td>
-        </tr><tr>
-          <td>Betü színe:</td>
-          <td><input type="color" value="#000000" /></td>
-        </tr><tr>
-          <td>Betü színe, ha ráviszed az egeret:</td>
-          <td><input type="color" value="#000000" /></td>
-        </tr><tr>
-          <td>Egyéb CSS stílus formázások:</td>
-          <td><input type="text" placeholder="" /></td>
-        </tr></tbody>
-        <tbody id="image" style="display: none"><tr>
-		  <tr><th colspan="2">Kép:</th></tr>
-          <td>Alaptípusok:</td>
-          <td><div id="plac">
-            <input type="radio" name="gomb" value="0" /><img src="https://geocaching.hu/images/toggles/tgomb_1a.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1b.gif">bézs háttér fekete kiálló gomb<br />
-            <input type="radio" name="gomb" value="1" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha1.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb1.gif">bézs háttér piros kiálló gomb<br />
-            <input type="radio" name="gomb" value="2" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha2.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb2.gif">kék háttér fekete kiálló gomb<br />
-            <input type="radio" name="gomb" value="3" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha3.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb3.gif">kék háttér piros kiálló gomb<br />
-            <input type="radio" name="gomb" value="4" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha4.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb4.gif">bézs háttér fekete benyomott gomb<br />
-            <input type="radio" name="gomb" value="5" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha5.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb5.gif">bézs háttér piros benyomott gomb<br />
-            <input type="radio" name="gomb" value="6" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha6.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb6.gif">kék háttér fekete benyomott gomb<br />
-            <input type="radio" name="gomb" value="7"/><img src="https://geocaching.hu/images/toggles/tgomb_1ha7.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb7.gif">kék háttér piros benyomott gomb<br />
-            <input type="radio" name="gomb" value="8" />Saját képek használata 
-          </div></td>
-        </tr><tr>
-          <td>Zárt állapotban:</td>
-          <td><input id="im1a" type="text" placeholder="https://geocaching.hu/images/toggles/tgomb_1a.gif" /></td>
-        </tr><tr>
-          <td>Nyitott állapotban:</td>
-          <td><input id="im1b" type="text" placeholder="https://geocaching.hu/images/toggles/tgomb_1b.gif" /></td>
-        </tr><tr>
-          <td>Zárt állapotban, ha ráviszed az egeret:</td>
-          <td><input id="im2ah" type="text" value="https://geocaching.hu/images/toggles/tgomb_1ha1.gif" /></td>
-        </tr><tr>
-          <td>Nyitott állapotban, ha ráviszed az egeret:</td>
-          <td><inputt id="im2bh" type="text" value="https://geocaching.hu/images/toggles/tgomb_1hb1.gif" /></td>
-        </tr></tbody>
+		<tbody>
+	        <tr>
+	          <td>Típus</td>
+	          <td><select id="type" onchange="myScript()">
+	            <option value="1">1 - formázott gomb [default]</option>
+	            <option value="2">2 - formázott szöveg</option>
+	            <option value="3">3 - kép</option>
+	          </select></td>
+	        </tr><tr>
+	          <td>Alap állapot</td>
+	          <td><select id="stat">
+	            <option value="R">R - elrejve [default]</option>
+	            <option value="M">M - mutat</option>
+	          </select></td>
+	        </tr><tr>
+	          <td>Gomb helye: gomb a kinyitás után hol lesz</td>
+	          <td><select id="plac">
+	            <option value="E">E - elején marad [default]</option>
+	            <option value="V">V - végére kerül</option>
+	            <option value="M">M - elején és a végén is lesz</option>
+	          </select></td>
+	        </tr><tr>
+	          <td>Szétnyilási idő:</td>
+	          <td><input type="number" value="0" step="10" size="6" />[ms]</td>
+	        </tr>
+        </tbody><tbody id="text" style="display: block">
+			<tr><th colspan="2">Gomb felirat</th></tr>
+			<tr>
+	          <td>Nyitott állapotban:</td>
+	          <td><input type="text" placeholder="Kinyit" /></td>
+	        </tr><tr>
+	          <td>Zárt állapotban:</td>
+	          <td><input type="text" placeholder="Bezár" /></td>
+	        </tr><tr>
+	          <td>Háttérszíne:</td>
+	          <td><input type="color" value="#D6D6D6" /></td>
+	        </tr><tr>
+	          <td>Háttérszíne, ha ráviszed az egeret:</td>
+	          <td><input type="color" value="#FBF300" /></td>
+	        </tr><tr>
+	          <td>Betü színe:</td>
+	          <td><input type="color" value="#000000" /></td>
+	        </tr><tr>
+	          <td>Betü színe, ha ráviszed az egeret:</td>
+	          <td><input type="color" value="#000000" /></td>
+	        </tr><tr>
+	          <td>Egyéb CSS stílus formázások:</td>
+	          <td><input type="text" placeholder="" /></td>
+	        </tr>
+		</tbody><tbody id="image" style="display: none"><tr>
+			  <tr><th colspan="2">Kép:</th></tr>
+	          <td>Alaptípusok:</td>
+	          <td><div id="plac">
+	            <input type="radio" name="gomb" value="0" checked="checked" /><img src="https://geocaching.hu/images/toggles/tgomb_1a.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1b.gif">bézs háttér fekete kiálló gomb<br />
+	            <input type="radio" name="gomb" value="1" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha1.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb1.gif">bézs háttér piros kiálló gomb<br />
+	            <input type="radio" name="gomb" value="2" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha2.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb2.gif">kék háttér fekete kiálló gomb<br />
+	            <input type="radio" name="gomb" value="3" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha3.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb3.gif">kék háttér piros kiálló gomb<br />
+	            <input type="radio" name="gomb" value="4" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha4.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb4.gif">bézs háttér fekete benyomott gomb<br />
+	            <input type="radio" name="gomb" value="5" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha5.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb5.gif">bézs háttér piros benyomott gomb<br />
+	            <input type="radio" name="gomb" value="6" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha6.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb6.gif">kék háttér fekete benyomott gomb<br />
+	            <input type="radio" name="gomb" value="7"/><img src="https://geocaching.hu/images/toggles/tgomb_1ha7.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb7.gif">kék háttér piros benyomott gomb<br />
+	            <input type="radio" name="gomb" value="8" />Saját képek használata 
+	          </div></td>
+	        </tr><tr>
+	          <td>Zárt állapotban:</td>
+	          <td><input id="im1a" type="text" placeholder="https://geocaching.hu/images/toggles/tgomb_1a.gif" /></td>
+	        </tr><tr>
+	          <td>Nyitott állapotban:</td>
+	          <td><input id="im1b" type="text" placeholder="https://geocaching.hu/images/toggles/tgomb_1b.gif" /></td>
+	        </tr><tr>
+	          <td>Zárt állapotban, ha ráviszed az egeret:</td>
+	          <td><input id="im2ah" type="text" value="https://geocaching.hu/images/toggles/tgomb_1ha1.gif" /></td>
+	        </tr><tr>
+	          <td>Nyitott állapotban, ha ráviszed az egeret:</td>
+	          <td><input id="im2bh" type="text" value="https://geocaching.hu/images/toggles/tgomb_1hb1.gif" /></td>
+	        </tr>
+	  	</tbody>
       </table>
     </form>
     
