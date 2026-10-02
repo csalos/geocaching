@@ -17,14 +17,6 @@
         height: 30px;
         justify-content: center;
       }
-      .img0 { background:url(https://geocaching.hu/images/toggles/tgomb_1a.gif) no-repeat; padding-left:16px;}
-      .img1 { background:url(https://geocaching.hu/images/toggles/tgomb_1ha1.gif) no-repeat; padding-left:16px;}
-      .img2 { background:url(https://geocaching.hu/images/toggles/tgomb_1ha2.gif) no-repeat; padding-left:16px;}
-      .img3 { background:url(https://geocaching.hu/images/toggles/tgomb_1ha3.gif) no-repeat; padding-left:16px;}
-      .img4 { background:url(https://geocaching.hu/images/toggles/tgomb_1ha4.gif) no-repeat; padding-left:16px;}
-      .img5 { background:url(https://geocaching.hu/images/toggles/tgomb_1ha5.gif) no-repeat; padding-left:16px;}
-      .img6 { background:url(https://geocaching.hu/images/toggles/tgomb_1ha6.gif) no-repeat; padding-left:16px;}
-      .img7 { background:url(https://geocaching.hu/images/toggles/tgomb_1ha7.gif) no-repeat; padding-left:16px;}
     </style>
   </head>
   <body>
@@ -40,7 +32,7 @@
       <table>
         <tr>
           <td>Típus</td>
-          <td><select id="type">
+          <td><select id="type" onchange="myScript()">
             <option value="1">1 - formázott gomb [default]</option>
             <option value="2">2 - formázott szöveg</option>
             <option value="3">3 - kép</option>
@@ -62,7 +54,7 @@
           <td>Szétnyilási idő:</td>
           <td><input type="number" value="0" step="10" size="6" />[ms]</td>
         </tr>
-        <tbody id=text><tr>
+        <tbody id="text" style="display: block"><tr>
           <td>Gomb felirat nyitott állapotban:</td>
           <td><input type="text" placeholder="Kinyit" /></td>
         </tr><tr>
@@ -81,7 +73,7 @@
           <td>Gomb felirat: betü színe, ha ráviszed az egeret:</td>
           <td><input type="color" value="#000000" /></td>
         </tr></tbody>
-        <tbody id=image><tr>
+        <tbody id="image" style="display: none"><tr>
           <td>Kép alaptípusok:</td>
           <td><div id="plac">
             <input type="radio" name="gomb" value="0" /><img src="https://geocaching.hu/images/toggles/tgomb_1a.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1b.gif">bézs háttér fekete kiálló gomb<br />
@@ -91,21 +83,21 @@
             <input type="radio" name="gomb" value="4" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha4.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb4.gif">bézs háttér fekete benyomott gomb<br />
             <input type="radio" name="gomb" value="5" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha5.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb5.gif">bézs háttér piros benyomott gomb<br />
             <input type="radio" name="gomb" value="6" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha6.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb6.gif">kék háttér fekete benyomott gomb<br />
-            <input type="radio" name="gomb" value="7" /><img src="https://geocaching.hu/images/toggles/tgomb_1ha7.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb7.gif">kék háttér piros benyomott gomb<br />
+            <input type="radio" name="gomb" value="7"/><img src="https://geocaching.hu/images/toggles/tgomb_1ha7.gif"><img src="https://geocaching.hu/images/toggles/tgomb_1hb7.gif">kék háttér piros benyomott gomb<br />
             <input type="radio" name="gomb" value="8" />Saját képek használata 
           </div></td>
         </tr><tr>
           <td>Kép zárt állapotban:</td>
-          <td><input type="text" placeholder="Kinyit" /></td>
+          <td><input id="im1a" type="text" placeholder="https://geocaching.hu/images/toggles/tgomb_1a.gif" /></td>
         </tr><tr>
           <td>Kép nyitott állapotban:</td>
-          <td><input type="text" placeholder="Bezár" /></td>
+          <td><input id="im1b" type="text" placeholder="https://geocaching.hu/images/toggles/tgomb_1b.gif" /></td>
         </tr><tr>
           <td>Kép zárt állapotban, ha ráviszed az egeret:</td>
-          <td><input type="color" value="#D6D6D6" /></td>
+          <td><input id="im2ah" type="text" value="https://geocaching.hu/images/toggles/tgomb_1ha1.gif" /></td>
         </tr><tr>
           <td>Kép nyitott állapotban, ha ráviszed az egeret:</td>
-          <td><input type="color" value="#FBF300" /></td>
+          <td><inputt id="im2bh" type="text" value="https://geocaching.hu/images/toggles/tgomb_1hb1.gif" /></td>
         </tr><tr>
           <td>Kép helyetesítő szöveg:</td>
           <td><input type="text" placeholder="p" /></td>
@@ -142,6 +134,60 @@
         Integer facilisis mi eu nunc maximus pharetra eget in odio. In auctor venenatis odio, a tempus nisl ullamcorper ac. 
         Phasellus blandit ipsum sit amet ligula tristique pretium. Maecenas lectus augue, faucibus a blandit at, gravida id ex.</p>
     </div><script language="javascript" type="text/javascript" src="https://csalos.github.io/geocaching/HoD.js"></script></div>
+    <script>
+      myScript();
+  		function myScript() {
+  			const u = +document.getElementById("user").value;
+  			const t = document.getElementById("type");
+  			const ts = c.options[c.selectedIndex].value || "1";
+  			const o = document.getElementById("url");
+        const v = document.querySelector('input[name="gomb"]:checked').value;
+			  const im1a = document.getElementById("im1a").style.enable;
+			  const im1b = document.getElementById("im1b").style.enable;
+			  const im2ah = document.getElementById("im2ah").style.enable;
+			  const im2ah = document.getElementById("im2bh").style.enable;
+
+        if(ts == 1 || ts == 2) {
+          document.getElementById("text").style.display = "block";
+          document.getElementById("image").style.display = "none";
+        } else {
+          document.getElementById("text").style.display = "none";
+          document.getElementById("image").style.display = "image";
+          if(v == 8)  im1a = im1b = im2ah = im2bh = true; 
+          else    im1a = im1b = im2ah = im2bh = false; 
+        }
+  			
+  			const params = new URLSearchParams();
+  						params.append("name", n);
+  			if(s!==100)	params.append("size", s);
+  			if(u > 0)	params.append("myUserId", u);
+  			const url = "https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "");
+  
+  			o.value = "<script src='" + url + "' type='module'><\/script>";
+  
+  			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
+  			const regiScript = document.getElementById('dinamikus-collection-script');
+  			const regiTerkep = document.querySelector('div[id^="coll_"]');
+  			if (regiScript)	regiScript.remove();
+  			if (regiTerkep)	regiTerkep.remove();
+  			
+  			// 2. Új <script> elem létrehozása a memóriában
+  		    const ujScript = document.createElement('script');
+  		    ujScript.id = 'dinamikus-collection-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
+  			
+  		    ujScript.src = url;
+  		    ujScript.type = "module";
+  		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
+  		
+  		    // 3. (Opcionális) Megvárhatjuk, amíg a script teljesen lefut 
+  		    ujScript.onload = function() {
+  		        console.log("A collection.js sikeresen lefutott az új adatokkal!");
+  		    };
+  		
+  		    // 4. Beszúrás a HTML dokumentumba (ekkor indul el a letöltés és futás)
+  		    document.body.appendChild(ujScript);
+  		}
+  	</script>
   </body>
 </html>
 
@@ -151,19 +197,3 @@ Típus 0</span>
 Típus 0</span>
 <SPAN toggle="1" id="pelda3" tipus="3" helye="M" allapot="R" stilus="font-size: 11px; width:250px; height: 20px; padding: 0px; margin: 0 0 5 0;box-shadow: 2px 2px 2px black; font-weight:bold;">
 Típus 0</span>
-1a<img src="/images/toggles/tgomb_1a.gif">
-1b<img src="/images/toggles/tgomb_1b.gif">
-1ha1<img src="/images/toggles/tgomb_1ha1.gif">
-1hb1<img src="/images/toggles/tgomb_1hb1.gif">
-1ha2<img src="/images/toggles/tgomb_1ha2.gif">
-1hb2<img src="/images/toggles/tgomb_1hb2.gif">
-1ha3<img src="/images/toggles/tgomb_1ha3.gif">
-1hb3<img src="/images/toggles/tgomb_1hb3.gif">
-1ha4<img src="/images/toggles/tgomb_1ha4.gif">
-1hb4<img src="/images/toggles/tgomb_1hb4.gif">
-1ha5<img src="/images/toggles/tgomb_1ha5.gif">
-1hb5<img src="/images/toggles/tgomb_1hb5.gif">
-1ha6<img src="/images/toggles/tgomb_1ha6.gif">
-1hb6<img src="/images/toggles/tgomb_1hb6.gif">
-1ha7<img src="/images/toggles/tgomb_1ha7.gif">
-1hb7<img src="/images/toggles/tgomb_1hb7.gif">
