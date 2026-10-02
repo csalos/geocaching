@@ -146,44 +146,24 @@
 			const im2bh = document.getElementById("im2bh").style.enable;
 
         if(ts == 1 || ts == 2) {
-          document.getElementById("text").style.display = "block";
+          document.getElementById("text").style.display  = "block";
           document.getElementById("image").style.display = "none";
         } else {
-          document.getElementById("text").style.display = "none";
-          document.getElementById("image").style.display = "image";
+          document.getElementById("text").style.display  = "none";
+          document.getElementById("image").style.display = "block";
           if(v.value == 8)  im1a = im1b = im2ah = im2bh = true; 
-          else        im1a = im1b = im2ah = im2bh = false; 
+          else              im1a = im1b = im2ah = im2bh = false; 
         }
   			
-  			const params = new URLSearchParams();
-  						params.append("name", n);
-  			if(s!==100)	params.append("size", s);
-  			if(u > 0)	params.append("myUserId", u);
-  			const url = "https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "");
+  			//const params = new URLSearchParams();
+  			//			params.append("name", n);
+  			//if(s!==100)	params.append("size", s);
+  			//if(u > 0)	params.append("myUserId", u);
+  			//const url = "https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "");
   
-  			o.value = "<script src='" + url + "' type='module'><\/script>";
+  			//o.value = "<script src='" + url + "' type='module'><\/script>";
   
-  			//  1. Ha már létezik egy korábban betöltött dinamikus script, töröljük le
-  			const regiScript = document.getElementById('dinamikus-collection-script');
-  			const regiTerkep = document.querySelector('div[id^="coll_"]');
-  			if (regiScript)	regiScript.remove();
-  			if (regiTerkep)	regiTerkep.remove();
   			
-  			// 2. Új <script> elem létrehozása a memóriában
-  		    const ujScript = document.createElement('script');
-  		    ujScript.id = 'dinamikus-collection-script'; // Adunk neki egy ID-t, hogy később megtaláljuk
-  			
-  		    ujScript.src = url;
-  		    ujScript.type = "module";
-  		    ujScript.async = true; // Biztosítja, hogy ne fagyassza le az oldalt betöltés közben
-  		
-  		    // 3. (Opcionális) Megvárhatjuk, amíg a script teljesen lefut 
-  		    ujScript.onload = function() {
-  		        console.log("A collection.js sikeresen lefutott az új adatokkal!");
-  		    };
-  		
-  		    // 4. Beszúrás a HTML dokumentumba (ekkor indul el a letöltés és futás)
-  		    document.body.appendChild(ujScript);
   		}
   	</script>
   </body>
