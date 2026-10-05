@@ -1,6 +1,87 @@
 {
 	"lista": ["Move", "MVK", "XX", "20", "RC", "MM", "MO", "25"],
 	"listb": ["BBxx", "BKZA", "CAVE", "Eez", "H1HX", "kisv", "REPZ", "SFZA", "SZIL", "Aszu", "BFX", "MFX", "MTB6", "PVX", "Sch", "TIRZ"],
+	"listc": ["GN","GM","XM","20","GTV","walk","tour","cito","jaro","wed"],
+
+	"GN": {
+		"name": "Geo Húsvét",
+		"size": [1, 3],
+		"items": [
+			{ "name": "GN24", "id": 6460 },
+			{ "name": "GN25", "id": 6604 },
+			{ "name": "GN26", "id": 6755 }
+		]
+	}, 	"GM": {
+		"name": "Geo Húsvét",
+		"size": [1, 3],
+		"items": [
+			{ "name": "GM23", "id": 6000 },
+			{ "name": "GM24", "id": 6562 },
+			{ "name": "GM25", "id": 6682 }
+		]
+	}, 	"XM": {
+		"name": "Geo Karácsony",
+		"size": [4, 5],
+		"items": [
+			{ "name": "XMAS", "id": 550 },
+			{ "name": "XM07", "id": 2242 },
+			{ "name": "XM08", "id": 2740 },
+			{ "name": "XM09", "id": 3149 },
+			{ "name": "XM10", "id": 3447 },
+			{ "name": "XM11", "id": 3729 },
+			{ "name": "XM12", "id": 4165 },
+			{ "name": "XM13", "id": 4467 },
+			{ "name": "XM14", "id": 4738 },
+			{ "name": "XM15", "id": 4997 },
+			{ "name": "XM16", "id": 5150 },
+			{ "name": "XM17", "id": 5365 },
+			{ "name": "XM18", "id": 5621 },
+			{ "name": "XM19", "id": 5773 },
+			{ "name": "XM20", "id": 5962 },
+			{ "name": "XM21", "id": 6237 },
+			{ "name": "XM22", "id": 6334 },
+			{ "name": "XM23", "id": 6443 },
+			{ "name": "XM24", "id": 6569 },
+			{ "name": "XM25", "id": 6694 }
+		]
+	}, 	"XM": {
+		"name": "Geo Szilveszter",
+		"size": [4, 5],
+		"items": [
+			{ "name": "2006", "id": 557 },
+			{ "name": "2007", "id": 2247 },
+			{ "name": "2008", "id": 2771 },
+			{ "name": "2009", "id": 3179 },
+			{ "name": "2010", "id": 3438 },
+			{ "name": "2011", "id": 3753 },
+			{ "name": "2012", "id": 4168 },
+			{ "name": "2013", "id": 4466 },
+			{ "name": "2014", "id": 4737 },
+			{ "name": "2015", "id": 4996 },
+			{ "name": "2016", "id": 5154 },
+			{ "name": "2017", "id": 5364 },
+			{ "name": "2018", "id": 5620 },
+			{ "name": "2019", "id": 5775 },
+			{ "name": "2020", "id": 6124 },
+			{ "name": "2021", "id": 6240 },
+			{ "name": "2022", "id": 6333 },
+			{ "name": "2023", "id": 6442 },
+			{ "name": "2024", "id": 6573 },
+			{ "name": "2025", "id": 6695 }
+		]
+	}, "xxFV": {
+		"name": "Fesztivál és verseny",
+		"size": [5,10],
+		"items": [
+			{ "name": "KoHo", "id": 687 },
+			{ "name": "5FVE", "id": 1049 },
+			{ "name": "6FVE", "id": 1190 },
+			{ "name": "8FVE", "id": 1443 },
+			{ "name": "20FV", "id": 3387 },
+			{ "name": "42FV", "id": 6276 },
+			{ "name": "45FV", "id": 6418 },
+		]
+	}
 
 	"Move": {
 		"name": "Mozgó geoládák",
