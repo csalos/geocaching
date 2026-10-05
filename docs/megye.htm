@@ -39,19 +39,19 @@
 	<p><form><table>
 		<tr><td colspan="2">
 			<b><label for="user">GeoCaching felhasználói azonosító:</label>   
-			<input name="user" id="user" size="6" min="0" step="1" type="number" onchange="myScript()" /></b><br />
+			<input name="finUser" id="user" size="6" min="0" step="1" type="number" onchange="myScript()" /></b><br />
 			Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor üresen is hagyhatod.
 		</td></tr><tr>
 			<td><b>Stílus választás:</b><br />
-				<input name="stil" id="stil1" type="radio" value="0" onclick="myScript()" checked="checked"><label for="stil1">Pacman style</label><br />
-				<input name="stil" id="stil2" type="radio" value="1" onclick="myScript()"><label for="stil2">Shade style</label>
+				<input name="stil" id="finStil1" type="radio" value="0" onclick="myScript()" checked="checked"><label for="stil1">Pacman style</label><br />
+				<input name="stil" id="finStil2" type="radio" value="1" onclick="myScript()"><label for="stil2">Shade style</label>
 			</td><td><b>Megjelenített elemek:</b><br />
-				<input name="with1" id="with1" type="checkbox" value="1" onclick="myScript()" checked="checked"><label for="with1">Folyók és tavak</label><br/>
-				<input name="with2" id="with2" type="checkbox" value="2" onclick="myScript()" checked="checked"><label for="with2">Autópályák</label><br/>
-				<input name="with3" id="with3" type="checkbox" value="4" onclick="myScript()" disabled><label for="with3" style="color: gray">Vasút vonalak</label>
+				<input name="with1" id="finWith1" type="checkbox" value="1" onclick="myScript()" checked="checked"><label for="with1">Folyók és tavak</label><br/>
+				<input name="with2" id="finWith2" type="checkbox" value="2" onclick="myScript()" checked="checked"><label for="with2">Autópályák</label><br/>
+				<input name="with3" id="finWith3" type="checkbox" value="4" onclick="myScript()" disabled><label for="with3" style="color: gray">Vasút vonalak</label>
 			</td>
 		</tr><tr><td colspan=2>
-			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a térképet látni szeretnéd.<br /><input id="url" type="text" size="130" />
+			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a térképet látni szeretnéd.<br /><input id="finUrl" type="text" size="130" />
 		</td></tr>
 	</table></form></p>
 	<p><code>
@@ -61,12 +61,12 @@
 	<script>
 		myScript();
 		function myScript() {
-			const u  = +document.getElementById("user").value;
-			const s  = document.getElementById("stil2").checked;
-			const w1 = document.getElementById("with1").checked;
-			const w2 = document.getElementById("with2").checked;
-			const w3 = document.getElementById("with3").checked;
-			const o  = document.getElementById("url");
+			const u  = +finUser.value;
+			const s  = finStil2.checked;
+			const w1 = finWith1.checked;
+			const w2 = finWith2.checked;
+			const w3 = finWith3.checked;
+			const o  = finUrl;
 
 			const params = new URLSearchParams();
 			if(s)		params.append("getStyle", "color");
