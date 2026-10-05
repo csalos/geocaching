@@ -55,7 +55,7 @@
 			<input name="size" id="finSize" size="4" type="number" value="100" step="10" onchange="myScript()" style="width: 44px" /><br />
 		</td></tr>
 		<tr><td colspan=2>
-			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a kollekciót látni szeretnéd.<br /><input id="finUrl" type="text" size="130" />
+			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a kollekciót látni szeretnéd.<br /><input id="foutUrl" type="text" size="130" />
 		</td></tr>
 	</table></form></p>
 	<p><code>
@@ -108,7 +108,7 @@
 			const c = finSel;
 			const n = c.options[c.selectedIndex].value || "SZIL";
 			const s = +finSize.value || 100;
-			const o = finUrl;
+			const o = foutUrl;
 			
 			const params = new URLSearchParams();
 						params.append("name", n);
