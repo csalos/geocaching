@@ -46,6 +46,7 @@
 		<tr><td>
 			<label for="sel">Kollekció:</label>
 			<select name="sel" id="finSel" onchange="myScript()">
+				<optgroup label="Közösségi ládák"  name="optCommun" id="optCommun"></optgroup>
 				<optgroup label="Esemény ládák"  name="optEvent" id="optEvent"></optgroup>
 				<optgroup label="Láda sorozatok" name="optGroup" id="optGroup"></optgroup>
 			</select>
@@ -63,6 +64,18 @@
 	</code><br/></p>
 
 	<script>
+		const listc = [ // közösségi ládák
+			["GN", "Geo Húsvét"],
+			["GM", "Geo Mikulás"],
+			["XM", "Geo Karácsony"],
+			["20", "Geo Szilveszter"],
+			["GTV", "Geo Találkozó és Verseny"],
+			["walk", "Walk"],
+			["tour", "Tour"],
+			["cito", "Cito"],
+			["jaro", "Esemény járó"],
+			["wed", "Esküvő"]
+		];
 		const lista = [ // esemény ládák
 			["Move", "Mozgó geoládák"],
 			["MVK", "Magyar vörös kereszt"],
@@ -95,6 +108,7 @@
 		// választó menű feltöltése
 		lista.forEach(item => liszt(item, "optEvent"));
 		listb.forEach(item => liszt(item, "optGroup"));
+		listc.forEach(item => liszt(item, "optCommu"));
 		function liszt(item, grp) {
 			const opt = document.createElement('option');
 				  opt.value = item[0];
