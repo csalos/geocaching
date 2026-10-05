@@ -51,7 +51,7 @@
 				<input name="with3" id="finWith3" type="checkbox" value="4" onclick="myScript()" disabled><label for="with3" style="color: gray">Vasút vonalak</label>
 			</td>
 		</tr><tr><td colspan=2>
-			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a térképet látni szeretnéd.<br /><input id="finUrl" type="text" size="130" />
+			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a térképet látni szeretnéd.<br /><input id="foutUrl" type="text" size="130" />
 		</td></tr>
 	</table></form></p>
 	<p><code>
@@ -66,7 +66,7 @@
 			const w1 = finWith1.checked;
 			const w2 = finWith2.checked;
 			const w3 = finWith3.checked;
-			const o  = finUrl;
+			const o  = foutUrl;
 
 			const params = new URLSearchParams();
 			if(s)		params.append("getStyle", "color");
