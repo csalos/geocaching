@@ -126,6 +126,7 @@
 			
 			const params = new URLSearchParams();
 						params.append("name", n);
+						params.append("time", Date.now());
 			if(s!==100)	params.append("size", s);
 			if(u > 0)	params.append("myUserId", u);
 			const url = "https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "");
