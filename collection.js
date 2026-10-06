@@ -135,14 +135,14 @@ async function svgManipulator(svgBelseje, list) {
 			pattern.setAttribute("height", 50);
 			pattern.setAttribute("patternTransform", "translate(-20,-20)");
 		let patternImg = document.createElementNS(svgNS, "image");
-			pattern.setAttribute("x", 0);
-			pattern.setAttribute("y", 0);
-			pattern.setAttribute("preserveAspectRatio", "none");
-			pattern.setAttribute("width", 100);
-			pattern.setAttribute("height", 100);
-			pattern.setAttribute("patternTransform", "translate(-20,-20)");
-		if(exists)	pattern.setAttribute("xlink:href", url);
-		else 		pattern.setAttribute("xlink:href", "2.1.4.jpg");
+			patternImg.setAttribute("x", 0);
+			patternImg.setAttribute("y", 0);
+			patternImg.setAttribute("preserveAspectRatio", "none");
+			patternImg.setAttribute("width", 100);
+			patternImg.setAttribute("height", 100);
+			patternImg.setAttribute("patternTransform", "translate(-20,-20)");
+		if(exists)	patternImg.setAttribute("xlink:href", url);
+		else 		patternImg.setAttribute("xlink:href", "2.1.4.jpg");
 		pattern.appendChild(patternImg);
 
 		piece.appendChild(path);
