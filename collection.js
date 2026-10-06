@@ -130,7 +130,7 @@ async function svgManipulator(svgBelseje, list) {
 			pRef.setAttribute("x", 50);
 			pRef.setAttribute("y", 25);
 			pRef.setAttribute("id", "pattern"+x);
-			pRef.setAttribute("xlink:href", "#"+collection+"_patt"+x);
+			pRef.setAttribute("xlink:href", "#patt"+x);
 			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("id", "patt"+x);
@@ -345,7 +345,7 @@ function changeID(svgBele) {
 	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel mutattak erre a régi ID-ra
 	    const href = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
 	    href.forEach(hiv => {
-	        hiv.setAttribute("xlink:href", `#${ujId}`);const hivatkozasok = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
+	        hiv.setAttribute("xlink:href", `#${ujId}`);
 	    });
 	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
 	    fill.forEach(hiv => {
