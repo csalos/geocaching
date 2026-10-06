@@ -68,22 +68,21 @@ async function loadSVG(list) {
 	try {
 		const x = list.size[0];
 		const y = list.size[1];
-		const svgObjektum = await fetch("https://csalos.github.io/geocaching/puzzle.svg")
-			.then(response => response.text())
-			.then(svgText => {
+		const response = await fetch("https://csalos.github.io/geocaching/puzzle.svg")
+		const svgText  = await response.text();
 		
-				// Beillesztés egy konténerbe
-				puzzleDiv.innerHTML = svgText;
+		// Beillesztés egy konténerbe
+		puzzleDiv.innerHTML = svgText;
 
-				// Már elérhető az SVG
-				const svgBelseje = puzzleDiv.firstElementChild;
-				document.getElementById("svg").setAttribute("width" , x*puzzleSize);
-				document.getElementById("svg").setAttribute("height", y*puzzleSize);
-				document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
+		// Már elérhető az SVG
+		const svgBelseje = puzzleDiv.firstElementChild;
+		document.getElementById("svg").setAttribute("width" , x*puzzleSize);
+		document.getElementById("svg").setAttribute("height", y*puzzleSize);
+		document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
-				const b = await svgManipulator(svgBelseje, list);
-				changeID(svgBelseje);
-			});
+		await svgManipulator(svgBelseje, list);
+		changeID(svgBelseje);
+		
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
 	}
