@@ -133,8 +133,6 @@ async function svgManipulator(svgBelseje, list) {
 			pRef.setAttribute("xlink:href", "patt"+x);
 			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
 		let patt = document.createElementNS(svgNS, "pattern");
-			patt.setAttribute("x", 0);
-			patt.setAttribute("y", 0);
 			patt.setAttribute("id", "patt"+x);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
 			patt.setAttribute("preserveAspectRatio", "xMidYMid");
