@@ -1,5 +1,6 @@
 import listsObject from 'https://csalos.github.io/geocaching/list.json' with { type: 'json' };
 
+const xlinkNS = "http://w3.org";
 const svgNS = "http://www.w3.org/2000/svg";
 
 const script = import.meta.url;
@@ -345,15 +346,15 @@ function changeID(svgBele) {
 	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel, fill-el, vagy filterrel mutattak erre a régi ID-ra
 	    const href = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
 	    href.forEach(hiv => {
-	        hiv.setAttribute("xlink:href", `#${ujId}`);
+	        hiv.setAttributeNS(xlinkNS, "xlink:href", `#${ujId}`);
 	    });
 	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
 	    fill.forEach(hiv => {
-	        hiv.setAttribute("fill", `url(#${ujId})`);
+	        hiv.setAttributeNS("fill", `url(#${ujId})`);
 	    });
 		const filter = svgBele.querySelectorAll(`[filter="url(#${regiId})"]`);
 	    filter.forEach(hiv => {
-	        hiv.setAttribute("filter", `url(#${ujId})`);
+	        hiv.setAttributeNS("filter", `url(#${ujId})`);
 	    });
 	});
 }
