@@ -126,30 +126,38 @@ async function svgManipulator(svgBelseje, list) {
 		// Megvárjuk az ellenőrzés eredményét
 		const exists = await checkImg(url);
   
-		let pattern = document.createElementNS(svgNS, "pattern");
-			pattern.setAttribute("x", 0);
-			pattern.setAttribute("y", 0);
-			pattern.setAttribute("id", "pattern"+x);
-			pattern.setAttribute("preserveAspectRatio", "xMidYMid");
-			pattern.setAttribute("width", 50);
-			pattern.setAttribute("height", 50);
-			pattern.setAttribute("patternTransform", "translate(-20,-20)");
-		let patternImg = document.createElementNS(svgNS, "image");
-			patternImg.setAttribute("x", 0);
-			patternImg.setAttribute("y", 0);
-			patternImg.setAttribute("preserveAspectRatio", "none");
-			patternImg.setAttribute("width", 100);
-			patternImg.setAttribute("height", 100);
-			patternImg.setAttribute("patternTransform", "translate(-20,-20)");
-		if(exists)	patternImg.setAttribute("xlink:href", url);
-		else 		patternImg.setAttribute("xlink:href", "2.1.4.jpg");
-		pattern.appendChild(patternImg);
+		let pRef = document.createElementNS(svgNS, "pattern");
+			pRef.setAttribute("x", 50);
+			pRef.setAttribute("y", 25);
+			patt.setAttribute("id", "pattern"+x);
+			pRef.setAttribute("xlink:href", "patt"+x);
+			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
+		let patt = document.createElementNS(svgNS, "pattern");
+			patt.setAttribute("x", 0);
+			patt.setAttribute("y", 0);
+			patt.setAttribute("id", "patt"+x);
+			patt.setAttribute("patternUnits", "userSpaceOnUse");
+			patt.setAttribute("preserveAspectRatio", "xMidYMid");
+			patt.setAttribute("width", 100);
+			patt.setAttribute("height", 100);
+			patt.setAttribute("patternTransform", "translate(-20,-20)");
+		let pImg = document.createElementNS(svgNS, "image");
+			pImg.setAttribute("x", 0);
+			pImg.setAttribute("y", 0);
+			pImg.setAttribute("preserveAspectRatio", "none");
+			pImg.setAttribute("width", 100);
+			pImg.setAttribute("height", 100);
+			pImg.setAttribute("patternTransform", "translate(-20,-20)");
+		if(exists)	pImg.setAttribute("xlink:href", url);
+		else 		pImg.setAttribute("xlink:href", "2.1.4.jpg");
+		patt.appendChild(pImg);
 
 		piece.appendChild(path);
 		piece.appendChild(text);
 		link.appendChild(piece);
 		svgBelseje.getElementById("puzzle").appendChild(link);
-		svgBelseje.getElementById("defs").appendChild(pattern);
+		svgBelseje.getElementById("defs").appendChild(pRef);
+		svgBelseje.getElementById("defs").appendChild(patt);
 	}
 }
 /**
