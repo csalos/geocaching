@@ -124,11 +124,7 @@ async function svgManipulator(svgBelseje, list) {
 		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+list.name+"/"+list.items[x].name.toLowerCase() + ".png";
   
 		// Megvárjuk az ellenőrzés eredményét
-		try {
-			const exists = await checkImg(url); 
-		} catch (hiba) {
-			console.error("Hiba a kép ellenőrzésnél", hiba);
-		}	
+		const exists = await checkImg(url);
   
 		let pattern = document.createElementNS(svgNS, "pattern");
 			pattern.setAttribute("x", 0);
