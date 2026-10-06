@@ -342,7 +342,7 @@ function changeID(svgBele) {
 		
 	    elem.id = ujId;
 	        
-	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel mutattak erre a régi ID-ra
+	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel, fill-el, vagy filterrel mutattak erre a régi ID-ra
 	    const href = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
 	    href.forEach(hiv => {
 	        hiv.setAttribute("xlink:href", `#${ujId}`);
