@@ -81,14 +81,14 @@ async function loadSVG(list) {
 				document.getElementById("svg").setAttribute("height", y*puzzleSize);
 				document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
-				svgManipulator(svgBelseje, list);
+				await svgManipulator(svgBelseje, list);
 				changeID(svgBelseje);
 			});
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
 	}
 }
-function svgManipulator(svgBelseje, list) {
+async function svgManipulator(svgBelseje, list) {
 	const px = list.size[0];
 	const py = list.size[1];
 	const sp = list.items.at(-1).span ?? 1;
@@ -103,11 +103,11 @@ function svgManipulator(svgBelseje, list) {
 
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("d", pieces[x]);
-			path.setAttribute("fill", "url(#pattern16)");
+			path.setAttribute("fill", "url(#pattern"+x+")");
 		if(list.items[x].found) {
 			path.setAttribute("style", "display:inline,fill-opacity:1");
 		} else {
-			path.setAttribute("filter", "url(#filter17)");
+			path.setAttribute("filter", "url(#filterX)");
 			path.setAttribute("style", "display:inline;fill-opacity:1;opacity:0.75");
 		}
 			path.setAttribute("stroke", "#f00");
@@ -121,11 +121,37 @@ function svgManipulator(svgBelseje, list) {
 			text.setAttribute("stroke", "white");
 			text.setAttribute("stroke-width", "0.5");
 			text.textContent = list.items[x].name.toUpperCase();
+		
+		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+list.name+"/"+list.items[x].name.toLowerCase() + ".png";
+  
+		// Megvárjuk az ellenőrzés eredményét
+		const exists = await checkImageExists(url); 
+  
+		let pattern = document.createElementNS(svgNS, "pattern");
+			pattern.setAttribute("x", 0);
+			pattern.setAttribute("y", 0);
+			pattern.setAttribute("id", "pattern"+x);
+			pattern.setAttribute("preserveAspectRatio", "xMidYMid");
+			pattern.setAttribute("width", 50);
+			pattern.setAttribute("height", 50);
+			pattern.setAttribute("patternTransform", "translate(-20,-20)");
+		}
+		let patternImg = document.createElementNS(svgNS, "image");
+			pattern.setAttribute("x", 0);
+			pattern.setAttribute("y", 0);
+			pattern.setAttribute("preserveAspectRatio", "none");
+			pattern.setAttribute("width", 100);
+			pattern.setAttribute("height", 100);
+			pattern.setAttribute("patternTransform", "translate(-20,-20)");
+		if(exists)	pattern.setAttribute("xlink:href", url);
+		else 		pattern.setAttribute("xlink:href", "2.1.4.jpg");
+		pattern.appendChild(patternImg);
 
 		piece.appendChild(path);
 		piece.appendChild(text);
 		link.appendChild(piece);
 		svgBelseje.getElementById("puzzle").appendChild(link);
+		svgBelseje.getElementById("defs").appendChild(pattern);
 	}
 }
 /**
@@ -326,5 +352,13 @@ function changeID(svgBele) {
 	    filter.forEach(hiv => {
 	        hiv.setAttribute("filter", `url(#${ujId})`);
 	    });
+	});
+}
+function checkImg(url) {
+	return new Promise((resolve) => {
+		const img = new Image();
+		img.onload = () => resolve(true);	// Sikeresen betöltődött
+		img.onerror = () => resolve(false);	// Nem található vagy sérült a fájl
+		img.src = url;						// Ez indítja el a betöltést
 	});
 }
