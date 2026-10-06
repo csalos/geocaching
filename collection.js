@@ -146,7 +146,7 @@ async function svgManipulator(svgBelseje, list) {
 			pImg.setAttribute("width", 100);
 			pImg.setAttribute("height", 100);
 			pImg.setAttribute("patternTransform", "translate(-20,-20)");
-		if(exists)	pImg.setAttribute("xlink:href", url);
+		if(exists)	pImg.setAttribute("xlink:href", url); // megvan a kép
 		else 		pImg.setAttribute("xlink:href", "https://csalos.github.io/geocaching/2.1.4.jpg");
 		patt.appendChild(pImg);
 
