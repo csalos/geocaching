@@ -81,7 +81,7 @@ async function loadSVG(list) {
 				document.getElementById("svg").setAttribute("height", y*puzzleSize);
 				document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
-				await svgManipulator(svgBelseje, list);
+				const b = await svgManipulator(svgBelseje, list);
 				changeID(svgBelseje);
 			});
 	} catch (hiba) {
@@ -125,7 +125,11 @@ async function svgManipulator(svgBelseje, list) {
 		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+list.name+"/"+list.items[x].name.toLowerCase() + ".png";
   
 		// Megvárjuk az ellenőrzés eredményét
-		const exists = await checkImageExists(url); 
+		try {
+			const exists = await checkImageExists(url); 
+		} catch (hiba) {
+			console.error("Hiba a kép ellenőrzésnél", hiba);
+		}	
   
 		let pattern = document.createElementNS(svgNS, "pattern");
 			pattern.setAttribute("x", 0);
