@@ -125,7 +125,7 @@ async function svgManipulator(svgBelseje, list) {
   
 		// Megvárjuk az ellenőrzés eredményét
 		try {
-			const exists = await checkImageExists(url); 
+			const exists = await checkImg(url); 
 		} catch (hiba) {
 			console.error("Hiba a kép ellenőrzésnél", hiba);
 		}	
