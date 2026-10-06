@@ -138,7 +138,6 @@ async function svgManipulator(svgBelseje, list) {
 			pattern.setAttribute("width", 50);
 			pattern.setAttribute("height", 50);
 			pattern.setAttribute("patternTransform", "translate(-20,-20)");
-		}
 		let patternImg = document.createElementNS(svgNS, "image");
 			pattern.setAttribute("x", 0);
 			pattern.setAttribute("y", 0);
