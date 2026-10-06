@@ -121,7 +121,7 @@ async function svgManipulator(svgBelseje, list) {
 			text.setAttribute("stroke-width", "0.5");
 			text.textContent = list.items[x].name.toUpperCase();
 		
-		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+list.name+"/"+list.items[x].name.toLowerCase() + ".png";
+		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+collection+"/"+list.items[x].name.toLowerCase() + ".png";
   
 		// Megvárjuk az ellenőrzés eredményét
 		const exists = await checkImg(url);
@@ -130,7 +130,7 @@ async function svgManipulator(svgBelseje, list) {
 			pRef.setAttribute("x", 50);
 			pRef.setAttribute("y", 25);
 			pRef.setAttribute("id", "pattern"+x);
-			pRef.setAttribute("xlink:href", "#patt"+x);
+			pRef.setAttribute("xlink:href", "#"+collection+"_patt"+x);
 			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("id", "patt"+x);
