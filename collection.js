@@ -5,7 +5,7 @@ const svgNS = "http://www.w3.org/2000/svg";
 
 const script = import.meta.url;
 const urlGet = new URL(script).searchParams;
-const collection = urlGet.get("name") || "kisv";
+const collection = urlGet.get("name").toLowerCase() || "kisv";
 const puzzleSize = urlGet.get("size") || "100";
 
 // megnézzük kaptunk-e a script végén userid-t
