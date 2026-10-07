@@ -184,7 +184,7 @@ async function svgManipulator(svgBelseje, list) {
 		let cUse = document.createElementNS(svgNS, "use");
 			cUse.setAttribute("href",`#${collectLow}_path${x}`);
 		clip.appendChild(cUse);
-		defs.appendChild(path);
+		defs.appendChild(clip);
 		
 		let patt = document.createElementNS(svgNS, "g");
 			patt.setAttribute("id", collectLow+"_patt"+x);
