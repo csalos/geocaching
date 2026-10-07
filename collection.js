@@ -133,7 +133,6 @@ async function svgManipulator(svgBelseje, list) {
 		let pImg = document.createElementNS(svgNS, "image");
 			pImg.setAttribute("x", 0);
 			pImg.setAttribute("y", 0);
-			pImg.setAttribute("fill", "red");
 			pImg.setAttribute("preserveAspectRatio", "none");
 			pImg.setAttribute("width", 100);
 			pImg.setAttribute("height", 100);
@@ -177,11 +176,11 @@ async function svgManipulator(svgBelseje, list) {
 		link.appendChild(piece);
 		svgBelseje.getElementById("puzzle").appendChild(link);
 
-		const aktualisFill = link.getAttribute("fill");
-		link.setAttribute("fill", "none"); // Elvesszük a hátteret (ekkor kiürül a cache)
+		const aktualisFill = patt.getAttribute("fill");
+		patt.setAttribute("fill", "none"); // Elvesszük a hátteret (ekkor kiürül a cache)
 		// Egy pillanattal később visszaadjuk, ami kényszeríti a Repaint-et
 		requestAnimationFrame(() => {
-    		link.setAttribute("fill", aktualisFill);
+    		patt.setAttribute("fill", aktualisFill);
 		});
 	}
 }
