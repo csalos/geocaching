@@ -72,9 +72,21 @@ async function loadSVG(list) {
 		const y = list.size[1];
 		const response = await fetch("https://csalos.github.io/geocaching/puzzle.svg")
 		const svgText  = await response.text();
+		// 1. Átalakítás valódi XML/SVG DOM-má a DOMParser segítségével
+		const parser = new DOMParser();
+		const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
 		
-		// Beillesztés egy konténerbe
-		puzzleDiv.innerHTML = svgText;
+		// Kinyerjük a parszolt, immár grafikailag teljesen indexelt <svg> elemet
+		const svgElement = svgDoc.documentElement;
+		
+		// 2. Tisztítás (opcionális, de ajánlott): ha hibás karakter vagy törött elem lenne az elején
+		if (svgElement.tagName.toLowerCase() !== "svg") {
+		    console.error("A letöltött fájl nem érvényes SVG!");
+		}
+
+		// 3. Beillesztés a konténerbe tiszta DOM elemként (NEM innerHTML-lel!)
+		puzzleDiv.innerHTML = ""; // Kiürítjük a konténert
+		puzzleDiv.appendChild(svgElement);
 
 		// Már elérhető az SVG
 		const svgBelseje = puzzleDiv.firstElementChild;
