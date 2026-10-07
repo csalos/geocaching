@@ -1,6 +1,6 @@
 import listsObject from 'https://csalos.github.io/geocaching/list.json' with { type: 'json' };
 
-const svgNS = "http://w3.org";
+const svgNS = "http://www.w3.org/2000/svg";
 
 const script = import.meta.url;
 const urlGet = new URL(script).searchParams;
