@@ -95,6 +95,32 @@ async function svgManipulator(svgBelseje, list) {
 	const sp = list.items.at(-1).span ?? 1;
 	let pieces = genPieces(px, py, sp);
 	for(let x=0; x<(px*py)-sp+1; x++) {
+		// Megvárjuk az ellenőrzés eredményét
+		const exists = await checkImg(url);
+  
+		let patt = document.createElementNS(svgNS, "pattern");
+			patt.setAttribute("x", 50);
+			patt.setAttribute("y", 25);
+			patt.setAttribute("width", 100);
+			patt.setAttribute("height", 100);
+			patt.setAttribute("id", collectLow+"_pattern"+x);
+			patt.setAttribute("patternUnits", "userSpaceOnUse");
+			patt.setAttribute("patternContentUnits", "userSpaceOnUse"); 
+			patt.setAttribute("preserveAspectRatio", "xMidYMid");
+			patt.setAttribute("patternTransform", "translate(-20,-20)");
+		let pImg = document.createElementNS(svgNS, "image");
+			pImg.setAttribute("x", 0);
+			pImg.setAttribute("y", 0);
+			pImg.setAttribute("preserveAspectRatio", "none");
+			pImg.setAttribute("width", 100);
+			pImg.setAttribute("height", 100);
+		if(exists)	pImg.setAttributeNS(xlinkNS, "href", url); // megvan a kép
+		else 		pImg.setAttributeNS(xlinkNS, "href", "https://csalos.github.io/geocaching/2.1.4.jpg");
+		patt.appendChild(pImg);
+		
+		svgBelseje.getElementById("defs").appendChild(patt);
+		await timeout(100);
+
 		let piece = document.createElementNS(svgNS, "g");
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
 			
@@ -125,34 +151,9 @@ async function svgManipulator(svgBelseje, list) {
 		
 		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+collectLow+"/"+list.items[x].name.toLowerCase() + ".png";
   
-		// Megvárjuk az ellenőrzés eredményét
-		const exists = await checkImg(url);
-  
-		let patt = document.createElementNS(svgNS, "pattern");
-			patt.setAttribute("x", 50);
-			patt.setAttribute("y", 25);
-			patt.setAttribute("width", 100);
-			patt.setAttribute("height", 100);
-			patt.setAttribute("id", collectLow+"_pattern"+x);
-			patt.setAttribute("patternUnits", "userSpaceOnUse");
-			patt.setAttribute("patternContentUnits", "userSpaceOnUse"); 
-			patt.setAttribute("preserveAspectRatio", "xMidYMid");
-			patt.setAttribute("patternTransform", "translate(-20,-20)");
-		let pImg = document.createElementNS(svgNS, "image");
-			pImg.setAttribute("x", 0);
-			pImg.setAttribute("y", 0);
-			pImg.setAttribute("preserveAspectRatio", "none");
-			pImg.setAttribute("width", 100);
-			pImg.setAttribute("height", 100);
-		if(exists)	pImg.setAttributeNS(xlinkNS, "href", url); // megvan a kép
-		else 		pImg.setAttributeNS(xlinkNS, "href", "https://csalos.github.io/geocaching/2.1.4.jpg");
-		patt.appendChild(pImg);
-
 		piece.appendChild(path);
 		piece.appendChild(text);
 		link.appendChild(piece);
-		svgBelseje.getElementById("defs").appendChild(patt);
-		await timeout(100);
 		svgBelseje.getElementById("puzzle").appendChild(link);
 	}
 }
