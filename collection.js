@@ -122,7 +122,7 @@ async function svgManipulator(svgBelseje, list) {
 		patt.appendChild(pImg);
 		
 		svgBelseje.getElementById("defs").appendChild(patt);
-		await timeout(100);
+		//await timeout(100);
 
 		let piece = document.createElementNS(svgNS, "g");
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
@@ -156,6 +156,13 @@ async function svgManipulator(svgBelseje, list) {
 		piece.appendChild(text);
 		link.appendChild(piece);
 		svgBelseje.getElementById("puzzle").appendChild(link);
+
+		const aktualisFill = link.getAttribute("fill");
+		link.setAttribute("fill", "none"); // Elvesszük a hátteret (ekkor kiürül a cache)
+		// Egy pillanattal később visszaadjuk, ami kényszeríti a Repaint-et
+		requestAnimationFrame(() => {
+    		link.setAttribute("fill", aktualisFill);
+		});
 	}
 }
 /**
