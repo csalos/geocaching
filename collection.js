@@ -182,7 +182,7 @@ async function svgManipulator(svgBelseje, list) {
 		let clip = document.createElementNS(svgNS, "clipPath");
 			clip.setAttribute("id", collectLow+"_clip"+x);
 		let cUse = document.createElementNS(svgNS, "use");
-			cUse.setAttribute("href",`url(#${collectLow}_path${x})`);
+			cUse.setAttribute("href",`#${collectLow}_path${x}`);
 		clip.appendChild(cUse);
 		defs.appendChild(path);
 		
@@ -206,7 +206,7 @@ async function svgManipulator(svgBelseje, list) {
 
 		let pUse = document.createElementNS(svgNS, "use"); //kép kirajzolás puzzlere vágva
 			pUse.setAttribute("transform", mozgat);
-			pUse.setAttribute("href",`url(#${collectLow}_patt${x})`);
+			pUse.setAttribute("href",`#${collectLow}_patt${x}`);
 			pUse.setAttribute("clip-path",`url(#${collectLow}_clip${x})`);
 		if(list.items[x].found) {
 			pUse.setAttribute("style", "display:inline,fill-opacity:1");
@@ -216,7 +216,7 @@ async function svgManipulator(svgBelseje, list) {
 		}
 		
 		let sUse = document.createElementNS(svgNS, "use");
-			sUse.setAttribute("href",`url(#${collectLow}_path${x})`);
+			sUse.setAttribute("href",`#${collectLow}_path${x}`);
 			sUse.setAttribute("transform", mozgat);
 			sUse.setAttribute("fill","none");
 			sUse.setAttribute("stroke", "#f00");
