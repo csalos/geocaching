@@ -72,7 +72,7 @@ async function loadSVG(list) {
 		const y = list.size[1];
 		const response = await fetch("https://csalos.github.io/geocaching/puzzle.svg")
 		const svgText  = await response.text();
-		// 1. Átalakítás valódi XML/SVG DOM-má a DOMParser segítségével
+		/*/ 1. Átalakítás valódi XML/SVG DOM-má a DOMParser segítségével
 		const parser = new DOMParser();
 		const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
 		
@@ -86,7 +86,8 @@ async function loadSVG(list) {
 
 		// 3. Beillesztés a konténerbe tiszta DOM elemként (NEM innerHTML-lel!)
 		puzzleDiv.innerHTML = ""; // Kiürítjük a konténert
-		puzzleDiv.appendChild(svgElement);
+		puzzleDiv.appendChild(svgElement);*/
+		puzzleDiv.innerHTML = svgText;
 
 		// Már elérhető az SVG
 		const svgBelseje = puzzleDiv.firstElementChild;
@@ -95,14 +96,6 @@ async function loadSVG(list) {
 		document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
 		await svgManipulator(svgBelseje, list);
-
-		let dev = svgBelseje.getElementById("defs");
-		const ujralapozottPat = dev.cloneNode(true);
-		dev.parentNode.replaceChild(ujralapozottPat, dev);
-
-		let puz = svgBelseje.getElementById("puzzle");
-		const ujralapozottLink = puz.cloneNode(true);
-		puz.parentNode.replaceChild(ujralapozottLink, puz);
 		//changeID(svgBelseje);
 		
 	} catch (hiba) {
@@ -140,7 +133,6 @@ async function svgManipulator(svgBelseje, list) {
 		patt.appendChild(pImg);
 		
 		svgBelseje.getElementById("defs").appendChild(patt);
-		//await timeout(100);
 
 		let piece = document.createElementNS(svgNS, "g");
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
@@ -174,13 +166,6 @@ async function svgManipulator(svgBelseje, list) {
 		piece.appendChild(text);
 		link.appendChild(piece);
 		svgBelseje.getElementById("puzzle").appendChild(link);
-
-		const aktualisFill = patt.getAttribute("fill");
-		patt.setAttribute("fill", "none"); // Elvesszük a hátteret (ekkor kiürül a cache)
-		// Egy pillanattal később visszaadjuk, ami kényszeríti a Repaint-et
-		requestAnimationFrame(() => {
-    		patt.setAttribute("fill", aktualisFill);
-		});
 	}
 }
 /**
@@ -392,7 +377,4 @@ function checkImg(url) {
 		img.onerror = () => resolve(false);	// Nem található vagy sérült a fájl
 		img.src = url;						// Ez indítja el a betöltést
 	});
-}
-function timeout(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }
