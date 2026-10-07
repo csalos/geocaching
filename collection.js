@@ -175,7 +175,7 @@ async function svgManipulator(svgBelseje, list) {
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("id", collectLow+"_path"+x);
 			path.setAttribute("d", pieces[x]);
-			path.setAttribute("transform", mozgat);
+			//path.setAttribute("transform", mozgat);
 		
 		defs.appendChild(path);
 
@@ -188,7 +188,7 @@ async function svgManipulator(svgBelseje, list) {
 		
 		let patt = document.createElementNS(svgNS, "g");
 			patt.setAttribute("id", collectLow+"_patt"+x);
-			patt.setAttribute("transform", mozgat);
+			//patt.setAttribute("transform", mozgat);
 		let pImg = document.createElementNS(svgNS, "image");
 			pImg.setAttribute("x", 0);
 			pImg.setAttribute("y", 0);
@@ -203,9 +203,10 @@ async function svgManipulator(svgBelseje, list) {
 		let link = document.createElementNS(svgNS, "a");
 			link.setAttribute("href", "https://geocaching.hu/caches.geo?id="+list.items[x].id);
 			link.setAttribute("clip-path", "_blank");
+			link.setAttribute("transform", mozgat);
 
 		let pUse = document.createElementNS(svgNS, "use"); //kép kirajzolás puzzlere vágva
-			pUse.setAttribute("transform", mozgat);
+			//pUse.setAttribute("transform", mozgat);
 			pUse.setAttribute("href",`#${collectLow}_patt${x}`);
 			pUse.setAttribute("clip-path",`url(#${collectLow}_clip${x})`);
 		if(list.items[x].found) {
@@ -217,7 +218,7 @@ async function svgManipulator(svgBelseje, list) {
 		
 		let sUse = document.createElementNS(svgNS, "use");
 			sUse.setAttribute("href",`#${collectLow}_path${x}`);
-			sUse.setAttribute("transform", mozgat);
+			//sUse.setAttribute("transform", mozgat);
 			sUse.setAttribute("fill","none");
 			sUse.setAttribute("stroke", "#f00");
 
