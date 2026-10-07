@@ -134,13 +134,14 @@ async function svgManipulator(svgBelseje, list) {
 			pRef.setAttribute("height", 100);
 			pRef.setAttribute("id", "pattern"+x);
 			pRef.setAttributeNS(xlinkNS, "href", "#patt"+x);
+			pRef.setAttribute("patternUnits", "userSpaceOnUse");
 			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("id", "patt"+x);
-			patt.setAttribute("patternUnits", "userSpaceOnUse");
-			patt.setAttribute("preserveAspectRatio", "xMidYMid");
 			patt.setAttribute("width", 100);
 			patt.setAttribute("height", 100);
+			patt.setAttribute("patternUnits", "userSpaceOnUse");
+			patt.setAttribute("preserveAspectRatio", "xMidYMid");
 			patt.setAttribute("patternTransform", "translate(-20,-20)");
 		let pImg = document.createElementNS(svgNS, "image");
 			pImg.setAttribute("x", 0);
