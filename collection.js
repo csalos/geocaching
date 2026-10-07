@@ -6,6 +6,7 @@ const xlinkNS = "http://w3.org/1999/xlink";
 const script = import.meta.url;
 const urlGet = new URL(script).searchParams;
 const collection = urlGet.get("name") || "kisv";
+const collectLow = collection.toLowerCase();
 const puzzleSize = urlGet.get("size") || "100";
 
 // megnézzük kaptunk-e a script végén userid-t
@@ -82,7 +83,7 @@ async function loadSVG(list) {
 		document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
 		await svgManipulator(svgBelseje, list);
-		changeID(svgBelseje);
+		//changeID(svgBelseje);
 		
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
@@ -103,7 +104,7 @@ async function svgManipulator(svgBelseje, list) {
 
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("d", pieces[x]);
-			path.setAttribute("fill", "url(#pattern"+x+")");
+			path.setAttribute("fill",`url(#${collectLow}_pattern${x})`);
 		if(list.items[x].found) {
 			path.setAttribute("style", "display:inline,fill-opacity:1");
 		} else {
@@ -122,7 +123,7 @@ async function svgManipulator(svgBelseje, list) {
 			text.setAttribute("stroke-width", "0.5");
 			text.textContent = list.items[x].name.toUpperCase();
 		
-		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+ collection.toLowerCase() +"/"+list.items[x].name.toLowerCase() + ".png";
+		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+collectLow+"/"+list.items[x].name.toLowerCase() + ".png";
   
 		// Megvárjuk az ellenőrzés eredményét
 		const exists = await checkImg(url);
@@ -132,12 +133,12 @@ async function svgManipulator(svgBelseje, list) {
 			pRef.setAttribute("y", 25);
 			pRef.setAttribute("width", 100);
 			pRef.setAttribute("height", 100);
-			pRef.setAttribute("id", "pattern"+x);
-			pRef.setAttributeNS(xlinkNS, "href", "#patt"+x);
+			pRef.setAttribute("id", collectLow+"_pattern"+x);
+			pRef.setAttributeNS(xlinkNS, "href", `#${collectLow}_patt${x}`);
 			pRef.setAttribute("patternUnits", "userSpaceOnUse");
 			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
 		let patt = document.createElementNS(svgNS, "pattern");
-			patt.setAttribute("id", "patt"+x);
+			patt.setAttribute("id", collectLow+"_patt"+x);
 			patt.setAttribute("width", 100);
 			patt.setAttribute("height", 100);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
