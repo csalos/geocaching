@@ -350,11 +350,11 @@ function changeID(svgBele) {
 	    });
 	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
 	    fill.forEach(hiv => {
-	        hiv.setAttributeNS("fill", `url(#${ujId})`);
+	        hiv.setAttribute("fill", `url(#${ujId})`);
 	    });
 		const filter = svgBele.querySelectorAll(`[filter="url(#${regiId})"]`);
 	    filter.forEach(hiv => {
-	        hiv.setAttributeNS("filter", `url(#${ujId})`);
+	        hiv.setAttribute("filter", `url(#${ujId})`);
 	    });
 	});
 }
