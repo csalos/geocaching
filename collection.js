@@ -170,11 +170,12 @@ async function svgManipulator(svgBelseje, list) {
 		svgBelseje.getElementById("puzzle").appendChild(link);*/
 
 		const defs = svgBelseje.getElementById(collectLow+"_defs");
+		const mozgat = "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")";
 
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("id", collectLow+"_path"+x);
 			path.setAttribute("d", pieces[x]);
-			path.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
+			path.setAttribute("transform", mozgat);
 		
 		defs.appendChild(path);
 
@@ -187,7 +188,7 @@ async function svgManipulator(svgBelseje, list) {
 		
 		let patt = document.createElementNS(svgNS, "g");
 			patt.setAttribute("id", collectLow+"_patt"+x);
-			patt.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
+			patt.setAttribute("transform", mozgat);
 		let pImg = document.createElementNS(svgNS, "image");
 			pImg.setAttribute("x", 0);
 			pImg.setAttribute("y", 0);
@@ -204,6 +205,7 @@ async function svgManipulator(svgBelseje, list) {
 			link.setAttribute("clip-path", "_blank");
 
 		let pUse = document.createElementNS(svgNS, "use"); //kép kirajzolás puzzlere vágva
+			pUse.setAttribute("transform", mozgat);
 			pUse.setAttribute("href",`url(#${collectLow}_patt${x})`);
 			pUse.setAttribute("clip-path",`url(#${collectLow}_clip${x})`);
 		if(list.items[x].found) {
@@ -215,6 +217,7 @@ async function svgManipulator(svgBelseje, list) {
 		
 		let sUse = document.createElementNS(svgNS, "use");
 			sUse.setAttribute("href",`url(#${collectLow}_path${x})`);
+			sUse.setAttribute("transform", mozgat);
 			sUse.setAttribute("fill","none");
 			sUse.setAttribute("stroke", "#f00");
 
