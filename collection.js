@@ -85,8 +85,8 @@ async function loadSVG(list) {
 		await svgManipulator(svgBelseje, list);
 
 		let dev = svgBelseje.getElementById("defs");
-		const ujralapozottLink = dev.cloneNode(true);
-		dev.parentNode.replaceChild(ujralapozottLink, dev);
+		const ujralapozottPat = dev.cloneNode(true);
+		dev.parentNode.replaceChild(ujralapozottPat, dev);
 
 		let puz = svgBelseje.getElementById("puzzle");
 		const ujralapozottLink = puz.cloneNode(true);
