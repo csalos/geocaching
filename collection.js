@@ -228,7 +228,7 @@ async function svgManipulator(svgBelseje, list) {
 			text.textContent = list.items[x].name.toUpperCase();
 		
 		link.appendChild(pUse); // puzzle alakú kép
-		link.appendChild(SUse); // puzzle alakú szegély
+		link.appendChild(sUse); // puzzle alakú szegély
 		link.appendChild(text); // láda név
 		svgBelseje.getElementById("puzzle").appendChild(link);
 	}
