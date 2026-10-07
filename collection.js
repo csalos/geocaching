@@ -131,8 +131,8 @@ async function svgManipulator(svgBelseje, list) {
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("x", 50);
 			patt.setAttribute("y", 25);
-			patt.setAttribute("width", 100 + "px");
-			patt.setAttribute("height", 100 + "px");
+			patt.setAttribute("width", 100);
+			patt.setAttribute("height", 100);
 			patt.setAttribute("id", collectLow+"_pattern"+x);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
 			patt.setAttribute("patternContentUnits", "userSpaceOnUse"); 
@@ -142,8 +142,8 @@ async function svgManipulator(svgBelseje, list) {
 			pImg.setAttribute("x", 0);
 			pImg.setAttribute("y", 0);
 			pImg.setAttribute("preserveAspectRatio", "none");
-			pImg.setAttribute("width", 100 + "px");
-			pImg.setAttribute("height", 100 + "px");
+			pImg.setAttribute("width", 100);
+			pImg.setAttribute("height", 100);
 		if(exists)	pImg.setAttributeNS(xlinkNS, "href", url); // megvan a kép
 		else 		pImg.setAttributeNS(xlinkNS, "href", "https://csalos.github.io/geocaching/2.1.4.jpg");
 		patt.appendChild(pImg);
