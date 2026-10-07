@@ -1,7 +1,6 @@
 import listsObject from 'https://csalos.github.io/geocaching/list.json' with { type: 'json' };
 
-const xlinkNS = "http://w3.org";
-const svgNS = "http://www.w3.org/2000/svg";
+const svgNS = "http://w3.org";
 
 const script = import.meta.url;
 const urlGet = new URL(script).searchParams;
@@ -351,7 +350,7 @@ function changeID(svgBele) {
 	    });
 	    const href = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
 	    href.forEach(hiv => {
-	        hiv.setAttributeNS(xlinkNS, "xlink:href", `#${ujId}`);
+	        hiv.setAttributeNS(svgNS, "xlink:href", `#${ujId}`);
 	    });
 	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
 	    fill.forEach(hiv => {
