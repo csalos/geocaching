@@ -158,8 +158,9 @@ async function svgManipulator(svgBelseje, list) {
 		piece.appendChild(text);
 		link.appendChild(piece);
 		svgBelseje.getElementById("defs").appendChild(patt);
+		await timeout(100);
 		svgBelseje.getElementById("defs").appendChild(pRef);
-		await timeout(10);
+		await timeout(100);
 		svgBelseje.getElementById("puzzle").appendChild(link);
 	}
 }
