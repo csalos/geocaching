@@ -349,12 +349,12 @@ function changeID(svgBele) {
 	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel,href-el, fill-el, vagy filterrel mutattak erre a régi ID-ra
 	    const href = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
 	    href.forEach(hiv => {
-			hiv..setAttribute('fill', 'none');
 	        setTimeout(() => { hiv.setAttributeNS(xlinkNS, "href", `#${ujId}`); }, 0);
 	    });
 	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
 	    fill.forEach(hiv => {
-	        hiv.setAttribute("fill", `url(#${ujId})`);
+	        hiv.setAttribute('fill', 'none');
+	        setTimeout(() => { hiv.setAttribute("fill", `url(#${ujId})`); }, 0);
 	    });
 		const filter = svgBele.querySelectorAll(`[filter="url(#${regiId})"]`);
 	    filter.forEach(hiv => {
