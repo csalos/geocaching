@@ -157,6 +157,9 @@ async function svgManipulator(svgBelseje, list) {
 		link.appendChild(piece);
 		svgBelseje.getElementById("puzzle").appendChild(link);
 
+		const ujralapozottLink = link.cloneNode(true);
+		link.parentNode.replaceChild(ujralapozottLink, link);
+
 		const aktualisFill = link.getAttribute("fill");
 		link.setAttribute("fill", "none"); // Elvesszük a hátteret (ekkor kiürül a cache)
 		// Egy pillanattal később visszaadjuk, ami kényszeríti a Repaint-et
