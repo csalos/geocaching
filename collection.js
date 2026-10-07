@@ -351,6 +351,7 @@ function changeID(svgBele) {
 		const patHref = svgBele.querySelectorAll(`pattern[xlink:href="#${regiId}"]`);
 	    patHref.forEach(hiv => {
 	        hiv.setAttributeNS(xlinkNS, "xlink:href", `#${ujId}`);
+			console.log(`#${regiId}`)
 	    });
 	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
 	    fill.forEach(hiv => {
