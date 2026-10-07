@@ -5,7 +5,7 @@ const svgNS = "http://www.w3.org/2000/svg";
 
 const script = import.meta.url;
 const urlGet = new URL(script).searchParams;
-const collection = urlGet.get("name").toLowerCase() || "kisv";
+const collection = urlGet.get("name") || "kisv";
 const puzzleSize = urlGet.get("size") || "100";
 
 // megnézzük kaptunk-e a script végén userid-t
@@ -122,7 +122,7 @@ async function svgManipulator(svgBelseje, list) {
 			text.setAttribute("stroke-width", "0.5");
 			text.textContent = list.items[x].name.toUpperCase();
 		
-		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+collection+"/"+list.items[x].name.toLowerCase() + ".png";
+		const url = 'https://csalos.github.io/geocaching/img/puzzle/'+ collection.toLowerCase() +"/"+list.items[x].name.toLowerCase() + ".png";
   
 		// Megvárjuk az ellenőrzés eredményét
 		const exists = await checkImg(url);
