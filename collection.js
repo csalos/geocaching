@@ -174,6 +174,7 @@ async function svgManipulator(svgBelseje, list) {
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("id", collectLow+"_path"+x);
 			path.setAttribute("d", pieces[x]);
+			path.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
 		
 		defs.appendChild(path);
 
