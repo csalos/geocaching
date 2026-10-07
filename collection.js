@@ -95,6 +95,8 @@ async function loadSVG(list) {
 		document.getElementById("svg").setAttribute("height", y*puzzleSize);
 		document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
+		svgBelseje.getElementById("defs").id = collectLow+"_defs";
+
 		await svgManipulator(svgBelseje, list);
 		//changeID(svgBelseje);
 		
@@ -132,7 +134,7 @@ async function svgManipulator(svgBelseje, list) {
 		else 		pImg.setAttribute("href", "https://csalos.github.io/geocaching/2.1.4.jpg");
 		patt.appendChild(pImg);
 		
-		svgBelseje.getElementById("defs").appendChild(patt);
+		svgBelseje.getElementById(collectLow+"_defs").appendChild(patt);
 
 		let piece = document.createElementNS(svgNS, "g");
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
