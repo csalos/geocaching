@@ -373,3 +373,6 @@ function checkImg(url) {
 		img.src = url;						// Ez indítja el a betöltést
 	});
 }
+function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
