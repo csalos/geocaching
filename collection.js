@@ -114,7 +114,7 @@ async function svgManipulator(svgBelseje, list) {
 		const url = "https://csalos.github.io/geocaching/img/puzzle/"+collectLow+"/"+list.items[x].name.toLowerCase() + ".png";
 		// Megvárjuk az ellenőrzés eredményét
 		const exists = await checkImg(url);
-  
+  /*
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("x", 0);
 			patt.setAttribute("y", 0);
@@ -167,6 +167,69 @@ async function svgManipulator(svgBelseje, list) {
 		piece.appendChild(path);
 		piece.appendChild(text);
 		link.appendChild(piece);
+		svgBelseje.getElementById("puzzle").appendChild(link);*/
+
+		const defs = svgBelseje.getElementById(collectLow+"_defs");
+
+		let path = document.createElementNS(svgNS, "path");
+			path.setAttribute("id", collectLow+"_path"+x);
+			path.setAttribute("d", pieces[x]);
+		
+		defs.appendChild(path);
+
+		let clip = document.createElementNS(svgNS, "clipPath");
+			clip.setAttribute("id", collectLow+"_clip"+x);
+		let cUse = document.createElementNS(svgNS, "use");
+			cUse.setAttribute("href",`url(#${collectLow}_path${x})`);
+		clip.appendChild(cUse);
+		defs.appendChild(path);
+		
+		let patt = document.createElementNS(svgNS, "g");
+			patt.setAttribute("id", collectLow+"_patt"+x);
+			patt.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
+		let pImg = document.createElementNS(svgNS, "image");
+			pImg.setAttribute("x", 0);
+			pImg.setAttribute("y", 0);
+			pImg.setAttribute("preserveAspectRatio", "none");
+			pImg.setAttribute("width", 50);
+			pImg.setAttribute("height", 50);
+		if(exists)	pImg.setAttribute("href", url); // megvan a kép
+		else 		pImg.setAttribute("href", "https://csalos.github.io/geocaching/2.1.4.jpg");
+		patt.appendChild(pImg);
+		defs.appendChild(patt);
+			
+		let link = document.createElementNS(svgNS, "a");
+			link.setAttribute("href", "https://geocaching.hu/caches.geo?id="+list.items[x].id);
+			link.setAttribute("clip-path", "_blank");
+
+		let pUse = document.createElementNS(svgNS, "use"); //kép kirajzolás puzzlere vágva
+			pUse.setAttribute("href",`url(#${collectLow}_patt${x})`);
+			pUse.setAttribute("clip-path",`url(#${collectLow}_clip${x})`);
+		if(list.items[x].found) {
+			pUse.setAttribute("style", "display:inline,fill-opacity:1");
+		} else {
+			pUse.setAttribute("filter", "url(#filterX)");
+			pUse.setAttribute("style", "display:inline;fill-opacity:1;opacity:0.75");
+		}
+		
+		let sUse = document.createElementNS(svgNS, "use");
+			sUse.setAttribute("href",`url(#${collectLow}_path${x})`);
+			sUse.setAttribute("fill","none");
+			sUse.setAttribute("stroke", "#f00");
+
+		let text = document.createElementNS(svgNS, "text");
+			text.setAttribute("x", 25);
+			text.setAttribute("y", 40);
+			text.setAttribute("font-size", "smaller");
+			text.setAttribute("text-anchor", "middle");
+			text.setAttribute("fill", "black");
+			text.setAttribute("stroke", "white");
+			text.setAttribute("stroke-width", "0.5");
+			text.textContent = list.items[x].name.toUpperCase();
+		
+		link.appendChild(pUse); // puzzle alakú kép
+		link.appendChild(SUse); // puzzle alakú szegély
+		link.appendChild(text); // láda név
 		svgBelseje.getElementById("puzzle").appendChild(link);
 	}
 }
