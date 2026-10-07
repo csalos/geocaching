@@ -1,6 +1,7 @@
 import listsObject from 'https://csalos.github.io/geocaching/list.json' with { type: 'json' };
 
 const svgNS = "http://www.w3.org/2000/svg";
+const xlinkNS = "http://w3.org/1999/xlink";
 
 const script = import.meta.url;
 const urlGet = new URL(script).searchParams;
@@ -130,7 +131,7 @@ async function svgManipulator(svgBelseje, list) {
 			pRef.setAttribute("x", 50);
 			pRef.setAttribute("y", 25);
 			pRef.setAttribute("id", "pattern"+x);
-			pRef.setAttribute("xlink:href", "#patt"+x);
+			pRef.setAttributeNS(xlinkNS, "href", "#patt"+x);
 			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("id", "patt"+x);
@@ -145,8 +146,8 @@ async function svgManipulator(svgBelseje, list) {
 			pImg.setAttribute("preserveAspectRatio", "none");
 			pImg.setAttribute("width", 100);
 			pImg.setAttribute("height", 100);
-		if(exists)	pImg.setAttribute("xlink:href", url); // megvan a kép
-		else 		pImg.setAttribute("xlink:href", "https://csalos.github.io/geocaching/2.1.4.jpg");
+		if(exists)	pImg.setAttributeNS(xlinkNS, "href", url); // megvan a kép
+		else 		pImg.setAttributeNS(xlinkNS, "href", "https://csalos.github.io/geocaching/2.1.4.jpg");
 		patt.appendChild(pImg);
 
 		piece.appendChild(path);
