@@ -344,14 +344,9 @@ function changeID(svgBele) {
 	    elem.id = ujId;
 	        
 	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel,href-el, fill-el, vagy filterrel mutattak erre a régi ID-ra
-		const patHref = svgBele.querySelectorAll(`pattern[href="#${regiId}"]`);
-	    patHref.forEach(hiv => {
-	        hiv.setAttribute("href", `#${ujId}`);
-			console.log(`#${regiId}`)
-	    });
 	    const href = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
 	    href.forEach(hiv => {
-	        hiv.setAttributeNS(svgNS, "xlink:href", `#${ujId}`);
+	        hiv.setAttributeNS(xlinkNS, "href",href", `#${ujId}`);
 	    });
 	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
 	    fill.forEach(hiv => {
