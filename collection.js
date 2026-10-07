@@ -84,9 +84,13 @@ async function loadSVG(list) {
 
 		await svgManipulator(svgBelseje, list);
 
-		let dev = document.getElementById("defs");
+		let dev = svgBelseje.getElementById("defs");
 		const ujralapozottLink = dev.cloneNode(true);
 		dev.parentNode.replaceChild(ujralapozottLink, dev);
+
+		let puz = svgBelseje.getElementById("puzzle");
+		const ujralapozottLink = puz.cloneNode(true);
+		puz.parentNode.replaceChild(ujralapozottLink, puz);
 		//changeID(svgBelseje);
 		
 	} catch (hiba) {
