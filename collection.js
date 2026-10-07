@@ -128,20 +128,12 @@ async function svgManipulator(svgBelseje, list) {
 		// Megvárjuk az ellenőrzés eredményét
 		const exists = await checkImg(url);
   
-		let pRef = document.createElementNS(svgNS, "pattern");
-			pRef.setAttribute("x", 50);
-			pRef.setAttribute("y", 25);
-			pRef.setAttribute("width", 100 + "px");
-			pRef.setAttribute("height", 100 + "px");
-			pRef.setAttribute("id", collectLow+"_pattern"+x);
-			pRef.setAttributeNS(xlinkNS, "href", `#${collectLow}_patt${x}`);
-			pRef.setAttribute("patternUnits", "userSpaceOnUse");
-			pRef.setAttribute("patternContentUnits", "userSpaceOnUse"); 
-			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
 		let patt = document.createElementNS(svgNS, "pattern");
-			patt.setAttribute("id", collectLow+"_patt"+x);
+			patt.setAttribute("x", 50);
+			patt.setAttribute("y", 25);
 			patt.setAttribute("width", 100 + "px");
-			patt.setAttribute("height", 10 + "px");
+			patt.setAttribute("height", 100 + "px");
+			patt.setAttribute("id", collectLow+"_pattern"+x);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
 			patt.setAttribute("patternContentUnits", "userSpaceOnUse"); 
 			patt.setAttribute("preserveAspectRatio", "xMidYMid");
@@ -160,8 +152,6 @@ async function svgManipulator(svgBelseje, list) {
 		piece.appendChild(text);
 		link.appendChild(piece);
 		svgBelseje.getElementById("defs").appendChild(patt);
-		await timeout(100);
-		svgBelseje.getElementById("defs").appendChild(pRef);
 		await timeout(100);
 		svgBelseje.getElementById("puzzle").appendChild(link);
 	}
