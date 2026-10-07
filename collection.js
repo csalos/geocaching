@@ -131,7 +131,7 @@ async function svgManipulator(svgBelseje, list) {
 			pRef.setAttribute("x", 50);
 			pRef.setAttribute("y", 25);
 			pRef.setAttribute("id", "pattern"+x);
-			pRef.setAttribute("xlink:href", "#patt"+x);
+			pRef.setAttribute("href", "#patt"+x);
 			pRef.setAttribute("preserveAspectRatio", "xMidYMid");
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("id", "patt"+x);
@@ -343,14 +343,14 @@ function changeID(svgBele) {
 		
 	    elem.id = ujId;
 	        
-	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel, fill-el, vagy filterrel mutattak erre a régi ID-ra
+	    // Megkeressük azokat a belső elemeket, amik xlink:href-fel,href-el, fill-el, vagy filterrel mutattak erre a régi ID-ra
 	    const href = svgBele.querySelectorAll(`[*|href="#${regiId}"]`);
 	    href.forEach(hiv => {
 	        hiv.setAttributeNS(xlinkNS, "xlink:href", `#${ujId}`);
 	    });
-		const patHref = svgBele.querySelectorAll(`pattern[xlink:href="#${regiId}"]`);
+		const patHref = svgBele.querySelectorAll(`pattern[href="#${regiId}"]`);
 	    patHref.forEach(hiv => {
-	        hiv.setAttributeNS(xlinkNS, "xlink:href", `#${ujId}`);
+	        hiv.setAttribute("href", `#${ujId}`);
 			console.log(`#${regiId}`)
 	    });
 	    const fill = svgBele.querySelectorAll(`[fill="url(#${regiId})"]`);
