@@ -83,6 +83,10 @@ async function loadSVG(list) {
 		document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
 		await svgManipulator(svgBelseje, list);
+
+		let dev = document.getElementById("defs");
+		const ujralapozottLink = dev.cloneNode(true);
+		dev.parentNode.replaceChild(ujralapozottLink, dev);
 		//changeID(svgBelseje);
 		
 	} catch (hiba) {
@@ -156,9 +160,6 @@ async function svgManipulator(svgBelseje, list) {
 		piece.appendChild(text);
 		link.appendChild(piece);
 		svgBelseje.getElementById("puzzle").appendChild(link);
-
-		const ujralapozottLink = link.cloneNode(true);
-		link.parentNode.replaceChild(ujralapozottLink, link);
 
 		const aktualisFill = link.getAttribute("fill");
 		link.setAttribute("fill", "none"); // Elvesszük a hátteret (ekkor kiürül a cache)
