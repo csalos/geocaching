@@ -113,6 +113,7 @@ async function svgManipulator(svgBelseje, list) {
 		let pImg = document.createElementNS(svgNS, "image");
 			pImg.setAttribute("x", 0);
 			pImg.setAttribute("y", 0);
+			pImg.setAttribute("fill", "red");
 			pImg.setAttribute("preserveAspectRatio", "none");
 			pImg.setAttribute("width", 100);
 			pImg.setAttribute("height", 100);
