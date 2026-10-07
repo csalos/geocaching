@@ -3,9 +3,14 @@
 	<defs id="defs">
 		<pattern xlink:href="#pattern99" preserveAspectRatio="xMidYMid" id="pattern17" x="50" y="-25" />
 		<pattern xlink:href="#pattern99" preserveAspectRatio="xMidYMid" id="pattern16" x="0" y="-25" />
+		<pattern xlink:href="#pattern88" preserveAspectRatio="xMidYMid" id="pattern0" x="50" y="-25" />
+		<pattern xlink:href="#pattern88" preserveAspectRatio="xMidYMid" id="pattern1" x="0" y="-25" />
 		
 		<pattern id="pattern99" preserveAspectRatio="xMidYMid" patternUnits="userSpaceOnUse" width="90" height="90" patternTransform="translate(-20,-20)">
 			<image width="90" height="90" preserveAspectRatio="none" x="0" y="0" xlink:href="https://csalos.github.io/geocaching/2.1.4.jpg" />
+		</pattern>
+		<pattern id="pattern88" preserveAspectRatio="xMidYMid" patternUnits="userSpaceOnUse" width="90" height="90" patternTransform="translate(-20,-20)">
+			<image width="90" height="90" preserveAspectRatio="none" x="0" y="0" xlink:href="https://csalos.github.io/geocaching/img/puzzle/move/kekl.png" />
 		</pattern>
 		<filter id="filterX"><feColorMatrix type="saturate" values="0.01"/></filter>
 	</defs>
