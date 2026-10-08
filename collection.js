@@ -113,7 +113,7 @@ async function svgManipulator(svgBelseje, list) {
 		
 		const url = "https://csalos.github.io/geocaching/img/puzzle/"+collectLow+"/"+list.items[x].name.toLowerCase() + ".png";
 		// Megvárjuk az ellenőrzés eredményét
-		const exists = await checkImg(url);
+		//const exists = await checkImg(url);
   
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("width", 1);
