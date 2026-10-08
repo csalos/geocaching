@@ -121,10 +121,10 @@ async function svgManipulator(svgBelseje, list) {
 		//const exists = await checkImg(url);
   
 		let patt = document.createElementNS(svgNS, "pattern");
-			patt.setAttribute("x", -10);
-			patt.setAttribute("y", -10);
-			patt.setAttribute("width", 100);
-			patt.setAttribute("height", 100);
+			patt.setAttribute("x", -15);
+			patt.setAttribute("y", -15);
+			patt.setAttribute("width", 80);
+			patt.setAttribute("height", 80);
 			patt.setAttribute("id", collectLow+"_pattern"+x);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
 			patt.setAttribute("patternContentUnits", "userSpaceOnUse");
@@ -132,8 +132,8 @@ async function svgManipulator(svgBelseje, list) {
 			pImg.setAttribute("x", 0);
 			pImg.setAttribute("y", 0);
 			pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
-			pImg.setAttribute("width", 70);
-			pImg.setAttribute("height", 70);
+			pImg.setAttribute("width", 80);
+			pImg.setAttribute("height", 80);
 			//pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
 		/*if(exists)	pImg.setAttribute("href", url); // megvan a kép
 		else 		pImg.setAttribute("href", "https://csalos.github.io/geocaching/2.1.4.jpg");*/
