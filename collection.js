@@ -119,7 +119,7 @@ async function svgManipulator(svgBelseje, list) {
 			patt.setAttribute("width", 1);
 			patt.setAttribute("height", 1);
 			patt.setAttribute("id", collectLow+"_pattern"+x);
-			patt.setAttribute("patternContentUnits", "objectBoindingBox");
+			patt.setAttribute("patternContentUnits", "objectBoundingBox");
 		let pImg = document.createElementNS(svgNS, "image");
 			pImg.setAttribute("x", 0);
 			pImg.setAttribute("y", 0);
