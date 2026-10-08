@@ -114,24 +114,25 @@ async function svgManipulator(svgBelseje, list) {
 		const url = "https://csalos.github.io/geocaching/img/puzzle/"+collectLow+"/"+list.items[x].name.toLowerCase() + ".png";
 		// Megvárjuk az ellenőrzés eredményét
 		const exists = await checkImg(url);
-  /*
+  
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("x", 0);
 			patt.setAttribute("y", 0);
-			patt.setAttribute("width", 50);
-			patt.setAttribute("height", 50);
+			patt.setAttribute("width", 1);
+			patt.setAttribute("height", 1);
 			patt.setAttribute("id", collectLow+"_pattern"+x);
-			patt.setAttribute("patternUnits", "userSpaceOnUse");
-			patt.setAttribute("preserveAspectRatio", "xMidYMid");
-			patt.setAttribute("patternTransform", "translate(0,0)");
+			patt.setAttribute("patternContentUnits", "objectBoindingBox");
 		let pImg = document.createElementNS(svgNS, "image");
 			pImg.setAttribute("x", 0);
 			pImg.setAttribute("y", 0);
-			pImg.setAttribute("preserveAspectRatio", "none");
+			pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
 			pImg.setAttribute("width", 50);
 			pImg.setAttribute("height", 50);
-		if(exists)	pImg.setAttribute("href", url); // megvan a kép
-		else 		pImg.setAttribute("href", "https://csalos.github.io/geocaching/2.1.4.jpg");
+		/*if(exists)	pImg.setAttribute("href", url); // megvan a kép
+		else 		pImg.setAttribute("href", "https://csalos.github.io/geocaching/2.1.4.jpg");*/
+			pImg.setAttribute("href", url); // megvan a kép
+			pImg.setAttribute("onerror", "this.onerror=null; this.setAttribute('href','https://csalos.github.io/geocaching/2.1.4.jpg')");
+			
 		patt.appendChild(pImg);
 		
 		svgBelseje.getElementById(collectLow+"_defs").appendChild(patt);
@@ -167,9 +168,9 @@ async function svgManipulator(svgBelseje, list) {
 		piece.appendChild(path);
 		piece.appendChild(text);
 		link.appendChild(piece);
-		svgBelseje.getElementById("puzzle").appendChild(link);*/
+		svgBelseje.getElementById("puzzle").appendChild(link);
 
-		const defs = svgBelseje.getElementById(collectLow+"_defs");
+		/*const defs = svgBelseje.getElementById(collectLow+"_defs");
 		const mozgat = "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")";
 
 		let path = document.createElementNS(svgNS, "path");
@@ -235,7 +236,7 @@ async function svgManipulator(svgBelseje, list) {
 		link.appendChild(pUse); // puzzle alakú kép
 		link.appendChild(sUse); // puzzle alakú szegély
 		link.appendChild(text); // láda név
-		svgBelseje.getElementById("puzzle").appendChild(link);
+		svgBelseje.getElementById("puzzle").appendChild(link);*/
 	}
 }
 /**
