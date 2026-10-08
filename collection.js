@@ -121,8 +121,8 @@ async function svgManipulator(svgBelseje, list) {
 		//const exists = await checkImg(url);
   
 		let patt = document.createElementNS(svgNS, "pattern");
-			patt.setAttribute("x", 0);
-			patt.setAttribute("y", 0);
+			patt.setAttribute("x", 50*(x%px)-10);
+			patt.setAttribute("y", (50*(x-(x%px))/px)-10);
 			patt.setAttribute("width", 1);
 			patt.setAttribute("height", 1);
 			patt.setAttribute("id", collectLow+"_pattern"+x);
