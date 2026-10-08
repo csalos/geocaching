@@ -121,7 +121,7 @@ async function svgManipulator(svgBelseje, list) {
 			patt.setAttribute("width", "100%");
 			patt.setAttribute("height", "100%");
 			patt.setAttribute("viewBox", "0 0 100 100");
-			patt.setAttribute("preserveAspectRatio", "xMidYMid slice");
+			patt.setAttribute("preserveAspectRatio", "xMidYMid meet");
 		let pImg = document.createElementNS(svgNS, "image");
 			//pImg.setAttribute("x", 0);
 			//pImg.setAttribute("y", 0);
