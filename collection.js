@@ -116,13 +116,15 @@ async function svgManipulator(svgBelseje, list) {
 		//const exists = await checkImg(url);
   
 		let patt = document.createElementNS(svgNS, "pattern");
-			patt.setAttribute("width", 1);
-			patt.setAttribute("height", 1);
 			patt.setAttribute("id", collectLow+"_pattern"+x);
-			patt.setAttribute("patternContentUnits", "objectBoundingBox");
+			patt.setAttribute("patternUnits", "userSpaceOnUse");
+			patt.setAttribute("width", "100%");
+			patt.setAttribute("height", "100%");
+			patt.setAttribute("viewBox", "0 0 1 1");
+			patt.setAttribute("preserveAspectRatio", "xMidYMid slice");
 		let pImg = document.createElementNS(svgNS, "image");
-			pImg.setAttribute("x", 0);
-			pImg.setAttribute("y", 0);
+			//pImg.setAttribute("x", 0);
+			//pImg.setAttribute("y", 0);
 			pImg.setAttribute("width", 1);
 			pImg.setAttribute("height", 1);
 			pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
