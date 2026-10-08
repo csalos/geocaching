@@ -123,8 +123,8 @@ async function svgManipulator(svgBelseje, list) {
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("x", 50*(x%px)-10);
 			patt.setAttribute("y", (50*(x-(x%px))/px)-10);
-			patt.setAttribute("width", 1);
-			patt.setAttribute("height", 1);
+			patt.setAttribute("width", 100);
+			patt.setAttribute("height", 100);
 			patt.setAttribute("id", collectLow+"_pattern"+x);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
 			patt.setAttribute("patternContentUnits", "userSpaceOnUse");
