@@ -37,6 +37,11 @@ if (scriptTag && scriptTag.parentNode) {
 var getListFound = [];
 var jsn = [];
 
+function loadDef(thatImg) {
+	thatImg.onerror=null; 
+	thatImg.setAttribute('href','https://csalos.github.io/geocaching/2.1.4.jpg')
+}
+
 collectionMolyolo();
 async function collectionMolyolo() {
 	try {
@@ -449,7 +454,3 @@ function changeID(svgBele) {
 		img.src = url;						// Ez indítja el a betöltést
 	});
 }*/
-function loadDef(thatImg) {
-	thatImg.onerror=null; 
-	thatImg.setAttribute('href','https://csalos.github.io/geocaching/2.1.4.jpg')
-}
