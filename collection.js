@@ -131,7 +131,7 @@ async function svgManipulator(svgBelseje, list) {
 		/*if(exists)	pImg.setAttribute("href", url); // megvan a kép
 		else 		pImg.setAttribute("href", "https://csalos.github.io/geocaching/2.1.4.jpg");*/
 			pImg.setAttribute("href", url); // megvan a kép
-			pImg.setAttribute("onerror", "this.onerror=null; this.setAttribute('href','https://csalos.github.io/geocaching/2.1.4.jpg')");
+			pImg.setAttribute("onerror", "loadDef(this)");
 			
 		patt.appendChild(pImg);
 		
@@ -441,11 +441,15 @@ function changeID(svgBele) {
 		const pathElem = document.querySelector('path[fill="url(#Move_pattern1)"]');
 	});
 }
-function checkImg(url) {
+/*function checkImg(url) {
 	return new Promise((resolve) => {
 		const img = new Image();
 		img.onload = () => resolve(true);	// Sikeresen betöltődött
 		img.onerror = () => resolve(false);	// Nem található vagy sérült a fájl
 		img.src = url;						// Ez indítja el a betöltést
 	});
+}*/
+function loadDef(thatImg) {
+	thatImg.onerror=null; 
+	thatImg.setAttribute('href','https://csalos.github.io/geocaching/2.1.4.jpg')
 }
