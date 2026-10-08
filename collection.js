@@ -125,8 +125,8 @@ async function svgManipulator(svgBelseje, list) {
 		let pImg = document.createElementNS(svgNS, "image");
 			//pImg.setAttribute("x", 0);
 			//pImg.setAttribute("y", 0);
-			pImg.setAttribute("width", 1);
-			pImg.setAttribute("height", 1);
+			pImg.setAttribute("width", 50);
+			pImg.setAttribute("height", 50);
 			pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
 		/*if(exists)	pImg.setAttribute("href", url); // megvan a kép
 		else 		pImg.setAttribute("href", "https://csalos.github.io/geocaching/2.1.4.jpg");*/
