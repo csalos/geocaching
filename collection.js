@@ -139,7 +139,6 @@ async function svgManipulator(svgBelseje, list) {
 			link.setAttribute("target", "_blank");
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("d", pieces[x]);
-			patt.setAttribute("id", collectLow+"_path"+x);
 			path.setAttribute("fill",`url(#${collectLow}_patt${x})`);
 			path.setAttribute("stroke", "#f00");
 		if(list.items[x].found) {
