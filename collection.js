@@ -39,7 +39,7 @@ var jsn = [];
 
 window.loadDef = function(thatImg) {
 	thatImg.onerror=null; 
-	thatImg.setAttribute('href','https://csalos.github.io/geocaching/2.1.4.jpg');
+	thatImg.setAttribute('href','https://csalos.github.io/geocaching/missing.png');
 }
 
 collectionMolyolo();
