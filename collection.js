@@ -37,9 +37,10 @@ if (scriptTag && scriptTag.parentNode) {
 var getListFound = [];
 var jsn = [];
 
-window.loadDef = function(thatImg) {
-	thatImg.onerror=null; 
-	thatImg.setAttribute('href','https://csalos.github.io/geocaching/2.1.4.jpg')
+window.loadDef = function(x) {
+	//thatImg.onerror=null; 
+	//thatImg.setAttribute('href','https://csalos.github.io/geocaching/2.1.4.jpg');
+	document.getElementById(collectLow+"_path"+x).fill = "green";
 }
 
 collectionMolyolo();
@@ -117,7 +118,7 @@ async function svgManipulator(svgBelseje, list) {
 			patt.setAttribute("y", -15);
 			patt.setAttribute("width", 80);
 			patt.setAttribute("height", 80);
-			patt.setAttribute("id", collectLow+"_pattern"+x);
+			patt.setAttribute("id", collectLow+"_patt"+x);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
 			patt.setAttribute("patternContentUnits", "userSpaceOnUse");
 		let pImg = document.createElementNS(svgNS, "image");
@@ -127,7 +128,7 @@ async function svgManipulator(svgBelseje, list) {
 			pImg.setAttribute("width", 80);
 			pImg.setAttribute("height", 80);
 			pImg.setAttribute("href", url); 				// megvan a kép?
-			pImg.setAttribute("onerror", "loadDef(this)");  // ha nincs...
+			pImg.setAttribute("onerror", "loadDef("+x+")"); // ha nincs...
 		patt.appendChild(pImg);
 		svgBelseje.getElementById(collectLow+"_defs").appendChild(patt);
 		
@@ -139,7 +140,8 @@ async function svgManipulator(svgBelseje, list) {
 			link.setAttribute("target", "_blank");
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("d", pieces[x]);
-			path.setAttribute("fill",`url(#${collectLow}_pattern${x})`);
+			patt.setAttribute("id", collectLow+"_path"+x);
+			path.setAttribute("fill",`url(#${collectLow}_patt${x})`);
 			path.setAttribute("stroke", "#f00");
 		if(list.items[x].found) {
 			path.setAttribute("style", "fill-opacity:1");
