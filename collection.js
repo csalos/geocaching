@@ -86,7 +86,7 @@ async function loadSVG(list) {
 		document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
 
 		// ID-k egyedivé tétele
-		svgBelseje.getElementById("svg").id = collectLow+"_svg";
+		document.getElementById("svg").id = collectLow+"_svg";
 		svgBelseje.getElementById("defs").id = collectLow+"_defs";
 		svgBelseje.getElementById("puzzle").id = collectLow+"_puzzle";
 
