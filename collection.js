@@ -140,7 +140,7 @@ async function svgManipulator(svgBelseje, list) {
 		let path = document.createElementNS(svgNS, "path");
 			path.setAttribute("d", pieces[x]);
 			path.setAttribute("fill",`url(#${collectLow}_patt${x})`);
-			path.setAttribute("stroke", "#0f0");
+			path.setAttribute("stroke", "#3A0");
 		if(list.items[x].found) {
 			path.setAttribute("style", "fill-opacity:1");
 		} else {
