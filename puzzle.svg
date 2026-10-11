@@ -6,8 +6,8 @@
 	
 	<g id="puzzle"></g>
 	<g id="tooltip" transform="translate(-100 -100)">
-		<rect fill="#bbb" stroke="#666" stroke-width="3"
-			width="60" height="20" rx="5" ry="5" />
+		<rect id="ttRect" rx="5" ry="5" width="60" height="20"
+			fill="#bbb" stroke="#666" stroke-width="3"/>
 		<text id="ttText" x="30" y="10" 
 			fill="#000" text-anchor="middle" dominant-baseline="middle"
 			style="font-size:13px;line-height:13px;font-family:Tahoma;">
