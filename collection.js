@@ -92,7 +92,8 @@ async function loadSVG(list) {
 			point.y = event.clientY + 10;
 			// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
 			const svgCoords = point.matrixTransform(svgTag.getScreenCTM().inverse());
-			if(svgCoords.x > x*50-60) { svgCoords.x =  x*50-60; }
+			if(svgCoords.x > x*50-60) svgCoords.x =  x*50-60;
+			if(svgCoords.y > y*50-20) svgCoords.y =  y*50-20;
 			// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
 			const tooltip = svgBelseje.getElementById("tooltip");
 				  tooltip.setAttribute("x", svgCoords.x);
@@ -175,6 +176,11 @@ async function svgManipulator(svgBelseje, list) {
 			text.setAttribute("stroke", "white");
 			text.setAttribute("stroke-width", "0.5");
 			text.textContent = list.items[x].name.toUpperCase();
+		piece.addEventListener('mouseenter', (event) => {
+			const tooltip = svgBelseje.getElementById("ttText");
+				  tooltip.textContent = list.items[x].name.toUpperCase();
+			//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
+		});
   
 		piece.appendChild(path);
 		piece.appendChild(text);
