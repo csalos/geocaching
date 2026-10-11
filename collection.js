@@ -166,7 +166,7 @@ async function svgManipulator(svgBelseje, list) {
 		}
 		piece.addEventListener('mouseenter', (event) => {
 			const ttr = svgBelseje.getElementById("ttRect");
-				  ttr.setAttribute("fill", (list.items[x].found)?"#3A0":"666");
+				  ttr.setAttribute("fill", (list.items[x].found)?"#3A0":"#bbb");
 			const ttt = svgBelseje.getElementById("ttText");
 				  ttt.textContent = list.items[x].name.toUpperCase();
 			//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
