@@ -93,7 +93,10 @@ async function loadSVG(list) {
 			// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
 			const svgCoords = point.matrixTransform(svgTag.getScreenCTM().inverse());
 			// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
-			console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
+			const tooltip = svgBelseje.getElementById("tooltip");
+				  tooltip.x = svgCoords.x;
+				  tolltip.y = svgCoords.y;
+			//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
 		});
 
 		// ID-k egyedivé tétele
