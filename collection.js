@@ -96,14 +96,11 @@ async function loadSVG(list) {
 			if(svgCoords.y > y*50-20) svgCoords.y =  y*50-20;
 			// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
 			const tooltip = svgBelseje.getElementById("tooltip");
-				  tooltip.setAttribute("x", svgCoords.x);
-				  tooltip.setAttribute("y", svgCoords.y);
-			//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
+				  tooltip.setAttribute("transform", `translate(${svgCoords.x} ${svgCoords.y})`);
 		});
 		svgTag.addEventListener('mouseleave', () => {
 			const tooltip = svgBelseje.getElementById("tooltip");
-				  tooltip.setAttribute("x", -100);
-				  tooltip.setAttribute("y", -100);
+				  tooltip.setAttribute("transform", "translate(-100 -100)");
 		});
 
 		// ID-k egyedivé tétele
