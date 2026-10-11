@@ -8,7 +8,8 @@
 	<g id="tooltip" transform="translate(-100 -100)">
 		<rect fill="#bbb" stroke="#666" stroke-width="3"
 			width="60" height="20" rx="5" ry="5" />
-		<text id="ttText" x="30" y="10" fill="#000" text-anchor="middle"
+		<text id="ttText" x="30" y="10" 
+			fill="#000" text-anchor="middle" dominant-baseline="middle"
 			style="font-size:13px;line-height:13px;font-family:Tahoma;">
 			GCWALK</text>
 	</g>
