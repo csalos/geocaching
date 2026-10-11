@@ -94,8 +94,8 @@ async function loadSVG(list) {
 			const svgCoords = point.matrixTransform(svgTag.getScreenCTM().inverse());
 			// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
 			const tooltip = svgBelseje.getElementById("tooltip");
-				  tooltip.x = svgCoords.x;
-				  tolltip.y = svgCoords.y;
+				  tooltip.setAttribute("x", svgCoords.x);
+				  tooltip.setAttribute("y", svgCoords.y);
 			//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
 		});
 
