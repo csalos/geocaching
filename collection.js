@@ -177,8 +177,8 @@ async function svgManipulator(svgBelseje, list) {
 			text.setAttribute("stroke-width", "0.5");
 			text.textContent = list.items[x].name.toUpperCase();
 		piece.addEventListener('mouseenter', (event) => {
-			const tooltip = svgBelseje.getElementById("ttText");
-				  tooltip.textContent = list.items[x].name.toUpperCase();
+			const ttt = svgBelseje.getElementById("ttText");
+				  ttt.textContent = list.items[x].name.toUpperCase();
 			//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
 		});
   
