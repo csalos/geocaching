@@ -92,6 +92,21 @@ async function loadSVG(list) {
 
 		await svgManipulator(svgBelseje, list);
 		//changeID(svgBelseje);
+		const svg = document.querySelector(collectLow+"_svg");
+
+		svg.addEventListener('mousemove', (event) => {
+			const point = svg.createSVGPoint();
+			  
+			// 1. Megszerezzük a kliens (képernyő) koordinátáit
+			point.x = event.clientX;
+			point.y = event.clientY;
+			  
+			// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
+			const svgCoords = point.matrixTransform(svg.getScreenCTM().inverse());
+			  
+			// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
+			console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
+		});
 		
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
