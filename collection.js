@@ -164,23 +164,15 @@ async function svgManipulator(svgBelseje, list) {
 			path.setAttribute("filter", "url(#filterX)");
 			path.setAttribute("style", "fill-opacity:1;opacity:0.55");
 		}
-		let text = document.createElementNS(svgNS, "text");
-			text.setAttribute("x", 25);
-			text.setAttribute("y", 40);
-			text.setAttribute("font-size", "smaller");
-			text.setAttribute("text-anchor", "middle");
-			text.setAttribute("fill", "black");
-			text.setAttribute("stroke", "white");
-			text.setAttribute("stroke-width", "0.5");
-			text.textContent = list.items[x].name.toUpperCase();
 		piece.addEventListener('mouseenter', (event) => {
+			const ttr = svgBelseje.getElementById("ttRect");
+				  ttr.fill = (list.items[x].found)?"#3A0":"red";
 			const ttt = svgBelseje.getElementById("ttText");
 				  ttt.textContent = list.items[x].name.toUpperCase();
 			//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
 		});
   
 		piece.appendChild(path);
-		piece.appendChild(text);
 		link.appendChild(piece);
 		svgBelseje.getElementById(collectLow+"_puzzle").appendChild(link);
 	}
