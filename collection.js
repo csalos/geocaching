@@ -81,33 +81,28 @@ async function loadSVG(list) {
 
 		// Már elérhető az SVG
 		const svgBelseje = puzzleDiv.firstElementChild;
-		document.getElementById("svg").setAttribute("width" , x*puzzleSize);
-		document.getElementById("svg").setAttribute("height", y*puzzleSize);
-		document.getElementById("svg").setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
+		const svgTag = document.getElementById("svg");
+		svgTag.setAttribute("width" , x*puzzleSize);
+		svgTag.setAttribute("height", y*puzzleSize);
+		svgTag.setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
+		svgTag.addEventListener('mousemove', (event) => {
+			const point = svgTag.createSVGPoint();
+			// 1. Megszerezzük a kliens (képernyő) koordinátáit
+			point.x = event.clientX;
+			point.y = event.clientY;
+			// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
+			const svgCoords = point.matrixTransform(svgTag.getScreenCTM().inverse());
+			// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
+			console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
+		});
 
 		// ID-k egyedivé tétele
-		document.getElementById("svg").id = collectLow+"_svg";
+		svgTag.id = collectLow+"_svg";
 		svgBelseje.getElementById("defs").id = collectLow+"_defs";
 		svgBelseje.getElementById("puzzle").id = collectLow+"_puzzle";
 
 		await svgManipulator(svgBelseje, list);
 		//changeID(svgBelseje);
-		const svg = document.querySelector(collectLow+"_svg");
-
-		svg.addEventListener('mousemove', (event) => {
-			const point = svg.createSVGPoint();
-			  
-			// 1. Megszerezzük a kliens (képernyő) koordinátáit
-			point.x = event.clientX;
-			point.y = event.clientY;
-			  
-			// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
-			const svgCoords = point.matrixTransform(svg.getScreenCTM().inverse());
-			  
-			// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
-			console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
-		});
-		
 	} catch (hiba) {
 		console.error("Hiba a lekérésnél:", hiba);
 	}
