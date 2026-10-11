@@ -5,11 +5,11 @@
 	</defs>
 	
 	<g id="puzzle"></g>
-	<rect id="tooltip"
-	fill="#bbb" stroke="#666" stroke-width="3"
-	width="60" height="20" x="-100" y="-100" rx="5" ry="5">
+	<g id="tooltip" x="-100" y="-100">
+		<rect fill="#bbb" stroke="#666" stroke-width="3"
+			width="60" height="20" rx="5" ry="5" />
 		<text id="ttText" x="12" y="12" fill="#000" stroke-width="0"
-		style="font-size:13px;line-height:13px;font-family:Tahoma;">
-		GCWALK</text>
-	</rect>
+			style="font-size:13px;line-height:13px;font-family:Tahoma;">
+			GCWALK</text>
+	</g>
 </svg>
