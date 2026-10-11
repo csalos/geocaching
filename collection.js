@@ -135,12 +135,12 @@ async function svgManipulator(svgBelseje, list) {
 			patt.setAttribute("width", 80);
 			patt.setAttribute("height", 80);
 			patt.setAttribute("id", collectLow+"_patt"+x);
-			patt.setAttribute("patternUnits", "userSpaceOnUse");
+			//patt.setAttribute("patternUnits", "userSpaceOnUse");
 			patt.setAttribute("patternContentUnits", "userSpaceOnUse");
 		let pImg = document.createElementNS(svgNS, "image");
-			pImg.setAttribute("x", 0);
-			pImg.setAttribute("y", 0);
-			pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
+			//pImg.setAttribute("x", 0);
+			//pImg.setAttribute("y", 0);
+			//pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
 			pImg.setAttribute("width", 80);
 			pImg.setAttribute("height", 80);
 			pImg.setAttribute("href", url); 				// megvan a kép?
@@ -151,6 +151,13 @@ async function svgManipulator(svgBelseje, list) {
 
 		let piece = document.createElementNS(svgNS, "g");
 			piece.setAttribute("transform", "translate(" + (50*(x%px) + " "+ (50*(x-(x%px))/px)) +")");
+			piece.addEventListener('mouseenter', (event) => {
+				const ttr = svgBelseje.getElementById("ttRect");
+					  ttr.setAttribute("fill", (list.items[x].found)?"#3A0":"#bbb");
+				const ttt = svgBelseje.getElementById("ttText");
+					  ttt.textContent = list.items[x].name.toUpperCase();
+				//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
+			});
 		let link = document.createElementNS(svgNS, "a");
 			link.setAttribute("href", "https://geocaching.hu/caches.geo?id="+list.items[x].id);
 			link.setAttribute("target", "_blank");
@@ -158,19 +165,10 @@ async function svgManipulator(svgBelseje, list) {
 			path.setAttribute("d", pieces[x]);
 			path.setAttribute("fill",`url(#${collectLow}_patt${x})`);
 			path.setAttribute("stroke", "#3A0");
-		if(list.items[x].found) {
-			path.setAttribute("style", "fill-opacity:1");
-		} else {
+		if(!list.items[x].found) {
 			path.setAttribute("filter", "url(#filterX)");
-			path.setAttribute("style", "fill-opacity:1;opacity:0.55");
+			path.setAttribute("style", "opacity:0.55");
 		}
-		piece.addEventListener('mouseenter', (event) => {
-			const ttr = svgBelseje.getElementById("ttRect");
-				  ttr.setAttribute("fill", (list.items[x].found)?"#3A0":"#bbb");
-			const ttt = svgBelseje.getElementById("ttText");
-				  ttt.textContent = list.items[x].name.toUpperCase();
-			//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
-		});
   
 		piece.appendChild(path);
 		link.appendChild(piece);
