@@ -138,8 +138,8 @@ async function svgManipulator(svgBelseje, list) {
 			//patt.setAttribute("patternUnits", "userSpaceOnUse");
 			patt.setAttribute("patternContentUnits", "userSpaceOnUse");
 		let pImg = document.createElementNS(svgNS, "image");
-			//pImg.setAttribute("x", 0);
-			//pImg.setAttribute("y", 0);
+			pImg.setAttribute("x", 0);
+			pImg.setAttribute("y", 0);
 			//pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
 			pImg.setAttribute("width", 80);
 			pImg.setAttribute("height", 80);
