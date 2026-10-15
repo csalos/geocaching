@@ -124,7 +124,8 @@ async function svgManipulator(svgBelseje, list) {
 	const py = list.size[1];
 	const sp = list.items.at(-1).span ?? 1;
 	let pieces = genPieces(px, py, sp);
-	for(let x=0; x<(px*py)-sp+1; x++) {
+	const pc = (px*py)-sp+1;
+	for(let x=0; x<pc; x++) {
 
 		// a darabhoz tartozó kép
 		const url = "https://csalos.github.io/geocaching/img/puzzle/"+collectLow+"/"+list.items[x].name.toLowerCase() + ".png";
@@ -132,7 +133,8 @@ async function svgManipulator(svgBelseje, list) {
 		let patt = document.createElementNS(svgNS, "pattern");
 			patt.setAttribute("x", -15);
 			patt.setAttribute("y", -15);
-			patt.setAttribute("width", 80);
+		if(x<pc-1) 	patt.setAttribute("width", sp);
+		else		patt.setAttribute("width", sp*80);
 			patt.setAttribute("height", 80);
 			patt.setAttribute("id", collectLow+"_patt"+x);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
@@ -141,7 +143,8 @@ async function svgManipulator(svgBelseje, list) {
 			//pImg.setAttribute("x", 0);
 			//pImg.setAttribute("y", 0);
 			pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
-			pImg.setAttribute("width", 80);
+		if(x<pc-1) 	pImg.setAttribute("width", sp);
+		else		pImg.setAttribute("width", sp*80);
 			pImg.setAttribute("height", 80);
 			pImg.setAttribute("href", url); 				// megvan a kép?
 			pImg.setAttribute("onerror", "loadDef(this)");  // ha nincs...
