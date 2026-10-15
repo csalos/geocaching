@@ -134,7 +134,7 @@ async function svgManipulator(svgBelseje, list) {
 			patt.setAttribute("x", -15);
 			patt.setAttribute("y", -15);
 		if(x<pc-1) 	patt.setAttribute("width", 80);
-		else		patt.setAttribute("width", 45+sp*50);
+		else		patt.setAttribute("width", 30+sp*50);
 			patt.setAttribute("height", 80);
 			patt.setAttribute("id", collectLow+"_patt"+x);
 			patt.setAttribute("patternUnits", "userSpaceOnUse");
@@ -144,7 +144,7 @@ async function svgManipulator(svgBelseje, list) {
 			//pImg.setAttribute("y", 0);
 			pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
 		if(x<pc-1) 	pImg.setAttribute("width", 80);
-		else		pImg.setAttribute("width", 45+sp*50);
+		else		pImg.setAttribute("width", 30+sp*50);
 			pImg.setAttribute("height", 80);
 			pImg.setAttribute("href", url); 				// megvan a kép?
 			pImg.setAttribute("onerror", "loadDef(this)");  // ha nincs...
