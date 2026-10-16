@@ -8,7 +8,7 @@ const urlGet = new URL(script).searchParams;
 const collection = urlGet.get("name") || "kisv";
 const collectLow = collection.toLowerCase();
 const puzzleSize = urlGet.get("size") || "100";
-const puzzleAll  = urlGet.get("all") || "0";
+const puzzleAll  = urlGet.get("all") || false;
 
 // megnézzük kaptunk-e a script végén userid-t
 var myUserId = urlGet.get("myUserId") || "71532";
