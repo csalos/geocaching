@@ -369,4 +369,4 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 		}
 		return reversed;
 	}
-});
+})();
