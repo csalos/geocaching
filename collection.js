@@ -121,8 +121,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			svgBelseje.getElementById("defs").id = collectLow+"_defs";
 			svgBelseje.getElementById("puzzle").id = collectLow+"_puzzle";
 	
-			await svgManipulator(svgBelseje, list);
-			//changeID(svgBelseje);
+			svgManipulator(svgBelseje, list);
 		} catch (hiba) {
 			console.error("Hiba a lekérésnél:", hiba);
 		}
@@ -132,7 +131,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 	 * @param svgBelseje [DOM] - az SVG átpasszolása pisztergáláshoz
 	 * @param list [object] - láda lista átpasszolása generáláshoz
 	 */
-	async function svgManipulator(svgBelseje, list) {
+	function svgManipulator(svgBelseje, list) {
 		const px = list.size[0];
 		const py = list.size[1];
 		const sp = list.items.at(-1).span ?? 1;
