@@ -3,11 +3,10 @@
 //    Puzzle generálás geoláda kollekciókból
 //
 /////////////////////////////////////////////////////
+import listsObject from 'https://csalos.github.io/geocaching/list.json' with { type: 'json' };
 
 // beágyazunk, hogy ne ütközzünk :P
 (function() {
-	import listsObject from 'https://csalos.github.io/geocaching/list.json' with { type: 'json' };
-
 	const svgNS = "http://www.w3.org/2000/svg";
 	const xlinkNS = "http://w3.org/1999/xlink";
 	
