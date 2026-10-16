@@ -137,9 +137,9 @@ async function svgManipulator(svgBelseje, list) {
 		const url = "https://csalos.github.io/geocaching/img/puzzle/"+collectLow+"/"+list.items[x].name.toLowerCase() + ".png";
   
 		let patt = document.createElementNS(svgNS, "pattern");
-			patt.setAttribute("x", (puzzleSqr?0:(-15));
-			patt.setAttribute("y", (puzzleSqr?0:(-15));
-		if(x<pc-1) 	patt.setAttribute("width", (puzzleSqr?50:80));
+			patt.setAttribute("x", puzzleSqr?0:(-15));
+			patt.setAttribute("y", puzzleSqr?0:(-15));
+		if(x<pc-1) 	patt.setAttribute("width", puzzleSqr?50:80);
 		else		patt.setAttribute("width", (puzzleSqr?0:30)+sp*50);
 			patt.setAttribute("height", 80);
 			patt.setAttribute("id", collectLow+"_patt"+x);
@@ -149,7 +149,7 @@ async function svgManipulator(svgBelseje, list) {
 			//pImg.setAttribute("x", 0);
 			//pImg.setAttribute("y", 0);
 			pImg.setAttribute("preserveAspectRatio", "xMidYMid slice");
-		if(x<pc-1) 	pImg.setAttribute("width", (puzzleSqr?50:80));
+		if(x<pc-1) 	pImg.setAttribute("width", puzzleSqr?50:80);
 		else		pImg.setAttribute("width", (puzzleSqr?0:30)+sp*50);
 			pImg.setAttribute("height", 80);
 			pImg.setAttribute("href", url); 				// megvan a kép?
