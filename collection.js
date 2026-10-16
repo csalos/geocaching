@@ -67,7 +67,7 @@ async function collectionMolyolo() {
 	}	
 }
 function jsonMolyolo(láda) {
-		if(!puzzleAll) {
+		if(puzzleAll) {
 			láda.found = 1
 			return;
 		}
