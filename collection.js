@@ -8,6 +8,7 @@ const urlGet = new URL(script).searchParams;
 const collection = urlGet.get("name") || "kisv";
 const collectLow = collection.toLowerCase();
 const puzzleSize = urlGet.get("size") || "100";
+const puzzleAll  = urlGet.get("all") || "0";
 
 // megnézzük kaptunk-e a script végén userid-t
 var myUserId = urlGet.get("myUserId") || "71532";
@@ -49,23 +50,27 @@ async function collectionMolyolo() {
 		const listsMap = new Map(Object.entries(listsObject));
 	
 		// Keresés és futtatás teszt
-		if (listsMap.has(collection)) {
-			const {getRecord} = await import('https://csalos.github.io/geocaching/apiCall.js');
-	
-			//megtalálások lekérése: láda azonosító, dátum, bejegyzés és a log típusa
-			//egybe - hogy ne terheljük le a szervert a sok hívással
-			jsn = await getRecord("logok", myUserId);
-
+		if(listsMap.has(collection)) {
+			if(!puzzleAll) {
+				const {getRecord} = await import('https://csalos.github.io/geocaching/apiCall.js');
+				//megtalálások lekérése: láda azonosító, dátum, bejegyzés és a log típusa
+				//egybe - hogy ne terheljük le a szervert a sok hívással
+				jsn = await getRecord("logok", myUserId);
+			}
 			var prom = listsMap.get(collection).items.map(jsonMolyolo);
 			getListFound = await Promise.all(prom);
-	
+
 			loadSVG(listsMap.get(collection));
 		}
-	} catch (hiba) {
+	} catch(hiba) {
 		console.error("Hiba a lista lekérésénél vagy a geocaching api hívásnál", hiba);
 	}	
 }
 function jsonMolyolo(láda) {
+		if(!puzzleAll) {
+			láda.found = 1
+			return;
+		}
 		// megtalálásokból leszűrjük az adott mozgóhoz tartozókat, ha a bejegyzés típusa "1" - azaz "megtalált" 
 		const talalatok = jsn.filter(elem => elem.cache_id == láda.id && elem.logtype==="1");
 		láda.found = (talalatok.length > 0);
