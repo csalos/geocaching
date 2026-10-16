@@ -46,11 +46,6 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 	var getListFound = [];
 	var jsn = [];
 	
-	window.loadDef = function(thatImg) {
-		thatImg.onerror=null; 
-		thatImg.setAttribute('href','https://csalos.github.io/geocaching/missing.png');
-	}
-	
 	collectionMolyolo();
 	async function collectionMolyolo() {
 		try {
@@ -159,7 +154,9 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			else		pImg.setAttribute("width", (puzzleSqr?0:30)+sp*50);
 				pImg.setAttribute("height", puzzleSqr?50:80);
 				pImg.setAttribute("href", url); 				// megvan a kép?
-				pImg.setAttribute("onerror", "loadDef(this)");  // ha nincs...
+				pImg.addEventListener('error', function() {		// ha nincs...
+    				this.setAttribute('href', 'https://csalos.github.io/geocaching/missing.png');
+				}, { once: true });  
 			patt.appendChild(pImg);
 			svgBelseje.getElementById(collectLow+"_defs").appendChild(patt);
 			
