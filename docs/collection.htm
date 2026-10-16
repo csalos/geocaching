@@ -56,6 +56,10 @@
 			<label for="size">Egy puzzle darab mérete:</label>
 			<input name="size" id="finSize" size="4" type="number" value="100" step="10" onchange="myScript()" style="width: 44px" /><br />
 		</td></tr>
+		<tr><td>
+			<label for="all">Mindet mutasd:</label>
+			<input name="all" id="finAll" type="checkbox" onclick="myScript()" /><br />
+		</td></tr>
 		<tr><td colspan=2>
 			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a kollekciót látni szeretnéd.<br /><input id="foutUrl" type="text" size="130" />
 		</td></tr>
@@ -123,11 +127,12 @@
 			const c = finSel;
 			const n = c.options[c.selectedIndex].value || "SZIL";
 			const s = +finSize.value || 100;
+			const a = finAll.checked;
 			const o = foutUrl;
 			
 			const params = new URLSearchParams();
 						params.append("name", n);
-						params.append("time", Date.now());
+			if(a)		params.append("all", a);
 			if(s!==100)	params.append("size", s);
 			if(u > 0)	params.append("myUserId", u);
 			const url = "https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "");
