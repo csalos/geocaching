@@ -9,6 +9,7 @@ const collection = urlGet.get("name") || "kisv";
 const collectLow = collection.toLowerCase();
 const puzzleSize = urlGet.get("size") || "100";
 const puzzleAll  = urlGet.get("all") || false;
+const puzzleSqr  = urlGet.get("sqr") || false;
 
 // megnézzük kaptunk-e a script végén userid-t
 var myUserId = urlGet.get("myUserId") || "71532";
@@ -231,9 +232,14 @@ async function svgManipulator(svgBelseje, list) {
  * @return path - String egy puzzle-darab útvonalával
  */
  function genPiece(actC, actR, span, earsH, earsV) {
+	if(puzzleSqr) {
+		let path = "M 0,0 h 50 "+
+			((span>=2)?" h  50 " : "")+((span==3)	?" h  50 " : "")+" v  50 h -50"+
+			((span>=2)?" h -50 " : "")+((span==3)	?" h -50 " : "")+" v -50 ";
+		return path;
+	}
 	let x = earsV[0].length+1;
 	let y = earsV.length;
-	
 	let path = "M 0,0 "+ //fent + jobb + lent + bal
 		((actR==0)	?" h 50 ":(earsH[actR-1][actC]).map(seg => seg.join(' ')).join(' '))+
 		((span>=2)	?         (earsH[actR-1][actC+1]).map(seg => seg.join(' ')).join(' ') : "")+
