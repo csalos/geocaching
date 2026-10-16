@@ -1,7 +1,7 @@
 {
 	"lista": ["Move", "MVK", "XX", "20", "RC", "MM", "MO", "25"],
-	"listb": ["BBxx", "BKZA", "CAVE", "Eez", "H1HX", "kisv", "REPZ", "SFZA", "SZIL", "Aszu", "BFX", "MFX", "MTB6", "PVX", "Sch", "TIRZ"],
-	"listc": ["GN","GM","XM","20","GTV","walk","tour","cito","jaro","wed"],
+	"listb": ["BB", "BK", "CAVE", "Ee", "H1H", "kisv", "REP", "SF", "SZIL", "Aszu", "BF", "MF", "MTB", "PV", "Sch", "TIR"],
+	"listc": ["GN","GM","XM","20xx","GTV","walk","tour","cito","jaro","wed"],
 
 	"GN": {
 		"name": "Geo Húsvét",
@@ -44,7 +44,7 @@
 			{ "name": "XM24", "id": 6569 },
 			{ "name": "XM25", "id": 6694 }
 		]
-	}, 	"XM": {
+	}, 	"20xx": {
 		"name": "Geo Szilveszter",
 		"size": [5, 4],
 		"items": [
@@ -326,7 +326,7 @@
 		]
 	},
 	
-	"BBxx": {
+	"BB": {
 		"name": "Barlangolások a Bükkben",
 		"size": [6 , 4],
 		"items": [
@@ -354,7 +354,7 @@
 			{ "name": "BB11", "id": 5811 },
 			{ "name": "BBxx", "id": 5799, "span": 2 }
 		]
-	}, "BKZA": {
+	}, "BK": {
 		"name": "Bükki források",
 		"size": [6 , 2],
 		"items": [
@@ -398,8 +398,8 @@
 			{ "name": "OKVB", "id": 5963 },
 			{ "name": "CAVE", "id": 5959, "span": 2 }
 		]
-	}, "Eez": {
-		"name": "Erdészek emlékére záróláda",
+	}, "Ee": {
+		"name": "Erdészek emlékére",
 		"size": [6 , 4],
 		"items": [
 			{ "name": "ASOT", "id": 154 },
@@ -426,7 +426,7 @@
 			{ "name": "Ee3" , "id": 5639 },
 			{ "name": "Eez" , "id": 5640, "span": 2 }
 		]
-	}, "H1HX": {
+	}, "H1H": {
 		"name": "Börzsöny rejtett bércei",
 		"size": [5 , 1],
 		"items": [
@@ -467,7 +467,7 @@
 			{ "name": "VVKV", "id": 5642 },
 			{ "name": "kisv", "id": 951, "span": 3 }
 		]
-	}, "REPZ": {
+	}, "REP": {
 		"name": "Repülős emlékhelyek",
 		"size": [6 , 2],
 		"items": [
@@ -483,7 +483,7 @@
 			{ "name": "REP5", "id": 5874 },
 			{ "name": "REPZ", "id": 5880, "span": 2 }
 		]
-	}, "SFZA": {
+	}, "SF": {
 		"name": "Cserhát forrásai",
 		"size": [6 , 2],
 		"items": [
@@ -527,7 +527,7 @@
 			{ "name": "GoHo", "id": 1321 },
 			{ "name": "Aszu", "id": 1322 }
 		]
-	}, "BFX": {
+	}, "BF": {
 		"name": "Börzsönyi források",
 		"size": [6 , 2],
 		"items": [
@@ -543,7 +543,7 @@
 			{ "name": "BF10", "id": 2789 },
 			{ "name": "BFX",  "id": 2021, "span": 2 }
 		]
-	}, "MFX": {
+	}, "MF": {
 		"name": "Mátrai források",
 		"size": [6 , 2],
 		"items": [
@@ -559,7 +559,7 @@
 			{ "name": "MF10", "id": 4710 },
 			{ "name": "MFX",  "id": 4719, "span": 2 }
 		]
-	}, "MTB6": {
+	}, "MTB": {
 		"name": "Láncszaggató",
 		"size": [6 , 1],
 		"items": [
@@ -570,7 +570,7 @@
 			{ "name": "MTB5", "id": 3875 },
 			{ "name": "MTB6", "id": 4051 }
 		]
-	}, "PVX": {
+	}, "PV": {
 		"name": "Pilis, Visegrádi-hg. források",
 		"size": [6 , 2],
 		"items": [
@@ -595,7 +595,7 @@
 			{ "name": "Sch3", "id": 2937 },
 			{ "name": "Sch",  "id": 2938 }
 		]
-	}, "TIRZ": {
+	}, "TIR": {
 		"name": "Tirpákok az Alföldön",
 		"size": [5 , 1],
 		"items": [
