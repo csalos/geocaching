@@ -60,6 +60,10 @@
 			<label for="all">Mindet mutasd:</label>
 			<input name="all" id="finAll" type="checkbox" onclick="myScript()" /><br />
 		</td></tr>
+		<tr><td>
+			<label for="all">Ne legyen puzzle:</label>
+			<input name="sqr" id="finSqr" type="checkbox" onclick="myScript()" /><br />
+		</td></tr>
 		<tr><td colspan=2>
 			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a kollekciót látni szeretnéd.<br /><input id="foutUrl" type="text" size="130" />
 		</td></tr>
@@ -128,11 +132,13 @@
 			const n = c.options[c.selectedIndex].value || "SZIL";
 			const s = +finSize.value || 100;
 			const a = finAll.checked;
+			const q = finSqr.checked;
 			const o = foutUrl;
 			
 			const params = new URLSearchParams();
 						params.append("name", n);
 			if(a)		params.append("all", a);
+			if(q)		params.append("sqr", q);
 			if(s!==100)	params.append("size", s);
 			if(u > 0)	params.append("myUserId", u);
 			const url = "https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "");
