@@ -150,6 +150,8 @@
 			const regiTerkep = document.querySelector('div[id^="coll_"]');
 			if (regiScript)	regiScript.remove();
 			if (regiTerkep)	regiTerkep.remove();
+
+			delete window.loadDef;
 			
 			// 2. Új <script> elem létrehozása a memóriában
 		    const ujScript = document.createElement('script');
