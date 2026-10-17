@@ -104,13 +104,12 @@
 			}
 	
 			megyePath.addEventListener('mousemove', (event) => {
-				const svgTag = svgBelseje;
-				const point = svgTag.createSVGPoint();
+				const point = svgBelseje.createSVGPoint();
 				// 1. Megszerezzük a kliens (képernyő) koordinátáit
 				point.x = event.clientX + 10;
 				point.y = event.clientY + 10;
 				// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
-				const svgCoords = point.matrixTransform(svgTag.getScreenCTM().inverse());
+				const svgCoords = point.matrixTransform(svgBelseje.getScreenCTM().inverse());
 				//if(svgCoords.x > x*50-60) svgCoords.x =  x*50-60;
 				//if(svgCoords.y > y*50-20) svgCoords.y =  y*50-20;
 				// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
@@ -119,14 +118,13 @@
 			});
 			megyePath.addEventListener('mouseleave', () => {
 				const tooltip = svgBelseje.getElementById("tooltip");
-					  tooltip.setAttribute("transform", "translate(-1000 -1000)");
+					  tooltip.setAttribute("transform", "translate(-10000 -10000)");
 			});
 			megyePath.addEventListener('mouseenter', (event) => {
 				const ttr = svgBelseje.getElementById("ttRect");
 					  ttr.setAttribute("fill", "url(#RG"+c+")");
 				const ttt = svgBelseje.getElementById("ttText");
 					  ttt.textContent = percent.toFixed(2) + "%";
-				//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
 			});
 	
 			let pattern = document.createElementNS(svgNS, "pattern");
