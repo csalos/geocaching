@@ -110,8 +110,9 @@
 				point.y = event.clientY + 10;
 				// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
 				const svgCoords = point.matrixTransform(svgBelseje.getScreenCTM().inverse());
-				//if(svgCoords.x > x*50-60) svgCoords.x =  x*50-60;
-				//if(svgCoords.y > y*50-20) svgCoords.y =  y*50-20;
+				//1000 1000 27700 17700
+				if(svgCoords.x > 26700-6000) svgCoords.x = 26700-6000;
+				if(svgCoords.y > 16700-2000) svgCoords.y = 16700-2000;
 				// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
 				const tooltip = svgBelseje.getElementById("tooltip");
 					  tooltip.setAttribute("transform", `translate(${svgCoords.x} ${svgCoords.y})`);
