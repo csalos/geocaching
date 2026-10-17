@@ -17,7 +17,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 	const puzzleSize = urlGet.get("size") || "100";
 	const puzzleAll  = urlGet.get("all") || false;
 	const puzzleSqr  = urlGet.get("sqr") || false;
-	const ladaOldal  = urlGet.get("lada")|| false;last_user_id
+	const ladaOldal  = urlGet.get("lada")|| false;
 
 	var myUserId;
 	if(ladaOldal) {
