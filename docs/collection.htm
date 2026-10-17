@@ -39,11 +39,11 @@
 	Egy oldalba -természetesen- több ilyen puzzle is beilleszthető.<br />
 	Ez első sorban a profil oldaladon lehet hasznos, de nincs akadája, hogy bárhol máshol is használd...</p>
 	<p><form><table>
-		<tr><td colspan="2">
+		<tr><td>
 			<b><label for="user">GeoCaching.hu felhasználói azonosító:</label>   
 			<input name="user" id="finUser" size="8" min="0" step="1" type="number" onchange="myScript()" style="width: 55px" /></b><br />
 			Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor üresen is hagyhatod.
-		</td></tr><tr>
+		</td></tr>
 		<tr><td>
 			<label for="sel">Kollekció:</label>
 			<select name="sel" id="finSel" onchange="myScript()">
@@ -63,6 +63,12 @@
 		<tr><td>
 			<label for="all">Ne legyenek fülek:</label>
 			<input name="sqr" id="finSqr" type="checkbox" onclick="myScript()" /><br />
+		</td></tr>
+		<tr><td>
+			<label for="all">Ha láda oldalba ágyaznád:</label>
+			<input name="lada" id="finLada" type="checkbox" onclick="myScript()" /><br />
+			Ha láda tulajdonos vagy, akkor ezt az opciót neked találtam ki!<br />
+			Ha bepipálod a ládaoldalba ágyazva a script a bejelentkezett felhasználó találatait fogja mutatni
 		</td></tr>
 		<tr><td colspan=2>
 			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a kollekciót látni szeretnéd.<br /><input id="foutUrl" type="text" size="130" />
@@ -133,12 +139,14 @@
 			const s = +finSize.value || 100;
 			const a = finAll.checked;
 			const q = finSqr.checked;
+			const l = finLada.checked;
 			const o = foutUrl;
 			
 			const params = new URLSearchParams();
 						params.append("name", n);
 			if(a)		params.append("all", a);
 			if(q)		params.append("sqr", q);
+			if(l)		params.append("lada", l);
 			if(s!==100)	params.append("size", s);
 			if(u > 0)	params.append("myUserId", u);
 			const url = "https://csalos.github.io/geocaching/collection.js" + (params.toString() ? "?"+params.toString() : "");
