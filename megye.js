@@ -123,7 +123,7 @@
 			});
 			megyePath.addEventListener('mouseenter', (event) => {
 				const ttr = svgBelseje.getElementById("ttRect");
-					  ttr.setAttribute("fill", "url(#RG"+c+")";
+					  ttr.setAttribute("fill", "url(#RG"+c+")");
 				const ttt = svgBelseje.getElementById("ttText");
 					  ttt.textContent = percent + "%";
 				//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
