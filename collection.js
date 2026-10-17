@@ -32,7 +32,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			if(geo.includes(orig) && window.location.pathname === "/users.geo") { 
 				const urlParameterek = new URLSearchParams(window.location.search);
 				myUserId = urlParameterek.get('id');
-			} else myUserID = "71532";
+			} else myUserId = "71532";
 	}	}
 	
 	// Létrehozzunk az új DIV elemet
