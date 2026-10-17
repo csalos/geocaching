@@ -90,8 +90,8 @@
 	
 			if(percent < 0.1) { continue; } 
 
-			const megye = svgBelseje.getElementById(megye);
-			const megyeBox = megye.getBBox();
+			const megyePath = svgBelseje.getElementById(megye);
+			const megyeBox = megyePath.getBBox();
 			const offsetX = megyeBox.x - 200 + (megyeBox.width / 2);
 			const offsetY = megyeBox.y - 200 + (megyeBox.height / 2);
 
@@ -103,7 +103,7 @@
 				case sárga.includes(megye): break;
 			}
 	
-			megye.addEventListener('mousemove', (event) => {
+			megyePath.addEventListener('mousemove', (event) => {
 				const svgTag = svgBelseje;
 				const point = svgTag.createSVGPoint();
 				// 1. Megszerezzük a kliens (képernyő) koordinátáit
@@ -117,11 +117,11 @@
 				const tooltip = svgBelseje.getElementById("tooltip");
 					  tooltip.setAttribute("transform", `translate(${svgCoords.x} ${svgCoords.y})`);
 			});
-			megye.addEventListener('mouseleave', () => {
+			megyePath.addEventListener('mouseleave', () => {
 				const tooltip = svgBelseje.getElementById("tooltip");
 					  tooltip.setAttribute("transform", "translate(-100 -100)");
 			});
-			megye.addEventListener('mouseenter', (event) => {
+			megyePath.addEventListener('mouseenter', (event) => {
 				const ttr = svgBelseje.getElementById("ttRect");
 					  ttr.setAttribute("fill", "url(#RG"+c+")";
 				const ttt = svgBelseje.getElementById("ttText");
