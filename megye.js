@@ -1,5 +1,7 @@
 //beágyazunk, hogy ne ütközzünk :P
 (function() {
+	const svgNS = "http://www.w3.org/2000/svg";
+	const xlinkNS = "http://w3.org/1999/xlink";
 
 	let zöld = ["Zala", "Fejér", "Csongrád-Csanád", "Borsod-Abaúj-Zemplén"];
 	let sárga = ["Vas", "Somogy", "Komárom-Esztergom", "Budapest", "Bács-Kiskun", "Heves", "Hajdú-Bihar"];
@@ -87,11 +89,12 @@
 			let percent = parseFloat(régió[1]);
 	
 			if(percent < 0.1) { continue; } 
-	
-			const megyeBox = svgBelseje.getElementById(megye).getBBox();
+
+			const megye = svgBelseje.getElementById(megye);
+			const megyeBox = megye.getBBox();
 			const offsetX = megyeBox.x - 200 + (megyeBox.width / 2);
 			const offsetY = megyeBox.y - 200 + (megyeBox.height / 2);
-			
+
 			let c = 0;
 			switch (true) {
 				case narancs.includes(megye): c++;
@@ -100,7 +103,33 @@
 				case sárga.includes(megye): break;
 			}
 	
-			let pattern = document.createElementNS("http://www.w3.org/2000/svg", "pattern");
+			megye.addEventListener('mousemove', (event) => {
+				const svgTag = svgBelseje;
+				const point = svgTag.createSVGPoint();
+				// 1. Megszerezzük a kliens (képernyő) koordinátáit
+				point.x = event.clientX + 10;
+				point.y = event.clientY + 10;
+				// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
+				const svgCoords = point.matrixTransform(svgTag.getScreenCTM().inverse());
+				if(svgCoords.x > x*50-60) svgCoords.x =  x*50-60;
+				if(svgCoords.y > y*50-20) svgCoords.y =  y*50-20;
+				// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
+				const tooltip = svgBelseje.getElementById("tooltip");
+					  tooltip.setAttribute("transform", `translate(${svgCoords.x} ${svgCoords.y})`);
+			});
+			megye.addEventListener('mouseleave', () => {
+				const tooltip = svgBelseje.getElementById("tooltip");
+					  tooltip.setAttribute("transform", "translate(-100 -100)");
+			});
+			megye.addEventListener('mouseenter', (event) => {
+				const ttr = svgBelseje.getElementById("ttRect");
+					  ttr.setAttribute("fill", "url(#RG"+c+")";
+				const ttt = svgBelseje.getElementById("ttText");
+					  ttt.textContent = percent + "%";
+				//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
+			});
+	
+			let pattern = document.createElementNS(svgNS, "pattern");
 			pattern.id= megye + "_pattern";
 			pattern.setAttribute("viewBox", "0,0,200,200");
 			pattern.setAttribute("width", "200%");
@@ -113,7 +142,7 @@
 				let x = Math.sin(rad)*100 + 100;
 				let y = Math.cos(rad)*100 + 100;
 	
-				let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+				let path = document.createElementNS(svgNS, "path");
 				path.id = megye + "_path";
 				path.setAttribute("d", start + ((percent>50)?"1":"0") + ", 0, " + x + " " + y + end);
 				path.setAttribute("style", "fill: url(#RG"+c+")");
@@ -134,7 +163,7 @@
 				grn = 15 - Math.ceil(cg[c] * percent / 100);
 				blu = 15 - Math.ceil(cb[c] * percent / 100);
 			
-				let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+				let circle = document.createElementNS(svgNS, "circle");
 				circle.id = megye + "_circle";
 				circle.setAttribute("cx", 100);
 				circle.setAttribute("cy", 100);
