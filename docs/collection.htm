@@ -15,6 +15,7 @@
  			border-spacing: 0px 10px;
 		}
 		td {
+			border: 1px solid green;
 			width: 333px;
 		}
 		th {
@@ -39,12 +40,12 @@
 	Egy oldalba -természetesen- több ilyen puzzle is beilleszthető.<br />
 	Ez első sorban a profil oldaladon lehet hasznos, de nincs akadája, hogy bárhol máshol is használd...</p>
 	<p><form><table>
-		<tr><td>
+		<tr><td colspan=2>
 			<b><label for="user">GeoCaching.hu felhasználói azonosító:</label>   
 			<input name="user" id="finUser" size="8" min="0" step="1" type="number" onchange="myScript()" style="width: 55px" /></b><br />
 			Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor üresen is hagyhatod.
 		</td></tr>
-		<tr><td>
+		<tr><td colspan=2>
 			<label for="sel">Kollekció:</label>
 			<select name="sel" id="finSel" onchange="myScript()">
 				<optgroup label="Közösségi ládák"  name="optCommun" id="optCommun"></optgroup>
@@ -59,8 +60,7 @@
 		<tr><td>
 			<label for="all">Mindet mutasd:</label>
 			<input name="all" id="finAll" type="checkbox" onclick="myScript()" /><br />
-		</td></tr>
-		<tr><td>
+		</td><td>
 			<label for="all">Ne legyenek fülek:</label>
 			<input name="sqr" id="finSqr" type="checkbox" onclick="myScript()" /><br />
 		</td></tr>
