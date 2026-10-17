@@ -17,18 +17,23 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 	const puzzleSize = urlGet.get("size") || "100";
 	const puzzleAll  = urlGet.get("all") || false;
 	const puzzleSqr  = urlGet.get("sqr") || false;
-	
-	// megnézzük kaptunk-e a script végén userid-t
-	var myUserId = urlGet.get("myUserId") || "71532";
-	// Ha nem kaptunk myUserId-t a script végén, ellenőrizzük az oldalt
-	if(myUserId === "71532") {
-		const orig = window.location.origin;
-		const geo = ["http://geocaching.hu", "https://geocaching.hu", "http://www.geocaching.hu", "https://www.geocaching.hu"];
-		if(geo.includes(orig) && window.location.pathname === "/users.geo") { 
-			const urlParameterek = new URLSearchParams(window.location.search);
-			myUserId = urlParameterek.get('id');
-	}	}
-	
+	const ladaOldal  = urlGet.get("lada")|| false;last_user_id
+
+	var myUserId;
+	if(ladaOldal) {
+		myUserId = Cookies.get("last_user_id");
+	} else {
+		// megnézzük kaptunk-e a scripthez userid-t
+		myUserId = urlGet.get("myUserId") || false;
+		// Ha nem kaptunk myUserId-t a script végén, ellenőrizzük az oldalt
+		if(!myUserId) {
+			const orig = window.location.origin;
+			const geo = ["http://geocaching.hu", "https://geocaching.hu", "http://www.geocaching.hu", "https://www.geocaching.hu"];
+			if(geo.includes(orig) && window.location.pathname === "/users.geo") { 
+				const urlParameterek = new URLSearchParams(window.location.search);
+				myUserId = urlParameterek.get('id');
+			else myUserID = "71532";
+	}	}	}
 	
 	// Létrehozzunk az új DIV elemet
 	const puzzleDiv = document.createElement('div');
