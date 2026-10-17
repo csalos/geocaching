@@ -20,7 +20,7 @@
 			.str7 {stroke:black;stroke-width:50;stroke-miterlimit:22.9256}
 			.str9 {stroke:#434242;stroke-width:20;stroke-miterlimit:22.9256}
 			.str5 {stroke:black;stroke-width:10;stroke-miterlimit:3.864;stroke-opacity:0.501961}
-			.noFill {fill:none}
+			.noFill {fill:none; pointer-events: none}
 			.fil0 {fill:#2B2A29}
 			.fil1 {fill:#FEFEFE}
 			.fil12 {fill:#D9DADA}
