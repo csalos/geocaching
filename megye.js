@@ -119,13 +119,13 @@
 			});
 			megyePath.addEventListener('mouseleave', () => {
 				const tooltip = svgBelseje.getElementById("tooltip");
-					  tooltip.setAttribute("transform", "translate(-100 -100)");
+					  tooltip.setAttribute("transform", "translate(-1000 -1000)");
 			});
 			megyePath.addEventListener('mouseenter', (event) => {
 				const ttr = svgBelseje.getElementById("ttRect");
 					  ttr.setAttribute("fill", "url(#RG"+c+")");
 				const ttt = svgBelseje.getElementById("ttText");
-					  ttt.textContent = percent + "%";
+					  ttt.textContent = percent.toFixed(2) + "%";
 				//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
 			});
 	
