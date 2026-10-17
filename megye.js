@@ -31,7 +31,7 @@
 	// 2. Létrehozzuk az új DIV elemet
 	const terkep = document.createElement('div');
 	terkep.id = 'megyeterkep';
-	terkep.width = '100%';
+	terkep.width = '99%';
 	terkep.height = '474px';
 	terkep.innerHTML = 'Sajnos a böngésződ nem támogatja az SVG-t.';
 	
