@@ -41,32 +41,32 @@
 	Ez első sorban a profil oldaladon lehet hasznos, de nincs akadája, hogy bárhol máshol is használd...</p>
 	<p><form><table>
 		<tr><td colspan=2>
-			<b><label for="user">GeoCaching.hu felhasználói azonosító:</label>   
-			<input name="user" id="finUser" size="8" min="0" step="1" type="number" onchange="myScript()" style="width: 55px" /></b><br />
+			<b><label for="finUser">GeoCaching.hu felhasználói azonosító:</label>   
+			<input id="finUser" size="8" min="0" step="1" type="number" onchange="myScript()" style="width: 55px" /></b><br />
 			Ha a saját profilodon a saját statisztikádat szeretnéd látni, akkor üresen is hagyhatod.
 		</td></tr>
 		<tr><td colspan=2>
-			<label for="sel">Kollekció:</label>
-			<select name="sel" id="finSel" onchange="myScript()">
+			<label for="finSel">Kollekció:</label>
+			<select id="finSel" onchange="myScript()">
 				<optgroup label="Közösségi ládák"  name="optCommun" id="optCommun"></optgroup>
 				<optgroup label="Esemény ládák"  name="optEvent" id="optEvent"></optgroup>
 				<optgroup label="Láda sorozatok" name="optGroup" id="optGroup"></optgroup>
 			</select>
 		</td></tr>
-		<tr><td>
-			<label for="size">Egy puzzle darab mérete:</label>
-			<input name="size" id="finSize" size="4" type="number" value="100" step="10" onchange="myScript()" style="width: 44px" /><br />
+		<tr><td colspan=2>
+			<label for="finSize">Egy puzzle darab mérete:</label>
+			<input id="finSize" size="4" type="number" value="100" step="10" onchange="myScript()" style="width: 44px" /><br />
 		</td></tr>
 		<tr><td>
-			<label for="all">Mindet mutasd:</label>
-			<input name="all" id="finAll" type="checkbox" onclick="myScript()" /><br />
+			<label for="finAll">Mindet mutasd:</label>
+			<input id="finAll" type="checkbox" onclick="myScript()" /><br />
 		</td><td>
-			<label for="sqr">Ne legyenek fülek:</label>
-			<input name="sqr" id="finSqr" type="checkbox" onclick="myScript()" /><br />
+			<label for="finSqr">Ne legyenek fülek:</label>
+			<input id="finSqr" type="checkbox" onclick="myScript()" /><br />
 		</td></tr>
 		<tr><td colspan=2>
-			<label for="lada">Ha láda oldalba ágyaznád:</label>
-			<input name="lada" id="finLada" type="checkbox" onclick="myScript()" /><br />
+			<label for="finLada">Ha láda oldalba ágyaznád:</label>
+			<input id="finLada" type="checkbox" onclick="myScript()" /><br />
 			Ha láda tulajdonos vagy, akkor ezt az opciót neked találtam ki!<br />
 			Ha bepipálod a ládaoldalba ágyazva a script a bejelentkezett felhasználó találatait fogja mutatni
 		</td></tr>
@@ -74,9 +74,7 @@
 			Másold ki az alábbi kód sort, és illeszd be a profil oldalra, oda, ahol a kollekciót látni szeretnéd.<br /><input id="foutUrl" type="text" size="130" />
 		</td></tr>
 	</table></form></p>
-	<p><code>
-		&lt;script src="https://csalos.github.io/geocaching/collection.js?myUserId=xxyyzz&name=kisv" type="module"&gt;&lt;/script&gt;
-	</code><br/></p>
+	<p>Példa: <code>&lt;script src="https://csalos.github.io/geocaching/collection.js?myUserId=xxyyzz&name=kisv" type="module"&gt;&lt;/script&gt;</code><br/></p>
 
 	<script>
 		const listc = [ // közösségi ládák
