@@ -22,7 +22,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 	var myUserId;
 	if(ladaOldal) {
 		myUserId = Cookies.get("last_user_id");
-	} else {
+	} else if(!puzzleAll) {
 		// megnézzük kaptunk-e a scripthez userid-t
 		myUserId = urlGet.get("myUserId") || false;
 		// Ha nem kaptunk myUserId-t a script végén, ellenőrizzük az oldalt
