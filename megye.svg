@@ -3,7 +3,7 @@
 	xml:space="preserve"
 	version="1.1"
 	style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-	viewBox="1000 1000 27700 17700"
+	viewBox="1000 1000 27770 17700"
 	id="svg1"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	xmlns="http://www.w3.org/2000/svg"
@@ -348,10 +348,9 @@
 	</g>
 	<g id="tooltip" transform="translate(-10000 -10000)">
 		<rect id="ttRect" rx="500" ry="500" width="6000" height="2000"
-			fill="#bbb" stroke="#666" stroke-width="150"/>
+			fill="#bbb" stroke="#666" stroke-width="150" />
 		<text id="ttText" x="3000" y="1000" 
 			fill="#000" text-anchor="middle" dominant-baseline="middle"
-			style="font-size:1300px;line-height:1300px;font-family:Tahoma;">
-			GCWALK</text>
+			style="font-size:1300px;line-height:1300px;font-family:Tahoma;" />
 	</g>
 </svg>
