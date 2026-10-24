@@ -85,6 +85,8 @@
 		<stop offset="1" style="stop-color:#ff0"/>
 	</linearGradient>
 
+	<rect x="1000" y="1000" width="27700" height="17700" fill="#e8e8bf" />
+
 	<g id="percent"></g>
 
 	<g id="megyék" >
