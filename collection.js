@@ -96,8 +96,8 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			const svgBelseje = puzzleDiv.firstElementChild;
 			const svgTag = document.getElementById("svg");
 			svgTag.setAttribute("width" , x*puzzleSize);
-			svgTag.setAttribute("height", y*puzzleSize + 15*(puzzleSize/50));
-			svgTag.setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50 + 15));
+			svgTag.setAttribute("height", y*puzzleSize + 7.5*(puzzleSize/50));
+			svgTag.setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50 + 7.5));
 			svgTag.addEventListener('mousemove', (event) => {
 				const point = svgTag.createSVGPoint();
 				// 1. Megszerezzük a kliens (képernyő) koordinátáit
@@ -193,9 +193,9 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			svgBelseje.getElementById(collectLow+"_puzzle").appendChild(link);
 		}
 		let myText = document.createElementNS(svgNS, "text");
-			myText.setAttribute("x",10);
-			myText.setAttribute("y",(py*50 + 10));
-			myText.setAttribute("font-size", "8px");
+			myText.setAttribute("x",5);
+			myText.setAttribute("y",(py*50 + 5));
+			myText.setAttribute("font-size", "4px");
 			myText.setAttribute("fill","black");
 			myText.textContent = "https://csalos.github.io/geocaching/#coll";
 		let myLink = document.createElementNS(svgNS, "a");
