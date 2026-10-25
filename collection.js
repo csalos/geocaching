@@ -107,6 +107,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 				const svgCoords = point.matrixTransform(svgTag.getScreenCTM().inverse());
 				if(svgCoords.x > x*50-60) svgCoords.x =  x*50-60;
 				if(svgCoords.y > y*50-20) svgCoords.y =  y*50-20;
+				if(svgCoords.y > y*50) svgCoords.y =  -y*50;
 				// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
 				const tooltip = svgBelseje.getElementById("tooltip");
 					  tooltip.setAttribute("transform", `translate(${svgCoords.x} ${svgCoords.y})`);
@@ -174,10 +175,6 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 					const ttt = svgBelseje.getElementById("ttText");
 						  ttt.textContent = list.items[x].name.toUpperCase();
 					//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
-				});
-				piece.addEventListener('mouseleave', () => {
-					const tp = svgBelseje.getElementById("tooltip");
-						  tp.setAttribute("transform", "translate(-100 -100)");
 				});
 			let link = document.createElementNS(svgNS, "a");
 				link.setAttribute("href", "https://geocaching.hu/caches.geo?id="+list.items[x].id);
