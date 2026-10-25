@@ -96,8 +96,8 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			const svgBelseje = puzzleDiv.firstElementChild;
 			const svgTag = document.getElementById("svg");
 			svgTag.setAttribute("width" , x*puzzleSize);
-			svgTag.setAttribute("height", y*puzzleSize);
-			svgTag.setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50));
+			svgTag.setAttribute("height", y*puzzleSize + 10);
+			svgTag.setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50 + 10));
 			svgTag.addEventListener('mousemove', (event) => {
 				const point = svgTag.createSVGPoint();
 				// 1. Megszerezzük a kliens (képernyő) koordinátáit
@@ -191,6 +191,13 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			link.appendChild(piece);
 			svgBelseje.getElementById(collectLow+"_puzzle").appendChild(link);
 		}
+		let myLink = document.createElementNS(svgNS, "a");
+			myLink.setAttribute("x",10);
+			myLink.setAttribute("y",(py*50));
+			myLink.setAttribute("width",min(px*50, 200));
+			myLink.setAttribute("height",10);
+			myLink.textContent = "https://csalos.github.io/geocaching/#coll";
+		svgBelseje.getElementById(collectLow+"_puzzle").appendChild(myLink);
 	}
 	/**
 	 * Puzzle darabok generálása
