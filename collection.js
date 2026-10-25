@@ -203,6 +203,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			myText.textContent = "https://csalos.github.io/geocaching/#coll";
 		let myLink = document.createElementNS(svgNS, "a");
 			myLink.setAttribute("href", "https://csalos.github.io/geocaching/#coll");
+			myLink.setAttribute("target", "_blank");
 			myLink.appendChild(myText);
 		svgBelseje.getElementById(collectLow+"_puzzle").appendChild(myLink);
 	}
