@@ -15,7 +15,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 	const collection = urlGet.get("name") || "kisv";
 	const collectLow = collection.toLowerCase();
 	const puzzleSize = urlGet.get("size") || "100";
-	const puzzleAll  = urlGet.get("all") || false;
+	const puzzleAll  = urlGet.get("all") && !urlGet.get("lada") || false;
 	const puzzleSqr  = urlGet.get("sqr") || false;
 	const ladaOldal  = urlGet.get("lada")|| false;
 
