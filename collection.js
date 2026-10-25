@@ -96,8 +96,8 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			const svgBelseje = puzzleDiv.firstElementChild;
 			const svgTag = document.getElementById("svg");
 			svgTag.setAttribute("width" , x*puzzleSize);
-			svgTag.setAttribute("height", y*puzzleSize + 10);
-			svgTag.setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50 + 10));
+			svgTag.setAttribute("height", y*puzzleSize + 15*(puzzleSize/50));
+			svgTag.setAttribute("viewBox", "0 0 "+(x*50)+" "+(y*50 + 15));
 			svgTag.addEventListener('mousemove', (event) => {
 				const point = svgTag.createSVGPoint();
 				// 1. Megszerezzük a kliens (képernyő) koordinátáit
