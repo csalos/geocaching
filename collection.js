@@ -105,9 +105,9 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 				point.y = event.clientY + 10;
 				// 2. Invertáljuk az SVG aktuális transzformációs mátrixát
 				const svgCoords = point.matrixTransform(svgTag.getScreenCTM().inverse());
-				if(svgCoords.x > x*50-60) svgCoords.x =  x*50-60;
-				if(svgCoords.y > y*50-20) svgCoords.y =  y*50-20;
-				if(svgCoords.y > y*50) svgCoords.y =  -y*50;
+				if(svgCoords.y > y*50) svgCoords.y =  -y*50;		//ha lemész ne legyen tooltip
+				if(svgCoords.x > x*50-60) svgCoords.x =  x*50-60;	//ne menjen az ikonon kívülre
+				if(svgCoords.y > y*50-20) svgCoords.y =  y*50-20;	
 				// 3. Megkapjuk a pontos SVG-n belüli koordinátákat
 				const tooltip = svgBelseje.getElementById("tooltip");
 					  tooltip.setAttribute("transform", `translate(${svgCoords.x} ${svgCoords.y})`);
