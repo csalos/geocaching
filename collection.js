@@ -193,7 +193,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 		}
 		let myText = document.createElementNS(svgNS, "text");
 			myText.setAttribute("x",10);
-			myText.setAttribute("y",(py*50));
+			myText.setAttribute("y",(py*50 + 10));
 			myText.setAttribute("width",Math.min(px*50, 200));
 			myText.setAttribute("height",10);
 			myText.setAttribute("fill","black");
