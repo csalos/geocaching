@@ -175,6 +175,10 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 						  ttt.textContent = list.items[x].name.toUpperCase();
 					//console.log(`X: ${svgCoords.x}, Y: ${svgCoords.y}`);
 				});
+				piece.addEventListener('mouseleave', () => {
+					const tp = svgBelseje.getElementById("tooltip");
+						  tp.setAttribute("transform", "translate(-100 -100)");
+				});
 			let link = document.createElementNS(svgNS, "a");
 				link.setAttribute("href", "https://geocaching.hu/caches.geo?id="+list.items[x].id);
 				link.setAttribute("target", "_blank");
@@ -200,10 +204,6 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 		let myLink = document.createElementNS(svgNS, "a");
 			myLink.setAttribute("href", "https://csalos.github.io/geocaching/#coll");
 			myLink.appendChild(myText);
-			myLink.addEventListener('mouseenter', (event) => {
-				const tooltip = svgBelseje.getElementById("tooltip");
-					  tooltip.setAttribute("transform", "translate(-100 -100)");
-			});
 		svgBelseje.getElementById(collectLow+"_puzzle").appendChild(myLink);
 	}
 	/**
