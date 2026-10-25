@@ -196,6 +196,9 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			myLink.setAttribute("y",(py*50));
 			myLink.setAttribute("width",Math.min(px*50, 200));
 			myLink.setAttribute("height",10);
+			myLink.setAttribute("fill","black");
+			myLink.setAttribute("stroke", "black");
+			myLink.setAttribute("href", "https://csalos.github.io/geocaching/#coll");
 			myLink.textContent = "https://csalos.github.io/geocaching/#coll";
 		svgBelseje.getElementById(collectLow+"_puzzle").appendChild(myLink);
 	}
