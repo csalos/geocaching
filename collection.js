@@ -191,7 +191,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			link.appendChild(piece);
 			svgBelseje.getElementById(collectLow+"_puzzle").appendChild(link);
 		}
-		let myText = document.createElementNS(svgNS, "a");
+		let myText = document.createElementNS(svgNS, "text");
 			myText.setAttribute("x",10);
 			myText.setAttribute("y",(py*50));
 			myText.setAttribute("width",Math.min(px*50, 200));
