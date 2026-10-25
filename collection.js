@@ -194,13 +194,16 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 		let myText = document.createElementNS(svgNS, "text");
 			myText.setAttribute("x",10);
 			myText.setAttribute("y",(py*50 + 10));
-			myText.setAttribute("font-size", "10px");
+			myText.setAttribute("font-size", "8px");
 			myText.setAttribute("fill","black");
-			myText.setAttribute("stroke", "black");
 			myText.textContent = "https://csalos.github.io/geocaching/#coll";
 		let myLink = document.createElementNS(svgNS, "a");
 			myLink.setAttribute("href", "https://csalos.github.io/geocaching/#coll");
 			myLink.appendChild(myText);
+			myLink.addEventListener('mouseenter', (event) => {
+				const tooltip = svgBelseje.getElementById("tooltip");
+					  tooltip.setAttribute("transform", "translate(-100 -100)");
+			});
 		svgBelseje.getElementById(collectLow+"_puzzle").appendChild(myLink);
 	}
 	/**
