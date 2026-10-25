@@ -197,7 +197,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			myText.setAttribute("y",(py*50 + 5));
 			myText.setAttribute("font-size", "4px");
 			myText.setAttribute("fill","black");
-			myText.textContent = "https://csalos.github.io/geocaching/#coll";
+			myText.textContent = "csa.csi87 - git repo";
 		let myLink = document.createElementNS(svgNS, "a");
 			myLink.setAttribute("href", "https://csalos.github.io/geocaching/#coll");
 			myLink.setAttribute("target", "_blank");
