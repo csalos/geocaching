@@ -195,7 +195,7 @@ import listsObject from 'https://csalos.github.io/geocaching/list.json' with { t
 			myText.setAttribute("x",10);
 			myText.setAttribute("y",(py*50 + 10));
 			myText.setAttribute("width",Math.min(px*50, 200));
-			myText.setAttribute("height",10);
+			myText.setAttribute("height",5);
 			myText.setAttribute("fill","black");
 			myText.setAttribute("stroke", "black");
 			myText.textContent = "https://csalos.github.io/geocaching/#coll";
