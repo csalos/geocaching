@@ -59,6 +59,9 @@
 	
 			        // Már elérhető az SVG
 			        const svgBelseje = document.querySelector("#megyeterkep svg");
+						  svgBelseje.addEventListener('click', () => {
+								window.open("https://csalos.github.io/geocaching/#megye");
+						  });
 					svgManipulator(svgBelseje);
 			    });
 		} catch (hiba) {
